@@ -1,0 +1,47 @@
+---
+import {Image} from 'astro:assets';
+import logo from '@assets/images/logo.png';
+const routes = Astro.url;
+
+const menus = [
+	{name: 'Викторины', href: '/quiz'},
+	{name: 'Профиль', href: '/profile'},
+	{name: 'Мои монеты', href: '/coins'},
+	{name: 'Помощь', href: '/help'},
+	{name: 'О нас', href: '/about'}
+];
+---
+
+<header class="header border-b-[1px]">
+	<div class="container mx-auto flex items-center py-1">
+		<Image src={logo} alt="A description of my image." width="150"/>
+		<nav class="header__menu ml-4">
+			{menus.map(({href, name}) => <a
+				class="link header__link mx-1 hover:text-violet-600 transition duration-500 ease-out"
+				href={href}>{name} </a>)}
+		</nav>
+		<div class="buttons ml-auto gap-2 flex">
+			<a class:list={[
+				'link header__link px-4 py-2 rounded-lg',
+				{'bg-blue-400': routes.pathname === '/login'},
+				{'text-white': routes.pathname === '/login'},
+				{'bg-blue-100': routes.pathname !== '/login'},
+			]}
+			   href='/login'
+			>
+				Login
+			</a>
+			<a class=""
+			   class:list={[
+				   'link header__link px-4 py-2 bg-blue-400 rounded-lg',
+				   {'bg-blue-400': routes.pathname === '/registration'},
+				   {'text-white': routes.pathname === '/registration'},
+				   {'bg-blue-100': routes.pathname !== '/registration'}
+			   ]}
+			   href='/registration'
+			>
+				Registration
+			</a>
+		</div>
+	</div>
+</header>

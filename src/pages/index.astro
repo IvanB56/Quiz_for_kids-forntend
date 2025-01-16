@@ -1,7 +1,11 @@
 ---
-import Layout from '../layouts/Layout.astro';
----
+import IndexAuth from "./indexAuth/index.astro";
+import IndexGuest from "./indexGuest/index.astro";
 
-<Layout>
-	главная страница
-</Layout>
+const user = false;
+---
+{
+	user ?
+	<IndexAuth/> :
+	<IndexGuest/>
+	}
