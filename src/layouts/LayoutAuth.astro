@@ -1,0 +1,10 @@
+---
+import Layout from "./Layout.astro";
+import Header from "../widgets/Header/Header.astro";
+import Footer from "../widgets/Footer/Footer.astro";
+---
+<Layout>
+	<Header slot="header"/>
+	<slot/>
+	<Footer slot="footer"/>
+</Layout>
