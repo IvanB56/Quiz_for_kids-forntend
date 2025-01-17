@@ -1,7 +1,14 @@
 ---
-import LayoutGuest from "../../layouts/LayoutGuest.astro";
+import LayoutGuest from "@layouts/LayoutGuest.astro";
+import FormLogin from "@components/FormLogin/FormLogin.astro";
+import './login.scss';
 ---
 
 <LayoutGuest>
-	Login
+	<div class="flex h-full w-full">
+		<div class="image-wrapper flex-grow h-full basis-2/5"></div>
+		<div class="form-wrapper flex-grow h-full basis-3/5 flex items-center justify-center">
+			<FormLogin/>
+		</div>
+	</div>
 </LayoutGuest>
