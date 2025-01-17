@@ -1,0 +1,19 @@
+---
+const {type, name, value, placeholder, title} = Astro.props;
+import './input.scss';
+---
+
+<div class="input w-full">
+	<span class="input-title">{title}</span>
+	<label class="input-label">
+		<input
+			class="input-field"
+			type={type}
+			name={name}
+			value={value}
+			placeholder={placeholder}
+			data-name-valid={name}
+		>
+		<span class="input-error invisible block">&nbsp;</span>
+	</label>
+</div>
