@@ -1,0 +1,32 @@
+.input {
+  margin-bottom: 8px;
+  position: relative;
+  font-size: 1.2rem;
+
+  &-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &-field {
+    padding: 6px 4px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid darkcyan;
+    background-color: var(--bg-cyan-50);
+  }
+
+  &-error {
+    display: inline-block;
+    height: 1.2em;
+    font-size: 0.6em;
+    color: red;
+    line-height: 1.2;
+  }
+
+  &-title {
+    font-size: 0.8em;
+    color: #096262;
+  }
+}
