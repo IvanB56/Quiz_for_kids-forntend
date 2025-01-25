@@ -1,19 +1,31 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"include": [
-		".astro/types.d.ts",
-		"**/*"
-	],
-	"exclude": [
-		"dist"
-	],
 	"compilerOptions": {
-		"jsx": "react-jsx",
-		"jsxImportSource": "react",
-		"baseUrl": ".",
+		"baseUrl": "./",
+		"target": "ES2017",
+		"lib": [
+			"dom",
+			"dom.iterable",
+			"esnext"
+		],
+		"allowJs": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"noEmit": true,
+		"esModuleInterop": true,
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"jsx": "preserve",
+		"incremental": true,
+		"plugins": [
+			{
+				"name": "next"
+			}
+		],
 		"paths": {
-			"@widgets/*": [
-				"src/widgets/*"
+			"@widgets": [
+				"src/widgets/index.ts"
 			],
 			"@pages/*": [
 				"src/pages/*"
@@ -24,9 +36,39 @@
 			"@layouts/*": [
 				"src/layouts/*"
 			],
-			"@components/*": [
-				"src/components/*"
+			"@components": [
+				"src/components/index.ts"
+			],
+			"@hooks": [
+				"src/hooks/index.ts"
+			],
+			"@lib/*": [
+				"src/lib/*"
+			],
+			"@utils": [
+				"src/utils/index.ts"
+			],
+			"@shared": [
+				"src/shared/index.ts"
+			],
+			"@features": [
+				"src/features/index.ts"
+			],
+			"@root/global": [
+				"./global.d.ts"
+			],
+			"@/*": [
+				"src/*"
 			]
 		}
-	}
+	},
+	"include": [
+		"next-env.d.ts",
+		"**/*.ts",
+		"**/*.tsx",
+		".next/types/**/*.ts"
+	],
+	"exclude": [
+		"node_modules"
+	]
 }

@@ -1,0 +1,19 @@
+.header {
+	&__container {
+		@apply container;
+		@apply mx-auto;
+		@apply flex;
+		@apply items-center;
+		@apply py-1;
+	}
+
+	&__menu {
+		@apply ml-4;
+	}
+
+	&__buttons {
+		@apply ml-auto;
+		@apply gap-2;
+		@apply flex;
+	}
+}

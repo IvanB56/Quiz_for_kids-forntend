@@ -1,0 +1,15 @@
+.category-card {
+	display: flex;
+	flex-direction: column;
+	row-gap: 12px;
+	justify-content: center;
+	align-items: center;
+	width: 260px;
+	aspect-ratio: 1;
+
+	transition: background-color 0.3s;
+
+	@apply rounded-14;
+	@apply shadow-dark;
+	@apply hover:bg-section-grey;
+}

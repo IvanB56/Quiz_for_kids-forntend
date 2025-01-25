@@ -1,0 +1,10 @@
+.popular-category__cards-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 120px;
+  row-gap: 80px;
+  @apply container;
+}
+
+/*# sourceMappingURL=PopularCategory.css.map */
