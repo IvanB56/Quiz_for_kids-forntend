@@ -4,11 +4,12 @@
 	@apply bg-white;
 	@apply rounded-14;
 	@apply shadow-dark;
-	@apply p-[40px];
+	@apply p-[20px];
+	@apply md:p-[40px];
 
 	&__image-wrapper {
 		@apply flex;
-		@apply content-center;
+		@apply items-center;
 		@apply justify-center
 	}
 

@@ -1,48 +1,54 @@
 'use client';
 import React from 'react';
-import {usePathname} from "next/navigation";
+import { usePathname } from 'next/navigation';
 import Image from 'next/image';
-import {LinkUI} from "@components";
+import { Button } from '@components';
 import logo from '@assets/images/logo.png';
-import {classes} from "./cn/HeaderGuest.cn";
-import {TypeHeaderGuest} from "./types/HeaderGuest.type";
+import { classes } from './cn/HeaderGuest.cn';
+import { TypeHeaderGuest } from './types/HeaderGuest.type';
+import Link from 'next/link';
+import { LogIn, Menu, UserRoundPlus } from 'lucide-react';
 import './styles/HeaderGuest.scss';
 
 export const HeaderGuest = (props: TypeHeaderGuest) => {
 	const pathname = usePathname();
 	const styles = classes(props.cn);
-	const activeClass = 'bg-blue-400 text-white bg-blue-100';
 	const menus = [
-		{name: 'Викторины', href: '/quiz'},
-		{name: 'Профиль', href: '/profile'},
-		{name: 'Монеты', href: '/coins'},
-		{name: 'О нас', href: '/about'}
+		{ name: 'Викторины', href: '/quiz' },
+		{ name: 'О нас', href: '/about' },
 	];
 
 	return (
 		<header className={styles.block}>
 			<div className={styles.elementContainer}>
-				<LinkUI data={{href: '/'}}>
-					<Image src={logo} alt="A description of my image." width="150"/>
-				</LinkUI>
+				<Button asChild variant={'link'}>
+					<Link href={'/'}>
+						<Image src={logo} alt="A description of my image." width="150" />
+					</Link>
+				</Button>
 				<nav className={styles.elementMenu}>
-					{menus.map(({href, name}) => (
-						<LinkUI
-							data={{text: name, href}}
-							cn={{color: 'text-black', margin: 'mx-[1rem]', weight: 'font-bold', active: pathname === href}}
-							key={href}
-						/>
+					{menus.map(({ href, name }) => (
+						<Button asChild variant={'link'} key={href} className={'font-bold'}>
+							<Link href={href} className={pathname === href ? 'opacity-50' : ''}>
+								{name}
+							</Link>
+						</Button>
 					))}
 				</nav>
 				<div className={styles.elementButtons}>
-					<LinkUI
-						data={{text: 'Войти', href: '/login'}}
-						className={`link header__link px-4 py-2 rounded-lg ${pathname === '/login' ? activeClass : ''}`}
-					/>
-					<LinkUI
-						data={{text: 'Зарегистрироваться', href: '/registration'}}
-						className={`link header__link px-4 py-2 rounded-lg ${pathname === '/registration' ? activeClass : ''}`}
-					/>
+					<Button asChild variant={'link'} className={styles.elementAuthButton}>
+						<Link href={'/login'} className={pathname === '/login' ? 'opacity-50' : ''}>
+							<LogIn /> Войти
+						</Link>
+					</Button>
+					<Button asChild variant={'link'} className={styles.elementAuthButton}>
+						<Link href={'/registration'} className={pathname === '/registration' ? 'opacity-50' : ''}>
+							<UserRoundPlus /> Зарегистрироваться
+						</Link>
+					</Button>
+					<Button variant={'link'} className={styles.elementBurger}>
+						<Menu />
+					</Button>
 				</div>
 			</div>
 		</header>

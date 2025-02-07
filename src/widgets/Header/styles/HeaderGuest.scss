@@ -1,19 +1,33 @@
 .header {
 	&__container {
 		@apply container;
-		@apply mx-auto;
 		@apply flex;
 		@apply items-center;
-		@apply py-1;
 	}
 
 	&__menu {
-		@apply ml-4;
+		@apply flex;
+		@apply ml-16;
+		@apply gap-x-16;
+		@apply max-md:hidden;
 	}
 
 	&__buttons {
 		@apply ml-auto;
 		@apply gap-2;
 		@apply flex;
+	}
+
+	&__burger {
+		@apply md:hidden;
+		@apply w-10;
+		@apply h-10;
+		@apply [&_svg]:size-8;
+	}
+
+	&__auth-button {
+		@apply mr-8;
+		@apply font-bold;
+		@apply max-md:hidden;
 	}
 }

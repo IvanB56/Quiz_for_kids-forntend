@@ -1,4 +1,4 @@
 export interface ICardQuiz {
-	data: Record<'complexity' | 'text' | 'topText', string>;
+	data: Record<'complexity' | 'topText', string>;
 	cn?: Record<'padding', string>;
 }

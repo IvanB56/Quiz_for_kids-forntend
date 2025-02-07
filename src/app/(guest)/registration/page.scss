@@ -1,0 +1,21 @@
+.form-wrapper {
+	box-shadow: 5px 15px 15px 10px hsla(9, 14%, 18%, 0.47);
+	@apply flex-grow;
+	@apply h-full;
+	@apply basis-2/4;
+	@apply flex;
+	@apply items-center;
+	@apply justify-center;
+	@apply bg-section-grey;
+	@apply rounded-br-40;
+	@apply rounded-tr-40;
+}
+
+.image-wrapper {
+	@apply flex-grow ;
+	@apply h-full;
+	@apply basis-2/4;
+	@apply flex;
+	@apply justify-center;
+	@apply items-center;
+}

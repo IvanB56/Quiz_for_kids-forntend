@@ -1,7 +1,8 @@
-import type {Config} from "tailwindcss";
+import type { Config } from 'tailwindcss';
 
 export default {
-	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
+	darkMode: ['class'],
+	content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
 	theme: {
 		extend: {
 			colors: {
@@ -17,7 +18,7 @@ export default {
 			},
 			backgroundColor: {
 				'section-grey': 'hsla(30, 9%, 96%, 1)',
-				'black': 'hsla(0, 0%, 0%, 1)',
+				black: 'hsla(0, 0%, 0%, 1)',
 				'pink-dark': 'hsla(338, 30%, 45%, 1)',
 				'pink-light': 'hsla(344, 54%, 89%, 1)',
 				'grey-light': 'hsla(30, 10%, 96%, 1)',
@@ -25,11 +26,11 @@ export default {
 				'grey-icon': 'hsla(0, 0%, 73%, 1)',
 				'grey-dark': 'hsla(0, 0%, 46%, 1)',
 				'cyan-light': 'hsla(193, 36%, 83%, 1)',
-				'cyan': 'hsla(192, 30%, 50%, 1)',
-				'green': 'hsla(131, 22%, 50%, 1)',
-				'pink': 'hsla(312, 29%, 49%, 1)',
+				cyan: 'hsla(192, 30%, 50%, 1)',
+				green: 'hsla(131, 22%, 50%, 1)',
+				pink: 'hsla(312, 29%, 49%, 1)',
 				'red-secondary': 'hsla(0, 35%, 49%, 1)',
-				'red': 'hsla(0, 93%, 53%, 1)',
+				red: 'hsla(0, 93%, 53%, 1)',
 				'button-primary': 'hsla(192, 53%, 36%, 1)',
 				'button-secondary': 'hsla(10, 58%, 86%, 1)',
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
@@ -37,12 +38,15 @@ export default {
 				'button-green': 'hsla(131, 22%, 50%, 1)',
 			},
 			borderRadius: {
-				4: '4px',
-				8: '8px',
-				14: '14px',
-				40: '40px',
-				100: '100px',
+				'4': '4px',
+				'8': '8px',
+				'14': '14px',
+				'40': '40px',
+				'100': '100px',
 				circle: '50%',
+				lg: 'var(--radius)',
+				md: 'calc(var(--radius) - 2px)',
+				sm: 'calc(var(--radius) - 4px)',
 			},
 			boxShadow: {
 				dark: '-10px 10px 20px hsla(9, 14%, 18%, 0.47)',
@@ -50,14 +54,20 @@ export default {
 		},
 		container: {
 			center: true,
+			padding: {
+				default: '24px',
+				sm: '8px',
+				md: '12px',
+				lg: '24px',
+			},
 		},
 		screens: {
-			'sm': '768px',
-			'md': '992px',
-			'lg': '1024px',
-			'xl': '1200px',
+			sm: '768px',
+			md: '992px',
+			lg: '1024px',
+			xl: '1200px',
 			'2xl': '1400px',
 		},
 	},
-	plugins: [],
+	plugins: [require('tailwindcss-animate')],
 } satisfies Config;

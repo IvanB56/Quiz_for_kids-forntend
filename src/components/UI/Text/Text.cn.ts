@@ -5,7 +5,7 @@ export default function classes(cn: IText['cn']) {
 	const SIZE =
 		(['text-body-1', 'text-body-2', 'text-body-3', 'text-body-4', 'text-body-5'].includes(cn?.size || '') &&
 			cn?.size) ||
-		'';
+		'text-body-2';
 	const WEIGHT =
 		(['font-normal', 'font-medium', 'font-semibold', 'font-bold'].includes(cn?.weight || '') && cn?.weight) || '';
 
