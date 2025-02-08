@@ -16,7 +16,7 @@ import {
 	PopoverTrigger,
 	Text,
 } from '@components';
-import { useForm } from 'react-hook-form';
+import { FieldErrors, useForm } from 'react-hook-form';
 import { TriangleAlert } from 'lucide-react';
 import { formSchema, TypeRegistration } from '@/features/auth/schemas/registration';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -35,15 +35,15 @@ export const FormRegistration = () => {
 			passwordRepeat: '',
 		},
 	});
-	const [errors, setErrors] = useState<TypeRegistration | null>(null);
+	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	function onSubmit(values: TypeRegistration) {
 		console.log(values);
 	}
 
 	useEffect(() => {
-		if (form.formState.errors) {
-			setErrors(form.formState.errors);
+		if (form?.formState?.errors) {
+			setErrors(form.formState.errors!);
 		}
 	}, [form.formState.errors]);
 
