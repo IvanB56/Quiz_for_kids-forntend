@@ -1,0 +1,13 @@
+.greetings {
+	&__right {
+		display: flex;
+		flex: 1 1 60%;
+		justify-content: flex-end;
+	}
+
+	&__left {
+		flex: 1 1 40%;
+		display: flex;
+		flex-direction: column;
+	}
+}

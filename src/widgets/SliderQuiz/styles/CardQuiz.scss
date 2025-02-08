@@ -1,0 +1,23 @@
+.card-quiz {
+	@apply flex;
+	@apply flex-col;
+	@apply bg-white;
+	@apply rounded-14;
+	@apply shadow-dark;
+	@apply p-[20px];
+	@apply md:p-[40px];
+
+	&__image-wrapper {
+		@apply flex;
+		@apply items-center;
+		@apply justify-center
+	}
+
+	&__complexity {
+		@apply flex;
+		@apply gap-x-0.5;
+
+		align-self: flex-end;
+		margin-top: 50px;
+	}
+}

@@ -1,0 +1,35 @@
+.button {
+	@apply inline-flex;
+	@apply items-center;
+	@apply justify-center;
+	@apply gap-2;
+	@apply whitespace-nowrap;
+	@apply transition-colors;
+	@apply outline-none;
+	@apply disabled:pointer-events-none;
+	@apply disabled:opacity-50;
+	@apply [&_svg]:pointer-events-none;
+	@apply [&_svg]:size-5;
+	@apply [&_svg]:shrink-0;
+	@apply text-base;
+	@apply px-16;
+	@apply py-2.5;
+	@apply md:py-3;
+	@apply md:text-xl;
+	@apply w-fit;
+
+	&_default {
+		@apply bg-button-primary;
+		@apply text-white;
+		@apply hover:bg-button-primary/70;
+		@apply rounded-100;
+	}
+
+	&_link {
+		@apply text-primary-black;
+		@apply bg-none;
+		@apply transition-colors;
+		@apply hover:opacity-50;
+		@apply p-0;
+	}
+}

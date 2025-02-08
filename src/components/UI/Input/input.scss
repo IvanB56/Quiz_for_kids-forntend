@@ -1,32 +1,17 @@
 .input {
-  margin-bottom: 8px;
-  position: relative;
-  font-size: 1.2rem;
-
-  &-label {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  &-field {
-    padding: 6px 4px;
-    outline: none;
-    border: none;
-    border-bottom: 1px solid darkcyan;
-    background-color: var(--bg-cyan-50);
-  }
-
-  &-error {
-    display: inline-block;
-    height: 1.2em;
-    font-size: 0.6em;
-    color: red;
-    line-height: 1.2;
-  }
-
-  &-title {
-    font-size: 0.8em;
-    color: #096262;
-  }
+	@apply flex;
+	@apply w-full;
+	@apply rounded-100;
+	@apply border-none;
+	@apply bg-secondary-blue;
+	@apply py-4;
+	@apply px-6;
+	@apply text-base;
+	@apply text-primary-black;
+	@apply font-semibold;
+	@apply transition-colors;
+	@apply placeholder:text-gray-100;
+	@apply focus-visible:outline-none;
+	@apply disabled:cursor-not-allowed;
+	@apply disabled:opacity-50;
 }

@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+	@apply h-dvh;
+}
+
+body {
+	scroll-behavior: smooth;
+	scrollbar-gutter: stable;
+	@apply h-dvh;
+	@apply flex;
+	@apply flex-col;
+}
+
+main {
+	@apply grow;
+}
+
+@layer base {
+  :root {
+		--radius: 0.5rem
+	}
+}
