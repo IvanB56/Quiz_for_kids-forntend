@@ -39,7 +39,12 @@ export const FormRegistration = () => {
 
 	function onSubmit(values: TypeRegistration) {
 		console.log(values);
+		fetch('/api/users', {
+			method: 'POST',
+			body: JSON.stringify(values),
+		}).then(r => console.log(r));
 	}
+
 
 	useEffect(() => {
 		if (form?.formState?.errors) {
@@ -63,7 +68,7 @@ export const FormRegistration = () => {
 							<FormLabel>Имя</FormLabel>
 							<div className={'flex items-center gap-x-2'}>
 								<FormControl>
-									<Input placeholder="Введите имя" {...field} />
+									<Input placeholder="Введите имя" {...field} autoComplete={'off'} />
 								</FormControl>
 								{errors && errors.username && (
 									<Popover>
@@ -81,7 +86,7 @@ export const FormRegistration = () => {
 								<FormLabel>Телефон</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите ваш номер телефона" {...field} />
+										<Input placeholder="Введите ваш номер телефона" {...field} autoComplete={'off'} />
 									</FormControl>
 									{errors && errors.phone && (
 										<Popover>
@@ -100,7 +105,7 @@ export const FormRegistration = () => {
 							<FormLabel>Email</FormLabel>
 							<div className={'flex items-center gap-x-2'}>
 								<FormControl>
-									<Input type={'email'} placeholder="Введите email" {...field} />
+									<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
 								</FormControl>
 								{errors && errors.email && (
 									<Popover>
@@ -118,7 +123,7 @@ export const FormRegistration = () => {
 							<FormLabel>Пароль</FormLabel>
 							<div className={'flex items-center gap-x-2'}>
 								<FormControl>
-									<Input type={'password'} placeholder="Введите пароль" {...field} />
+									<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
 								</FormControl>
 								{errors && errors.password && (
 									<Popover>
@@ -136,7 +141,7 @@ export const FormRegistration = () => {
 							<FormLabel>Повторите пароль</FormLabel>
 							<div className={'flex items-center gap-x-2'}>
 								<FormControl>
-									<Input type={'password'} placeholder="Повторите ваш пароль" {...field} />
+									<Input type={'password'} placeholder="Повторите ваш пароль" {...field} autoComplete={'off'} />
 								</FormControl>
 								{errors && errors.passwordRepeat && (
 									<Popover>

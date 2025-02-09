@@ -1,6 +1,6 @@
 'use client';
 
-import { z, ZodError } from 'zod';
+import { z } from 'zod';
 
 export const formSchema = z.object({
 	username: z.string().min(1, { message: 'Обязательное поле для заполнения' }).max(50, { message: 'Имя пользователя не должно превышать 50 символов' }),
@@ -14,4 +14,3 @@ export const formSchema = z.object({
 });
 
 export type TypeRegistration = z.infer<typeof formSchema>;
-export type TypeError = ZodError;

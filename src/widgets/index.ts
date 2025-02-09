@@ -3,3 +3,4 @@ export * from './Header/HeaderGuest';
 export * from './Greetings/Greetings';
 export * from './PopularCategory/PopularCategory';
 export * from './FormRegistration/FormRegistration';
+export * from './FormLogin/FormLogin';
