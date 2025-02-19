@@ -1,6 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import '@assets/styles/styles.scss';
+import { Providers } from '@components';
+import { getServerSession } from 'next-auth';
+import { Dela_Gothic_One, Montserrat } from 'next/font/google';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -14,11 +17,32 @@ export const viewport: Viewport = {
 	userScalable: false,
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+const delaGothicOne = Dela_Gothic_One({
+	weight: ['400'],
+	style: ['normal'],
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-dela-gothic',
+});
+
+const montserrat = Montserrat({
+	weight: ['400'],
+	style: ['normal'],
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-montserrat',
+});
+
+export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+	const session = await getServerSession();
+	console.log(session);
+
 	return (
 		<html lang="ru">
-		<body>
-		{children}
+		<body className={`${delaGothicOne.variable} ${montserrat.variable} font-sans`}>
+		<Providers>
+			{children}
+		</Providers>
 		</body>
 		</html>
 	);

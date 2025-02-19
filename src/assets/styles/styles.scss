@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 html {
 	@apply h-dvh;
 }
@@ -19,7 +20,7 @@ main {
 }
 
 @layer base {
-  :root {
+	:root {
 		--radius: 0.5rem
 	}
 }

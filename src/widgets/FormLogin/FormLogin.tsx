@@ -22,6 +22,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { TypeLogin } from '@/features/auth/schemas';
 import { formSchema } from '@/features/auth/schemas/login';
+import { signIn } from 'next-auth/react';
 
 export const FormLogin = () => {
 	const styles = classes();
@@ -35,11 +36,21 @@ export const FormLogin = () => {
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
-	function onSubmit(values: TypeLogin) {
-		fetch('/api/auth/login', {
-			method: 'POST',
-			body: JSON.stringify(values),
-		}).then(r => console.log(r));
+	async function onSubmit(values: TypeLogin) {
+		try {
+			const resp = await signIn('credentials', {
+				...values,
+				redirect: false,
+			});
+
+			console.log(resp);
+
+			if (!resp?.ok) {
+				throw Error();
+			}
+		} catch (err) {
+			console.log('form login error: ', err);
+		}
 	}
 
 
@@ -102,7 +113,9 @@ export const FormLogin = () => {
 							</Link>
 						</Button>
 					</div>
-					<Button type="submit" className={'self-center'}>Войти</Button>
+					<Button type="submit" className={'self-center'}>
+						{form.formState.isSubmitting ? 'Вход...' : 'Войти'}
+					</Button>
 				</form>
 			</Form>
 		</div>

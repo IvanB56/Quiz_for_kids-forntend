@@ -86,7 +86,7 @@ export const FormRegistration = () => {
 								<FormLabel>Телефон</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите ваш номер телефона" {...field} autoComplete={'off'} />
+										<Input placeholder="Введите телефон" {...field} autoComplete={'off'} />
 									</FormControl>
 									{errors && errors.phone && (
 										<Popover>
@@ -141,7 +141,7 @@ export const FormRegistration = () => {
 							<FormLabel>Повторите пароль</FormLabel>
 							<div className={'flex items-center gap-x-2'}>
 								<FormControl>
-									<Input type={'password'} placeholder="Повторите ваш пароль" {...field} autoComplete={'off'} />
+									<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'} />
 								</FormControl>
 								{errors && errors.passwordRepeat && (
 									<Popover>
