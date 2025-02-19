@@ -1,10 +1,11 @@
 import React from 'react';
 import { FormRegistration } from '@widgets';
-import './page.scss';
 import Image from 'next/image';
 import bg from '@assets/images/registration/bg.png';
+import './page.scss';
 
-const Registration = () => {
+const Registration = async () => {
+
 	return (
 		<div className="flex h-full w-full bg-button-hover overflow-hidden">
 			<div className="form-wrapper">
