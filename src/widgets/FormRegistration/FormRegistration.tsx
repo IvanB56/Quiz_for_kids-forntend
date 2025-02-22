@@ -38,7 +38,6 @@ export const FormRegistration = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	function onSubmit(values: TypeRegistration) {
-		console.log(values);
 		fetch('/api/users', {
 			method: 'POST',
 			body: JSON.stringify(values),
@@ -55,8 +54,8 @@ export const FormRegistration = () => {
 	return (
 		<div className={styles.block}>
 			<Heading
-				data={{ text: 'Регистрация', tag: 'h2' }}
-				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]' }}
+				data={{ text: 'Регистрация', tag: 'h1' }}
+				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' }}
 				className={'text-center'}
 			/>
 			<Form {...form}>

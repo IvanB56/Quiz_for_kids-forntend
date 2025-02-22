@@ -13,11 +13,12 @@ export function EmptyBlock(props: {
 		width: props.imagePosition === 'left' ? 600 : 400,
 		height: props.imagePosition === 'left' ? 400 : 600,
 	};
+
 	return (
-		<div className={cn('py-40', {
+		<div className={cn('py-[100px] max-md:py-[40px]', {
 			'bg-section-grey': props.isBgGrey,
 		})}>
-			<div className={cn('flex relative h-full container justify-between items-center', {
+			<div className={cn('container flex relative h-full justify-between items-center', {
 				'flex-row-reverse': props.imagePosition === 'right',
 			})}>
 				<Image src={props.image} alt={'image-empty'} {...imageSizes} />

@@ -6,9 +6,9 @@ import ImageRight from '@assets/images/empty-block/image-right.png';
 const IndexPage = () => {
 	return (
 		<>
-			<Greetings cn={{ background: 'bg-section-grey', padding: 'py-[100px]' }} />
-			<PopularCategory cn={{ padding: 'py-[80px]' }} />
-			<SliderQuiz cn={{ background: 'bg-section-grey', padding: 'py-[80px]' }} />
+			<Greetings cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />
+			<PopularCategory cn={{ padding: 'py-[100px] max-md:py-[40px]' }} />
+			<SliderQuiz cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />
 			<EmptyBlock imagePosition={'left'} image={ImageLeft} />
 			<EmptyBlock imagePosition={'right'} image={ImageRight} isBgGrey={true} />
 		</>

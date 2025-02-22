@@ -55,19 +55,20 @@ export default {
 		container: {
 			center: true,
 			padding: {
-				default: '24px',
+				DEFAULT: '24px',
 				sm: '8px',
 				md: '12px',
 				lg: '24px',
 			},
-		},
-		screens: {
-			sm: '768px',
-			md: '992px',
-			lg: '1024px',
-			xl: '1200px',
-			'2xl': '1400px',
+			screens: {
+				sm: '768px',
+				md: '992px',
+				lg: '1024px',
+				xl: '1200px',
+				'2xl': '1400px',
+			},
 		},
 	},
+	// eslint-disable-next-line @typescript-eslint/no-require-imports
 	plugins: [require('tailwindcss-animate')],
 } satisfies Config;
