@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import '@assets/styles/styles.scss';
 import { Providers } from '@components';
-import { getServerSession } from 'next-auth';
 import { Dela_Gothic_One, Montserrat } from 'next/font/google';
 
 export const metadata: Metadata = {
@@ -34,7 +33,7 @@ const montserrat = Montserrat({
 });
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	const session = await getServerSession();
+	// const session = await getServerSession();
 
 	return (
 		<html lang="ru">
