@@ -10,5 +10,6 @@ export interface IHeading extends IChildrenAndClassName {
 		weight?: 'fw400' | 'fw500' | 'fw600' | 'fw700';
 		color?: string;
 		margin?: string;
+		align?: string;
 	};
 }

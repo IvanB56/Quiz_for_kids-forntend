@@ -43,8 +43,6 @@ export const FormLogin = () => {
 				redirect: false,
 			});
 
-			console.log(resp);
-
 			if (!resp?.ok) {
 				throw Error();
 			}
@@ -63,8 +61,8 @@ export const FormLogin = () => {
 	return (
 		<div className={styles.block}>
 			<Heading
-				data={{ text: 'Авторизация', tag: 'h2' }}
-				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]' }}
+				data={{ text: 'Авторизация', tag: 'h1' }}
+				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' }}
 				className={'text-center'}
 			/>
 			<Form {...form}>

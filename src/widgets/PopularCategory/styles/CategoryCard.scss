@@ -4,12 +4,22 @@
 	row-gap: 12px;
 	justify-content: center;
 	align-items: center;
-	width: 260px;
-	aspect-ratio: 1;
 
 	transition: background-color 0.3s;
 
+	@apply size-[260px];
 	@apply rounded-14;
 	@apply shadow-dark;
 	@apply hover:bg-section-grey;
+	@apply max-xl:size-[210px];
+	@apply max-xl:p-2.5;
+	@apply max-lg:size-[180px];
+	@apply max-md:size-[160px];
+	@apply max-sm:size-[120px];
+
+	@media (max-width: 991px) {
+		&:nth-of-type(6n + 1) {
+			display: none;
+		}
+	}
 }

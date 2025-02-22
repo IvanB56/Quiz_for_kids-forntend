@@ -35,7 +35,6 @@ const montserrat = Montserrat({
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
 	const session = await getServerSession();
-	console.log(session);
 
 	return (
 		<html lang="ru">
