@@ -1,6 +1,5 @@
 h1, .heading_h1 {
-	font-family: var(--font-dela-gothic), serif;
-	font-weight: 500;
+	font-weight: 900;
 	font-size: 4rem;
 	line-height: 1.2;
 	letter-spacing: -0.04rem;
@@ -13,7 +12,7 @@ h1, .heading_h1 {
 
 h2, .heading_h2 {
 	font-family: var(--font-dela-gothic), serif;
-	font-weight: 500;
+	font-weight: 700;
 	font-size: 2.75rem;
 	line-height: 1.1;
 	letter-spacing: -0.04rem;
@@ -25,29 +24,25 @@ h2, .heading_h2 {
 
 
 h3, .heading_h3 {
-	font-family: var(--font-dela-gothic), serif;
-	font-weight: 600;
+	font-weight: 700;
 	font-size: 2.5rem;
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
 }
 
 h4, .heading_h4 {
-	font-family: var(--font-dela-gothic), serif;
 	font-weight: 600;
 	font-size: 2rem;
 	line-height: 1;
 }
 
 h5, .heading_h5 {
-	font-family: var(--font-dela-gothic), serif;
 	font-weight: 600;
 	font-size: 0.75rem;
 	line-height: 1;
 }
 
 h6, .heading_h6 {
-	font-family: var(--font-dela-gothic), serif;
 	font-weight: 600;
 	font-size: 0.75rem;
 	line-height: 1;

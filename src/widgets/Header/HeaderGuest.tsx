@@ -14,7 +14,6 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 	const pathname = usePathname();
 	const styles = classes(props.cn);
 	const menus = [
-		{ name: 'Викторины', href: '/quiz' },
 		{ name: 'О нас', href: '/about' },
 	];
 

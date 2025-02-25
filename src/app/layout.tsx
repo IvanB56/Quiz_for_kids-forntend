@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import React from 'react';
 import '@assets/styles/styles.scss';
 import { Providers } from '@components';
-import { Dela_Gothic_One, Montserrat } from 'next/font/google';
+import { Montserrat } from 'next/font/google';
 
 export const metadata: Metadata = {
 	title: 'Create Next App',
@@ -15,14 +15,6 @@ export const viewport: Viewport = {
 	maximumScale: 1,
 	userScalable: false,
 };
-
-const delaGothicOne = Dela_Gothic_One({
-	weight: ['400'],
-	style: ['normal'],
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-dela-gothic',
-});
 
 const montserrat = Montserrat({
 	weight: ['400'],
@@ -37,7 +29,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
 
 	return (
 		<html lang="ru">
-		<body className={`${delaGothicOne.variable} ${montserrat.variable} font-sans`}>
+		<body className={`${montserrat.variable} font-sans`}>
 		<Providers>
 			{children}
 		</Providers>
