@@ -1,15 +1,11 @@
 import React, { PropsWithChildren } from 'react';
 import Image from 'next/image';
+import { IProps } from "@/widgets/AboutBlock/types";
 import { classes } from '@/widgets/AboutBlock/aboutBlock.cn';
 import { Text } from '@components';
 import './aboutBlock.scss';
 
-interface IProps extends PropsWithChildren {
-	data: Record<'text' | 'image', string>;
-	cn?: {
-		direction?: 'reverse'
-	};
-}
+
 
 export const AboutBlock: React.FC<IProps> = ({ cn, data }) => {
 	const styles = classes(cn);

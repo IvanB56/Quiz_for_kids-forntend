@@ -3,6 +3,7 @@ export type TypeCategoryCard = {
 		card: {
 			name: string;
 			image: string;
+			link?: string;
 		};
 	};
 	cn?: {

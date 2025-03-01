@@ -1,33 +1,74 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
 .header {
 	&__container {
-		@apply container;
-		@apply flex;
-		@apply items-center;
+		@apply container flex items-center relative;
 	}
 
 	&__menu {
-		@apply flex;
-		@apply ml-16;
-		@apply gap-x-16;
-		@apply max-md:hidden;
+		@apply flex ml-16 gap-x-16 max-md:hidden;
+
+		@include mobile {
+			position: absolute;
+			right: 20px;
+			top: calc(100% + 30px);
+			padding-block: 20px;
+			border-radius: 20px;
+			width: rem(190);
+
+			@apply shadow-dark;
+			@apply bg-white;
+
+			&.is-open {
+				display: block;
+				z-index: 99;
+			}
+
+			.button {
+				padding: 10px 20px;
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				opacity: 1 !important;
+				position: relative;
+				width: 100%;
+
+				@apply text-primary-black;
+
+				&:before {
+					clip-path: rect(0 0 100% 0);
+					content: '';
+					position: absolute;
+					inset: 0;
+					background: linear-gradient(90deg, #2B788BB2 0%, #A9C8D08A 54%, #F9FBFB00 74%);
+				}
+
+				&.is-active {
+					&:before {
+						clip-path: rect(0 100% 100% 0);
+					}
+				}
+
+				&:hover {
+					&:before {
+						clip-path: rect(0 100% 100% 0);
+						transition: ease 0.2s;
+					}
+				}
+			}
+		}
 	}
 
 	&__buttons {
-		@apply ml-auto;
-		@apply gap-2;
-		@apply flex;
+		@apply ml-auto gap-2 flex;
 	}
 
 	&__burger {
-		@apply md:hidden;
-		@apply w-10;
-		@apply h-10;
-		@apply [&_svg]:size-8;
+		@apply md:hidden w-10 h-10 [&_svg]:size-8;
 	}
 
 	&__auth-button {
-		@apply mr-8;
-		@apply font-bold;
-		@apply max-md:hidden;
+		@apply mr-8 font-bold max-md:hidden;
 	}
 }

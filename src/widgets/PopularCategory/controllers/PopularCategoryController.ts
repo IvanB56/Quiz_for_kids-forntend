@@ -6,34 +6,42 @@ export default function PopularCategoryController(data?: TypePopularCategory['da
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 		{
 			name: 'category',
 			image: '',
+			link: '/login',
 		},
 	];
 

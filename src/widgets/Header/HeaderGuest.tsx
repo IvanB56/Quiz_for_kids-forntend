@@ -1,13 +1,13 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@components';
-import logo from '@assets/images/logo.png';
+import logo from '@assets/images/logo.svg';
 import { classes } from './cn/HeaderGuest.cn';
 import { TypeHeaderGuest } from './types/HeaderGuest.type';
 import Link from 'next/link';
-import { LogIn, Menu, UserRoundPlus } from 'lucide-react';
+import { LogIn, Menu, UserRoundPlus, X } from 'lucide-react';
 import './styles/HeaderGuest.scss';
 
 export const HeaderGuest = (props: TypeHeaderGuest) => {
@@ -16,19 +16,23 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 	const menus = [
 		{ name: 'О нас', href: '/about' },
 	];
+	const [isOpen, setIsOpen] = useState(false);
+	const burgerHandler = () => {
+		setIsOpen(prev => !prev);
+	}
 
 	return (
 		<header className={styles.block}>
 			<div className={styles.elementContainer}>
 				<Button asChild variant={'link'}>
 					<Link href={'/'}>
-						<Image src={logo} alt="A description of my image." width="150" />
+						<Image src={logo} alt="логотип" width="250" />
 					</Link>
 				</Button>
-				<nav className={styles.elementMenu}>
+				<nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
 					{menus.map(({ href, name }) => (
-						<Button asChild variant={'link'} key={href} className={'font-bold'}>
-							<Link href={href} className={pathname === href ? 'opacity-50' : ''}>
+						<Button asChild variant={'link'} key={href} className={'font-bold mobile-link'} onClick={() => burgerHandler()}>
+							<Link href={href} className={pathname === href ? 'opacity-50 is-active' : ''}>
 								{name}
 							</Link>
 						</Button>
@@ -45,8 +49,9 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 							<UserRoundPlus /> Зарегистрироваться
 						</Link>
 					</Button>
-					<Button variant={'link'} className={styles.elementBurger}>
-						<Menu />
+					<Button variant={'link'} className={styles.elementBurger} onClick={() => burgerHandler()}>
+						<Menu className={isOpen ? "hidden" : ''} />
+						<X className={!isOpen ? 'hidden': ''} />
 					</Button>
 				</div>
 			</div>
