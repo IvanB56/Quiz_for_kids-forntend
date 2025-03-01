@@ -1,7 +1,7 @@
 h1, .heading_h1 {
 	font-weight: 900;
 	font-size: 4rem;
-	line-height: 1.2;
+	line-height: 0.9;
 	letter-spacing: -0.04rem;
 
 	@apply max-2xl:text-[3.375rem];
@@ -11,7 +11,6 @@ h1, .heading_h1 {
 }
 
 h2, .heading_h2 {
-	font-family: var(--font-dela-gothic), serif;
 	font-weight: 700;
 	font-size: 2.75rem;
 	line-height: 1.1;
@@ -24,7 +23,7 @@ h2, .heading_h2 {
 
 
 h3, .heading_h3 {
-	font-weight: 700;
+	font-weight: 600;
 	font-size: 2.5rem;
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
