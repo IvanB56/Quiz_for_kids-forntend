@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 import { Button } from '@components';
-import logo from '@assets/images/logo.svg';
+import logo from '@assets/images/logo.png';
 import { classes } from './cn/HeaderGuest.cn';
 import { TypeHeaderGuest } from './types/HeaderGuest.type';
 import Link from 'next/link';

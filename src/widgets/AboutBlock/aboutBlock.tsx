@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React  from 'react';
 import Image from 'next/image';
 import { IProps } from "@/widgets/AboutBlock/types";
 import { classes } from '@/widgets/AboutBlock/aboutBlock.cn';

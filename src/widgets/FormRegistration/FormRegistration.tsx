@@ -35,9 +35,9 @@ export const FormRegistration = () => {
 			passwordRepeat: '',
 		},
 	});
-	const [errors, setErrors] = useState<FieldErrors | null>(null);
+	const [ errors, setErrors ] = useState<FieldErrors | null>(null);
 
-	function onSubmit(values: TypeRegistration) {
+	function onSubmit( values: TypeRegistration ) {
 		fetch('/api/users', {
 			method: 'POST',
 			body: JSON.stringify(values),
@@ -46,120 +46,120 @@ export const FormRegistration = () => {
 
 
 	useEffect(() => {
-		if (form?.formState?.errors) {
+		if ( form?.formState?.errors ) {
 			setErrors(form.formState.errors!);
 		}
-	}, [form.formState.errors]);
+	}, [ form.formState.errors ]);
 
 	return (
-		<div className={styles.block}>
+		<div className={ styles.block }>
 			<Heading
-				data={{ text: 'Регистрация', tag: 'h1' }}
-				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' }}
-				className={'text-center'}
+				data={ { text: 'Регистрация', tag: 'h1' } }
+				cn={ { color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' } }
+				className={ 'text-center' }
 			/>
-			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={'space-y-4 w-[470px] flex flex-col'}>
+			<Form { ...form }>
+				<form onSubmit={ form.handleSubmit(onSubmit) } noValidate className={ 'space-y-4 w-[470px] flex flex-col' }>
 					<FormField
-						control={form.control}
+						control={ form.control }
 						name="username"
-						render={({ field }) => (<FormItem>
+						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Имя</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
+							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
-									<Input placeholder="Введите имя" {...field} autoComplete={'off'} />
+									<Input placeholder="Введите имя" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{errors && errors.username && (
+								{ errors && errors.username && (
 									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
+										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
+										<PopoverContent><FormMessage/></PopoverContent>
 									</Popover>
-								)}
+								) }
 							</div>
-						</FormItem>)}
+						</FormItem> ) }
 					/>
 					<FormField
-						control={form.control}
+						control={ form.control }
 						name="phone"
-						render={({ field }) => (<FormItem>
+						render={ ( { field } ) => ( <FormItem>
 								<FormLabel>Телефон</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
+								<div className={ 'flex items-center gap-x-2' }>
 									<FormControl>
-										<Input placeholder="Введите телефон" {...field} autoComplete={'off'} />
+										<Input placeholder="Введите телефон" { ...field } autoComplete={ 'off' }/>
 									</FormControl>
-									{errors && errors.phone && (
+									{ errors && errors.phone && (
 										<Popover>
-											<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-											<PopoverContent><FormMessage /></PopoverContent>
+											<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
+											<PopoverContent><FormMessage/></PopoverContent>
 										</Popover>
-									)}
+									) }
 								</div>
 							</FormItem>
-						)}
+						) }
 					/>
 					<FormField
-						control={form.control}
+						control={ form.control }
 						name="email"
-						render={({ field }) => (<FormItem>
+						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Email</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
+							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
-									<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
+									<Input type={ 'email' } placeholder="Введите email" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{errors && errors.email && (
+								{ errors && errors.email && (
 									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
+										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
+										<PopoverContent><FormMessage/></PopoverContent>
 									</Popover>
-								)}
+								) }
 							</div>
-						</FormItem>)}
+						</FormItem> ) }
 					/>
 					<FormField
-						control={form.control}
+						control={ form.control }
 						name="password"
-						render={({ field }) => (<FormItem>
+						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Пароль</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
+							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
-									<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
+									<Input type={ 'password' } placeholder="Введите пароль" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{errors && errors.password && (
+								{ errors && errors.password && (
 									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
+										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
+										<PopoverContent><FormMessage/></PopoverContent>
 									</Popover>
-								)}
+								) }
 							</div>
-						</FormItem>)}
+						</FormItem> ) }
 					/>
 					<FormField
-						control={form.control}
+						control={ form.control }
 						name="passwordRepeat"
-						render={({ field }) => (<FormItem>
+						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Повторите пароль</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
+							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
-									<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'} />
+									<Input type={ 'password' } placeholder="Повторите пароль" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{errors && errors.passwordRepeat && (
+								{ errors && errors.passwordRepeat && (
 									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
+										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
+										<PopoverContent><FormMessage/></PopoverContent>
 									</Popover>
-								)}
+								) }
 							</div>
-						</FormItem>)}
+						</FormItem> ) }
 					/>
-					<div className={'flex items-center justify-center gap-x-1'}>
-						<Text data={{ text: 'Есть аккаунт? ', tag: 'span' }} cn={{ size: 'text-body-2' }} />
-						<Button asChild variant={'link'}>
-							<Link href={'/login'}>
-								<Text data={{ text: 'Войти', tag: 'span' }} cn={{ size: 'text-body-2' }} />
+					<div className={ 'flex items-center justify-center gap-x-1' }>
+						<Text data={ { text: 'Есть аккаунт? ', tag: 'span' } } cn={ { size: 'text-body-2' } }/>
+						<Button asChild variant={ 'link' }>
+							<Link href={ '/login' }>
+								<Text data={ { text: 'Войти', tag: 'span' } } cn={ { size: 'text-body-2' } }/>
 							</Link>
 						</Button>
 					</div>
-					<Button type="submit" className={'self-center'}>Создать аккаунт</Button>
+					<Button type="submit" className={ 'self-center' }>Создать аккаунт</Button>
 				</form>
 			</Form>
 		</div>

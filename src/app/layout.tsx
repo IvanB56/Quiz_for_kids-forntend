@@ -1,8 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import React from 'react';
-import '@assets/styles/styles.scss';
-import { Providers } from '@components';
 import { Montserrat } from 'next/font/google';
+import '@assets/styles/styles.scss';
 
 export const metadata: Metadata = {
 	title: 'Монетикум | Главная',
@@ -25,14 +24,10 @@ const montserrat = Montserrat({
 });
 
 export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-	// const session = await getServerSession();
-
 	return (
 		<html lang="ru">
 		<body className={`${montserrat.variable} font-sans`}>
-		<Providers>
 			{children}
-		</Providers>
 		</body>
 		</html>
 	);
