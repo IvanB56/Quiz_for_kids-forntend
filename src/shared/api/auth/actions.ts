@@ -7,7 +7,10 @@ export async function register( body: TypeRegistration ) {
 
 export async function login( body: TypeLogin ) {
 	try {
-		const resp = await fetch(`${ API_URL }/login`, {});
+		const resp = await fetch(`${ API_URL }/login`, {
+			method: 'POST',
+			body: JSON.stringify(body)
+		});
 
 		if ( !resp.ok ) {
 			return Promise.reject('Ошибка сервера. Не возможно выполнить запрос [блок try]');
@@ -17,6 +20,6 @@ export async function login( body: TypeLogin ) {
 		return Promise.resolve(data);
 
 	} catch ( err ) {
-		return Promise.reject('Ошибка сервера. Не возможно выполнить запрос [блок catch]');
+		return Promise.reject('Ошибка сервера. Не возможно выполнить запрос [блок catch]' + err);
 	}
 }
