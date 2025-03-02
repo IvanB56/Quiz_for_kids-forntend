@@ -19,10 +19,10 @@ import {
 import { FieldErrors, useForm } from 'react-hook-form';
 import { TriangleAlert } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
 import { TypeLogin } from '@/features/auth/schemas';
 import { formSchema } from '@/features/auth/schemas/login';
-import { signIn } from 'next-auth/react';
+import { login } from "@/shared/api/auth/actions";
+import Link from 'next/link';
 
 export const FormLogin = () => {
 	const styles = classes();
@@ -38,14 +38,9 @@ export const FormLogin = () => {
 
 	async function onSubmit(values: TypeLogin) {
 		try {
-			const resp = await signIn('credentials', {
-				...values,
-				redirect: false,
-			});
+			const resp = await login(values);
 
-			if (!resp?.ok) {
-				throw Error();
-			}
+			console.log(resp);
 		} catch (err) {
 			console.log('form login error: ', err);
 		}

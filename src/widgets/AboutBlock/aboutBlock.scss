@@ -1,0 +1,42 @@
+.about-block {
+	$self: &;
+	position: relative;
+	display: flex;
+
+	&__text-wrapper {
+		padding-block: 80px;
+		padding-right: 100px;
+		padding-left: 14%;
+		width: 60%;
+		border-radius: 0 30px 30px 0;
+
+		@apply bg-primary-blue;
+	}
+
+	&__image-wrapper {
+		height: auto;
+		width: 40%;
+		position: relative;
+		margin-left: -40px;
+	}
+
+	&_reverse {
+		flex-direction: row-reverse;
+
+		#{$self}__text-wrapper {
+			border-radius: 30px 0 0 30px;
+			padding-right: 14%;
+			padding-left: 100px;
+		}
+
+		#{$self}__image-wrapper {
+			margin-right: -40px;
+			margin-left: auto;
+			display: flex;
+
+			img {
+				margin-left: auto;
+			}
+		}
+	}
+}

@@ -8,10 +8,10 @@ import {classes} from "../cn/CategoryCard.cn";
 import '../styles/CategoryCard.scss';
 
 const CategoryCard = (props: TypeCategoryCard) => {
-	const {cn} = props;
+	const {cn, data} = props;
 	const styles = classes(cn);
 	return (
-		<Link className={styles.block} href="#!">
+		<Link className={styles.block} href={ data?.card?.link || '#!' }>
 			<Image src={img} alt=""/>
 			<Text
 				data={{text: 'Популярное', tag: 'p'}}
