@@ -21,6 +21,8 @@ import { TriangleAlert } from 'lucide-react';
 import { formSchema, TypeRegistration } from '@/features/auth/schemas/registration';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
+import {API_URL} from "@/shared/constants";
+import {getCSRF, setCSRF} from "@/shared/api/auth/actions";
 
 export const FormRegistration = () => {
 	const styles = classes();
@@ -28,18 +30,26 @@ export const FormRegistration = () => {
 	const form = useForm<TypeRegistration>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			username: '',
+			name: '',
 			email: '',
 			phone: '',
 			password: '',
-			passwordRepeat: '',
+			password_confirmation: '',
 		},
 	});
 	const [ errors, setErrors ] = useState<FieldErrors | null>(null);
 
-	function onSubmit( values: TypeRegistration ) {
-		fetch('/api/users', {
+	async function onSubmit( values: TypeRegistration ) {
+		await setCSRF();
+
+		fetch(`${ API_URL }/auth/register`, {
 			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'X-XSRF-TOKEN': await getCSRF(),
+			},
+			credentials: 'include',
 			body: JSON.stringify(values),
 		}).then(r => console.log(r));
 	}
@@ -62,14 +72,14 @@ export const FormRegistration = () => {
 				<form onSubmit={ form.handleSubmit(onSubmit) } noValidate className={ 'space-y-4 w-[470px] flex flex-col' }>
 					<FormField
 						control={ form.control }
-						name="username"
+						name="name"
 						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Имя</FormLabel>
 							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
 									<Input placeholder="Введите имя" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{ errors && errors.username && (
+								{ errors && errors.name && (
 									<Popover>
 										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
 										<PopoverContent><FormMessage/></PopoverContent>
@@ -135,14 +145,14 @@ export const FormRegistration = () => {
 					/>
 					<FormField
 						control={ form.control }
-						name="passwordRepeat"
+						name="password_confirmation"
 						render={ ( { field } ) => ( <FormItem>
 							<FormLabel>Повторите пароль</FormLabel>
 							<div className={ 'flex items-center gap-x-2' }>
 								<FormControl>
 									<Input type={ 'password' } placeholder="Повторите пароль" { ...field } autoComplete={ 'off' }/>
 								</FormControl>
-								{ errors && errors.passwordRepeat && (
+								{ errors && errors.password_confirmation && (
 									<Popover>
 										<PopoverTrigger><TriangleAlert className={ 'text-primary-red' }/></PopoverTrigger>
 										<PopoverContent><FormMessage/></PopoverContent>
