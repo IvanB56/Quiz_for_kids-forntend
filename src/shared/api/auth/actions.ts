@@ -1,20 +1,28 @@
 import { TypeLogin, TypeRegistration } from "@/features/auth/schemas";
 import { API_URL } from "@/shared/constants";
 import { getCookie } from 'cookies-next';
+import Api from "@/shared/api/auth/api-controller";
 
 export async function setCSRF() {
 	// Запрашиваем csrf куку
-	const csrfResp = await fetch(`${API_URL}/sanctum/csrf-cookie`, {
-		method: 'GET'
+	// const csrfResp = await fetch(`${API_URL}/sanctum/csrf-cookie`, {
+	// 	method: 'GET',
+	// 	credentials: 'include'
+	// });
+
+	const csrfResp = await Api.get<string>(`${API_URL}/sanctum/csrf-cookie`, {
+		credentials: 'include'
 	});
 
-	if (!csrfResp.ok) {
-		return Promise.reject('Ошибка при получении CSRF токена');
-	}
+	console.log(csrfResp)
+
+	// if (!csrfResp.ok) {
+	// 	return Promise.reject('Ошибка при получении CSRF токена');
+	// }
 }
 
 export async function getCSRF() {
-	const csrfToken = decodeURIComponent(getCookie('XSRF-TOKEN'));
+	const csrfToken = decodeURIComponent(getCookie('XSRF-TOKEN') as string);
 
 	if (!csrfToken) {
 		return Promise.reject('Ошибка при извлечении CSRF токена');
