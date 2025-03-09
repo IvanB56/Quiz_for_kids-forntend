@@ -15,11 +15,12 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 	const styles = classes(props.cn);
 	const menus = [
 		{ name: 'О нас', href: '/about' },
+		{ name: 'Профиль', href: '/profile' },
 	];
 	const [isOpen, setIsOpen] = useState(false);
 	const burgerHandler = () => {
-		setIsOpen(prev => !prev);
-	}
+		setIsOpen((prev) => !prev);
+	};
 
 	return (
 		<header className={styles.block}>
@@ -31,7 +32,13 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 				</Button>
 				<nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
 					{menus.map(({ href, name }) => (
-						<Button asChild variant={'link'} key={href} className={'font-bold mobile-link'} onClick={() => burgerHandler()}>
+						<Button
+							asChild
+							variant={'link'}
+							key={href}
+							className={'font-bold mobile-link'}
+							onClick={() => burgerHandler()}
+						>
 							<Link href={href} className={pathname === href ? 'opacity-50 is-active' : ''}>
 								{name}
 							</Link>
@@ -50,8 +57,8 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 						</Link>
 					</Button>
 					<Button variant={'link'} className={styles.elementBurger} onClick={() => burgerHandler()}>
-						<Menu className={isOpen ? "hidden" : ''} />
-						<X className={!isOpen ? 'hidden': ''} />
+						<Menu className={isOpen ? 'hidden' : ''} />
+						<X className={!isOpen ? 'hidden' : ''} />
 					</Button>
 				</div>
 			</div>
