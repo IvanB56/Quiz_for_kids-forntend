@@ -21,7 +21,7 @@ import { TriangleAlert } from 'lucide-react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { TypeLogin } from '@/features/auth/schemas';
 import { formSchema } from '@/features/auth/schemas/login';
-import { login } from "@/shared/api/auth/actions";
+import { login } from '@/shared/api/auth/actions';
 import Link from 'next/link';
 
 export const FormLogin = () => {
@@ -37,15 +37,8 @@ export const FormLogin = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	async function onSubmit(values: TypeLogin) {
-		try {
-			const resp = await login(values);
-
-			console.log(resp);
-		} catch (err) {
-			console.log('form login error: ', err);
-		}
+		const resp = await login(values);
 	}
-
 
 	useEffect(() => {
 		if (form?.formState?.errors) {
@@ -65,38 +58,50 @@ export const FormLogin = () => {
 					<FormField
 						control={form.control}
 						name="email"
-						render={({ field }) => (<FormItem>
-							<FormLabel>Email</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
-								<FormControl>
-									<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
-								</FormControl>
-								{errors && errors.email && (
-									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
-									</Popover>
-								)}
-							</div>
-						</FormItem>)}
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Email</FormLabel>
+								<div className={'flex items-center gap-x-2'}>
+									<FormControl>
+										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
+									</FormControl>
+									{errors && errors.email && (
+										<Popover>
+											<PopoverTrigger>
+												<TriangleAlert className={'text-primary-red'} />
+											</PopoverTrigger>
+											<PopoverContent>
+												<FormMessage />
+											</PopoverContent>
+										</Popover>
+									)}
+								</div>
+							</FormItem>
+						)}
 					/>
 					<FormField
 						control={form.control}
 						name="password"
-						render={({ field }) => (<FormItem>
-							<FormLabel>Пароль</FormLabel>
-							<div className={'flex items-center gap-x-2'}>
-								<FormControl>
-									<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
-								</FormControl>
-								{errors && errors.password && (
-									<Popover>
-										<PopoverTrigger><TriangleAlert className={'text-primary-red'} /></PopoverTrigger>
-										<PopoverContent><FormMessage /></PopoverContent>
-									</Popover>
-								)}
-							</div>
-						</FormItem>)}
+						render={({ field }) => (
+							<FormItem>
+								<FormLabel>Пароль</FormLabel>
+								<div className={'flex items-center gap-x-2'}>
+									<FormControl>
+										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
+									</FormControl>
+									{errors && errors.password && (
+										<Popover>
+											<PopoverTrigger>
+												<TriangleAlert className={'text-primary-red'} />
+											</PopoverTrigger>
+											<PopoverContent>
+												<FormMessage />
+											</PopoverContent>
+										</Popover>
+									)}
+								</div>
+							</FormItem>
+						)}
 					/>
 					<div className={'flex items-center justify-center gap-x-1'}>
 						<Text data={{ text: 'Нет аккаунта? ', tag: 'span' }} cn={{ size: 'text-body-2' }} />

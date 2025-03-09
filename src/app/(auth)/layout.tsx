@@ -1,5 +1,5 @@
-import React from "react";
+import React from 'react';
 
-export default async function AuthLayout({children}: { children: React.ReactNode }) {
-	return <section>{children}</section>
+export default async function AuthLayout({ children }: { children: React.ReactNode }) {
+	return <section>{children}</section>;
 }
