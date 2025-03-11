@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from 'next/server';
 const { API_URL } = process.env;
 const protectedRoutes = ['/profile'];
 
-export default async function middleware(request: NextRequest) {
+export default async function _middleware(request: NextRequest) {
 	const path = request.nextUrl.pathname;
 	const isProtected = protectedRoutes.some((route) => path.toLowerCase().includes(route.toLowerCase()));
 
