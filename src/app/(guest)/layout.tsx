@@ -9,17 +9,21 @@ const { API_URL: urlServer } = process.env;
 export default async function GuestLayout({ children }: { children: React.ReactNode }) {
 	const cookie = (await cookies()).getAll();
 
-	const resp: Response = await fetch(`${urlServer}/api/auth-check`, {
-		credentials: 'include',
-		headers: {
-			Origin: API_URL,
-			Accept: 'application/json',
-			Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
-		},
-	});
+	try {
+		const resp: Response = await fetch(`${urlServer}/api/auth-check`, {
+			credentials: 'include',
+			headers: {
+				Origin: API_URL,
+				Accept: 'application/json',
+				Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
+			},
+		});
 
-	if (resp.status === 200 || resp.statusText === 'OK') {
-		redirect('/profile');
+		if (resp.status === 200 || resp.statusText === 'OK') {
+			redirect('/profile');
+		}
+	} catch (err) {
+		console.log('error fetch [Guest layout]', err);
 	}
 	return (
 		<>
