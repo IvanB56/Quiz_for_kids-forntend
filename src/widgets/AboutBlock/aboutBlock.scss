@@ -1,42 +1,68 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
 .about-block {
-	$self: &;
-	position: relative;
-	display: flex;
+  $self: &;
 
-	&__text-wrapper {
-		padding-block: 80px;
-		padding-right: 100px;
-		padding-left: 14%;
-		width: 60%;
-		border-radius: 0 30px 30px 0;
+  &__text-wrapper {
+    padding-block: 80px;
+    padding-right: 100px;
+    padding-left: 14%;
+    width: 60%;
+    border-radius: 0 30px 30px 0;
 
-		@apply bg-primary-blue;
-	}
+    @apply bg-primary-blue;
 
-	&__image-wrapper {
-		height: auto;
-		width: 40%;
-		position: relative;
-		margin-left: -40px;
-	}
+    @include tablet {
+      padding-right: 14%;
+      padding-block: 40px;
+      width: 80%;
+    }
 
-	&_reverse {
-		flex-direction: row-reverse;
+    @include mobile {
+      width: 100%;
+    }
+  }
 
-		#{$self}__text-wrapper {
-			border-radius: 30px 0 0 30px;
-			padding-right: 14%;
-			padding-left: 100px;
-		}
+  &__image-wrapper {
+    height: auto;
+    width: 40%;
+    position: relative;
+    margin-left: -40px;
 
-		#{$self}__image-wrapper {
-			margin-right: -40px;
-			margin-left: auto;
-			display: flex;
+    @apply max-lg:hidden;
+  }
 
-			img {
-				margin-left: auto;
-			}
-		}
-	}
+  &__container {
+    position: relative;
+    display: flex;
+  }
+
+  &_reverse {
+    #{$self}__container {
+      flex-direction: row-reverse;
+
+      #{$self}__text-wrapper {
+        border-radius: 30px 0 0 30px;
+        padding-right: 14%;
+        padding-left: 100px;
+
+        @include tablet {
+          padding-left: 14%;
+        }
+      }
+
+      #{$self}__image-wrapper {
+        margin-right: -40px;
+        margin-left: auto;
+        display: flex;
+
+        img {
+          margin-left: auto;
+        }
+
+        @apply max-lg:hidden;
+      }
+    }
+  }
 }

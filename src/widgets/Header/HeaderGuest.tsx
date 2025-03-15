@@ -14,8 +14,8 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 	const pathname = usePathname();
 	const styles = classes(props.cn);
 	const menus = [
+		{ name: 'Главная', href: '/' },
 		{ name: 'О нас', href: '/about' },
-		{ name: 'Профиль', href: '/profile' },
 	];
 	const [isOpen, setIsOpen] = useState(false);
 	const burgerHandler = () => {
@@ -44,6 +44,30 @@ export const HeaderGuest = (props: TypeHeaderGuest) => {
 							</Link>
 						</Button>
 					))}
+					<div className={'lg:hidden max-lg:contents'}>
+						<Button
+							asChild
+							variant={'link'}
+							key={'/login'}
+							className={'font-bold mobile-link'}
+							onClick={() => burgerHandler()}
+						>
+							<Link href={'/login'} className={pathname === '/login' ? 'opacity-50 is-active' : ''}>
+								Войти
+							</Link>
+						</Button>
+						<Button
+							asChild
+							variant={'link'}
+							key={'/registration'}
+							className={'font-bold mobile-link'}
+							onClick={() => burgerHandler()}
+						>
+							<Link href={'/registration'} className={pathname === '/registration' ? 'opacity-50 is-active' : ''}>
+								Зарегистрироваться
+							</Link>
+						</Button>
+					</div>
 				</nav>
 				<div className={styles.elementButtons}>
 					<Button asChild variant={'link'} className={styles.elementAuthButton}>

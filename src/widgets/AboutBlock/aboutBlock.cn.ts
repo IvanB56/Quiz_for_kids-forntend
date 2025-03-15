@@ -1,12 +1,16 @@
 import { CN } from '@/lib';
-import { IProps } from "./types/index";
+import { IProps } from './types/index';
 
 export function classes(cn?: IProps['cn']) {
 	const BLOCK = CN('about-block');
 	return {
-		block: BLOCK({
-			[`${cn?.direction}`]: ['reverse'].includes(cn?.direction || ''),
-		}, [cn?.margin, cn?.padding]),
+		block: BLOCK(
+			{
+				[`${cn?.direction}`]: ['reverse'].includes(cn?.direction || ''),
+			},
+			[cn?.margin, cn?.padding]
+		),
+		elementContainer: BLOCK('container'),
 		elementTextWrapper: BLOCK('text-wrapper'),
 		elementImageWrapper: BLOCK('image-wrapper'),
 	};

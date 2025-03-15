@@ -2,73 +2,67 @@
 @import "../../../assets/styles/helpers/function";
 
 .header {
-	&__container {
-		@apply container flex items-center relative;
-	}
+  @apply relative;
 
-	&__menu {
-		@apply flex ml-16 gap-x-16 max-md:hidden;
+  &__container {
+    @apply container flex items-center;
+  }
 
-		@include mobile {
-			position: absolute;
-			right: 20px;
-			top: calc(100% + 30px);
-			padding-block: 20px;
-			border-radius: 20px;
-			width: rem(190);
+  &__menu {
+    @apply flex ml-16 gap-x-4;
 
-			@apply shadow-dark;
-			@apply bg-white;
+    @include tablet {
+      position: absolute;
+      visibility: hidden;
+      right: 0;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      border-radius: 0 0 50px 50px;
+      margin: 0;
+      box-shadow: 0 10px 5px 0 hsla(0, 0%, 0%, 15%);
+      transition: height 0.2s;
+      height: 0;
 
-			&.is-open {
-				display: block;
-				z-index: 99;
-			}
+      @apply bg-white;
 
-			.button {
-				padding: 10px 20px;
-				display: flex;
-				align-items: center;
-				justify-content: flex-start;
-				opacity: 1 !important;
-				position: relative;
-				width: 100%;
+      &.is-open {
+        visibility: visible;
+        z-index: 99;
+        height: fit-content;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
 
-				@apply text-primary-black;
+      .button {
+        padding: 30px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: relative;
 
-				&:before {
-					clip-path: rect(0 0 100% 0);
-					content: '';
-					position: absolute;
-					inset: 0;
-					background: linear-gradient(90deg, #2B788BB2 0%, #A9C8D08A 54%, #F9FBFB00 74%);
-				}
+        @apply text-primary-black;
+      }
+    }
+  }
 
-				&.is-active {
-					&:before {
-						clip-path: rect(0 100% 100% 0);
-					}
-				}
+  &__buttons {
+    @apply ml-auto gap-2 flex;
+  }
 
-				&:hover {
-					&:before {
-						clip-path: rect(0 100% 100% 0);
-						transition: ease 0.2s;
-					}
-				}
-			}
-		}
-	}
+  &__burger {
+    @apply hidden w-10 h-10 [&_svg]:size-8;
 
-	&__buttons {
-		@apply ml-auto gap-2 flex;
-	}
+    @include tablet {
+      @apply block;
+    }
+  }
 
-	&__burger {
-		@apply md:hidden w-10 h-10 [&_svg]:size-8;
-	}
+  &__auth-button {
+    @apply mr-8 font-bold;
 
-	&__auth-button {
-		@apply mr-8 font-bold max-md:hidden;
-	}
+    @include tablet {
+      @apply hidden;
+    }
+  }
 }

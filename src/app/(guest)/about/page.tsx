@@ -9,26 +9,22 @@ import image_4 from '@assets/images/about/block-4.png';
 import image_5 from '@assets/images/about/block-5.png';
 
 const About = () => {
-	const images = [
-		image_1.src,
-		image_2.src,
-		image_3.src,
-		image_4.src,
-		image_5.src,
-	]
+	const images = [image_1.src, image_2.src, image_3.src, image_4.src, image_5.src];
 	return (
 		<main>
-			<div className={ 'container' }>
-				<Heading data={ { tag: 'h1', text: 'О нас' } } cn={ { size: 'h2' } }
-								 className={ 'text-center uppercase my-10' }/>
+			<div className={'container'}>
+				<Heading data={{ tag: 'h1', text: 'О нас' }} cn={{ size: 'h2' }} className={'text-center uppercase my-10'} />
 			</div>
-			{ texts && texts.map(( text, index ) => {
-				return <AboutBlock
-					data={ { text, image: images[ index ] } }
-					cn={ { direction: index % 2 ? 'reverse' : undefined, padding: index ? 'py-24' : '' } }
-					key={index}
-				/>
-			}) }
+			{texts &&
+				texts.map((text, index) => {
+					return (
+						<AboutBlock
+							data={{ text, image: images[index] }}
+							cn={{ direction: index % 2 ? 'reverse' : undefined, padding: index ? 'py-24 max-lg:py-6' : '' }}
+							key={index}
+						/>
+					);
+				})}
 		</main>
 	);
 };
