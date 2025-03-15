@@ -1,7 +1,26 @@
 import React from 'react';
 import { HeaderGuest } from '@widgets';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { API_URL } from '@/shared/constants';
 
-export default function GuestLayout({ children }: { children: React.ReactNode }) {
+const { API_URL: urlServer } = process.env;
+
+export default async function GuestLayout({ children }: { children: React.ReactNode }) {
+	const cookie = (await cookies()).getAll();
+
+	const resp: Response = await fetch(`${urlServer}/api/auth-check`, {
+		credentials: 'include',
+		headers: {
+			Origin: API_URL,
+			Accept: 'application/json',
+			Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
+		},
+	});
+
+	if (resp.status === 200 || resp.statusText === 'OK') {
+		redirect('/profile');
+	}
 	return (
 		<>
 			<HeaderGuest cn={{ border: 'border-b-[1px]', padding: 'py-[20px]' }} />
