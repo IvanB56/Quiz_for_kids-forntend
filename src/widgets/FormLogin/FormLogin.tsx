@@ -23,6 +23,8 @@ import { TypeLogin } from '@/features/auth/schemas';
 import { formSchema } from '@/features/auth/schemas/login';
 import { login } from '@/shared/api/auth/actions';
 import Link from 'next/link';
+import './FormLogin.scss';
+import { useClassName } from '@hooks';
 
 export const FormLogin = () => {
 	const styles = classes();
@@ -37,7 +39,7 @@ export const FormLogin = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	async function onSubmit(values: TypeLogin) {
-		const resp = await login(values);
+		await login(values);
 	}
 
 	useEffect(() => {
@@ -54,7 +56,7 @@ export const FormLogin = () => {
 				className={'text-center'}
 			/>
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={'space-y-4 w-[470px] flex flex-col'}>
+				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={styles.elementForm}>
 					<FormField
 						control={form.control}
 						name="email"
@@ -103,7 +105,7 @@ export const FormLogin = () => {
 							</FormItem>
 						)}
 					/>
-					<div className={'flex items-center justify-center gap-x-1'}>
+					<div className={useClassName(styles.elementRegister, 'flex items-center justify-center gap-x-1')}>
 						<Text data={{ text: 'Нет аккаунта? ', tag: 'span' }} cn={{ size: 'text-body-2' }} />
 						<Button asChild variant={'link'}>
 							<Link href={'/registration'}>
@@ -111,7 +113,7 @@ export const FormLogin = () => {
 							</Link>
 						</Button>
 					</div>
-					<Button type="submit" className={'self-center'}>
+					<Button type="submit" className={styles.elementSubmit}>
 						{form.formState.isSubmitting ? 'Вход...' : 'Войти'}
 					</Button>
 				</form>

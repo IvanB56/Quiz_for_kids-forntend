@@ -14,12 +14,17 @@ export const Greetings = (props: IGreetings) => {
 		<section className={styles.block}>
 			<div className="flex container mx-auto justify-between gap-x-[100px] max-md:flex-wrap">
 				<div className={styles.elementLeft}>
-					<Heading data={{ tag: 'h1', text: 'Добро пожаловать на сайт викторин МонетикУМ.' }}
-					         cn={{ margin: 'mb-[30px]' }} />
-					<Text data={{
-						text: 'Мы рады приветствовать вас в мире знанийи увлекательных соревнований. Здесь вы сможете проверить свою эрудицию, расширить кругозор и весело провести время, учавствуя в разнообразных викторинах. ',
-						tag: 'p',
-					}} cn={{ size: 'text-body-1', color: 'text-primary-grey' }} />
+					<Heading
+						data={{ tag: 'h1', text: 'Добро пожаловать на сайт викторин МонетикУМ.' }}
+						cn={{ margin: 'mb-[30px]' }}
+					/>
+					<Text
+						data={{
+							text: 'Мы рады приветствовать вас в мире знаний увлекательных соревнований. Здесь вы сможете проверить свою эрудицию, расширить кругозор и весело провести время, учавствуя в разнообразных викторинах. ',
+							tag: 'p',
+						}}
+						cn={{ size: 'text-body-1', color: 'text-primary-grey' }}
+					/>
 				</div>
 				<div className={styles.elementRight}>
 					<Image src={image} alt="Приветствие" fill className={'object-contain'} />

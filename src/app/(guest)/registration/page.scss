@@ -1,3 +1,14 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.section-registration {
+	@apply flex h-full w-full bg-button-hover overflow-hidden;
+
+	@include tablet {
+		flex-direction: column;
+	}
+}
+
 .form-wrapper {
 	box-shadow: 5px 15px 15px 10px hsla(9, 14%, 18%, 0.47);
 	@apply flex-grow;
@@ -9,6 +20,10 @@
 	@apply bg-section-grey;
 	@apply rounded-br-40;
 	@apply rounded-tr-40;
+
+	@include tablet {
+		border-radius: 0 0 40px 40px;
+	}
 }
 
 .image-wrapper {
@@ -18,4 +33,12 @@
 	@apply flex;
 	@apply justify-center;
 	@apply items-center;
+
+	@include tablet {
+		margin-top: 50px;
+	}
+
+	@include mobile {
+		display: none;
+	}
 }

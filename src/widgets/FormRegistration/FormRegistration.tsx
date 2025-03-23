@@ -17,11 +17,13 @@ import {
 	Text,
 } from '@components';
 import { FieldErrors, useForm } from 'react-hook-form';
-import { TriangleAlert } from 'lucide-react';
-import { formSchema, TypeRegistration } from '@/features/auth/schemas/registration';
+import { useClassName } from '@hooks';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
+import { TriangleAlert } from 'lucide-react';
 import { register } from '@/shared/api/auth/actions';
+import { formSchema, TypeRegistration } from '@/features/auth/schemas/registration';
+import Link from 'next/link';
+import './FormRegistration.scss';
 
 export const FormRegistration = () => {
 	const styles = classes();
@@ -39,7 +41,7 @@ export const FormRegistration = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	async function onSubmit(values: TypeRegistration) {
-		const resp = register(values);
+		await register(values);
 	}
 
 	useEffect(() => {
@@ -49,14 +51,14 @@ export const FormRegistration = () => {
 	}, [form.formState.errors]);
 
 	return (
-		<div className={styles.block}>
+		<section className={styles.block}>
 			<Heading
 				data={{ text: 'Регистрация', tag: 'h1' }}
 				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' }}
 				className={'text-center'}
 			/>
 			<Form {...form}>
-				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={'space-y-4 w-[470px] flex flex-col'}>
+				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={useClassName(styles.elementForm)}>
 					<FormField
 						control={form.control}
 						name="name"
@@ -177,7 +179,7 @@ export const FormRegistration = () => {
 							</FormItem>
 						)}
 					/>
-					<div className={'flex items-center justify-center gap-x-1'}>
+					<div className={useClassName(styles.elementLogin, 'flex items-center justify-center gap-x-1')}>
 						<Text data={{ text: 'Есть аккаунт? ', tag: 'span' }} cn={{ size: 'text-body-2' }} />
 						<Button asChild variant={'link'}>
 							<Link href={'/login'}>
@@ -185,11 +187,11 @@ export const FormRegistration = () => {
 							</Link>
 						</Button>
 					</div>
-					<Button type="submit" className={'self-center'}>
+					<Button type="submit" className={styles.elementSubmit}>
 						Создать аккаунт
 					</Button>
 				</form>
 			</Form>
-		</div>
+		</section>
 	);
 };

@@ -1,6 +1,8 @@
 export type TypePopularCategory = {
 	data?: never;
 	cn?: {
-		padding: string;
+		padding?: string;
+		margin?: string;
+		size?: 'big';
 	};
 };

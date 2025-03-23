@@ -1,3 +1,6 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
 .input {
 	@apply flex;
 	@apply w-full;
@@ -14,4 +17,12 @@
 	@apply focus-visible:outline-none;
 	@apply disabled:cursor-not-allowed;
 	@apply disabled:opacity-50;
+
+	@include tablet {
+		@apply text-xl px-6 py-3;
+	}
+
+	@include mobile {
+		@apply max-w-full;
+	}
 }

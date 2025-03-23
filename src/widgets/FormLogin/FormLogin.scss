@@ -1,0 +1,44 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.login {
+  $self: &;
+
+  &__form {
+    @apply w-[470px] flex flex-col max-w-full;
+
+    @include tablet {
+      gap: 20px;
+      align-self: center;
+    }
+  }
+
+  &__register {
+    @include tablet {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__submit {
+    @apply self-center;
+
+    @include tablet {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row: 3/4;
+      align-self: end;
+      width: 100%;
+    }
+  }
+
+  @include tablet {
+    padding: 50px;
+    width: 100%;
+    @apply flex flex-col items-center;
+  }
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+}
