@@ -1,13 +1,10 @@
 'use client';
-import React from 'react';
-import {getUser} from "@/shared/api/user/getUser";
+import {FormProfile} from "@widgets";
 
 const ProfilePage = () => {
-	const user = getUser();
+	// const user = getUser();
 
-	console.log(user);
-	
-	return <div>ProfileSettings</div>;
+	return <FormProfile />;
 };
 
 export default ProfilePage;

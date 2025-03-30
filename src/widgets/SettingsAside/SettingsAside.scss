@@ -1,0 +1,32 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.settings-aside {
+  flex: 0 0 rem(400);
+  padding: rem(80) 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(16);
+  height: max-content;
+
+  @apply rounded-14;
+  @apply bg-white;
+  @apply shadow-dark;
+
+  &__link {
+    padding: rem(14) rem(46);
+
+    &.is-active {
+      background: linear-gradient(90deg, rgba(43, 120, 139, 0.7) 0%, rgba(169, 200, 208, 0.54) 20%, rgba(249, 251, 251, 0) 100%);
+      pointer-events: none;
+    }
+
+    @include tablet {
+      padding: rem(10) rem(20);
+    }
+  }
+
+  @include tablet {
+    max-width: rem(300);
+  }
+}

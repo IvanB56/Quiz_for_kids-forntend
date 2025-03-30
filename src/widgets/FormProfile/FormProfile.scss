@@ -1,0 +1,31 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.form-profile {
+  flex: 1 1 0;
+  padding: rem(40);
+
+  @apply bg-white;
+  @apply rounded-14;
+  @apply shadow-dark;
+
+  &__field {
+    display: flex;
+    align-items: center;
+    column-gap: rem(20);
+    margin-bottom: rem(20);
+  }
+
+  &__label {
+    font-weight: 600;
+    min-width: rem(220);
+
+    @apply text-3xl;
+    @apply max-xl:text-xl;
+    @apply text-black;
+
+    @include tablet {
+      min-width: rem(150);
+    }
+  }
+}

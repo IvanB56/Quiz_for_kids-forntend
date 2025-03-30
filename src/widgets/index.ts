@@ -6,3 +6,4 @@ export * from './FormRegistration/FormRegistration';
 export * from './FormLogin/FormLogin';
 export * from './EmptyBlock/EmptyBlock';
 export * from './SettingsAside/SettingsAside';
+export * from './FormProfile/FormProfile';
