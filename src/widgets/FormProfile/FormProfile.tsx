@@ -29,7 +29,6 @@ export const FormProfile = () => {
 			surname: '',
 			name: '',
 			patronymic: '',
-			email: '',
 			birth: '',
 			region: ''
 		},
@@ -54,20 +53,21 @@ export const FormProfile = () => {
 					<FormField
 						control={form.control}
 						name="surname"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Фамилия</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
+								<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 									<FormControl>
-										<Input type={'text'} placeholder="" {...field} autoComplete={'off'} />
+										<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
+										       className={styles.elementInput}/>
 									</FormControl>
 									{errors && errors.surname && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -78,20 +78,21 @@ export const FormProfile = () => {
 					<FormField
 						control={form.control}
 						name="name"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Имя</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
+								<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 									<FormControl>
-										<Input type={'text'} placeholder="" {...field} autoComplete={'off'} />
+										<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
+										       className={styles.elementInput}/>
 									</FormControl>
 									{errors && errors.name && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -102,20 +103,21 @@ export const FormProfile = () => {
 					<FormField
 						control={form.control}
 						name="patronymic"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Отчество</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
+								<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 									<FormControl>
-										<Input type={'text'} placeholder="" {...field} autoComplete={'off'} />
+										<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
+										       className={styles.elementInput}/>
 									</FormControl>
 									{errors && errors.patronymic && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -126,38 +128,15 @@ export const FormProfile = () => {
 					<FormField
 						control={form.control}
 						name="birth"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Дата рождения</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'date'} placeholder="" {...field} autoComplete={'off'} />
+										<Input type={'date'} placeholder="" {...field} autoComplete={'off'}
+										       className={styles.elementInput}/>
 									</FormControl>
 									{errors && errors.birth && (
-										<Popover>
-											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
-											</PopoverTrigger>
-											<PopoverContent>
-												<FormMessage />
-											</PopoverContent>
-										</Popover>
-									)}
-								</div>
-							</FormItem>
-						)}
-					/>
-					<FormField
-						control={form.control}
-						name="email"
-						render={({ field }) => (
-							<FormItem className={styles.elementField}>
-								<FormLabel className={styles.elementLabel}>Email</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
-									<FormControl>
-										<Input type={'email'} placeholder="" {...field} autoComplete={'off'}/>
-									</FormControl>
-									{errors && errors.email && (
 										<Popover>
 											<PopoverTrigger>
 												<TriangleAlert className={'text-primary-red'}/>
@@ -174,12 +153,13 @@ export const FormProfile = () => {
 					<FormField
 						control={form.control}
 						name="region"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Регион</FormLabel>
-								<div className={'flex items-center gap-x-2'}>
+								<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 									<FormControl>
-										<Input type={'text'} placeholder="" {...field} autoComplete={'off'}/>
+										<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
+										       className={styles.elementInput}/>
 									</FormControl>
 									{errors && errors.region && (
 										<Popover>
@@ -195,9 +175,11 @@ export const FormProfile = () => {
 							</FormItem>
 						)}
 					/>
-					<Button type="submit" className={styles.elementSubmit}>
-						{form.formState.isSubmitting ? 'Отправка данных' : 'Сохранить'}
-					</Button>
+					<FormItem className={styles.elementField}>
+						<Button type="submit" className={styles.elementSubmit}>
+							{form.formState.isSubmitting ? 'Отправка данных' : 'Сохранить'}
+						</Button>
+					</FormItem>
 				</form>
 			</Form>
 		</div>

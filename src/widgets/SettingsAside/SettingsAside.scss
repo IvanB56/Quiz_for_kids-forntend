@@ -29,4 +29,8 @@
   @include tablet {
     max-width: rem(300);
   }
+
+  @include tablet-s {
+    display: none;
+  }
 }

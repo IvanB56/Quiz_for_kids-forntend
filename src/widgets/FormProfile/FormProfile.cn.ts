@@ -9,5 +9,6 @@ export function classes() {
 		elementSubmit: BLOCK('submit'),
 		elementField: BLOCK('field'),
 		elementLabel: BLOCK('label'),
+		elementInput: BLOCK('input'),
 	};
 }

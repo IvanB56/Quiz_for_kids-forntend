@@ -1,5 +1,5 @@
-import { API_URL } from '@/shared/constants';
-import { getCookie } from 'cookies-next';
+import {API_URL} from '@/shared/constants';
+import {getCookie} from 'cookies-next';
 
 class ApiController {
 	constructor(private readonly API: string) {}
@@ -35,7 +35,7 @@ class ApiController {
 	}
 
 	async setCSRF() {
-		const csrfResp = await this.get<string>(`${API_URL}/sanctum/csrf-cookie`, {
+		await this.get<string>(`${API_URL}/sanctum/csrf-cookie`, {
 			credentials: 'include',
 		});
 	}
@@ -51,10 +51,9 @@ class ApiController {
 	}
 
 	async getUser() {
-		const user = await this.get(`${API_URL}/api/user`, {
+		return await this.get(`${API_URL}/api/user`, {
 			credentials: 'include',
 		});
-		return user;
 	}
 }
 
