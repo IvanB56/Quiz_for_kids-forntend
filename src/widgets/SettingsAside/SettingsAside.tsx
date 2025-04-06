@@ -1,5 +1,6 @@
 'use client';
-import React from 'react';
+import React, {useLayoutEffect, useState} from 'react';
+import {createPortal} from "react-dom";
 import {usePathname} from "next/navigation";
 import {cn} from '@utils';
 import classes from './SettingsAside.cn';
@@ -19,6 +20,13 @@ export const SettingsAside = (props: ISettingsAside) => {
 	];
 
 	const path = usePathname();
+	const [main, setMain] = useState<HTMLElement | null>(null);
+	console.log(main)
+
+	useLayoutEffect(() => {
+		const el = document.querySelector('main') as HTMLElement;
+		setMain(el);
+	}, [])
 
 	return (
 		<aside className={styles.block}>
@@ -27,10 +35,14 @@ export const SettingsAside = (props: ISettingsAside) => {
 					<Link data={{href}} key={href} className={cn(styles.elementLink, {
 						'is-active': path === href
 					})}>
-						<Text data={{ text: name, tag: 'p' }}/>
+						<Text data={{text: name, tag: 'p'}}/>
 					</Link>
 				))
 			}
+			{main && createPortal(
+				<p>This child is placed in the document body.</p>,
+				main
+			)}
 		</aside>
 	);
 };

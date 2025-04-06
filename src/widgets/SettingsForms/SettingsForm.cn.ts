@@ -1,7 +1,7 @@
 import {CN} from '@lib/ClassBem';
 
 export function classes() {
-	const BLOCK = CN('form-profile');
+	const BLOCK = CN('settings-form');
 
 	return {
 		block: BLOCK(),

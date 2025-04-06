@@ -1,11 +1,8 @@
 import React from 'react';
+import {SettingsForms} from "@widgets";
 
 const PasswordPage = () => {
-	return (
-		<div>
-			Password
-		</div>
-	);
+	return <SettingsForms form={'password'} />
 };
 
 export default PasswordPage;

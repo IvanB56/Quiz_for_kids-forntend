@@ -1,11 +1,8 @@
 import React from 'react';
+import {SettingsForms} from "@widgets";
 
 const EmailPage = () => {
-	return (
-		<div>
-			Email
-		</div>
-	);
+	return <SettingsForms form='email' />
 };
 
 export default EmailPage;

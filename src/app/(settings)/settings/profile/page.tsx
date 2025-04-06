@@ -1,10 +1,10 @@
 'use client';
-import {FormProfile} from "@widgets";
+import {SettingsForms} from "@widgets";
 
 const ProfilePage = () => {
 	// const user = getUser();
 
-	return <FormProfile />;
+	return <SettingsForms form='profile' />;
 };
 
 export default ProfilePage;

@@ -31,6 +31,9 @@
   }
 
   @include tablet-s {
-    display: none;
+    visibility: hidden;
+    width: 0;
+    position: absolute;
+    left: 0;
   }
 }
