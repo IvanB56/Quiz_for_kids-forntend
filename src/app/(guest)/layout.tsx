@@ -17,7 +17,7 @@ export default async function GuestLayout({children}: { children: React.ReactNod
 
 	return (
 		<>
-			<HeaderGuest cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}}/>
+			<HeaderGuest data={{page: 'guest'}} cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}}/>
 			<main>{children}</main>
 		</>
 	);

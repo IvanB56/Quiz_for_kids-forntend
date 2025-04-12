@@ -1,18 +1,18 @@
 import React from 'react';
-// import {redirect} from "next/navigation";
-// import {checkAuth} from "@/features/auth/checkAuth";
+import {redirect} from "next/navigation";
+import {checkAuth} from "@/features/auth/checkAuth";
 import {HeaderGuest, SettingsAside} from "@widgets";
 import {Heading} from "@components";
 import '../../assets/styles/settings.styles.scss';
 
 export default async function SettingsLayout({children}: { children: React.ReactNode }) {
-	// const {statusText, status, error} = await checkAuth();
-	//
-	// if (status === 401 || statusText === 'Unauthorized') {
-	// 	redirect('/login');
-	// } else if (error?.status === 'error') {
-	// 	redirect('/404')
-	// }
+	const {statusText, status, error} = await checkAuth();
+
+	if (status === 401 || statusText === 'Unauthorized') {
+		redirect('/login');
+	} else if (error?.status === 'error') {
+		redirect('/404')
+	}
 
 	return (
 		<>
