@@ -6,19 +6,14 @@ import './page.scss';
 
 const LoginPage = () => {
 	return (
-		<div className="flex h-full w-full bg-button-hover overflow-hidden">
+		<section className="section-login">
 			<div className="form-wrapper">
 				<FormLogin />
 			</div>
 			<div className="image-wrapper">
-				<Image
-					src={bg}
-					sizes={'(max-width: 768px) 100vw, 960px'}
-					alt={'background'}
-					className={'w-auto h-auto'}
-				/>
+				<Image src={bg} sizes={'(max-width: 768px) 100vw, 960px'} alt={'background'} className={'w-auto h-auto'} />
 			</div>
-		</div>
+		</section>
 	);
 };
 export default LoginPage;

@@ -1,12 +1,6 @@
-import { TypeLogin, TypeRegistration } from '@/features/auth/schemas';
-import { API_URL } from '@/shared/constants';
-import { api } from '@/shared/api/auth/api-controller';
-
-export async function testGetUserFunction() {
-	const user = api.get(`${API_URL}/api/user`, {
-		credentials: 'include',
-	});
-}
+import {TypeLogin, TypeRegistration} from '@/features/auth/schemas';
+import {API_URL} from '@/shared/constants';
+import {api} from '@/shared/api/auth/api-controller';
 
 export async function register(body: TypeRegistration) {
 	await api.setCSRF();

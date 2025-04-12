@@ -1,23 +1,11 @@
 import React from 'react';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { API_URL } from '@/shared/constants';
+import {redirect} from 'next/navigation';
+import {checkAuth} from "@/features/auth/checkAuth";
 
-const { API_URL: urlServer } = process.env;
+export default async function AuthLayout({children}: { children: React.ReactNode }) {
+	const {statusText, status, error} = await checkAuth();
 
-export default async function AuthLayout({ children }: { children: React.ReactNode }) {
-	const cookie = (await cookies()).getAll();
-
-	const resp: Response = await fetch(`${urlServer}/api/auth-check`, {
-		credentials: 'include',
-		headers: {
-			Origin: API_URL,
-			Accept: 'application/json',
-			Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
-		},
-	});
-
-	if (resp.status === 401 || resp.statusText === 'Unauthorized') {
+	if (status === 401 || statusText === 'Unauthorized' || error) {
 		redirect('/login');
 	}
 

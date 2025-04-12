@@ -1,34 +1,24 @@
 import React from 'react';
-import { HeaderGuest } from '@widgets';
-import { cookies } from 'next/headers';
-import { redirect } from 'next/navigation';
-import { API_URL } from '@/shared/constants';
+import {HeaderGuest} from '@widgets';
+import {redirect} from 'next/navigation';
+import {checkAuth} from "@/features/auth/checkAuth";
 
-const { API_URL: urlServer } = process.env;
 
-export default async function GuestLayout({ children }: { children: React.ReactNode }) {
-	const cookie = (await cookies()).getAll();
+export default async function GuestLayout({children}: { children: React.ReactNode }) {
+	const {statusText, status, error} = await checkAuth();
 
-	try {
-		const resp: Response = await fetch(`${urlServer}/api/auth-check`, {
-			credentials: 'include',
-			headers: {
-				Origin: API_URL,
-				Accept: 'application/json',
-				Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
-			},
-		});
+	console.log({statusText, status, error})
 
-		if (resp.status === 200 || resp.statusText === 'OK') {
-			redirect('/profile');
-		}
-	} catch (err) {
-		console.log('error fetch [Guest layout]', err);
+	if (status === 200 || statusText === 'OK') {
+		redirect('/profile');
+	} else if (error?.status === 'error') {
+		redirect('/404')
 	}
+
 	return (
 		<>
-			<HeaderGuest cn={{ border: 'border-b-[1px]', padding: 'py-[20px]' }} />
-			{children}
+			<HeaderGuest data={{page: 'guest'}} cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}}/>
+			<main>{children}</main>
 		</>
 	);
 }

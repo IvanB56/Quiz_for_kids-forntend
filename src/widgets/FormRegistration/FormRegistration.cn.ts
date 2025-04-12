@@ -5,5 +5,8 @@ export function classes() {
 
 	return {
 		block: BLOCK(),
+		elementForm: BLOCK('form'),
+		elementLogin: BLOCK('login'),
+		elementSubmit: BLOCK('submit'),
 	};
 }

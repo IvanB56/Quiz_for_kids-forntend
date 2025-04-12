@@ -1,0 +1,50 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.settings-form {
+  flex: 1 1 0;
+  padding: rem(40);
+  height: min-content;
+
+  @apply bg-white;
+  @apply rounded-14;
+  @apply shadow-dark;
+
+  &__field {
+    display: flex;
+    align-items: center;
+    column-gap: rem(20);
+
+    &:not(:last-of-type) {
+      margin-bottom: rem(20);
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    min-width: rem(250);
+
+    @apply text-2xl;
+    @apply max-xl:text-xl;
+    @apply text-black;
+
+    @include tablet {
+      min-width: rem(150);
+    }
+  }
+
+  &__input {
+    font-size: rem(24);
+    line-height: 1;
+  }
+
+  &__submit {
+    margin-inline: auto;
+    margin-top: rem(20);
+  }
+}
