@@ -18,7 +18,7 @@ export const SettingsAside = (props: ISettingsAside) => {
 		{name: 'Профиль', href: '/settings/profile'},
 		{name: 'Изменить email', href: '/settings/email'},
 		{name: 'Сменить пароль', href: '/settings/password'},
-		{name: 'Настройки уведомлений', href: '/settings/notifications'},
+		// {name: 'Настройки уведомлений', href: '/settings/notifications'},
 		{name: 'Мои дети', href: '/settings/child'},
 	];
 

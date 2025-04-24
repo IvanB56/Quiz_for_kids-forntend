@@ -6,20 +6,27 @@
   height: rem(24);
   width: rem(50);
   align-items: center;
+  transition: transform 0.3s, background-color 0.3s;
   @apply bg-switch rounded-100;
 
   &__thumb {
     display: block;
     height: rem(20);
     width: rem(20);
-    @apply bg-primary-blue rounded-circle pointer-events-none transition-transform;
+    transition: transform 0.3s, background-color 0.3s;
+    @apply bg-primary-blue rounded-circle pointer-events-none;
 
     &[data-state="checked"] {
       transform: translateX(rem(26));
+      @apply bg-switch;
     }
 
     &[data-state="unchecked"] {
       transform: translateX(rem(4));
     }
+  }
+
+  &[data-state="checked"] {
+    @apply bg-primary-blue;
   }
 }

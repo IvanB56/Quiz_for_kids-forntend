@@ -36,7 +36,7 @@ export default {
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
 				'button-red': 'hsla(11, 57%, 53%, 1)',
 				'button-green': 'hsla(131, 22%, 50%, 1)',
-				'switch': 'hsla(0, 0%, 73%, 0.5)'
+				'switch': 'hsla(0, 0%, 86%, 1)',
 			},
 			borderRadius: {
 				'4': '4px',

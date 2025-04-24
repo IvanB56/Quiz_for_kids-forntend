@@ -1,11 +1,8 @@
 import React from 'react';
+import {SettingsForms} from "@widgets";
 
 const ChildPage = () => {
-	return (
-		<div>
-			Child
-		</div>
-	);
+	return <SettingsForms form='child' />
 };
 
 export default ChildPage;
