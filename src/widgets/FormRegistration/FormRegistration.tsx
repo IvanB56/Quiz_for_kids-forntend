@@ -26,8 +26,13 @@ import {TriangleAlert} from 'lucide-react';
 import {register} from '@/shared/api/auth/actions';
 import './FormRegistration.scss';
 
-export const FormRegistration = () => {
+interface IFormRegistration {
+	redirect?: string;
+}
+
+export const FormRegistration = (props: IFormRegistration) => {
 	const styles = classes();
+	const {redirect} = props;
 	const router = useRouter();
 
 	const form = useForm<TypeRegistration>({
@@ -44,7 +49,9 @@ export const FormRegistration = () => {
 
 	async function onSubmit(values: TypeRegistration) {
 		await register(values);
-		router.push('/settings');
+		if (redirect) {
+			router.push(redirect);
+		}
 	}
 
 	useEffect(() => {

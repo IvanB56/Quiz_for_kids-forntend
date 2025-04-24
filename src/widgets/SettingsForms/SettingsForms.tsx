@@ -3,6 +3,7 @@ import {FormProfile} from "./Forms/FormProfile";
 import {FormEmail} from "./Forms/FormEmail";
 import {FormPassword} from "./Forms/FormPassword";
 import {Notification} from "./Forms/Notification";
+import {FormChild} from "./Forms/FormChild";
 import {classes} from './SettingsForm.cn';
 import './SettingsForms.scss';
 import {IUser} from "../../../types";
@@ -21,6 +22,7 @@ export const SettingsForms = (props: FormProps) => {
 	if (form === 'email') Form = <FormEmail user={user} />
 	if (form === 'password') Form = <FormPassword />
 	if (form === 'notification') Form = <Notification />
+	if (form === 'child') Form = <FormChild />
 
 	return (<div className={styles.block}>{ Form }</div>)
 };
