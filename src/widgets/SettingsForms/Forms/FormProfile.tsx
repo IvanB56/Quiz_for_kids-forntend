@@ -18,18 +18,20 @@ import {
 	PopoverTrigger
 } from "@components";
 import {classes} from '../SettingsForm.cn';
+import {IUser} from "../../../../types";
 
-export const FormProfile = () => {
+export const FormProfile = (props: { user?: IUser }) => {
 	const styles = classes();
+	const user = props?.user?.data;
 
 	const form = useForm<TypeProfile>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			surname: '',
-			name: '',
-			patronymic: '',
-			birth: '',
-			region: ''
+			surname: user?.surname || '',
+			name: user?.name || '',
+			patronymic: user?.patronymic || '',
+			birth: user?.birth || '',
+			region: user?.region || ''
 		},
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
@@ -55,8 +57,13 @@ export const FormProfile = () => {
 							<FormLabel className={styles.elementLabel}>Фамилия</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
-									       className={styles.elementInput}/>
+									<Input
+										type={'text'}
+										placeholder=""
+										{...field}
+										autoComplete={'off'}
+										className={styles.elementInput}
+									/>
 								</FormControl>
 								{errors && errors.surname && (
 									<Popover>

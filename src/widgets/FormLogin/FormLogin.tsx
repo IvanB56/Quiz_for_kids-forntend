@@ -1,6 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { classes } from './FormLogin.cn';
+import React, {useEffect, useState} from 'react';
+import {useRouter} from "next/navigation";
+import {FieldErrors, useForm} from 'react-hook-form';
+import {TriangleAlert} from 'lucide-react';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {classes} from './FormLogin.cn';
 import {
 	Button,
 	Form,
@@ -16,18 +20,16 @@ import {
 	PopoverTrigger,
 	Text,
 } from '@components';
-import { FieldErrors, useForm } from 'react-hook-form';
-import { TriangleAlert } from 'lucide-react';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { TypeLogin } from '@/features/auth/schemas';
-import { formSchema } from '@/features/auth/schemas/login';
-import { login } from '@/shared/api/auth/actions';
+import {TypeLogin} from '@/features/auth/schemas';
+import {formSchema} from '@/features/auth/schemas/login';
+import {login} from '@/shared/api/auth/actions';
 import Link from 'next/link';
 import './FormLogin.scss';
-import { useClassName } from '@hooks';
+import {useClassName} from '@hooks';
 
 export const FormLogin = () => {
 	const styles = classes();
+	const router = useRouter();
 
 	const form = useForm<TypeLogin>({
 		resolver: zodResolver(formSchema),
@@ -40,6 +42,7 @@ export const FormLogin = () => {
 
 	async function onSubmit(values: TypeLogin) {
 		await login(values);
+		router.push('/profile');
 	}
 
 	useEffect(() => {
@@ -65,7 +68,7 @@ export const FormLogin = () => {
 								<FormLabel>Email</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
+										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.email && (
 										<Popover>
@@ -89,7 +92,7 @@ export const FormLogin = () => {
 								<FormLabel>Пароль</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
+										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.password && (
 										<Popover>

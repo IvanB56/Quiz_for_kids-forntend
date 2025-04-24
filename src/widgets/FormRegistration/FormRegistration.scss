@@ -16,6 +16,8 @@
   }
 
   &__login {
+    margin-top: 20px;
+
     @include tablet {
       grid-column-start: 1;
       grid-column-end: 3;

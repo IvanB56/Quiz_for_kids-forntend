@@ -1,11 +1,8 @@
 import React from 'react';
+import {SettingsForms} from "@widgets";
 
-const NotificationsPage = () => {
-	return (
-		<div>
-			Notifications
-		</div>
-	);
+const PasswordPage = () => {
+	return <SettingsForms form={'notification'} />
 };
 
-export default NotificationsPage;
+export default PasswordPage;

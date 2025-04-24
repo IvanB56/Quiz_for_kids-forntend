@@ -6,6 +6,8 @@ export default function classes(cn: ISettingsAside['cn']) {
 
 	return {
 		block: BLOCK({}, [cn?.margin, cn?.padding]),
-		elementLink: BLOCK('link')
+		elementLink: BLOCK('link'),
+		elementInner: BLOCK('inner'),
+		elementIcon: BLOCK('icon'),
 	}
 }

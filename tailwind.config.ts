@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss';
+import type {Config} from 'tailwindcss';
 
 export default {
 	darkMode: ['class'],
@@ -14,7 +14,7 @@ export default {
 				'primary-red': 'hsla(0, 93%, 53%, 1)',
 				'secondary-red': 'hsla(11, 57%, 53%, 1)',
 				'primary-blue': 'hsla(192, 53%, 36%, 1)',
-				'secondary-blue': 'hsla(193, 36%, 83%, 1)',
+				'secondary-blue': 'hsla(193, 36%, 83%, 1)'
 			},
 			backgroundColor: {
 				'section-grey': 'hsla(30, 9%, 96%, 1)',
@@ -36,6 +36,7 @@ export default {
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
 				'button-red': 'hsla(11, 57%, 53%, 1)',
 				'button-green': 'hsla(131, 22%, 50%, 1)',
+				'switch': 'hsla(0, 0%, 73%, 0.5)'
 			},
 			borderRadius: {
 				'4': '4px',

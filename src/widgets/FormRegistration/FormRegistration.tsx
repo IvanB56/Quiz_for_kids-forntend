@@ -1,6 +1,10 @@
 'use client';
-import React, { useEffect, useState } from 'react';
-import { classes } from './FormRegistration.cn';
+import React, {useEffect, useState} from 'react';
+import {useRouter} from "next/navigation";
+import {FieldErrors, useForm} from 'react-hook-form';
+import {classes} from './FormRegistration.cn';
+import Link from 'next/link';
+import {formSchema, TypeRegistration} from '@/features/auth/schemas/registration';
 import {
 	Button,
 	Form,
@@ -16,17 +20,15 @@ import {
 	PopoverTrigger,
 	Text,
 } from '@components';
-import { FieldErrors, useForm } from 'react-hook-form';
-import { useClassName } from '@hooks';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { TriangleAlert } from 'lucide-react';
-import { register } from '@/shared/api/auth/actions';
-import { formSchema, TypeRegistration } from '@/features/auth/schemas/registration';
-import Link from 'next/link';
+import {useClassName} from '@hooks';
+import {zodResolver} from '@hookform/resolvers/zod';
+import {TriangleAlert} from 'lucide-react';
+import {register} from '@/shared/api/auth/actions';
 import './FormRegistration.scss';
 
 export const FormRegistration = () => {
 	const styles = classes();
+	const router = useRouter();
 
 	const form = useForm<TypeRegistration>({
 		resolver: zodResolver(formSchema),
@@ -42,6 +44,7 @@ export const FormRegistration = () => {
 
 	async function onSubmit(values: TypeRegistration) {
 		await register(values);
+		router.push('/settings');
 	}
 
 	useEffect(() => {
@@ -67,7 +70,7 @@ export const FormRegistration = () => {
 								<FormLabel>Имя</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите имя" {...field} autoComplete={'off'} />
+										<Input placeholder="Введите имя" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.name && (
 										<Popover>
@@ -91,7 +94,7 @@ export const FormRegistration = () => {
 								<FormLabel>Телефон</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите телефон" {...field} autoComplete={'off'} />
+										<Input placeholder="Введите телефон" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.phone && (
 										<Popover>
@@ -115,7 +118,7 @@ export const FormRegistration = () => {
 								<FormLabel>Email</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} />
+										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.email && (
 										<Popover>
@@ -139,7 +142,7 @@ export const FormRegistration = () => {
 								<FormLabel>Пароль</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} />
+										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.password && (
 										<Popover>
@@ -163,7 +166,7 @@ export const FormRegistration = () => {
 								<FormLabel>Повторите пароль</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'} />
+										<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 									</FormControl>
 									{errors && errors.password_confirmation && (
 										<Popover>

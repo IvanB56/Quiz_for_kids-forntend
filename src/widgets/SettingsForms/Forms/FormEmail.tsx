@@ -18,14 +18,16 @@ import {FieldErrors, useForm} from "react-hook-form";
 import {formSchema, TypeEmail} from "@/features/auth/schemas/email";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {classes} from '../SettingsForm.cn';
+import {IUser} from "../../../../types";
 
-export const FormEmail = () => {
+export const FormEmail = (props: {user?: IUser}) => {
 	const styles = classes();
+	const user = props?.user?.data;
 
 	const form = useForm<TypeEmail>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			email: '',
+			email: user?.email || '',
 			'new_email': ''
 		},
 	});

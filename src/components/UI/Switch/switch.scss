@@ -1,0 +1,25 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.switch {
+  display: inline-flex;
+  height: rem(24);
+  width: rem(50);
+  align-items: center;
+  @apply bg-switch rounded-100;
+
+  &__thumb {
+    display: block;
+    height: rem(20);
+    width: rem(20);
+    @apply bg-primary-blue rounded-circle pointer-events-none transition-transform;
+
+    &[data-state="checked"] {
+      transform: translateX(rem(26));
+    }
+
+    &[data-state="unchecked"] {
+      transform: translateX(rem(4));
+    }
+  }
+}

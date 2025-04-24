@@ -10,5 +10,6 @@ export function classes() {
 		elementField: BLOCK('field'),
 		elementLabel: BLOCK('label'),
 		elementInput: BLOCK('input'),
+		elementNotification: BLOCK('notification')
 	};
 }
