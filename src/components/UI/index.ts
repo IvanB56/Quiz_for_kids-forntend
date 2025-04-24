@@ -7,3 +7,4 @@ export * from './Button/button';
 export * from './Label/label';
 export * from './Form/form';
 export * from './Popover/popover';
+export * from './Switch/Switch';

@@ -7,7 +7,6 @@ import {checkAuth} from "@/features/auth/checkAuth";
 export default async function GuestLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
 
-	console.log({statusText, status, error})
 
 	if (status === 200 || statusText === 'OK') {
 		redirect('/profile');
