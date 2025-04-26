@@ -17,7 +17,7 @@ export const Notification = () => {
 		<div className={styles.elementNotification}>
 			<div className={useClassName(styles.elementField, 'justify-between')}>
 				<Text data={{text: 'ребенок в сети', tag: 'p'}} />
-				<Switch data-name={'isOnline'} onClick={onCheckedChange}/>
+				<Switch data-name={'isOnline'} onClick={onCheckedChange} />
 			</div>
 			<div className={useClassName(styles.elementField, 'justify-between')}>
 				<Text data={{text: 'контроль копилки', tag: 'p'}} />

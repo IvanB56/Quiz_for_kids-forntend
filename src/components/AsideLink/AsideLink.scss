@@ -1,0 +1,59 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.aside-link {
+  $self: &;
+  padding: rem(12) rem(80) rem(12) rem(46);
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(26);
+  min-height: 0;
+
+
+  &__nested {
+    padding-right: rem(80);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: rem(26);
+
+    &.hidden {
+      #{$self}__nested-links {
+        display: none;
+      }
+
+      #{$self}__icon {
+        rotate: 180deg;
+      }
+    }
+  }
+
+  &__nested-title {
+    display: flex;
+    column-gap: rem(6);
+    align-items: center;
+    padding-left: rem(16);
+  }
+
+  &__title-text {
+    text-align: left;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+  }
+
+  &__nested-links {
+    overflow: hidden;
+
+    #{$self} {
+      padding-left: rem(60);
+      padding-right: 0;
+    }
+  }
+
+  &.is-active {
+    background: linear-gradient(90deg, rgba(43, 120, 139, 0.7) 0%, rgba(169, 200, 208, 0.54) 20%, rgba(249, 251, 251, 0) 100%);
+    pointer-events: none;
+  }
+}

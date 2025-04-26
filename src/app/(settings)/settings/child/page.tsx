@@ -1,8 +1,16 @@
 import React from 'react';
 import {SettingsForms} from "@widgets";
+import {getUser} from "@/shared/api/user/getUser";
+import {Text} from "@components";
 
 const ChildPage = () => {
-	return <SettingsForms form='child' />
+	const {user, isLoading} = getUser();
+
+	if (isLoading) {
+		return <Text data={{text: 'Загрузка данных', tag: 'p'}}/>
+	}
+
+	return <SettingsForms form='child' user={user} />
 };
 
 export default ChildPage;

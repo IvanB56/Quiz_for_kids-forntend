@@ -1,7 +1,19 @@
-export default async function Profile() {
-	// const { API_URL } = process.env;
-	//
-	// const resp = await fetch(`${API_URL}/api/user`);
+'use client';
+import {getUser} from "@/shared/api/user/getUser";
+import {Text} from "@components";
 
-	return <main>Auth Page</main>;
+const Profile = () => {
+	const {user, isLoading} = getUser();
+
+	if (isLoading) {
+		return <Text data={{text: 'Загрузка данных', tag: 'p'}}/>
+	}
+
+	return (
+		<main>
+			{JSON.stringify(user)}
+		</main>
+	);
 }
+
+export default Profile;
