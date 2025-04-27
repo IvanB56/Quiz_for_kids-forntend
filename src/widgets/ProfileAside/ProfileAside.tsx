@@ -13,7 +13,7 @@ interface IProfileAside {
 	pagesLink: IAsideLink[];
 }
 
-const ProfileAside = (props: IProfileAside) => {
+export const ProfileAside = (props: IProfileAside) => {
 	const styles = classes();
 	const {pagesLink} = props;
 	const path = usePathname();
@@ -37,5 +37,3 @@ const ProfileAside = (props: IProfileAside) => {
 		</aside>
 	);
 };
-
-export default ProfileAside;

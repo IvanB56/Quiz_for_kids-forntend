@@ -1,8 +1,8 @@
 import React from 'react';
-import ProfileAside from "@/widgets/ProfileAside/ProfileAside";
 import {redirect} from "next/navigation";
+import ProfileChildProvider from "@/shared/providers/ProfileChildProvider";
 import {checkAuth} from "@/features/auth/checkAuth";
-import {Text} from '@components';
+import {ProfileAside} from "@widgets";
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
@@ -38,12 +38,16 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 
 	return (
 		<>
-			{error?.status === 'error' && (
-				<Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}
+			{/*{error?.status === 'error' && (*/}
+			{/*	<Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}*/}
 			<main className={'bg-cyan-light'}>
-				<div className={'flex gap-16 max-xl:gap-8'}>
+				<div className={'flex'}>
 					<ProfileAside pagesLink={pagesLink}/>
-					{children}
+					<ProfileChildProvider>
+						<div className={'flex flex-col w-full gap-[60px] p-[60px]'}>
+							{children}
+						</div>
+					</ProfileChildProvider>
 				</div>
 			</main>
 		</>
