@@ -10,17 +10,10 @@ import {LinkUI as Link, Text} from '@components';
 import './SettingsAside.scss';
 
 export const SettingsAside = (props: ISettingsAside) => {
+	const {pagesLink} = props.data;
 	const styles = classes(props.cn);
 	const asideRef = useRef<HTMLElement | null>(null);
 	const iconRef = useRef<SVGSVGElement | null>(null);
-
-	const pagesLink = [
-		{name: 'Профиль', href: '/settings/profile'},
-		{name: 'Изменить email', href: '/settings/email'},
-		{name: 'Сменить пароль', href: '/settings/password'},
-		// {name: 'Настройки уведомлений', href: '/settings/notifications'},
-		{name: 'Мои дети', href: '/settings/child'},
-	];
 
 	const path = usePathname();
 	const [main, setMain] = useState<HTMLElement | null>(null);

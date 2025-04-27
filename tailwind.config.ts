@@ -29,6 +29,7 @@ export default {
 				cyan: 'hsla(192, 30%, 50%, 1)',
 				green: 'hsla(131, 22%, 50%, 1)',
 				pink: 'hsla(312, 29%, 49%, 1)',
+				orange: 'hsla(33, 100%, 72%, 1)',
 				'red-secondary': 'hsla(0, 35%, 49%, 1)',
 				red: 'hsla(0, 93%, 53%, 1)',
 				'button-primary': 'hsla(192, 53%, 36%, 1)',

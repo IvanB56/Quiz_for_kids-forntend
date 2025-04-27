@@ -7,3 +7,5 @@ export * from './FormLogin/FormLogin';
 export * from './EmptyBlock/EmptyBlock';
 export * from './SettingsAside/SettingsAside';
 export * from './SettingsForms/SettingsForms';
+export * from './ProfileAside/ProfileAside';
+export * from './ProfileHeading/ProfileHeading';

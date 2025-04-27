@@ -1,5 +1,10 @@
 export interface ISettingsAside {
-	data?: unknown;
+	data: {
+		pagesLink: {
+			name: string;
+			href: string;
+		}[]
+	};
 	cn?: {
 		padding?: string;
 		margin?: string;

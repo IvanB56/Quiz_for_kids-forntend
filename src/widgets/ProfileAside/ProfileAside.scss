@@ -1,0 +1,17 @@
+.profile-aside {
+  width: 460px;
+  min-width: 460px;
+  height: 100vh;
+  overflow: auto;
+  padding-block: 65px;
+  //padding-left: 14px;
+  scrollbar-gutter: stable;
+
+  @apply bg-white rounded-tr-14 rounded-br-14 shadow-dark;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 26px;
+  }
+}
