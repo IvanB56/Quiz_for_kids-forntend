@@ -6,11 +6,11 @@ import {Notification} from "./Forms/Notification";
 import {FormChild} from "./Forms/FormChild";
 import {classes} from './SettingsForm.cn';
 import './SettingsForms.scss';
-import {IUser} from "../../../types";
+import {UserState} from "@lib/store/features/user/UserSlice";
 
 type FormProps = {
 	form: 'profile' | 'email' | 'child' | 'notification' | 'password',
-	user?: IUser
+	user?: UserState
 }
 
 export const SettingsForms = (props: FormProps) => {

@@ -4,10 +4,11 @@ import {cookies} from 'next/headers';
 
 const { API_URL: urlServer } = process.env;
 
-export const checkAuth = async () => {
+export async function getUser() {
 	const cookie = (await cookies()).getAll();
+
 	try {
-		const {status, statusText}: Response = await fetch(`${urlServer}/api/auth-check`, {
+		const response: Response = await fetch(`${urlServer}/api/user`, {
 			credentials: 'include',
 			headers: {
 				Origin: API_URL,
@@ -15,14 +16,16 @@ export const checkAuth = async () => {
 				Cookie: cookie.reduce((acc, item) => (acc += `${item.name}=${item.value};`), ''),
 			},
 		});
+
+		const {data} = await response.json();
+
 		return {
-			status,
-			statusText
+			data
 		}
 	} catch(err) {
 		return {
 			error: {
-				message: 'не удалось выполнить запрос [auth-check]: ' + (err as Error).message,
+				message: 'не удалось выполнить запрос [user]: ' + (err as Error).message,
 				status: 'error'
 			}
 		}

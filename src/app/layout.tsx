@@ -1,7 +1,8 @@
-import type { Metadata, Viewport } from 'next';
+import type {Metadata, Viewport} from 'next';
 import React from 'react';
-import { Montserrat } from 'next/font/google';
+import {Montserrat} from 'next/font/google';
 import '@assets/styles/styles.scss';
+import StoreProvider from "@/app/StoreProvider";
 
 export const metadata: Metadata = {
 	title: 'Монетикум | Главная',
@@ -23,10 +24,15 @@ const montserrat = Montserrat({
 	variable: '--font-montserrat',
 });
 
-export default async function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default async function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
+
 	return (
 		<html lang="ru">
-			<body className={`${montserrat.variable} font-sans`}>{children}</body>
+			<body className={`${montserrat.variable} font-sans`}>
+				<StoreProvider>
+					{children}
+				</StoreProvider>
+			</body>
 		</html>
 	);
 }

@@ -26,13 +26,8 @@ import {TriangleAlert} from 'lucide-react';
 import {register} from '@/shared/api/auth/actions';
 import './FormRegistration.scss';
 
-interface IFormRegistration {
-	redirect?: string;
-}
-
-export const FormRegistration = (props: IFormRegistration) => {
+export const FormRegistration = () => {
 	const styles = classes();
-	const {redirect} = props;
 	const router = useRouter();
 
 	const form = useForm<TypeRegistration>({
@@ -49,9 +44,7 @@ export const FormRegistration = (props: IFormRegistration) => {
 
 	async function onSubmit(values: TypeRegistration) {
 		await register(values);
-		if (redirect) {
-			router.push(redirect);
-		}
+		router.push('settings/profile');
 	}
 
 	useEffect(() => {
@@ -63,8 +56,8 @@ export const FormRegistration = (props: IFormRegistration) => {
 	return (
 		<section className={styles.block}>
 			<Heading
-				data={{ text: 'Регистрация', tag: 'h1' }}
-				cn={{ color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2' }}
+				data={{text: 'Регистрация', tag: 'h1'}}
+				cn={{color: 'text-primary-blue', margin: 'mb-[42px]', size: 'h2'}}
 				className={'text-center'}
 			/>
 			<Form {...form}>
@@ -72,20 +65,21 @@ export const FormRegistration = (props: IFormRegistration) => {
 					<FormField
 						control={form.control}
 						name="name"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem>
 								<FormLabel>Имя</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите имя" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+										<Input placeholder="Введите имя" {...field} autoComplete={'off'}
+										       disabled={!!form?.formState?.isSubmitting}/>
 									</FormControl>
 									{errors && errors.name && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -96,20 +90,21 @@ export const FormRegistration = (props: IFormRegistration) => {
 					<FormField
 						control={form.control}
 						name="phone"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem>
 								<FormLabel>Телефон</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input placeholder="Введите телефон" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+										<Input placeholder="Введите телефон" {...field} autoComplete={'off'}
+										       disabled={!!form?.formState?.isSubmitting}/>
 									</FormControl>
 									{errors && errors.phone && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -120,20 +115,21 @@ export const FormRegistration = (props: IFormRegistration) => {
 					<FormField
 						control={form.control}
 						name="email"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem>
 								<FormLabel>Email</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'}
+										       disabled={!!form?.formState?.isSubmitting}/>
 									</FormControl>
 									{errors && errors.email && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -144,20 +140,21 @@ export const FormRegistration = (props: IFormRegistration) => {
 					<FormField
 						control={form.control}
 						name="password"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem>
 								<FormLabel>Пароль</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+										<Input type={'password'} placeholder="Введите пароль" {...field} autoComplete={'off'}
+										       disabled={!!form?.formState?.isSubmitting}/>
 									</FormControl>
 									{errors && errors.password && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -168,20 +165,21 @@ export const FormRegistration = (props: IFormRegistration) => {
 					<FormField
 						control={form.control}
 						name="password_confirmation"
-						render={({ field }) => (
+						render={({field}) => (
 							<FormItem>
 								<FormLabel>Повторите пароль</FormLabel>
 								<div className={'flex items-center gap-x-2'}>
 									<FormControl>
-										<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+										<Input type={'password'} placeholder="Повторите пароль" {...field} autoComplete={'off'}
+										       disabled={!!form?.formState?.isSubmitting}/>
 									</FormControl>
 									{errors && errors.password_confirmation && (
 										<Popover>
 											<PopoverTrigger>
-												<TriangleAlert className={'text-primary-red'} />
+												<TriangleAlert className={'text-primary-red'}/>
 											</PopoverTrigger>
 											<PopoverContent>
-												<FormMessage />
+												<FormMessage/>
 											</PopoverContent>
 										</Popover>
 									)}
@@ -190,10 +188,10 @@ export const FormRegistration = (props: IFormRegistration) => {
 						)}
 					/>
 					<div className={useClassName(styles.elementLogin, 'flex items-center justify-center gap-x-1')}>
-						<Text data={{ text: 'Есть аккаунт? ', tag: 'span' }} cn={{ size: 'text-body-2' }} />
+						<Text data={{text: 'Есть аккаунт? ', tag: 'span'}} cn={{size: 'text-body-2'}}/>
 						<Button asChild variant={'link'}>
 							<Link href={'/login'}>
-								<Text data={{ text: 'Войти', tag: 'span' }} cn={{ size: 'text-body-2' }} />
+								<Text data={{text: 'Войти', tag: 'span'}} cn={{size: 'text-body-2'}}/>
 							</Link>
 						</Button>
 					</div>

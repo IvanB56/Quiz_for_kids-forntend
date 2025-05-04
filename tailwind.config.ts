@@ -50,6 +50,9 @@ export default {
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)',
 			},
+			borderColor: {
+				'cyan-light': 'hsla(193, 36%, 83%, 1)'
+			},
 			boxShadow: {
 				dark: '-10px 10px 20px hsla(9, 14%, 18%, 0.47)',
 			},

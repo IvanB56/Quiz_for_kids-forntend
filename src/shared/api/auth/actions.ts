@@ -19,6 +19,8 @@ export async function register(body: TypeRegistration, url:string = 'auth/regist
 export async function login(body: TypeLogin) {
 	await api.setCSRF();
 
+	console.log(API_URL)
+
 	return await api.post(`${API_URL}/auth/login`, {
 		headers: {
 			'Accept': 'application/json',

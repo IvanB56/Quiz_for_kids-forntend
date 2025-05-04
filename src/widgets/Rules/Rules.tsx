@@ -1,0 +1,17 @@
+import React from 'react';
+import classes from './Rules.cn';
+import './Rules.scss';
+import {Heading, SectionWhite, Text} from "@components";
+import rules_text from './rules.json';
+
+export const Rules = () => {
+	const styles = classes();
+	const {texts} = rules_text;
+
+	return (
+		<SectionWhite className={styles.block}>
+			<Heading data={{text: 'Правило пользования приложением ', tag: 'h3'}} cn={{align: 'text-center'}} />
+			{texts?.map((text, inx) => <Text data={{text, tag: 'p'}} key={inx}/>)}
+		</SectionWhite>
+	);
+};

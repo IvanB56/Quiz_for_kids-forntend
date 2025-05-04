@@ -49,12 +49,6 @@ class ApiController {
 
 		return Promise.resolve(csrfToken);
 	}
-
-	async getUser() {
-		return await this.get(`${API_URL}/api/user`, {
-			credentials: 'include',
-		});
-	}
 }
 
 export const api = new ApiController(API_URL);

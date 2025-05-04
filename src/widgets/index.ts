@@ -9,3 +9,4 @@ export * from './SettingsAside/SettingsAside';
 export * from './SettingsForms/SettingsForms';
 export * from './ProfileAside/ProfileAside';
 export * from './ProfileHeading/ProfileHeading';
+export * from './Rules/Rules';
