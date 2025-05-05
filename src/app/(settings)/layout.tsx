@@ -2,8 +2,8 @@ import React from 'react';
 import {HeaderGuest, SettingsAside} from "@widgets";
 import {Heading, Text} from "@components";
 import {redirect} from 'next/navigation';
-import {checkAuth} from "@/features/auth/checkAuth";
-import '../../assets/styles/settings.styles.scss';
+import {checkAuth} from "@features";
+import '@assets/styles/settings.styles.scss';
 
 export default async function SettingsLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();

@@ -44,7 +44,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 				<div className={'flex'}>
 					<ProfileAside pagesLink={pagesLink}/>
 					<ProfileChildProvider>
-						<div className={'flex flex-col w-full gap-[60px] p-[60px]'}>
+						<div className={'flex flex-col w-full gap-[60px] p-[60px] h-[100dvh] overflow-auto'}>
 							{children}
 						</div>
 					</ProfileChildProvider>

@@ -2,36 +2,42 @@
 @use 'function' as *;
 
 @mixin fluid-text($max: 48, $min: 16) {
-	font-size: fluid($max, $min);
+  font-size: fluid($max, $min);
 }
 
 @mixin hide {
-	opacity: 0;
-	visibility: hidden;
+  opacity: 0;
+  visibility: hidden;
 }
 
 @mixin show {
-	opacity: 1;
-	visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 @mixin flex-center($isInline: false) {
-	@if $isInline {
-		display: inline-flex;
-	} @else  {
-		display: flex;
-	}
+  @if $isInline {
+    display: inline-flex;
+  } @else {
+    display: flex;
+  }
 
-	justify-content: center;
-	align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 @mixin mobile-hover-link {
-	@include mobile {
-		padding-inline: 20px;
+  @include mobile {
+    padding-inline: 20px;
 
-		&:hover {
-			background: linear-gradient(0deg, #2B788BB2 70%, #A9C8D08A 54%, #F9FBFB00 0);
-		}
-	}
+    &:hover {
+      background: linear-gradient(0deg, #2B788BB2 70%, #A9C8D08A 54%, #F9FBFB00 0);
+    }
+  }
+}
+
+@mixin white-section {
+  padding: 60px;
+
+  @apply bg-white rounded-14 shadow-dark;
 }

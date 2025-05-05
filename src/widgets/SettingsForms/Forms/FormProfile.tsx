@@ -18,20 +18,20 @@ import {
 	PopoverTrigger
 } from "@components";
 import {classes} from '../SettingsForm.cn';
-import {IUser} from "../../../../types";
+import {UserState} from "@lib/store/features/user/UserSlice";
 
-export const FormProfile = (props: { user?: IUser }) => {
+export const FormProfile = (props: { user?: UserState }) => {
 	const styles = classes();
-	const user = props?.user?.data;
+	const {user} = props;
 
 	const form = useForm<TypeProfile>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			surname: user?.surname || '',
+			surname: user?.userable.surname || '',
 			name: user?.name || '',
-			patronymic: user?.patronymic || '',
-			birth: user?.birth || '',
-			region: user?.region || ''
+			patronymic: user?.userable.patronymic || '',
+			birth: user?.userable.birthdate || '',
+			region: user?.userable.city || ''
 		},
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);

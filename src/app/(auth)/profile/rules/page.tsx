@@ -1,9 +1,11 @@
-const Rules = () => {
+import {Rules} from "@widgets";
+
+const PageRules = () => {
 	return (
 		<>
-			Page Rules
+			<Rules/>
 		</>
 	);
 }
 
-export default Rules;
+export default PageRules;

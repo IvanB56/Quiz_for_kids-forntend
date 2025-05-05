@@ -1,19 +1,5 @@
-'use client';
-import {getUser} from "@/shared/api/user/getUser";
-import {Text} from "@components";
+import {redirect} from "next/navigation";
 
-const Profile = () => {
-	const {user, isLoading} = getUser();
-
-	if (isLoading) {
-		return <Text data={{text: 'Загрузка данных', tag: 'p'}}/>
-	}
-
-	return (
-		<main>
-			{JSON.stringify(user)}
-		</main>
-	);
+export default function Profile() {
+	redirect('profile/rules');
 }
-
-export default Profile;
