@@ -24,6 +24,9 @@ const SelectTrigger = React.forwardRef<
 			<ChevronDown className={styles.elementIcon}/>
 		</SelectPrimitive.Icon>
 		{children}
+		<SelectPrimitive.Icon asChild>
+			<ChevronDown className="h-4 w-4 opacity-50" />
+		</SelectPrimitive.Icon>
 	</SelectPrimitive.Trigger>
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
@@ -75,7 +78,7 @@ const SelectContent = React.forwardRef<
 		>
 			<SelectScrollUpButton/>
 			<SelectPrimitive.Viewport
-				className={"h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)]"}
+				className={" w-full min-w-[var(--radix-select-trigger-width)]"}
 			>
 				{children}
 			</SelectPrimitive.Viewport>

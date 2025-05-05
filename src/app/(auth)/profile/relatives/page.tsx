@@ -1,33 +1,25 @@
 'use client';
 import React from 'react';
-import {ProfileHeading} from "@widgets";
-import {SectionWhite, Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@components";
+import {FormRelatives, ProfileHeading, TableRelative} from "@widgets";
+import {Heading, SectionWhite,} from "@components";
 
 const Relatives = () => {
-	// const [selectedOption, setSelectedOption] = useState('');
-
-
 	return (
 		<>
 			<ProfileHeading title={"Родственники"}/>
-			<SectionWhite>
-				<Select>
-					<SelectTrigger>
-						<SelectValue placeholder="Выберете из списка" />
-					</SelectTrigger>
-					<SelectContent>
-						<SelectItem value="father">Отец</SelectItem>
-						<SelectItem value="mother">Мать</SelectItem>
-						<SelectItem value="grandmother">Бабушка</SelectItem>
-						<SelectItem value="grandfather">Дедушка</SelectItem>
-						<SelectItem value="sister">Сестра</SelectItem>
-						<SelectItem value="brother">Брат</SelectItem>
-					</SelectContent>
-				</Select>
+			<SectionWhite overflow={'overflow-visible'}>
+				<Heading
+					data={{text: 'Кого добавим?', tag: 'h4'}}
+					cn={{margin: 'mb-[42px]'}}
+				/>
+				<FormRelatives/>
+			</SectionWhite>
+			<SectionWhite overflow={'overflow-visible'}>
+				<Heading data={{text: 'Уже с нами', tag: 'h4'}} cn={{margin: 'mb-[42px]'}}/>
+				<TableRelative />
 			</SectionWhite>
 		</>
-	)
-		;
+	);
 };
 
 export default Relatives;

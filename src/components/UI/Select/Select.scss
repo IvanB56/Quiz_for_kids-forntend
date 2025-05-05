@@ -7,7 +7,7 @@
   justify-content: flex-start;
   column-gap: 16px;
   padding: rem(15) rem(18);
-  min-width: rem(260);
+  min-width: rem(300);
 
   @apply rounded-100 bg-cyan-light text-white text-xl;
 
@@ -29,6 +29,7 @@
 
   &__options {
     border: rem(2) solid;
+    max-height: rem(250);
 
     @apply bg-white rounded-14 rounded-tl-14 rounded-tr-14 border-cyan-light;
   }

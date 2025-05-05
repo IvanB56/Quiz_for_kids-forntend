@@ -9,3 +9,4 @@ export * from './Form/form';
 export * from './Popover/popover';
 export * from './Switch/Switch';
 export * from './Select/Select';
+export * from './Table/Table';

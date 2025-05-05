@@ -38,8 +38,6 @@
 
 @mixin white-section {
   padding: 60px;
-  max-height: 100%;
-  overflow: auto;
 
   @apply bg-white rounded-14 shadow-dark;
 }

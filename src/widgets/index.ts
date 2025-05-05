@@ -10,3 +10,5 @@ export * from './SettingsForms/SettingsForms';
 export * from './ProfileAside/ProfileAside';
 export * from './ProfileHeading/ProfileHeading';
 export * from './Rules/Rules';
+export * from './FormRelatives/FormRelatives';
+export * from './TableReletive/TableRelative';
