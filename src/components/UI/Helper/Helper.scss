@@ -1,0 +1,13 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.helper {
+	display: flex;
+	flex-direction: column;
+	row-gap: rem(8);
+	padding: 40px;
+	text-align: center;
+	max-width: 600px;
+	
+	@apply bg-cyan-light text-white rounded-14;
+}

@@ -1,0 +1,10 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.card-white {
+  display: flex;
+  flex-direction: column;
+  padding: rem(20);
+
+  @apply bg-white shadow-dark rounded-14;
+}
