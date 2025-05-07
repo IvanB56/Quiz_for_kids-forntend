@@ -10,6 +10,7 @@ type ThemesCardProps = {
 		id: number,
 		name: string,
 		description: string,
+		isActive: boolean,
 		picture: {
 			url: string,
 			alt: string
@@ -32,7 +33,6 @@ export const ThemeCards = ({themes}: ThemesCardProps) => {
 							<Button className={styles.elementCardButton}>Выбрать</Button>
 						</>
 					}
-					className={}
 					/>
 				)
 			}
