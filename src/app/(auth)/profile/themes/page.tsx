@@ -60,7 +60,7 @@ const Themes = () => {
 					<Button onClick={() => themeChangedHandler('auto')}>Выбрать </Button>
 				</div>
 			</SectionWhite>
-			{showThemes && <ThemeCards themes={themesChanged} mode={selectionMode}/>}
+			{showThemes && <ThemeCards key={String(selectionMode)} themes={themesChanged} mode={selectionMode}/>}
 		</>
 	);
 }

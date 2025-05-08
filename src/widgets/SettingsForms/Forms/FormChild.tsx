@@ -57,7 +57,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Имя</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input placeholder="Введите имя" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input placeholder="Введите имя ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 								</FormControl>
 								{errors && errors.name && (
 									<Popover>
@@ -81,7 +81,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Телефон</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input placeholder="Введите телефон" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input placeholder="Введите телефон ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 								</FormControl>
 								{errors && errors.phone && (
 									<Popover>
@@ -105,7 +105,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Email</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input type={'email'} placeholder="Введите email ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 								</FormControl>
 								{errors && errors.email && (
 									<Popover>
