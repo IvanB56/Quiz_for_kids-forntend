@@ -3,6 +3,7 @@ import {redirect} from "next/navigation";
 import ProfileChildProvider from "@/shared/providers/ProfileChildProvider";
 import {checkAuth} from "@/features/auth/checkAuth";
 import {ProfileAside} from "@widgets";
+import {Text} from '@components';
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
@@ -38,8 +39,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 
 	return (
 		<>
-			{/*{error?.status === 'error' && (*/}
-			{/*	<Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}*/}
+			{error?.status === 'error' && ( <Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}
 			<main className={'bg-cyan-light'}>
 				<div className={'flex'}>
 					<ProfileAside pagesLink={pagesLink}/>

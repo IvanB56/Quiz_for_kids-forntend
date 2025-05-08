@@ -1,36 +1,39 @@
 'use client';
-import React, {useState} from "react";
+import React, {useCallback, useState} from "react";
 import {ProfileHeading, ThemeCards} from "@widgets";
 import {Button, SectionWhite, Text} from "@components";
 
-import themes from "@/app/(auth)/profile/themes/store/Thems";
+import themes from "./store/Thems";
 
 const Themes = () => {
-	const [themesChanged, setThemesChanged] = useState({});
-	const [showThemes, setShowThemes] = useState(false);
+	const [themesChanged, setThemesChanged] = useState<typeof themes>([] satisfies typeof themes);
+	const [showThemes, setShowThemes] = useState<boolean>(false);
+	const [selectionMode, setSelectionMode] = useState<'auto' | 'hand' | null>(null);
 
 	const changeAutoThemes = () => {
 		const set = new Set();
 
 		while (set.size < 6) {
-			const rand = Math.round(Math.random() * 9);
+			const rand = Math.round(Math.random() * 8 + 1);
 			set.add(rand);
 		}
 
-		const th = [...themes].filter(item => set.has(item.id));
-		th.forEach(item => item.isActive = true);
+		const th = [...themes].reduce<typeof themes>((acc, item) => {
+			if (set.has(item.id)) {
+				acc.push({...item, picture: {...item.picture}, isActive: true});
+			}
 
-		setThemesChanged(() => {
-			return th;
-		});
+			return acc;
+		}, []);
 
-
-		console.log(th)
+		setSelectionMode('auto');
+		setThemesChanged(th);
 	}
 
-	const changeThemes = () => {
-		console.log('hand')
-	}
+	const changeThemes = useCallback(() => {
+		setSelectionMode('hand')
+		setThemesChanged([...themes]);
+	}, []);
 
 	const themeChangedHandler = (type: 'auto' | 'hand') => {
 		setShowThemes(true);
@@ -57,7 +60,7 @@ const Themes = () => {
 					<Button onClick={() => themeChangedHandler('auto')}>Выбрать </Button>
 				</div>
 			</SectionWhite>
-			{showThemes && <ThemeCards themes={themes}/>}
+			{showThemes && <ThemeCards themes={themesChanged} mode={selectionMode}/>}
 		</>
 	);
 }

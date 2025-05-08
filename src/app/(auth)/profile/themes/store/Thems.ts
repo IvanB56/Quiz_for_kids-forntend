@@ -1,7 +1,7 @@
 const themes = [
 	{
 		id: 1,
-		name: 'алгебра',
+		name: 'алгебра1',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -11,7 +11,7 @@ const themes = [
 	},
 	{
 		id: 2,
-		name: 'алгебра',
+		name: 'алгебра2',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -21,7 +21,7 @@ const themes = [
 	},
 	{
 		id: 3,
-		name: 'алгебра',
+		name: 'алгебра3',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -31,7 +31,7 @@ const themes = [
 	},
 	{
 		id: 4,
-		name: 'алгебра',
+		name: 'алгебра4',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -41,7 +41,7 @@ const themes = [
 	},
 	{
 		id: 5,
-		name: 'алгебра',
+		name: 'алгебра5',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -51,7 +51,7 @@ const themes = [
 	},
 	{
 		id: 6,
-		name: 'алгебра',
+		name: 'алгебра6',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -61,7 +61,7 @@ const themes = [
 	},
 	{
 		id: 7,
-		name: 'алгебра',
+		name: 'алгебра7',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -71,7 +71,7 @@ const themes = [
 	},
 	{
 		id: 8,
-		name: 'алгебра',
+		name: 'алгебра8',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {
@@ -81,7 +81,7 @@ const themes = [
 	},
 	{
 		id: 9,
-		name: 'алгебра',
+		name: 'алгебра9',
 		description: 'программа алгебры за 6 класс',
 		isActive: false,
 		picture: {

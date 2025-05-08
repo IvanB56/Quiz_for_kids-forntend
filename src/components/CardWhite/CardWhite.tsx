@@ -1,17 +1,20 @@
-import React, {ReactNode} from 'react';
+'use client';
+import React, {Dispatch, ReactNode, SetStateAction, useState} from 'react';
 import classes from './CardWhite.cn';
 import './CardWhite.scss';
 
 type CardWhiteProps = {
-	cardsRender: () => ReactNode;
+	cardsRenderAction: (isActive: boolean, setIsActive: Dispatch<SetStateAction<boolean>>) => ReactNode;
+	isActive?: boolean;
 }
 
-export const CardWhite = ({cardsRender}: CardWhiteProps) => {
+export const CardWhite = ({cardsRenderAction, isActive}: CardWhiteProps) => {
 	const styles = classes();
+	const [cardActive, setCardActive] = useState<boolean>(isActive || false)
 
 	return (
 		<div className={styles.block}>
-			{ cardsRender() }
+			{ cardsRenderAction(cardActive, setCardActive) }
 		</div>
 	);
 };
