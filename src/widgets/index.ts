@@ -12,3 +12,4 @@ export * from './ProfileHeading/ProfileHeading';
 export * from './Rules/Rules';
 export * from './FormRelatives/FormRelatives';
 export * from './TableReletive/TableRelative';
+export * from './ThemeCards/ThemeCards';

@@ -1,9 +1,12 @@
 import {Rules} from "@widgets";
+import {SectionWhite} from "@components";
 
 const PageRules = () => {
 	return (
 		<>
-			<Rules/>
+			<SectionWhite overflow='overflow-visible'>
+				<Rules/>
+			</SectionWhite>
 		</>
 	);
 }
