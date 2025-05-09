@@ -10,7 +10,7 @@ export const Rules = () => {
 
 	return (
 		<div className={styles.block}>
-			<Heading data={{text: 'Правило пользования приложением ', tag: 'h3'}} cn={{align: 'text-center'}} />
+			<Heading data={{text: 'Правила пользования приложением ', tag: 'h3'}} cn={{align: 'text-center'}} />
 			{texts?.map((text, inx) => <Text data={{text, tag: 'p'}} key={inx}/>)}
 		</div>
 	);

@@ -1,0 +1,28 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.textarea {
+  @apply flex;
+  @apply w-full;
+  @apply rounded-20;
+  @apply border-none;
+  @apply bg-secondary-blue;
+  @apply py-3;
+  @apply px-6;
+  @apply text-2xl max-xl:text-xl;
+  @apply text-primary-blue;
+  @apply font-semibold;
+  @apply transition-colors;
+  @apply placeholder:text-gray-100;
+  @apply focus-visible:outline-none;
+  @apply disabled:cursor-not-allowed;
+  @apply disabled:opacity-50;
+
+  @include tablet {
+    @apply text-xl px-6 py-3;
+  }
+
+  @include mobile {
+    @apply max-w-full;
+  }
+}

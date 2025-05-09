@@ -1,0 +1,26 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.form-home-task {
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: rem(40);
+	}
+
+	&__input,
+	&__textarea {
+		font-size: rem(18);
+	}
+
+	&__field {
+		position: relative;
+		flex: 1 0 auto;
+	}
+
+	&__error {
+		position: absolute;
+		left: rem(20);
+		bottom: rem(-20);
+	}
+}
