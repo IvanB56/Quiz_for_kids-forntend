@@ -20,7 +20,7 @@ import {
 import {classes} from '../SettingsForm.cn';
 import {UserState} from "@lib/store/features/user/UserSlice";
 
-export const FormProfile = (props: { user?: UserState }) => {
+export const FormProfile = (props: { user?: UserState['data'] }) => {
 	const styles = classes();
 	const {user} = props;
 

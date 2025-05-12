@@ -2,7 +2,7 @@ import {TypeLogin, TypeRegistration} from '@/features/auth/schemas';
 import {API_URL} from '@/shared/constants';
 import {api} from '@/shared/api/auth/api-controller';
 
-export async function register(body: TypeRegistration, url:string = 'auth/register') {
+export async function register(body: TypeRegistration, url: string = 'auth/register') {
 	await api.setCSRF();
 
 	return await api.post(`${API_URL}/${url}`, {

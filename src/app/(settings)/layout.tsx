@@ -4,6 +4,7 @@ import {Heading, Text} from "@components";
 import {redirect} from 'next/navigation';
 import {checkAuth} from "@features";
 import '@assets/styles/settings.styles.scss';
+import ProfileSettingsProvider from "@/shared/providers/ProfileSettingsProvider";
 
 export default async function SettingsLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
@@ -23,7 +24,7 @@ export default async function SettingsLayout({children}: { children: React.React
 	}
 
 	return (
-		<>
+		<ProfileSettingsProvider>
 			{error?.status === 'error' && (
 				<Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}
 			<HeaderGuest cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}} data={{page: 'settings'}}/>
@@ -34,6 +35,6 @@ export default async function SettingsLayout({children}: { children: React.React
 					{children}
 				</div>
 			</main>
-		</>
+		</ProfileSettingsProvider>
 	);
 }

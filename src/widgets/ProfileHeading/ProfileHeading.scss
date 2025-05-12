@@ -1,3 +1,6 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
 .profile-heading {
   display: flex;
   align-items: center;
@@ -24,6 +27,27 @@
   &__bank {
     padding: 6px;
     text-align: center;
+  }
+
+  &__images {
+    display: flex;
+    align-items: center;
+    margin-left: rem(20);
+
+    button {
+      flex: 1 0 rem(80);
+      aspect-ratio: 1;
+      z-index: 1;
+
+      &:not(:first-of-type) {
+        margin-left: rem(-20);
+        z-index: 0;
+      }
+
+      &:hover {
+        z-index: 5;
+      }
+    }
   }
 
   &__earned {
