@@ -2,25 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --radius: 0.5rem;
+  --hrader-height: 4.313rem;
+}
 
 html {
-	@apply h-dvh;
+  @apply h-dvh;
 }
 
 body {
-	scroll-behavior: smooth;
-	scrollbar-gutter: stable;
-	@apply h-dvh;
-	@apply flex;
-	@apply flex-col;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+
+  @apply h-dvh;
+  @apply flex;
+  @apply flex-col;
+}
+
+img, a {
+  user-select: none;
 }
 
 main {
-	@apply grow;
-}
-
-@layer base {
-	:root {
-		--radius: 0.5rem;
-	}
+  @apply grow;
 }

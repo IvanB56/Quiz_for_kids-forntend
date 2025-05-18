@@ -1,11 +1,12 @@
 import {configureStore} from '@reduxjs/toolkit'
-import {UserChildReducer, UserReducer} from "@lib/store/features/user";
+import {RegionsReducer, UserChildReducer, UserReducer} from "@lib/store/features/user";
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
 			user: UserReducer,
-			profileChild: UserChildReducer
+			profileChild: UserChildReducer,
+			regions: RegionsReducer
 		}
 	})
 }

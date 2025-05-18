@@ -5,6 +5,8 @@
   $self: &;
 
   &__form {
+    row-gap: rem(20);
+
     @apply w-[470px] flex flex-col max-w-full;
 
     @include tablet {
@@ -32,6 +34,18 @@
       align-self: end;
       width: 100%;
     }
+  }
+
+  &__field {
+    position: relative;
+    flex: 1 0 auto;
+    //margin-bottom: rem(28);
+  }
+
+  &__error {
+    position: absolute;
+    left: rem(20);
+    bottom: rem(-20);
   }
 
   @include tablet {

@@ -18,7 +18,9 @@ export const ProfileHeading = ({title}: { title: string }) => {
 	const [activeChild, setActiveChild] = useState<typeof data[0] | null>(null);
 
 	useEffect(() => {
-		dispatch(setActiveChildId(data[0].id));
+		if (data.length) {
+			dispatch(setActiveChildId(data[0].id));
+		}
 	}, [data, dispatch]);
 
 	useEffect(() => {

@@ -27,11 +27,11 @@ export const FormProfile = (props: { user?: UserState['data'] }) => {
 	const form = useForm<TypeProfile>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			surname: user?.userable.surname || '',
+			surname: user?.surname || '',
 			name: user?.name || '',
-			patronymic: user?.userable.patronymic || '',
-			birth: user?.userable.birthdate || '',
-			region: user?.userable.city || ''
+			patronymic: user?.patronymic || '',
+			birth: user?.birthdate || '',
+			region: user?.city || ''
 		},
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);

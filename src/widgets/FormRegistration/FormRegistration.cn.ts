@@ -1,4 +1,4 @@
-import { CN } from '@lib/ClassBem';
+import {CN} from '@lib/ClassBem';
 
 export function classes() {
 	const BLOCK = CN('registration');
@@ -8,5 +8,7 @@ export function classes() {
 		elementForm: BLOCK('form'),
 		elementLogin: BLOCK('login'),
 		elementSubmit: BLOCK('submit'),
+		elementField: BLOCK('field'),
+		elementError: BLOCK('error')
 	};
 }

@@ -12,6 +12,7 @@ const buttonVariants = cva(
 				default: 'button_default',
 				light: 'button_light',
 				link: 'button_link',
+				input: 'button_input'
 			},
 			size: {
 				default: '',

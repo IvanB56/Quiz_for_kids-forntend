@@ -9,13 +9,11 @@ export interface UserState {
 		email: string,
 		phone: string,
 		name: string,
-		userable: {
-			surname: string,
-			patronymic: string,
-			city: string,
-			birthdate: string,
-			type: 'Sponsor' | 'Student'
-		}
+		surname: string,
+		patronymic: string,
+		city: string,
+		birthdate: string,
+		type: 'Sponsor' | 'Student'
 	}
 }
 
@@ -27,13 +25,11 @@ const initialState: UserState = {
 		email: '',
 		phone: '',
 		name: '',
-		userable: {
-			surname: '',
-			patronymic: '',
-			city: '',
-			birthdate: '',
-			type: 'Sponsor'
-		}
+		surname: '',
+		patronymic: '',
+		city: '',
+		birthdate: '',
+		type: 'Sponsor'
 	}
 };
 

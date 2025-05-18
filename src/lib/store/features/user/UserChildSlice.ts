@@ -1,12 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit'
 import {API_URL} from "@/shared/constants";
 
-type TypeImages = {
-	image: {
-		img?: string;
-		alt?: string;
-	}[]
-};
 export type UserChildState = {
 	loading: boolean;
 	error?: string;

@@ -19,7 +19,7 @@ import {
 } from "@components";
 import {TriangleAlert} from "lucide-react";
 import {useClassName} from "@hooks";
-import {register} from "@/shared/api/auth/actions";
+import {register} from "@/shared/api/user/actions";
 
 export const FormChild = () => {
 	const styles = classes();
