@@ -1,11 +1,13 @@
 'use client';
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {ProfileHeading, ThemeCards} from "@widgets";
 import {Button, SectionWhite, Text} from "@components";
-
-import themes from "./store/Thems";
+import {useAppDispatch, useAppSelector} from "@lib/store/hooks";
+import {fetchQuiz} from "@lib/store/features/quiz/QuizSlice";
 
 const Themes = () => {
+	const {data: themes} = useAppSelector(state => state.quiz);
+	const dispatch = useAppDispatch();
 	const [themesChanged, setThemesChanged] = useState<typeof themes>([] satisfies typeof themes);
 	const [showThemes, setShowThemes] = useState<boolean>(false);
 	const [selectionMode, setSelectionMode] = useState<'auto' | 'hand' | null>(null);
@@ -13,14 +15,14 @@ const Themes = () => {
 	const changeAutoThemes = () => {
 		const set = new Set();
 
-		while (set.size < 6) {
-			const rand = Math.round(Math.random() * 8 + 1);
+		while (set.size < Math.min(6, themes.length)) {
+			const rand = Math.round(Math.random() * Math.min(8, themes.length - 1) + 1);
 			set.add(rand);
 		}
 
-		const th = [...themes].reduce<typeof themes>((acc, item) => {
-			if (set.has(item.id)) {
-				acc.push({...item, picture: {...item.picture}, isActive: true});
+		const th = [...themes].reduce<typeof themes>((acc, item, index) => {
+			if (set.has(index)) {
+				acc.push({...item, isActive: true});
 			}
 
 			return acc;
@@ -33,7 +35,7 @@ const Themes = () => {
 	const changeThemes = useCallback(() => {
 		setSelectionMode('hand')
 		setThemesChanged([...themes]);
-	}, []);
+	}, [themes]);
 
 	const themeChangedHandler = (type: 'auto' | 'hand') => {
 		setShowThemes(true);
@@ -46,6 +48,10 @@ const Themes = () => {
 				break;
 		}
 	}
+
+	useEffect(() => {
+		dispatch(fetchQuiz());
+	}, [dispatch]);
 
 	return (
 		<>
