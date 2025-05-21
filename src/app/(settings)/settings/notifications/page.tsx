@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import {SettingsForms} from "@widgets";
 import {Text} from "@components";
