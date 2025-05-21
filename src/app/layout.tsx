@@ -3,6 +3,7 @@ import React from 'react';
 import {Montserrat} from 'next/font/google';
 import '@assets/styles/styles.scss';
 import StoreProvider from "@/app/StoreProvider";
+import {Toaster} from "@components";
 
 export const metadata: Metadata = {
 	title: 'Монетикум | Главная',
@@ -30,6 +31,7 @@ export default async function RootLayout({children}: Readonly<{ children: React.
 			<body className={`${montserrat.variable} font-sans`}>
 				<StoreProvider>
 					{children}
+					<Toaster />
 				</StoreProvider>
 			</body>
 		</html>

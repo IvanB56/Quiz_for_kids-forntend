@@ -15,7 +15,7 @@ export const SwitchWithHelper = ({helpers, title, state, slug}: SwitchWithHelper
 
 	const clickHandler = () => {
 		setSwitchState(prev => prev === 'on' ? 'off' : 'on');
-		setDifficultyLevels({levels: slug}).then(r => r);
+		setDifficultyLevels({level: slug}).then(r => r);
 	};
 
 	return (
