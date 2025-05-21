@@ -1,6 +1,6 @@
 import React from 'react';
-import {classes} from "@/widgets/TableReletive/TableRelative.cn";
-import {Button, Table, TableBody, TableCell, TableRow} from "@components";
+import {classes} from "./TableHomeTask.cn";
+import {Button, Table, TableBody, TableCell, TableRow, Text} from "@components";
 
 export const TableHomeTask = () => {
 	const styles = classes();
@@ -10,19 +10,28 @@ export const TableHomeTask = () => {
 			<Table>
 				<TableBody>
 					<TableRow>
-						<TableCell className="font-medium">Убраться в комнате</TableCell>
+						<TableCell className="font-medium">
+							<Text data={{text: 'Убраться в комнате:', tag: 'p'}} />
+							<Text data={{text: 'Протереть пыль, полить цветы, прибраться в шкафу, застелить постель ', tag: 'p'}}  cn={{size: 'text-body-3'}} />
+						</TableCell>
 						<TableCell className={'text-right'}>
 							<Button>Повторить</Button>
 						</TableCell>
 					</TableRow>
 					<TableRow>
-						<TableCell className="font-medium">Убраться в комнате</TableCell>
+						<TableCell className="font-medium">
+							<Text data={{text: 'Убраться в комнате:', tag: 'p'}} />
+							<Text data={{text: 'Протереть пыль, полить цветы, прибраться в шкафу, застелить постель ', tag: 'p'}}  cn={{size: 'text-body-3'}} />
+						</TableCell>
 						<TableCell className={'text-right'}>
 							<Button>Повторить</Button>
 						</TableCell>
 					</TableRow>
 					<TableRow>
-						<TableCell className="font-medium">Убраться в комнате</TableCell>
+						<TableCell className="font-medium">
+							<Text data={{text: 'Убраться в комнате:', tag: 'p'}} />
+							<Text data={{text: 'Протереть пыль, полить цветы, прибраться в шкафу, застелить постель ', tag: 'p'}}  cn={{size: 'text-body-3'}} />
+						</TableCell>
 						<TableCell className={'text-right'}>
 							<Button>Повторить</Button>
 						</TableCell>

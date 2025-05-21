@@ -18,7 +18,7 @@ class ApiController {
 
 			return await resp.json();
 		} catch (err: unknown) {
-			throw Error('Ошибка GET запроса [ApiController get]' + err);
+			return {message: 'Ошибка GET запроса [ApiController get]:  ' + err} as T;
 		}
 	}
 
