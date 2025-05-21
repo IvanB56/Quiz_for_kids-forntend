@@ -2,7 +2,7 @@ import {api} from "@/shared/api/api-controller";
 import {API_URL} from "@/shared/constants";
 
 type RequestType = {
-	levels:  'easy' |'hard';
+	level:  'easy' |'hard';
 }
 
 export async function setDifficultyLevels(body: RequestType) {
@@ -21,7 +21,7 @@ export async function setDifficultyLevels(body: RequestType) {
 }
 
 export async function getDifficultyLevels() {
-	return await api.get<{levels: 'easy' | 'hard'}>(`${process.env.API_URL}/api/quiz-difficulty-levels`, {
+	return await api.get<{levels: { slug: 'easy' | 'hard', name: string }[]}>(`${process.env.API_URL}/api/quiz-difficulty-levels`, {
 		headers: {
 			'Accept': 'application/json',
 		},

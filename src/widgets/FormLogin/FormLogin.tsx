@@ -7,10 +7,11 @@ import {classes} from './FormLogin.cn';
 import {Button, Form, FormControl, FormField, FormItem, FormLabel, Heading, Input, Text,} from '@components';
 import {TypeLogin} from '@/features/auth/schemas';
 import {formSchema} from '@/features/auth/schemas/login';
-import {login} from '@/shared/api';
+import {isLoginError, login} from '@/shared/api';
 import Link from 'next/link';
 import './FormLogin.scss';
 import {useClassName} from '@hooks';
+import {toast} from "sonner";
 
 export const FormLogin = () => {
 	const styles = classes();
@@ -26,8 +27,14 @@ export const FormLogin = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
 	async function onSubmit(values: TypeLogin) {
-		await login(values);
-		router.push('/profile');
+		const data = await login(values);
+
+		if (isLoginError(data)) {
+			toast("Ошибка авторизации", {
+				description: data.message
+			})
+		} else {
+			router.push('/profile');}
 	}
 
 	useEffect(() => {

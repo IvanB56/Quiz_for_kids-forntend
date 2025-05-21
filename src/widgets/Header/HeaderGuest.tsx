@@ -1,6 +1,6 @@
 'use client';
 import React, {useState} from 'react';
-import {usePathname} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import Image from 'next/image';
 import {Button} from '@components';
 import logo from '@assets/images/logo.png';
@@ -24,6 +24,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 		{name: 'О нас', href: '/about'},
 	];
 	const menus = data?.page === 'guest' ? [...guestMenu] : [...settingsMenu];
+	const router = useRouter();
 
 	const [isOpen, setIsOpen] = useState(false);
 
@@ -32,6 +33,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 	};
 	const logoutHandler = async () => {
 		await logout();
+		router.push('/');
 	}
 
 	const splitPath: Array<string> = pathname.split('/');
