@@ -20,18 +20,18 @@ import {
 import {classes} from '../SettingsForm.cn';
 import {UserState} from "@lib/store/features/user/UserSlice";
 
-export const FormProfile = (props: { user?: UserState }) => {
+export const FormProfile = (props: { user?: UserState['data'] }) => {
 	const styles = classes();
 	const {user} = props;
 
 	const form = useForm<TypeProfile>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
-			surname: user?.userable.surname || '',
+			surname: user?.surname || '',
 			name: user?.name || '',
-			patronymic: user?.userable.patronymic || '',
-			birth: user?.userable.birthdate || '',
-			region: user?.userable.city || ''
+			patronymic: user?.patronymic || '',
+			birth: user?.birthdate || '',
+			region: user?.city || ''
 		},
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);

@@ -1,0 +1,1 @@
+export type TRegion = Record<'slug' | 'name', string>[];

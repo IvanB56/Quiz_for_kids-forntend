@@ -4,22 +4,33 @@
 .section-registration {
 	@apply flex h-full w-full bg-button-hover overflow-hidden;
 
+	height: calc(100dvh - var(--hrader-height));
+	overflow: hidden;
+
 	@include tablet {
 		flex-direction: column;
 	}
 }
 
+
 .form-wrapper {
 	box-shadow: 5px 15px 15px 10px hsla(9, 14%, 18%, 0.47);
+	padding-block: rem(30);
+
+	height: 100%;
+	overflow-y: auto;
+
 	@apply flex-grow;
-	@apply h-full;
 	@apply basis-2/4;
-	@apply flex;
-	@apply items-center;
-	@apply justify-center;
+	//@apply flex;
+	//@apply justify-center;
 	@apply bg-section-grey;
 	@apply rounded-br-40;
 	@apply rounded-tr-40;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
 	@include tablet {
 		border-radius: 0 0 40px 40px;
@@ -27,12 +38,17 @@
 }
 
 .image-wrapper {
+	max-height: 100%;
+	width: auto;
 	@apply flex-grow ;
-	@apply h-full;
 	@apply basis-2/4;
 	@apply flex;
 	@apply justify-center;
 	@apply items-center;
+
+	img {
+		max-height: 100%;
+	}
 
 	@include tablet {
 		margin-top: 50px;

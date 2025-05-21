@@ -20,7 +20,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {classes} from '../SettingsForm.cn';
 import {UserState} from "@lib/store/features/user/UserSlice";
 
-export const FormEmail = (props: {user?: UserState}) => {
+export const FormEmail = (props: {user?: UserState['data']}) => {
 	const styles = classes();
 	const {user} = props;
 

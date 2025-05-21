@@ -1,10 +1,10 @@
 import React from 'react';
-import { FormRegistration } from '@widgets';
+import {FormRegistration} from '@widgets';
 import Image from 'next/image';
 import bg from '@assets/images/registration/bg.png';
 import './page.scss';
 
-const Registration = async () => {
+const Registration =  () => {
 	return (
 		<section className="section-registration">
 			<div className="form-wrapper">

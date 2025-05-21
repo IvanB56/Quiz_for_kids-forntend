@@ -9,12 +9,15 @@ import {TypeHeaderGuest} from './types/HeaderGuest.type';
 import Link from 'next/link';
 import {LogIn, LogOut, Menu, UserRoundPlus, X} from 'lucide-react';
 import './styles/HeaderGuest.scss';
+import {logout} from "@/shared/api";
 
 export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 	const pathname = usePathname();
 	const styles = classes(cn);
 	const settingsMenu = [
-		{name: 'Помощь', href: '/help'}
+		{name: 'Помощь', href: '/help'},
+		{name: 'Профиль', href: '/profile'},
+		{name: 'Настройки профиля', href: '/settings'}
 	];
 	const guestMenu = [
 		{name: 'Главная', href: '/'},
@@ -27,9 +30,11 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 	const burgerHandler = () => {
 		setIsOpen((prev) => !prev);
 	};
-	const logoutHandler = () => {
-		console.log('logout')
+	const logoutHandler = async () => {
+		await logout();
 	}
+
+	const splitPath: Array<string> = pathname.split('/');
 
 	return (
 		<header className={styles.block}>
@@ -48,7 +53,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 							className={'font-bold mobile-link'}
 							onClick={() => burgerHandler()}
 						>
-							<Link href={href} className={pathname === href ? 'opacity-50 is-active' : ''}>
+							<Link href={href} className={splitPath[1] === href.slice(1) ? 'opacity-50 is-active' : ''}>
 								{name}
 							</Link>
 						</Button>

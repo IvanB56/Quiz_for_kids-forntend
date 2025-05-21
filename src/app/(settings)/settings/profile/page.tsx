@@ -1,16 +1,17 @@
 'use client';
-import {useGetUserQuery} from "@lib/services/UserService";
 import {SettingsForms} from "@widgets";
 import {Text} from "@components";
+import {useAppSelector} from "@lib/store/hooks";
 
 const ProfilePage = () => {
-	const {data, isLoading} = useGetUserQuery('');
+	const { data, loading } = useAppSelector((state) => state.user);
 
-	if (isLoading) {
+
+	if (loading) {
 		return <Text data={{text: 'Загрузка данных...', tag: 'p' }}/>
 	}
 
-	return <SettingsForms form='profile' user={data?.data}/>;
+	return <SettingsForms form='profile' user={data}/>;
 };
 
 export default ProfilePage;

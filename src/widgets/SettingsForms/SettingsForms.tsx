@@ -10,7 +10,7 @@ import {UserState} from "@lib/store/features/user/UserSlice";
 
 type FormProps = {
 	form: 'profile' | 'email' | 'child' | 'notification' | 'password',
-	user?: UserState
+	user?: UserState['data']
 }
 
 export const SettingsForms = (props: FormProps) => {

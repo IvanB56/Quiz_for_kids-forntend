@@ -1,17 +1,15 @@
 import {configureStore} from '@reduxjs/toolkit'
-import UserSlice from "@lib/store/features/user/UserSlice";
-import {userApi} from "@lib/services/UserService";
-import {childApi} from "@lib/services/ChildService";
+import {RegionsReducer, UserChildReducer, UserReducer} from "@lib/store/features/user";
+import {QuizReducer} from "@lib/store/features/quiz/QuizSlice";
 
 export const makeStore = () => {
 	return configureStore({
 		reducer: {
-			user: UserSlice,
-			[userApi.reducerPath]: userApi.reducer,
-			[childApi.reducerPath]: childApi.reducer
-		},
-		middleware: (getDefaultMiddleware) =>
-			getDefaultMiddleware().concat(userApi.middleware, childApi.middleware),
+			user: UserReducer,
+			profileChild: UserChildReducer,
+			regions: RegionsReducer,
+			quiz: QuizReducer
+		}
 	})
 }
 

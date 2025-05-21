@@ -4,7 +4,6 @@ import {redirect} from 'next/navigation';
 import {checkAuth} from "@/features/auth/checkAuth";
 import {Text} from "@components";
 
-
 export default async function GuestLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
 

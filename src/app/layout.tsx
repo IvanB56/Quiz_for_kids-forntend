@@ -25,7 +25,6 @@ const montserrat = Montserrat({
 });
 
 export default async function RootLayout({children}: Readonly<{ children: React.ReactNode }>) {
-
 	return (
 		<html lang="ru">
 			<body className={`${montserrat.variable} font-sans`}>

@@ -11,3 +11,6 @@ export * from './Switch/Switch';
 export * from './Select/Select';
 export * from './Table/Table';
 export * from './Helper/Helper';
+export * from './Textarea/Textarea';
+export * from './Command/Command';
+export * from './Dialog/Dialog';

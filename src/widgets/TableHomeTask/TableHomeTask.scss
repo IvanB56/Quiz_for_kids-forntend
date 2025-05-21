@@ -1,0 +1,7 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.table-relative {
+	padding: rem(40);
+	@apply bg-cyan-light rounded-14;
+}

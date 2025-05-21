@@ -1,5 +1,5 @@
 'use client';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {classes} from "@/widgets/SettingsForms/SettingsForm.cn";
 import {FieldErrors, useForm} from "react-hook-form";
 import {formSchema, TypeRegistration} from "@/features/auth/schemas/registration";
@@ -19,7 +19,8 @@ import {
 } from "@components";
 import {TriangleAlert} from "lucide-react";
 import {useClassName} from "@hooks";
-import {register} from "@/shared/api/auth/actions";
+import {register} from "@/shared/api/user/actions";
+import IMask from "imask";
 
 export const FormChild = () => {
 	const styles = classes();
@@ -35,6 +36,7 @@ export const FormChild = () => {
 		},
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
+	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
 
 	async function onSubmit(values: TypeRegistration) {
 		await register(values, 'api/student');
@@ -45,6 +47,12 @@ export const FormChild = () => {
 			setErrors(form.formState.errors!);
 		}
 	}, [form.formState.errors]);
+
+	useEffect(() => {
+		if (inputPhoneRef?.current) {
+			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00'})
+		}
+	}, []);
 
 	return (
 		<Form {...form}>
@@ -57,7 +65,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Имя</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input placeholder="Введите имя" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input placeholder="Введите имя ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 								</FormControl>
 								{errors && errors.name && (
 									<Popover>
@@ -81,7 +89,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Телефон</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input placeholder="Введите телефон" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input placeholder="Введите телефон ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} ref={inputPhoneRef} />
 								</FormControl>
 								{errors && errors.phone && (
 									<Popover>
@@ -105,7 +113,7 @@ export const FormChild = () => {
 							<FormLabel className={styles.elementLabel}>Email</FormLabel>
 							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
 								<FormControl>
-									<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
+									<Input type={'email'} placeholder="Введите email ребенка" {...field} autoComplete={'off'} disabled={!!form?.formState?.isSubmitting} />
 								</FormControl>
 								{errors && errors.email && (
 									<Popover>
