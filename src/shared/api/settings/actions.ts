@@ -1,6 +1,5 @@
 import {api} from "@/shared/api/api-controller";
 import {API_URL} from "@/shared/constants";
-import * as process from "node:process";
 
 type RequestType = {
 	levels:  'easy' |'hard';

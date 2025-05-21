@@ -36,7 +36,7 @@ import './FormRegistration.scss';
 import {fetchRegions} from "@lib/store/features/user";
 
 export const FormRegistration = () => {
-	const {data: regions, error, loading} = useAppSelector(state => state.regions);
+	const {data: regions} = useAppSelector(state => state.regions);
 	const dispatch = useAppDispatch();
 	const styles = classes();
 	const router = useRouter();
