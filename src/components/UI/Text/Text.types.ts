@@ -1,4 +1,5 @@
 import type {IChildrenAndClassName} from '@root/global';
+import React from "react";
 
 export interface IText extends IChildrenAndClassName {
 	data: {
@@ -11,4 +12,5 @@ export interface IText extends IChildrenAndClassName {
 		color?: 'text-primary-grey' | 'text-black' | 'text-primary-white' | 'text-primary-red';
 		margin?: string;
 	};
+	ref?: React.RefObject<HTMLParagraphElement | null>
 }

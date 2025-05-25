@@ -1,11 +1,17 @@
 'use client';
 import React, {useEffect, useState} from 'react';
 import {FieldErrors, useForm} from "react-hook-form";
-import {TriangleAlert} from "lucide-react";
+import {Check, ChevronsUpDown, TriangleAlert} from "lucide-react";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {formSchema, TypeProfile} from "@/features/auth/schemas/profile";
 import {
 	Button,
+	Command,
+	CommandEmpty,
+	CommandGroup,
+	CommandInput,
+	CommandItem,
+	CommandList,
 	Form,
 	FormControl,
 	FormField,
@@ -19,6 +25,9 @@ import {
 } from "@components";
 import {classes} from '../SettingsForm.cn';
 import {UserState} from "@lib/store/features/user/UserSlice";
+import {cn} from "@utils";
+import {useAppDispatch, useAppSelector} from "@lib/store/hooks";
+import {fetchRegions} from "@lib/store/features/user";
 
 export const FormProfile = (props: { user?: UserState['data'] }) => {
 	const styles = classes();
@@ -36,6 +45,9 @@ export const FormProfile = (props: { user?: UserState['data'] }) => {
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 
+	const {data: regions} = useAppSelector(state => state.regions);
+	const dispatch = useAppDispatch();
+
 	async function onSubmit(values: TypeProfile) {
 		console.log(values);
 	}
@@ -45,6 +57,10 @@ export const FormProfile = (props: { user?: UserState['data'] }) => {
 			setErrors(form.formState.errors!);
 		}
 	}, [form.formState.errors]);
+
+	useEffect(() => {
+		dispatch(fetchRegions());
+	}, [dispatch]);
 
 	return (
 		<Form {...form}>
@@ -160,12 +176,55 @@ export const FormProfile = (props: { user?: UserState['data'] }) => {
 					render={({field}) => (
 						<FormItem className={styles.elementField}>
 							<FormLabel className={styles.elementLabel}>Регион</FormLabel>
-							<div className={'flex items-center gap-x-2 w-1/2 max-md:w-full'}>
-								<FormControl>
-									<Input type={'text'} placeholder="" {...field} autoComplete={'off'}
-									       className={styles.elementInput}/>
-								</FormControl>
-								{errors && errors.region && (
+							<div className={'flex items-center gap-x-2 w-1/2'}>
+								<Popover>
+									<PopoverTrigger asChild>
+										<FormControl>
+											<Button
+												variant="input"
+												role="combobox"
+												className={cn(!field.value ? "text-gray-100" : 'text-primary-blue')}
+											>
+												{field.value
+													? regions.find(
+														(region) => region.slug === field.value
+													)?.name
+													: "Выберете регион"}
+												<ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50 text-primary-blue"/>
+											</Button>
+										</FormControl>
+									</PopoverTrigger>
+									<PopoverContent className="w-full p-0">
+										<Command>
+											<CommandInput placeholder="Поиск региона..."/>
+											<CommandList>
+												<CommandEmpty>Совпадений не найдено</CommandEmpty>
+												<CommandGroup>
+													{regions.map((region) => (
+														<CommandItem
+															value={region.name.toLowerCase()}
+															key={region.slug}
+															onSelect={() => {
+																form.setValue('region', region.slug.toLowerCase())
+															}}
+														>
+															{region.name}
+															<Check
+																className={cn(
+																	"ml-auto",
+																	region.slug.toLowerCase() === field.value.toLowerCase()
+																		? "opacity-100"
+																		: "opacity-0"
+																)}
+															/>
+														</CommandItem>
+													))}
+												</CommandGroup>
+											</CommandList>
+										</Command>
+									</PopoverContent>
+								</Popover>
+								{errors?.region?.message && (
 									<Popover>
 										<PopoverTrigger>
 											<TriangleAlert className={'text-primary-red'}/>

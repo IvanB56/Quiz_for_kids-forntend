@@ -10,6 +10,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 
 	const pagesLink = [
 		{name: 'Правила пользования', href: '/profile/rules'},
+		{name: 'Добавить ребенка', href: '/settings/child'},
 		{name: 'Добавить родственников', href: '/profile/relatives'},
 		{name: 'Игровой договор с ребенком', href: '/profile/contract'},
 		{
@@ -30,7 +31,9 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 				{name: ' Подобрать психолога, репетитора', href: '/profile/mentors'},
 			]
 		},
-		{name: 'Поддержка разработчика', href: '/profile/support'},
+		{name: 'Новости и обновления', href: '/profile/news'},
+		{name: 'Магазин возможностей', href: '/profile/shop'},
+		{name: 'Настройки профиля', href: '/settings'},
 	];
 
 	if (status === 401 || statusText === 'Unauthorized') {

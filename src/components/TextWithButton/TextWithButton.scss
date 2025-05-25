@@ -1,0 +1,21 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+@import "../../assets/styles/helpers/mixins";
+
+.text-with-button {
+  display: flex;
+  column-gap: rem(60);
+
+  &__text {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    @include flex-center;
+
+    @apply rounded-40 bg-cyan-light text-white;
+  }
+
+  &__button {
+    flex: 0 0 30%;
+  }
+}
