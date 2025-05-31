@@ -10,4 +10,8 @@
 	max-width: 600px;
 	
 	@apply bg-cyan-light text-white rounded-14;
+
+	&_full {
+		max-width: 100%;
+	}
 }

@@ -3,13 +3,14 @@ import {redirect} from "next/navigation";
 import {ProfileChildProvider} from "@shared";
 import {checkAuth} from "@/features/auth/checkAuth";
 import {ProfileAside} from "@widgets";
-import {Text} from "@components";
+import {Text} from '@components';
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
 	const {statusText, status, error} = await checkAuth();
 
 	const pagesLink = [
 		{name: 'Правила пользования', href: '/profile/rules'},
+		{name: 'Добавить ребенка', href: '/settings/child'},
 		{name: 'Добавить родственников', href: '/profile/relatives'},
 		{name: 'Игровой договор с ребенком', href: '/profile/contract'},
 		{
@@ -30,7 +31,9 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 				{name: ' Подобрать психолога, репетитора', href: '/profile/mentors'},
 			]
 		},
-		{name: 'Поддержка разработчика', href: '/profile/support'},
+		{name: 'Новости и обновления', href: '/profile/news'},
+		{name: 'Магазин возможностей', href: '/profile/shop'},
+		{name: 'Настройки профиля', href: '/settings'},
 	];
 
 	if (status === 401 || statusText === 'Unauthorized') {

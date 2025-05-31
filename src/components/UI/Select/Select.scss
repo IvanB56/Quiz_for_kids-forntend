@@ -30,6 +30,7 @@
   &__options {
     border: rem(2) solid;
     max-height: rem(250);
+    z-index: 9999;
 
     @apply bg-white rounded-14 rounded-tl-14 rounded-tr-14 border-cyan-light;
   }

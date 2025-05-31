@@ -5,6 +5,8 @@
 :root {
   --radius: 0.5rem;
   --hrader-height: 4.313rem;
+  --primary-black: hsla(0, 0%, 0%, 1);
+  --secondary-blue: hsla(193, 36%, 83%, 1);
 }
 
 html {
@@ -26,4 +28,8 @@ img, a {
 
 main {
   @apply grow;
+}
+
+img {
+  user-select: none;
 }

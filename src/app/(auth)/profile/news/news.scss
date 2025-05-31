@@ -1,0 +1,34 @@
+@import "../../../../assets/styles/helpers/media";
+@import "../../../../assets/styles/helpers/function";
+
+.news-content {
+  padding-top: rem(40);
+
+  h1, h2, h3, h4 {
+    margin-bottom: rem(20);
+
+    font-weight: 600;
+    font-size: 2.5rem;
+    line-height: 1;
+    letter-spacing: -0.04rem;
+  }
+
+  p, ul {
+    margin-bottom: rem(20);
+
+    font-family: var(--font-montserrat), serif;
+    font-weight: 500;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    letter-spacing: -0.04rem;
+    text-wrap: balance;
+
+    @apply max-lg:text-[1rem];
+    @apply max-sm:text-[0.875rem];
+  }
+
+  ul, ol {
+    list-style-type: inherit;
+    list-style-position: inside;
+  }
+}

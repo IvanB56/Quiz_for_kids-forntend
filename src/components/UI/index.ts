@@ -15,3 +15,4 @@ export * from './Table/Table';
 export * from './Text/Text';
 export * from './Textarea/Textarea';
 export * from './Toast/Toast';
+export * from './RadioGroup/RadioGroup';

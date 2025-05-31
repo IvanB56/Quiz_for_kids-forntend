@@ -1,0 +1,26 @@
+@import "../../../../assets/styles/helpers/media";
+@import "../../../../assets/styles/helpers/function";
+
+.card {
+  display: flex;
+  position: relative;
+  gap: rem(60);
+}
+
+.divider {
+  width: rem(5);
+  flex: 0 0 rem(5);
+  margin-block: rem(-60);
+
+  @apply bg-cyan-light
+}
+
+.buttons {
+  display: flex;
+  gap: rem(30);
+  margin-top: auto;
+
+  * {
+    flex: 1 1 0;
+  }
+}
