@@ -11,6 +11,7 @@ const buttonVariants = cva(
 			variant: {
 				default: 'button_default',
 				light: 'button_light',
+				orange: 'button_orange',
 				link: 'button_link',
 				input: 'button_input'
 			},

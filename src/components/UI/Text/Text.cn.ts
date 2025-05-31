@@ -7,7 +7,7 @@ export default function classes(cn: IText['cn']) {
 			cn?.size) ||
 		'text-body-2';
 	const WEIGHT =
-		(['font-normal', 'font-medium', 'font-semibold', 'font-bold'].includes(cn?.weight || '') && cn?.weight) || '';
+		(['font-normal', 'font-medium', 'font-semibold', 'font-bold'].includes(cn?.weight || '') && cn?.weight) || 'font-semibold';
 
 	return {
 		block: [COLOR, SIZE, WEIGHT, cn?.margin].join(' ').trim().replace('  ', ' '),

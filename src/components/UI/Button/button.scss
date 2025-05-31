@@ -33,6 +33,13 @@
     @apply rounded-100;
   }
 
+  &_orange {
+    @apply text-white;
+    @apply bg-orange;
+    @apply hover:bg-orange/70;
+    @apply rounded-100;
+  }
+
   &_link {
     @apply text-primary-black;
     @apply bg-none;

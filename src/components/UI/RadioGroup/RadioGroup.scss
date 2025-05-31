@@ -1,0 +1,26 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+@import "../../../assets/styles/helpers/mixins";
+
+.radio-group {
+  &__button {
+    position: relative;
+    width: rem(30);
+    aspect-ratio: 1;
+    border: rem(5) solid var(--secondary-blue);
+    @apply rounded-100 bg-white;
+  }
+
+  &__indicator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(16);
+    aspect-ratio: 1;
+
+    @include flex-center();
+
+    @apply rounded-100 bg-secondary-blue;
+  }
+}
