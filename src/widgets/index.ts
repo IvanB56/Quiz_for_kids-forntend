@@ -15,3 +15,5 @@ export * from './TableReletive/TableRelative';
 export * from './ThemeCards/ThemeCards';
 export * from './FormHomeTask/FormHomeTask';
 export * from './TableHomeTask/TableHomeTask';
+export * from './FormSupport/FormSupport';
+export * from './FormMentor/FormMentor';

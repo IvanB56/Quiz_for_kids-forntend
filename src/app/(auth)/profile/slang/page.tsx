@@ -1,11 +1,11 @@
 'use client';
-import React, {ChangeEvent, Fragment, useEffect, useMemo, useState} from 'react';
-import {Heading, Input, SectionWhite, Text} from "@components";
+import React, {Fragment, useEffect, useMemo, useState} from 'react';
+import {Heading, SectionWhite, Text} from "@components";
 import {useDebounce} from "@/hooks/useDebounce";
 import {data as slangList} from "@assets/data/glossary";
 
 const Slang = () => {
-	const [value, setValue] = useState('');
+	const [value] = useState('');
 	const data = useMemo(() => Object.entries(slangList).map(([char, value]) => ({char, value})), []);
 	const [slangArr, setSlangArr] = useState(data);
 	const searchValue = useDebounce(value);
@@ -26,16 +26,16 @@ const Slang = () => {
 		}
 	}, [data, searchValue]);
 
-	const changeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
-		setValue(e.target.value)
-	}
+	// const changeInputHandler = (e: ChangeEvent<HTMLInputElement>) => {
+	// 	setValue(e.target.value)
+	// }
 
 	return (
 		<>
 			<Heading data={{text: "Словарь", tag: 'h1'}}/>
-			<SectionWhite overflow={'overflow-visible'}>
-				<Input type={'text'} value={value} placeholder={'Введите слово для поиска'} onChange={changeInputHandler}/>
-			</SectionWhite>
+			{/*<SectionWhite overflow={'overflow-visible'}>*/}
+			{/*	<Input type={'text'} value={value} placeholder={'Введите слово для поиска'} onChange={changeInputHandler}/>*/}
+			{/*</SectionWhite>*/}
 			<SectionWhite overflow={'overflow-visible'}>
 				{
 					slangArr?.map(({char, value}) => (
