@@ -1,6 +1,6 @@
 'use client';
 import React, {ChangeEvent, Fragment, useEffect, useMemo, useState} from 'react';
-import {Heading, Input, SectionWhite, Text} from "@components";
+import {Heading, SectionWhite, Text} from "@components";
 import {useDebounce} from "@/hooks/useDebounce";
 import {data as slangList} from "@assets/data/glossary";
 
@@ -33,9 +33,9 @@ const Slang = () => {
 	return (
 		<>
 			<Heading data={{text: "Словарь", tag: 'h1'}}/>
-			<SectionWhite overflow={'overflow-visible'}>
-				<Input type={'text'} value={value} placeholder={'Введите слово для поиска'} onChange={changeInputHandler}/>
-			</SectionWhite>
+			{/*<SectionWhite overflow={'overflow-visible'}>*/}
+			{/*	<Input type={'text'} value={value} placeholder={'Введите слово для поиска'} onChange={changeInputHandler}/>*/}
+			{/*</SectionWhite>*/}
 			<SectionWhite overflow={'overflow-visible'}>
 				{
 					slangArr?.map(({char, value}) => (

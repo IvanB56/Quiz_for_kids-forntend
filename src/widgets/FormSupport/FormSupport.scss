@@ -1,0 +1,90 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.form-support {
+  $self: &;
+
+  &__form {
+    row-gap: rem(20);
+    width: rem(750);
+    margin: auto;
+
+    @apply flex flex-col max-w-full;
+
+    @include tablet {
+      gap: 20px;
+      align-self: center;
+    }
+  }
+
+  &__register {
+    margin-top: 20px;
+
+    @include tablet {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__submit {
+    margin-top: rem(40);
+    @apply self-center;
+
+    @include tablet {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row: 3/4;
+      align-self: end;
+      width: 100%;
+    }
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(20);
+
+    &:not(:last-of-type) {
+      margin-bottom: rem(20);
+    }
+
+    &:last-of-type {
+      align-items: flex-start;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    min-width: rem(250);
+
+    @apply text-2xl;
+    @apply max-xl:text-xl;
+    @apply text-black;
+
+    @include tablet {
+      min-width: rem(150);
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: rem(20);
+    bottom: rem(-20);
+  }
+
+  @include tablet {
+    padding: 50px;
+    width: 100%;
+    @apply flex flex-col items-center;
+  }
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+}

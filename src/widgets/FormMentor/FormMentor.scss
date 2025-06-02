@@ -1,0 +1,87 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.form-mentor {
+  $self: &;
+
+  &__form {
+    column-gap: rem(20);
+    flex-wrap: wrap;
+
+    @apply flex;
+
+    @include tablet {
+      gap: 20px;
+      align-self: center;
+    }
+  }
+
+  &__submit {
+    margin-top: rem(40);
+    margin-inline: auto;
+
+    @include tablet {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row: 3/4;
+      align-self: end;
+      width: 100%;
+    }
+  }
+
+  &__field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(20);
+
+    &:not(:last-of-type) {
+      margin-bottom: rem(20);
+    }
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    min-width: rem(200);
+
+    @apply text-2xl;
+    @apply max-xl:text-xl;
+    @apply text-black;
+
+    @include tablet {
+      min-width: rem(150);
+    }
+  }
+
+  &__error {
+    position: absolute;
+    left: rem(20);
+    bottom: rem(-20);
+  }
+
+  &__textarea {
+    height: 100%;
+  }
+
+  &__form-inner-left,
+  &__form-inner-right {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0;
+  }
+
+  @include tablet {
+    padding: 50px;
+    width: 100%;
+    @apply flex flex-col items-center;
+  }
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+}

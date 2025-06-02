@@ -33,6 +33,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 		},
 		{name: 'Новости и обновления', href: '/profile/news'},
 		{name: 'Магазин возможностей', href: '/profile/shop'},
+		{name: 'Обратная связь и поддержка', href: '/profile/support'},
 		{name: 'Настройки профиля', href: '/settings'},
 	];
 
