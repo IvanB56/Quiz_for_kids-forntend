@@ -17,3 +17,4 @@ export * from './FormHomeTask/FormHomeTask';
 export * from './TableHomeTask/TableHomeTask';
 export * from './FormSupport/FormSupport';
 export * from './FormMentor/FormMentor';
+export * from './FormProfile/FormProfile';

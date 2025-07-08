@@ -9,6 +9,7 @@ export function Text(props: IText) {
 	const styles = classes({...cn});
 	const TEXT = children ? {} : {dangerouslySetInnerHTML: {__html: `${data?.text}`}};
 
+
 	return React.createElement(
 		data.tag,
 		{

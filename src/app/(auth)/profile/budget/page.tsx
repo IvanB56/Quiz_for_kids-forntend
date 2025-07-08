@@ -1,9 +1,11 @@
 import React from 'react';
+import {FormProfile, ProfileHeading} from "@widgets";
 
 const Budget = () => {
 	return (
 		<>
-			Page Budget
+			<ProfileHeading title={"Полезное"}/>
+			<FormProfile />
 		</>
 	);
 };
