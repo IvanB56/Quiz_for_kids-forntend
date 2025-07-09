@@ -56,6 +56,7 @@ export default {
 			},
 			boxShadow: {
 				dark: '-10px 10px 20px hsla(9, 14%, 18%, 0.47)',
+				m: '0 8px 8px 0 hsla(0, 0%, 0%, 0.25)',
 			},
 		},
 		container: {

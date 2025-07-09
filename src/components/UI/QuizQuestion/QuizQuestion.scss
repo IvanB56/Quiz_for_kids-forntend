@@ -1,0 +1,86 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.quiz-questions {
+	$self: &;
+	padding-inline: rem(100);
+	padding-top: rem(60);
+	position: relative;
+	background: hsla(0, 0%, 100%, 1);
+	border-radius: rem(12);
+	font-family: Arial, sans-serif;
+	text-align: center;
+	min-height: 596px;
+
+	&__score-container {
+		margin-bottom: rem(15);
+	}
+
+	&__score-plus {
+		position: absolute;
+		top: 15px;
+		left: 30px;
+		color: hsla(143, 100%, 37%, 1);
+		font-size: rem(40);
+		font-weight: bold;
+	}
+
+	&__score-minus {
+		position: absolute;
+		top: 15px;
+		right: 30px;
+		color: hsla(0, 100%, 50%, 1);
+		font-size: rem(40);
+		font-weight: bold;
+	}
+
+	&__question {
+		font-size: rem(32);
+		margin-bottom: rem(80);
+	}
+
+	&__options-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		row-gap: 50px;
+		column-gap: 170px;
+		margin-bottom: 160px;
+
+		&:has(#{$self}__input) {
+			display: flex;
+		}
+	}
+
+	&__option-button {
+		padding: rem(12);
+		border: 2px solid #ddd;
+		border-radius: rem(100);
+		font-size: rem(40);
+		cursor: pointer;
+		transition: all 0.3s;
+		@apply bg-button-primary text-primary-white;
+
+		&:hover {
+			opacity: 0.9;
+		}
+	}
+
+	&__timer-container {
+		#{$self}__timer {
+			position: absolute;
+			bottom: 48px;
+			right: 60px;
+			font-size: rem(32);
+			font-weight: 600;
+			@apply text-primary-blue;
+		}
+	}
+
+	&__input {
+		min-height: 180px;
+		width: 100%;
+		border-radius: 14px;
+		font-size: rem(32);
+		@apply text-primary-black;
+	}
+}

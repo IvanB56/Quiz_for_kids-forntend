@@ -1,0 +1,14 @@
+@import "../../assets/styles/helpers/media";
+@import "../../assets/styles/helpers/function";
+
+.card-answers {
+	&__answer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: rem(596);
+		padding: rem(110);
+		border: 25px solid white;
+		@apply text-primary-blue bg-button-hover shadow-dark rounded-14;
+	}
+}

@@ -1,3 +1,5 @@
+@import "../../../assets/styles/helpers/function";
+
 .button {
   @apply inline-flex;
   @apply items-center;
@@ -60,4 +62,15 @@
     @apply font-semibold;
     @apply justify-between;
   }
+
+	&_greetings {
+		font-weight: 600;
+		font-size: rem(40);
+		padding: rem(19) rem(120);
+		background: linear-gradient(180deg, #00BE4A 6.59%, #06EE60 51.19%, #00BE4A 91.19%);
+		@apply text-primary-white;
+		@apply mx-[auto];
+		@apply block;
+		@apply rounded-100 shadow-m;
+	}
 }

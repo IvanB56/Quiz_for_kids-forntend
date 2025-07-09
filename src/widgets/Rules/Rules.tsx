@@ -2,11 +2,10 @@ import React from 'react';
 import classes from './Rules.cn';
 import './Rules.scss';
 import {Heading, Text} from "@components";
-import rules_text from './rules.json';
+interface IRules {texts: Array<string>}
 
-export const Rules = () => {
+export const Rules = ({ texts }: IRules) => {
 	const styles = classes();
-	const {texts} = rules_text;
 
 	return (
 		<div className={styles.block}>
