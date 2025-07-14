@@ -1,4 +1,3 @@
-import {useClassName} from "@hooks";
 import type {ICoinsTotal} from './CoinsTotal.types';
 import classes from './CoinsTotal.cn';
 import './CoinsTotal.scss';

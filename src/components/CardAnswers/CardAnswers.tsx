@@ -4,10 +4,12 @@ import classes from '../CardAnswers/CardAnswers.cn';
 import '../CardAnswers/CardAnswers.scss';
 import { Text } from '@components';
 
+type AllowedTags = 'div' | 'p' | 'span' | 'b' | 'i' | 'strong' | 'em' | 'u' | 's';
+
 interface CardAnswersProps extends PropsWithChildren {
 	textData?: {
 		text?: string;
-		tag?: string;
+		tag?: AllowedTags;
 	};
 }
 
@@ -19,7 +21,7 @@ export const CardAnswers = ({children, textData }: CardAnswersProps) => {
 			{children}
 			<div className={styles.elementAnswer}>
 				<div className={styles.elementWrapperText}>
-					<Text data={{ text: textData?.text || '', tag: textData?.tag || 'p' }}/>
+					<Text data={{ text: textData?.text || '', tag: (textData?.tag as AllowedTags) || 'p' }}/>
 				</div>
 			</div>
 		</div>

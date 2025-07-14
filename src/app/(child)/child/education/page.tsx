@@ -1,19 +1,19 @@
 import React from 'react';
 import {Heading, Helper, SectionWhite, Text, TextWithButton} from "@components";
+import { CardHomework } from '@/components/CardHomework/CardHomework';
 
 const Earnings = () => {
 	return (
 		<>
-			<Heading data={{text: "Заработок", tag: 'h1'}}/>
-			<SectionWhite overflow='overflow-visible'>
-				<Heading data={{text: 'Поделись ссылкой с другом ', tag: 'h4'}} cn={{margin: 'mb-9'}}/>
-				<TextWithButton text={'link'} />
-			</SectionWhite>
-			<SectionWhite overflow='overflow-visible'>
-				<Helper cn={{width: 'full'}}>
-					<Text data={{text: 'Поделившись ссылкой вы или ваш ребенок получит вознаграждение 500 звезд, а так же получит 500 звезд ваш друг, который получит ссылку и купит подписку.', tag: 'p'}} />
-				</Helper>
-			</SectionWhite>
+			<Heading className="text-right mb-[60]" data={{text: "Домашние задания", tag: 'h1'}} cn={{weight: 'fw600'}}/>
+			<div className={"flex flex-wrap gap-x-[125] gap-y-[90]"}>
+				<CardHomework data={{complexity: '1'}}/>
+				<CardHomework data={{complexity: '1'}}/>
+				<CardHomework data={{complexity: '1'}}/>
+				<CardHomework data={{complexity: '1'}}/>
+				<CardHomework data={{complexity: '1'}}/>
+				<CardHomework data={{complexity: '1'}}/>
+			</div>
 		</>
 	);
 };
