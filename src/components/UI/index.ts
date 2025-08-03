@@ -18,3 +18,4 @@ export * from './Toast/Toast';
 export * from './RadioGroup/RadioGroup';
 export * from './QuizQuestion/QuizQuestion';
 export * from './CoinsTotal/CoinsTotal';
+export * from './CheckboxWithLabel/CheckboxWithLabel';
