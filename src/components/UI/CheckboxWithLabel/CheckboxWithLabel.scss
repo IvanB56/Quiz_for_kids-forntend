@@ -1,0 +1,44 @@
+@import "../../../assets/styles/helpers/media";
+@import "../../../assets/styles/helpers/function";
+
+.checkbox-with-label {
+	$self: &;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  &__box {
+    width: rem(50);
+    height: rem(50);
+    border: 3px solid #25636a;
+    border-radius: 4px;
+    margin-right: 16px;
+    box-sizing: border-box;
+    background: #fff;
+    transition: border-color 0.2s;
+    position: relative;
+  }
+
+  input[type="checkbox"]:checked + #{$self}__box::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -5px;
+    width: 65px;
+    height: 49px;
+		background-image: url("../../../assets/images/child/checkbox-label.svg");
+		background-repeat: no-repeat;
+		background-size: cover;
+  }
+
+  &__label {
+    font-size: 20px;
+    color: #222;
+  }
+}
