@@ -6,8 +6,8 @@
   align-items: center;
   justify-content: space-between;
   border-radius: rem(12);
-  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.08);
-  padding: rem(15) rem(50);
+	padding: rem(15) rem(50);
+	@apply shadow-dark;
   gap: rem(20);
 
   @apply bg-white;

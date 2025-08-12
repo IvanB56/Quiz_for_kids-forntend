@@ -8,14 +8,15 @@
   align-items: center;
   cursor: pointer;
   user-select: none;
+	width: rem(250);
 
   input[type="checkbox"] {
     display: none;
   }
 
   &__box {
-    width: rem(50);
-    height: rem(50);
+    min-width: rem(50);
+    min-height: rem(50);
     border: 3px solid #25636a;
     border-radius: 4px;
     margin-right: 16px;
