@@ -2,5 +2,5 @@ export type TypeHeaderGuest = {
 	data?: {
 		page?: 'settings' | 'guest'
 	}
-	cn?: Record<'padding' | 'border', string>
+	cn?: Partial<Record<'padding' | 'border', string>>
 }

@@ -1,5 +1,4 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/function" as *;
 
 .table {
   font-size: rem(20);

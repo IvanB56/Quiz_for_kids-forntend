@@ -6,20 +6,27 @@
   --radius: 0.5rem;
   --hrader-height: 4.313rem;
   --primary-black: hsla(0, 0%, 0%, 1);
+  --black25: hsla(0, 0%, 0%, 0.25);
+  --primary-white: hsla(255, 255%, 255%, 1);
   --secondary-blue: hsla(193, 36%, 83%, 1);
 }
 
 html {
+  background-color: #FDFBEF;
+  scrollbar-gutter: stable;
+  scroll-behavior: smooth;
+
   @apply h-dvh;
 }
 
 body {
-  scroll-behavior: smooth;
-  scrollbar-gutter: stable;
-
   @apply h-dvh;
   @apply flex;
   @apply flex-col;
+}
+
+.index-page {
+  background: linear-gradient(180deg, #FDFBEF 10%, #E9D5B8 50%, #A28066 100%);
 }
 
 img, a {

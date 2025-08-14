@@ -1,6 +1,6 @@
-@import "../../assets/styles/helpers/media";
-@import "../../assets/styles/helpers/function";
-@import "../../assets/styles/helpers/mixins";
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+@use "../../assets/styles/helpers/mixins" as *;
 
 .text-with-button {
   display: flex;

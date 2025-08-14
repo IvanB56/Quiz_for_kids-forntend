@@ -1,5 +1,5 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .section-registration {
 	@apply flex h-full w-full bg-button-hover overflow-hidden;

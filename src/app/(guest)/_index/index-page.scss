@@ -1,0 +1,47 @@
+@use '../../../assets/styles/helpers/function' as *;
+
+.index-page {
+  .container {
+    max-width: 1800px;
+    width: 100%;
+    padding-inline: 10px;
+    margin: auto;
+  }
+
+  .heading {
+    font-family: var(--font-play-fair), sans-serif;
+
+    &h1, &.heading_h1 {
+      font-size: fluid(74, 24);
+      font-weight: 500;
+      margin-bottom: fluid(60, 10);
+    }
+  }
+
+  .text {
+    font-family: var(--font-roboto), sans-serif;
+    font-weight: 400;
+    font-size: fluid(32, 16);
+  }
+
+  .subtitle {
+    font-family: var(--font-roboto), sans-serif;
+    font-weight: 400;
+    font-size: fluid(64, 22);
+    text-align: center;
+    margin-bottom: fluid(70, 20);
+  }
+
+  .services {
+    &__body {
+      gap: fluid(50, 20);
+
+      .white-card:last-of-type {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: fit-content;
+        margin: auto;
+      }
+    }
+  }
+}

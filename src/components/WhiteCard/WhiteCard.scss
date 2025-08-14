@@ -1,0 +1,15 @@
+@use '../../assets/styles/helpers/function' as *;
+
+.white-card {
+  background-color: var(--primary-white);
+  border-radius: 100px;
+  padding: fluid(20, 5) fluid(50,20);
+  display: flex;
+  align-items: center;
+  gap: fluid(30, 5);
+  box-shadow: 0 6px 4px 0 var(--black25);
+
+  img {
+    width: fluid(100, 50);
+  }
+}
