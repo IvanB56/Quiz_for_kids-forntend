@@ -1,0 +1,64 @@
+@use '../../../../../assets/styles/helpers/function' as *;
+@use '../../../../../assets/styles/helpers/media' as *;
+
+.services {
+  $self: &;
+  padding-block: fluid(60, 15);
+
+  &__slide {
+    display: contents;
+
+    &:last-of-type {
+      #{$self}__card:last-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        width: fit-content;
+        max-width: 865px;
+        margin: auto;
+
+        @include tablet-s() {
+          max-width: 100%;
+        }
+      }
+    }
+
+    @include tablet-s() {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      gap: fluid(50, 20);
+      padding-block: rem(10);
+    }
+  }
+
+  &__pagination {
+    margin-top: rem(20);
+    margin-inline: auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__pagination-bullet {
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1;
+    background-color: var(--brown);
+    opacity: 1;
+
+    &.swiper-pagination-bullet-active {
+      background-color: var(--light-brown);
+    }
+  }
+
+  .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluid(50, 20);
+    padding-block: rem(10);
+
+    @include tablet-s() {
+      display: flex;
+      gap: 0;
+    }
+  }
+}

@@ -31,17 +31,4 @@
     text-align: center;
     margin-bottom: fluid(70, 20);
   }
-
-  .services {
-    &__body {
-      gap: fluid(50, 20);
-
-      .white-card:last-of-type {
-        grid-column-start: 1;
-        grid-column-end: 3;
-        width: fit-content;
-        margin: auto;
-      }
-    }
-  }
 }

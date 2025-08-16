@@ -1,12 +1,17 @@
 import React, {PropsWithChildren} from 'react';
 import {classes} from './WhiteCard.cn';
 import './WhiteCard.scss';
+import {useClassName} from "@hooks";
 
-export const WhiteCard = ({children, ...props}: PropsWithChildren) => {
+type WhiteCardProps = {
+	className?: string;
+} & PropsWithChildren;
+
+export const WhiteCard = ({children, className, ...props}: WhiteCardProps) => {
 	const styles = classes();
 
 	return (
-		<div className={styles.block} {...props}>
+		<div className={useClassName(styles.block, className)} {...props}>
 			{
 				children
 			}
