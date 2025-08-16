@@ -1,17 +1,16 @@
 'use client';
-import React, {useMemo, useRef} from 'react';
+import React, {useMemo} from 'react';
 import {services} from "@assets/mock";
 import {Heading, Slider, Text, WhiteCard} from "@components";
 
 import './SectionServices.scss';
 import {CN} from "@/lib";
 import {useClassName} from "@hooks";
+import {ArrowLeft, ArrowRight} from "lucide-react";
 
 const block = CN('services');
 
 export const SectionServices = () => {
-	const paginationRef = useRef(null);
-
 	const servicesGroupSlider = useMemo(() => {
 		const groupItems: Array<{ icon: string; text: string }> = [];
 
@@ -26,7 +25,6 @@ export const SectionServices = () => {
 			return acc;
 		}, [])
 	}, []);
-
 
 	return (
 		<section className={useClassName(block(), 'container')}>
@@ -45,8 +43,12 @@ export const SectionServices = () => {
 						clickable: true,
 						el: `.${block('pagination')}`,
 						renderBullet(index, className) {
-							return `<span class="${className} ${block('pagination-bullet')}"></span>`;
+							return `<span class="${className} pagination-bullet"></span>`;
 						}
+					},
+					navigation: {
+						prevEl: `.${block('navigation-prev')}`,
+						nextEl: `.${block('navigation-next')}`,
 					},
 					breakpoints: {
 						991: {
@@ -73,7 +75,15 @@ export const SectionServices = () => {
 						})
 					}
 				</Slider>
-				<div  className={block('pagination')} ></div>
+				<div className="slider-controls">
+					<div className={useClassName('navigation-prev', block('navigation-prev'))}>
+						<ArrowLeft />
+					</div>
+					<div className={useClassName("pagination", block('pagination'))}></div>
+					<div className={useClassName('navigation-prev', block('navigation-next'))}>
+						<ArrowRight />
+					</div>
+				</div>
 			</div>
 		</section>
 	);

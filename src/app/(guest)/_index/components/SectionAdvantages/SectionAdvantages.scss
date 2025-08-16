@@ -1,0 +1,42 @@
+@use '../../../../../assets/styles/helpers/function' as *;
+@use '../../../../../assets/styles/helpers/media' as *;
+@use '../../../../../assets/styles/helpers/mixins' as *;
+
+.advantages {
+  padding-block: fluid(60, 15);
+
+  &__card {
+    flex-direction: column;
+    padding: fluid(50, 10);
+    //height: fluid(550, 120);
+    border-radius: fluid(100, 20);
+
+    @include flex-center();
+
+    @include tablet-s() {
+      &:nth-child(3n) {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
+  }
+
+  &__body {
+    gap: fluid(60, 5);
+
+    @include tablet-s() {
+      grid-template-columns: repeat(2, 1fr) !important;
+      grid-template-rows: 1fr !important;
+    }
+  }
+
+  &__card-image {
+    width: fluid(150, 45) !important;
+    aspect-ratio: 1;
+  }
+
+  &__card-text {
+    text-wrap: auto;
+    text-align: center;
+  }
+}

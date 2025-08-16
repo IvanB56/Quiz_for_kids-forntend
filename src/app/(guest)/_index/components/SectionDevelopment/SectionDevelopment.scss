@@ -1,0 +1,34 @@
+@use '../../../../../assets/styles/helpers/function' as *;
+@use '../../../../../assets/styles/helpers/media' as *;
+
+.development {
+  padding-block: fluid(60, 15);
+  background: linear-gradient(180deg, #FDFBEF 0%, rgba(253, 251, 239, 0) 30%, rgba(253, 251, 239, 0) 70%, #FDFBEF 100%), url("/images/index-new/bg-colos.jpg");
+
+  &__directions {
+    background-color: var(--white80);
+    padding: fluid(90, 20);
+    border-radius: fluid(100, 30);
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluid(50, 20);
+
+    @include tablet-s() {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__list-item {
+    display: flex;
+    align-items: center;
+    gap: fluid(20, 5);
+
+    img {
+      width: fluid(50, 15);
+    }
+
+  }
+}

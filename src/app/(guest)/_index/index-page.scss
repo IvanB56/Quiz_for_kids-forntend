@@ -1,4 +1,6 @@
 @use '../../../assets/styles/helpers/function' as *;
+@use '../../../assets/styles/helpers/media' as *;
+@use '../../../assets/styles/helpers/mixins' as *;
 
 .index-page {
   .container {
@@ -16,6 +18,12 @@
       font-weight: 500;
       margin-bottom: fluid(60, 10);
     }
+
+    &h2, &.heading_h2 {
+      font-size: fluid(64, 20);
+      font-weight: 500;
+      margin-bottom: fluid(40, 10);
+    }
   }
 
   .text {
@@ -30,5 +38,61 @@
     font-size: fluid(64, 22);
     text-align: center;
     margin-bottom: fluid(70, 20);
+  }
+
+  .swiper-slide {
+    display: contents;
+
+    @include tablet-s() {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      gap: fluid(50, 20);
+      padding-block: rem(10);
+    }
+  }
+
+  .slider-controls {
+    margin-top: rem(20);
+    gap: rem(20);
+
+    @include flex-center();
+  }
+
+  .navigation-next,
+  .navigation-prev {
+    color: var(--brown);
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: rem(10);
+    width: fit-content;
+  }
+
+  .pagination-bullet {
+    width: 15px;
+    height: 15px;
+    aspect-ratio: 1;
+    background-color: var(--brown);
+    opacity: 1;
+    margin: 0 !important;
+
+    &.swiper-pagination-bullet-active {
+      background-color: var(--light-brown);
+    }
+  }
+
+  .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluid(50, 20);
+    padding-block: rem(10);
+
+    @include tablet-s() {
+      display: flex;
+      gap: 0;
+    }
   }
 }
