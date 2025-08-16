@@ -11,6 +11,7 @@ import {
 	Button,
 	CheckboxWithLabel,
 	Textarea,
+	LoadReport,
 } from '@components';
 import Image from 'next/image';
 import image from '@assets/images/child/cleaning-service.webp';
@@ -84,6 +85,12 @@ const Earnings = () => {
 					<Helper cn={{width: 'full'}}>
 						<Textarea placeholder="здесь ты можешь написать комментарий " />
 					</Helper>
+					<LoadReport
+						className={"mt-[35]"}
+						uploadUrl="reports/upload"
+						maxFiles={3}
+						onUploaded={(resp) => console.log(resp)}
+					/>
 					<div className={"flex justify-end mt-10"}>
 						<Button >Выполнить</Button>
 					</div>
