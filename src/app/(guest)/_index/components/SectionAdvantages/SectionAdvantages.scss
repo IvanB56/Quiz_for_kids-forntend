@@ -1,6 +1,6 @@
-@use '../../../../../assets/styles/helpers/function' as *;
-@use '../../../../../assets/styles/helpers/media' as *;
-@use '../../../../../assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/media' as *;
+@use '@assets/styles/helpers/mixins' as *;
 
 .advantages {
   padding-block: fluid(60, 15);
@@ -8,8 +8,7 @@
   &__card {
     flex-direction: column;
     padding: fluid(50, 10);
-    //height: fluid(550, 120);
-    border-radius: fluid(100, 20);
+    border-radius: fluid(80, 20);
 
     @include flex-center();
 

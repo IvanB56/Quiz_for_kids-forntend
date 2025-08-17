@@ -4,10 +4,7 @@
 
 .index-page {
   .container {
-    max-width: 1800px;
-    width: 100%;
-    padding-inline: 10px;
-    margin: auto;
+    @include container();
   }
 
   .heading {

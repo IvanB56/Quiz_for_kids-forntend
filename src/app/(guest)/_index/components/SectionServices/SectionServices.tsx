@@ -1,12 +1,12 @@
 'use client';
 import React, {useMemo} from 'react';
+import {CN} from "@/lib";
+import {useClassName} from "@hooks";
+import {ArrowLeft, ArrowRight} from "lucide-react";
 import {services} from "@assets/mock";
 import {Heading, Slider, Text, WhiteCard} from "@components";
 
 import './SectionServices.scss';
-import {CN} from "@/lib";
-import {useClassName} from "@hooks";
-import {ArrowLeft, ArrowRight} from "lucide-react";
 
 const block = CN('services');
 
@@ -65,7 +65,7 @@ export const SectionServices = () => {
 									{
 										service.map(item => (
 											<WhiteCard className={block('card')} key={`${index}.${item.text}`}>
-												<img src={`images/index-new/gif/${item.icon}.gif`} alt=""/>
+												<img src={`images/index-new/gif/${item.icon}.gif`} alt="" className={block('image')}/>
 												<Text data={{text: item.text, tag: 'p'}} className={"text"}/>
 											</WhiteCard>
 										))
