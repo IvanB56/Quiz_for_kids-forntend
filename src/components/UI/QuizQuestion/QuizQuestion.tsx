@@ -1,8 +1,8 @@
 import React from 'react';
-import '../QuizQuestion/QuizQuestion.scss';
-import classes from '../QuizQuestion/QuizQuestion.cn';
 import {IQuizQuestionProps} from './QuizQuestion.types'
 import { Textarea } from '@/components';
+import classes from './QuizQuestion.cn';
+import './QuizQuestion.scss';
 
 export const QuizQuestion = ({
 	question,

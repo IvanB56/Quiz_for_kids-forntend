@@ -1,4 +1,4 @@
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/function" as *;
 
 .button {
   @apply inline-flex;
@@ -77,14 +77,14 @@
 	&_green {
 		@apply text-white;
 		@apply bg-green;
-		@apply hover:bg-green/95;
+		@apply hover:bg-green-95;
 		@apply rounded-14;
 	}
 
 	&_red {
 		@apply text-white;
 		@apply bg-red;
-		@apply hover:bg-red/90;
+		@apply hover:bg-red-90;
 		@apply rounded-14;
 	}
 }

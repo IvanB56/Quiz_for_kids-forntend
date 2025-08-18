@@ -1,6 +1,5 @@
 import React from 'react';
-import { CoinsTotal, Heading, QuizQuestion, } from '@components';
-import { CardAnswers } from '@/components/CardAnswers/CardAnswers';
+import { CoinsTotal, Heading, QuizQuestion, CardAnswers, } from '@components';
 
 const Earnings = () => {
 	return (

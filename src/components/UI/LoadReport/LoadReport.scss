@@ -1,20 +1,24 @@
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .load-report {
-  @apply flex items-center;
 	gap: rem(30);
 
+	@apply flex items-center;
+
   &__slots {
-    @apply flex items-center;
 		gap: rem(15);
 		cursor: pointer;
+
+		@apply flex items-center;
   }
 
   &__slot {
-    @apply bg-grey-medium;
     width: rem(85);
     height: rem(110);
     overflow: hidden;
+
+		@apply bg-grey-medium;
 
     &--filled {
       @apply bg-grey-medium;
@@ -22,20 +26,23 @@
   }
 
   &__image {
-    @apply w-full h-full object-cover;
     display: block;
+
+		@apply w-full h-full object-cover;
   }
 
   &__add {
-    @apply inline-flex items-center text-primary-black disabled:opacity-50;
 		gap: rem(10);
     background: transparent;
+
+		@apply inline-flex items-center text-primary-black disabled:opacity-50;
   }
 
   &__plus {
-    @apply text-primary-blue font-bold;
     font-size: rem(30);
     line-height: 1;
+
+		@apply text-primary-blue font-bold;
   }
 
   &__text {

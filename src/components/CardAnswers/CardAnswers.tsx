@@ -1,7 +1,7 @@
 'use client';
 import React, {PropsWithChildren} from 'react';
-import classes from '../CardAnswers/CardAnswers.cn';
-import '../CardAnswers/CardAnswers.scss';
+import classes from './CardAnswers.cn';
+import './CardAnswers.scss';
 import { Text } from '@components';
 
 type AllowedTags = 'div' | 'p' | 'span' | 'b' | 'i' | 'strong' | 'em' | 'u' | 's';

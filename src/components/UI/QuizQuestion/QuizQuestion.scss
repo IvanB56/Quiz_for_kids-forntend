@@ -1,16 +1,18 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .quiz-questions {
 	$self: &;
+
 	padding-inline: rem(100);
 	padding-top: rem(60);
 	position: relative;
-	background: hsla(0, 0%, 100%, 1);
 	border-radius: rem(12);
 	font-family: Arial, sans-serif;
 	text-align: center;
-	min-height: 596px;
+	min-height: rem(596);
+
+	@apply bg-white;
 
 	&__score-container {
 		margin-bottom: rem(15);
@@ -18,20 +20,22 @@
 
 	&__score-plus {
 		position: absolute;
-		top: 15px;
-		left: 30px;
-		color: hsla(143, 100%, 37%, 1);
+		top: rem(15);
+		left: rem(30);
 		font-size: rem(40);
 		font-weight: bold;
+
+		@apply text-green-light;
 	}
 
 	&__score-minus {
 		position: absolute;
-		top: 15px;
-		right: 30px;
-		color: hsla(0, 100%, 50%, 1);
+		top: rem(15);
+		right: rem(30);
 		font-size: rem(40);
 		font-weight: bold;
+
+		@apply text-primary-red;
 	}
 
 	&__question {
@@ -42,9 +46,9 @@
 	&__options-container {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		row-gap: 50px;
-		column-gap: 170px;
-		margin-bottom: 160px;
+		row-gap: rem(50);
+		column-gap: rem(170);
+		margin-bottom: rem(160);
 
 		&:has(#{$self}__input) {
 			display: flex;
@@ -53,7 +57,7 @@
 
 	&__option-button {
 		padding: rem(12);
-		border: 2px solid #ddd;
+		border: rem(2) solid theme('borderColor.grey-medium');
 		border-radius: rem(100);
 		font-size: rem(40);
 		cursor: pointer;
@@ -68,19 +72,21 @@
 	&__timer-container {
 		#{$self}__timer {
 			position: absolute;
-			bottom: 48px;
-			right: 60px;
+			bottom: rem(48);
+			right: rem(60);
 			font-size: rem(32);
 			font-weight: 600;
+
 			@apply text-primary-blue;
 		}
 	}
 
 	&__input {
-		min-height: 180px;
+		min-height: rem(180);
 		width: 100%;
-		border-radius: 14px;
+		border-radius: rem(14);
 		font-size: rem(32);
+
 		@apply text-primary-black;
 	}
 }

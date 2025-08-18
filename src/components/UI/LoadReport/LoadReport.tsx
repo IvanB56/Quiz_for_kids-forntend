@@ -1,9 +1,9 @@
 'use client';
 
-import React, {useMemo, useRef, useState} from 'react';
-import './LoadReport.scss';
+import React, { useMemo, useRef, useState } from 'react';
+import { uploadReportPhotos } from '@/shared/api';
 import {cn} from '@utils';
-import {uploadReportPhotos} from '@/shared/api';
+import './LoadReport.scss';
 
 export type LoadReportProps = {
   uploadUrl: string;

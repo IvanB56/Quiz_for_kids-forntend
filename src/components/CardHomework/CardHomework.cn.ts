@@ -7,7 +7,7 @@ export default function classes(cn: ICardHomework['cn']) {
 	return {
 		block: BLOCK(
 			{},
-			[cn?.margin].join(' ').trim().replace('  ', ' ')
+			[cn?.margin]
 		),
 		elementBanner: BLOCK('banner'),
 		elementBannerContent: BLOCK('banner-content'),

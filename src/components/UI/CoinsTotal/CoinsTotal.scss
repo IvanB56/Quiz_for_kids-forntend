@@ -1,9 +1,9 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .coins-total {
 	display: flex;
-	gap: 11px;
+	gap: rem(11);
 	align-items: center;
 
 	&__total {
@@ -13,6 +13,7 @@
 		line-height: 1;
 		letter-spacing: -4%;
 		vertical-align: middle;
-		color: hsla(192, 53%, 36%, 1);
+
+		@apply text-primary-blue;
 	}
 }

@@ -5,4 +5,6 @@ export * from './SectionWhite/SectionWhite';
 export * from './SwitchWithHelper/SwitchWithHelper';
 export * from './TextWithButton/TextWithButton';
 export * from './CardReward/CardReward';
+export * from './CardHomework/CardHomework';
+export * from './CardAnswers/CardAnswers';
 

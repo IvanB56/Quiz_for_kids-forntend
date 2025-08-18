@@ -1,5 +1,5 @@
-@import "../../assets/styles/helpers/media";
-@import "../../assets/styles/helpers/function";
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
 
 .card-answers {
 	&__answer {
@@ -8,7 +8,7 @@
 		justify-content: center;
 		min-height: rem(596);
 		padding: rem(110);
-		border: 25px solid white;
+		border: rem(25) solid white;
 		@apply text-primary-blue bg-button-hover shadow-dark rounded-14;
 	}
 }

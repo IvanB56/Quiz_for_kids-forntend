@@ -1,6 +1,6 @@
 import React from 'react';
-import classes from '../CardReward/CardReward.cn';
-import '../CardReward/CardReward.scss';
+import classes from './CardReward.cn';
+import './CardReward.scss';
 import Image from 'next/image';
 import coinImg from '@assets/images/child/coin.webp';
 import type { VariantProps } from 'class-variance-authority';

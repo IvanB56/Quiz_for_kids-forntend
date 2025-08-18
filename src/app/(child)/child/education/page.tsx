@@ -1,6 +1,5 @@
 import React from 'react';
-import {Heading, Helper, SectionWhite, Text, TextWithButton} from "@components";
-import { CardHomework } from '@/components/CardHomework/CardHomework';
+import {Heading, Helper, SectionWhite, Text, TextWithButton, CardHomework } from "@components";
 
 const Earnings = () => {
 	return (

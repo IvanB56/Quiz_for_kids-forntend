@@ -7,7 +7,7 @@ export default function classes(cn: ICoinsTotal['cn']) {
 	return {
 		block: BLOCK(
 			{},
-			[cn?.margin].join(' ').trim().replace('  ', ' ')
+			[cn?.margin]
 		),
 		elementTotal: BLOCK('total'),
 	};

@@ -1,5 +1,5 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .checkbox-with-label {
 	$self: &;
@@ -17,29 +17,31 @@
   &__box {
     min-width: rem(50);
     min-height: rem(50);
-    border: 3px solid #25636a;
-    border-radius: 4px;
-    margin-right: 16px;
+    border: rem(3) solid theme('borderColor.dark-green');
+    border-radius: rem(4);
+    margin-right: rem(16);
     box-sizing: border-box;
-    background: #fff;
     transition: border-color 0.2s;
     position: relative;
+
+		@apply bg-white;
   }
 
   input[type="checkbox"]:checked + #{$self}__box::after {
     content: "";
     position: absolute;
     left: 0;
-    top: -5px;
-    width: 65px;
-    height: 49px;
+    top: rem(-5);
+    width: rem(65);
+    height: rem(49);
 		background-image: url("../../../assets/images/child/checkbox-label.svg");
 		background-repeat: no-repeat;
 		background-size: cover;
   }
 
   &__label {
-    font-size: 20px;
-    color: #222;
+    font-size: rem(20);
+
+		@apply text-primary-black;
   }
 }

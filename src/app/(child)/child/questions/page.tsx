@@ -1,7 +1,6 @@
 import React from 'react';
-import {Heading, Helper, SectionWhite, Text, TextWithButton} from "@components";
-import { Greetings, ProfileHeading } from '@widgets';
-import { GreetingsChild } from '@/widgets/GreetingsChild/GreetingsChild';
+import {Heading, SectionWhite, TextWithButton} from "@components";
+import { GreetingsChild } from '@widgets';
 
 const Earnings = () => {
 	return (

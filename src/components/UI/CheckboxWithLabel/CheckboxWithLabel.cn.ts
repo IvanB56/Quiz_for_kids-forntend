@@ -7,7 +7,7 @@ export default function classes(cn: ICheckboxWithLabel['cn']) {
 	return {
 		block: BLOCK(
 			{},
-			[cn?.margin].join(' ').trim().replace('  ', ' ')
+			[cn?.margin]
 		),
 		elementBox: BLOCK('box'),
 		elementLabel: BLOCK('label'),

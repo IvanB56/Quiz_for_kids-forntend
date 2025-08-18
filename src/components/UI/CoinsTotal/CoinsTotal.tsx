@@ -1,9 +1,9 @@
 import type {ICoinsTotal} from './CoinsTotal.types';
-import classes from './CoinsTotal.cn';
-import './CoinsTotal.scss';
 import Image from 'next/image';
 import coinImg from '@assets/images/child/coin.webp';
 import React from 'react';
+import classes from './CoinsTotal.cn';
+import './CoinsTotal.scss';
 
 export function CoinsTotal(props: ICoinsTotal) {
 	const {cn} = props;
