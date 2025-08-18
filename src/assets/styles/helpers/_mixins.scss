@@ -37,7 +37,14 @@
 }
 
 @mixin white-section {
-  padding: 60px;
+  padding: fluid(60, 10);
 
   @apply bg-white rounded-14 shadow-dark;
+}
+
+@mixin container() {
+  max-width: 1800px;
+  width: 100%;
+  padding-inline: 10px;
+  margin: auto;
 }

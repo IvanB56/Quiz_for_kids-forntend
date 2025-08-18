@@ -1,0 +1,46 @@
+@use '../../assets/styles/helpers/function' as *;
+
+.assistant {
+  $self: &;
+  position: fixed;
+  right: fluid(80, 20);
+  bottom: fluid(80, 20);
+  z-index: 99;
+  display: flex;
+  align-items: flex-end;
+  opacity: 0.7;
+  transition: opacity .3s;
+
+
+  &__image {
+    width: fluid(200, 70);
+    aspect-ratio: 1;
+    overflow: hidden;
+    margin-left: rem(-70);
+
+    @apply rounded-circle;
+  }
+
+  &__text-wrapper {
+    background-color: var(--white95);
+    box-shadow: 0 6px 4px 0 var(--black25);
+    width: 0;
+    overflow: hidden;
+    transition: width 0.4s;
+
+    @apply rounded-100;
+  }
+
+  &__text {
+    margin: fluid(30, 5) fluid(80, 15) fluid(30, 5) fluid(180, 40);
+    width: max-content;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    #{$self}__text-wrapper {
+      width: fluid(900, 320);
+    }
+  }
+}

@@ -1,17 +1,17 @@
-@import "../../../assets/styles/helpers/media";
-@import "../../../assets/styles/helpers/function";
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
 
 .helper {
-	display: flex;
-	flex-direction: column;
-	row-gap: rem(8);
-	padding: 40px;
-	text-align: center;
-	max-width: 600px;
-	
-	@apply bg-cyan-light text-white rounded-14;
+  display: flex;
+  flex-direction: column;
+  row-gap: rem(8);
+  padding: 40px;
+  text-align: center;
+  max-width: 600px;
 
-	&_full {
-		max-width: 100%;
-	}
+  @apply bg-cyan-light text-white rounded-14;
+
+  &_full {
+    max-width: 100%;
+  }
 }

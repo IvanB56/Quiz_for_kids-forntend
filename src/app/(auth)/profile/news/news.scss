@@ -1,5 +1,5 @@
-@import "../../../../assets/styles/helpers/media";
-@import "../../../../assets/styles/helpers/function";
+@use "../../../../assets/styles/helpers/media" as *;
+@use "../../../../assets/styles/helpers/function" as *;
 
 .news-content {
   padding-top: rem(40);
