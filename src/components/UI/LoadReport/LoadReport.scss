@@ -20,7 +20,7 @@
 
 		@apply bg-grey-medium;
 
-    &--filled {
+    &_filled {
       @apply bg-grey-medium;
     }
   }
@@ -31,7 +31,7 @@
 		@apply w-full h-full object-cover;
   }
 
-  &__add {
+  &__add-report {
 		gap: rem(10);
     background: transparent;
 

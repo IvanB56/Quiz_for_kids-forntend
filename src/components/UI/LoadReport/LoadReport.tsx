@@ -3,6 +3,7 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { uploadReportPhotos } from '@/shared/api';
 import {cn} from '@utils';
+import classes from './LoadReport.cn';
 import './LoadReport.scss';
 
 export type LoadReportProps = {
@@ -11,7 +12,6 @@ export type LoadReportProps = {
   name?: string;
   accept?: string;
   className?: string;
-  /** Initial urls to show as filled slots */
   initialPreviews?: string[];
   onUploaded?: (response: unknown) => void;
 };
@@ -51,36 +51,37 @@ export const LoadReport: React.FC<LoadReportProps> = ({
       onUploaded?.(resp);
     } finally {
       setIsUploading(false);
-      // Reset value to allow uploading same file twice if needed
       if (inputRef.current) inputRef.current.value = '';
     }
   };
 
+	const styles = classes();
+
   return (
-    <div className={cn('load-report', className)}>
-      <div className="load-report__slots" onClick={handlePickFiles} role="button" tabIndex={0}
+    <div className={cn(styles.block, className)}>
+      <div className={styles.elementSlots} onClick={handlePickFiles} role="button" tabIndex={0}
            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handlePickFiles(); }}>
         {previews.slice(0, maxFiles).map((src, idx) => (
-          <div key={`preview-${idx}`} className={cn('load-report__slot', 'load-report__slot--filled')}>
-            <img src={src} alt="report" className="load-report__image" />
+          <div className={cn(styles.elementSlot, `${styles.elementSlot}_filled`)} key={`preview-${idx}`}>
+            <img className={styles.elementImage} src={src} alt="report" />
           </div>
         ))}
         {emptySlots.map((_, idx) => (
-          <div key={`empty-${idx}`} className="load-report__slot" />
+          <div className={styles.elementSlot} key={`empty-${idx}`} />
         ))}
       </div>
 
-      <button type="button" className="load-report__add" onClick={handlePickFiles} disabled={isUploading}>
-        <span className="load-report__plus">+</span>
-        <span className="load-report__text">Добавить фото отчет</span>
+      <button className={styles.elementAddReport} type="button" onClick={handlePickFiles} disabled={isUploading}>
+        <span className={styles.elementPlus}>+</span>
+        <span className={styles.elementText}>Добавить фото отчет</span>
       </button>
 
       <input
+				className={styles.elementInput}
         ref={inputRef}
         type="file"
         accept={accept}
         multiple
-        className="load-report__input"
         onChange={handleFilesSelected}
       />
     </div>
