@@ -15,7 +15,8 @@ export default {
 				'secondary-red': 'hsla(11, 57%, 53%, 1)',
 				'primary-blue': 'hsla(192, 53%, 36%, 1)',
 				'secondary-blue': 'hsla(193, 36%, 83%, 1)',
-				'green-light': 'hsla(143, 100%, 37%, 1)'
+				'green-light': 'hsla(143, 100%, 37%, 1)',
+				'green-salat': 'hsla(143, 95%, 48%, 1)',
 			},
 			backgroundColor: {
 				'section-grey': 'hsla(30, 9%, 96%, 1)',

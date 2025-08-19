@@ -67,7 +67,7 @@
 		font-weight: 600;
 		font-size: rem(40);
 		padding: rem(19) rem(120);
-		background: linear-gradient(180deg, #00BE4A 6.59%, #06EE60 51.19%, #00BE4A 91.19%);
+		background: linear-gradient(180deg, theme('colors.green-light') 6.59%, theme('colors.green-salat') 51.19%, theme('colors.green-light') 91.19%);
 		@apply text-primary-white;
 		@apply mx-[auto];
 		@apply block;
