@@ -1,33 +1,18 @@
-'use client';
-
 import React from 'react';
 import {
 	CardReward,
-	Heading,
-	Helper,
 	SectionWhite,
 	Text,
-	TextWithButton,
-	Button,
+	Helper,
 	CheckboxWithLabel,
 	Textarea,
 	LoadReport,
+	Button,
 } from '@components';
 import Image from 'next/image';
 import image from '@assets/images/child/cleaning-service.webp';
 
 const Earnings = () => {
-  const [checked, setChecked] = React.useState({
-    dishes: true,
-    flowers: false,
-		clean: true,
-		vacuumСleaning: false,
-		cleaningRoom: false,
-		washSocks: false,
-		takeTrash: false,
-		walkDog: false,
-  });
-
   return (
     <>
 			<div className={"flex flex-col gap-[50]"}>
@@ -42,43 +27,35 @@ const Earnings = () => {
 						<CheckboxWithLabel
 							className={"basic-250"}
 							label="вымыть посуду"
-							checked={checked.dishes}
-							onChange={v => setChecked(prev => ({ ...prev, dishes: v }))}
+							defaultChecked={true}
 						/>
 						<CheckboxWithLabel
 							label="полить цветы"
-							checked={checked.flowers}
-							onChange={v => setChecked(prev => ({ ...prev, flowers: v }))}
+							defaultChecked={false}
 						/>
 						<CheckboxWithLabel
 							label="убрать со стола"
-							checked={checked.clean}
-							onChange={v => setChecked(prev => ({ ...prev, clean: v }))}
+							defaultChecked={true}
 						/>
 						<CheckboxWithLabel
 							label="пропылесосить комнату"
-							checked={checked.vacuumСleaning}
-							onChange={v => setChecked(prev => ({ ...prev, vacuumСleaning: v }))}
+							defaultChecked={false}
 						/>
 						<CheckboxWithLabel
 							label="убраться в комнате "
-							checked={checked.cleaningRoom}
-							onChange={v => setChecked(prev => ({ ...prev, cleaningRoom: v }))}
+							defaultChecked={false}
 						/>
 						<CheckboxWithLabel
 							label="постирать носки"
-							checked={checked.washSocks}
-							onChange={v => setChecked(prev => ({ ...prev, washSocks: v }))}
+							defaultChecked={false}
 						/>
 						<CheckboxWithLabel
 							label="вынести мусор"
-							checked={checked.takeTrash}
-							onChange={v => setChecked(prev => ({ ...prev, takeTrash: v }))}
+							defaultChecked={false}
 						/>
 						<CheckboxWithLabel
 							label="выгулять собаку"
-							checked={checked.walkDog}
-							onChange={v => setChecked(prev => ({ ...prev, walkDog: v }))}
+							defaultChecked={false}
 						/>
 					</div>
 
@@ -89,10 +66,9 @@ const Earnings = () => {
 						className={"mt-[35]"}
 						uploadUrl="reports/upload"
 						maxFiles={3}
-						onUploaded={(resp) => console.log(resp)}
 					/>
 					<div className={"flex justify-end mt-10"}>
-						<Button >Выполнить</Button>
+						<Button>Выполнить</Button>
 					</div>
 				</SectionWhite>
 				<CardReward text={'Домашнее задание от папы'} reward={'500'} status={'выполнено'} variant={'green'}/>
