@@ -16,7 +16,7 @@ export type LoadReportProps = {
   onUploaded?: (response: unknown) => void;
 };
 
-export const LoadReport: React.FC<LoadReportProps> = ({
+export const LoadReport = ({
   uploadUrl,
   maxFiles = 3,
   name = 'files',
@@ -24,7 +24,7 @@ export const LoadReport: React.FC<LoadReportProps> = ({
   className,
   initialPreviews = [],
   onUploaded,
-}) => {
+}: LoadReportProps) => {
   const [previews, setPreviews] = useState<string[]>(initialPreviews);
   const [isUploading, setIsUploading] = useState<boolean>(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
