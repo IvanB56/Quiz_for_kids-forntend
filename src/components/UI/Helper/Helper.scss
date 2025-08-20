@@ -1,17 +1,26 @@
-@use "../../../assets/styles/helpers/media" as *;
-@use "../../../assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
 
 .helper {
   display: flex;
   flex-direction: column;
   row-gap: rem(8);
-  padding: 40px;
+  padding: rem(40);
   text-align: center;
-  max-width: 600px;
+  max-width: rem(600);
+  border-radius: rem(14);
 
-  @apply bg-cyan-light text-white rounded-14;
+  @apply bg-cyan-light text-white;
 
   &_full {
     max-width: 100%;
+  }
+
+  &_light-brown {
+    background-color: var(--light-brown);
+  }
+
+  &_shadow {
+    box-shadow: 0 rem(6) rem(4) var(--black25);
   }
 }
