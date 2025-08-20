@@ -30,13 +30,15 @@
     margin: -120px auto 20px;
   }
 
-  .swiper-wrapper {
-    display: flex;
-    gap: 0;
-  }
+  & &__body {
+    .swiper-wrapper {
+      display: flex;
+      gap: 0;
+    }
 
-  .swiper-slide {
-    display: flex;
-    padding-top: 120px;
+    .swiper-slide {
+      display: flex;
+      padding-top: 120px;
+    }
   }
 }
