@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useRef, useState } from 'react';
+import React, { useMemo, useRef, useState, ChangeEvent, KeyboardEvent } from 'react';
 import { uploadReportPhotos } from '@/shared/api';
 import {cn} from '@utils';
 import classes from './LoadReport.cn';
@@ -38,7 +38,7 @@ export const LoadReport = ({
     inputRef.current?.click();
   };
 
-  const handleFilesSelected: React.ChangeEventHandler<HTMLInputElement> = async (e) => {
+  const handleFilesSelected = async (e: ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
     if (files.length === 0) return;
 
@@ -55,12 +55,18 @@ export const LoadReport = ({
     }
   };
 
+	const keyDownHandler = ({ key }: KeyboardEvent<HTMLInputElement>) => {
+		if (key === 'Enter' || key === ' ') {
+			handlePickFiles();
+		}
+	}
+
 	const styles = classes();
 
   return (
     <div className={cn(styles.block, className)}>
       <div className={styles.elementSlots} onClick={handlePickFiles} role="button" tabIndex={0}
-           onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handlePickFiles(); }}>
+           onKeyDown={keyDownHandler}>
         {previews.slice(0, maxFiles).map((src, idx) => (
           <div className={cn(styles.elementSlot, `${styles.elementSlot}_filled`)} key={`preview-${idx}`}>
             <img className={styles.elementImage} src={src} alt="report" />

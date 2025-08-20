@@ -1,0 +1,14 @@
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+
+.card-instruction {
+	display: flex;
+	gap: rem(70);
+
+	&__wrapper-content {
+		padding: rem(35) rem(55);
+		border-radius: rem(14);
+
+		@apply bg-white;
+	}
+}
