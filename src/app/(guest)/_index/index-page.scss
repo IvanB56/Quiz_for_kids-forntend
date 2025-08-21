@@ -7,42 +7,6 @@
     @include container();
   }
 
-  .heading {
-    font-family: var(--font-play-fair), sans-serif;
-
-    &h1, &.heading_h1 {
-      font-size: fluid(74, 24);
-      font-weight: 500;
-      margin-bottom: fluid(60, 10);
-    }
-
-    &h2, &.heading_h2 {
-      font-size: fluid(64, 22);
-      font-weight: 500;
-      margin-bottom: fluid(40, 10);
-    }
-
-    &h3, &.heading_h3 {
-      font-size: fluid(48, 20);
-      font-weight: 500;
-      margin-bottom: fluid(30, 10);
-    }
-  }
-
-  .text {
-    font-family: var(--font-roboto), sans-serif;
-    //font-weight: 400;
-    font-size: fluid(32, 16);
-  }
-
-  .subtitle {
-    font-family: var(--font-roboto), sans-serif;
-    font-weight: 400;
-    font-size: fluid(64, 22);
-    text-align: center;
-    margin-bottom: fluid(70, 20);
-  }
-
   .swiper-slide {
     display: contents;
 
@@ -98,4 +62,39 @@
       gap: 0;
     }
   }
+}
+
+.heading {
+  font-family: var(--font-play-fair), sans-serif;
+}
+
+h1, .heading_h1 {
+  font-size: fluid(74, 24);
+  font-weight: 500;
+  margin-bottom: fluid(60, 10);
+}
+
+h2, .heading_h2 {
+  font-size: fluid(64, 22);
+  font-weight: 500;
+  margin-bottom: fluid(40, 10);
+}
+
+h3, .heading_h3 {
+  font-size: fluid(48, 20);
+  font-weight: 500;
+  margin-bottom: fluid(30, 10);
+}
+
+.text {
+  font-family: var(--font-roboto), sans-serif;
+  font-size: fluid(32, 16);
+}
+
+.subtitle {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 400;
+  font-size: fluid(64, 22);
+  text-align: center;
+  margin-bottom: fluid(70, 20);
 }

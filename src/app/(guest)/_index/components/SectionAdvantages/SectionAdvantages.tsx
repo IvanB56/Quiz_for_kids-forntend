@@ -12,7 +12,7 @@ const block = CN('advantages');
 export const SectionAdvantages = () => {
 	const textClass = useClassName(block('card-text'), 'text');
 	return (
-		<SectionGrid rows={'auto'} cols={3} className={useClassName(block(), 'container')} classNameBody={block('body')}>
+		<SectionGrid rows={'auto'} cols={3} className={block()} classNameBody={block('body')}>
 			{
 				advantages.map((item, index) => (
 					<WhiteCard key={index} className={block('card')}>

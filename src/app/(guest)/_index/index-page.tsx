@@ -10,6 +10,7 @@ import './index-page.scss';
 import {SectionIdeas} from "@/app/(guest)/_index/components/SectionIdeas/SectionIdeas";
 import SectionReviews from "@/app/(guest)/_index/components/SectionReviews/SectionReviews";
 import {SectionChildFunction} from "@/app/(guest)/_index/components/SectionChildFunction/SectionChildFunction";
+import {SectionParentFunction} from "@/app/(guest)/_index/components/SectionParentFunction/SectionParentFunction";
 
 const robotoFont = Roboto({
 	weight: ['300', '400', '500'],
@@ -40,6 +41,7 @@ export const IndexPage = () => {
 			<SectionIdeas />
 			<SectionReviews />
 			<SectionChildFunction />
+			<SectionParentFunction />
 		</div>
 	);
 };
