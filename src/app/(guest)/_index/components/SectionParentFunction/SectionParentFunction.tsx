@@ -59,19 +59,21 @@ export const SectionParentFunction = () => {
 					className={block('heading')}
 				/>
 			</WhiteCard>
-			<div className={block('function-cards')}>
-				<WhiteCard className={block('root-card')}>
-					<Text data={{text, tag: 'p'}} className="text text-center"/>
-				</WhiteCard>
-				<div className={block('functions')}>
-					{
-						functionsLK.map((item, index) => (
-							<WhiteCard key={item.id} data-id={item.id} className={block('function-card', [!index ? 'active' : ''])}
-							           on={{onMouseEnter: cardHoverHandler}}>
-								<Text data={{text: item.title, tag: 'p'}} className="text"/>
-							</WhiteCard>
-						))
-					}
+			<div className="container">
+				<div className={block('function-cards')}>
+					<WhiteCard className={block('root-card')}>
+						<Text data={{text, tag: 'p'}} className="text text-center"/>
+					</WhiteCard>
+					<div className={block('functions')}>
+						{
+							functionsLK.map((item, index) => (
+								<WhiteCard key={item.id} data-id={item.id} className={block('function-card', [!index ? 'active' : ''])}
+								           on={{onMouseEnter: cardHoverHandler}}>
+									<Text data={{text: item.title, tag: 'p'}} className="text"/>
+								</WhiteCard>
+							))
+						}
+					</div>
 				</div>
 			</div>
 		</section>

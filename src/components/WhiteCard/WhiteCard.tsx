@@ -8,7 +8,7 @@ type WhiteCardProps = {
 	className?: string;
 	on?: {
 		onClick?: () => void;
-		onMouseEnter?: (event: MouseEvent) => void
+		onMouseEnter?: (event: MouseEvent<HTMLDivElement>) => void
 	}
 } & PropsWithChildren;
 
