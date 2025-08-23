@@ -2,13 +2,58 @@
 @use "../../assets/styles/helpers/function" as *;
 
 .card-instruction {
+	$self: &;
+
+	container-type: inline-size;
+
 	display: flex;
-	gap: rem(70);
+	justify-content: center;
+	align-items: flex-end;
+	gap: clamp(1rem, 5vw, 4.375rem);
+
+	&_reverse {
+		flex-direction: row-reverse;
+
+		#{$self}__wrapper-content {
+			&::before {
+				content: url("/images/child/footnote-quotes-right.svg");
+				position: absolute;
+				bottom: rem(-6);
+				left: auto;
+				right: rem(-180);
+			}
+		}
+	}
+
+	&__wrapper-image {
+		flex-shrink: 0;
+		width: clamp(15.625rem, 30vw, 31.25rem);
+		max-width: min(31.25rem, 40vw);
+	}
+
+	&__image {
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+	}
 
 	&__wrapper-content {
+		position: relative;
 		padding: rem(35) rem(55);
 		border-radius: rem(14);
+		min-height: clamp(11.25rem, 25vh, 21.5625rem);
+		width: min(49.375rem, 70vw);
+		max-width: rem(790);
+		flex: 1 1 auto;
+		align-content: center;
 
 		@apply bg-white;
+
+		&::before {
+			content: url("/images/child/footnote-quotes-left.svg");
+			position: absolute;
+			bottom: rem(-6);
+			left: clamp(-10.9375rem, -15vw, -3.75rem);
+		}
 	}
 }

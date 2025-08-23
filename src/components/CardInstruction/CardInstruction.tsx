@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import coinImg from '@assets/images/child/image-homework.webp';
 import React from 'react';
 import { Svg, Text } from '@components';
 import type { ICardInstraction } from './CardInstruction.types';
@@ -12,11 +11,11 @@ export function CardInstruction(props: ICardInstraction) {
 
 	return (
 		<div className={styles.block}>
-			<div className={styles.elementWrapperContent}>
-				<Text data={{text: 'Домашнее задание', tag: 'p'}} cn={{size: 'text-body-1', color: 'text-black', weight: 'font-semibold'}}/>
-			</div>
 			<div className={styles.elementWrapperImage}>
-				<Image src={coinImg} alt=""/>
+				<Image className={styles.elementImage} src={data.image} alt=""/>
+			</div>
+			<div className={styles.elementWrapperContent}>
+				<Text data={{text: data.text, tag: 'p'}} cn={{size: 'text-body-2', color: 'text-black', weight: 'font-semibold'}}/>
 			</div>
 		</div>
 	);
