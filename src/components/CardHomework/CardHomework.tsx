@@ -1,4 +1,3 @@
-import {useClassName} from "@hooks";
 import type {ICardHomework} from './CardHomework.types';
 import classes from './CardHomework.cn';
 import './CardHomework.scss';

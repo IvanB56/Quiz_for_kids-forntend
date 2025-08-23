@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useMemo, useRef, useState, ChangeEvent, KeyboardEvent } from 'react';
+import Image from 'next/image';
 import { uploadReportPhotos } from '@/shared/api';
 import {cn} from '@utils';
 import classes from './LoadReport.cn';
@@ -69,7 +70,14 @@ export const LoadReport = ({
            onKeyDown={keyDownHandler}>
         {previews.slice(0, maxFiles).map((src, idx) => (
           <div className={cn(styles.elementSlot, `${styles.elementSlot}_filled`)} key={`preview-${idx}`}>
-            <img className={styles.elementImage} src={src} alt="report" />
+            <Image 
+              className={styles.elementImage} 
+              src={src} 
+              alt="report"
+              width={200}
+              height={200}
+              style={{ objectFit: 'cover' }}
+            />
           </div>
         ))}
         {emptySlots.map((_, idx) => (

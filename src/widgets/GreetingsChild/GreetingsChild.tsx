@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import image from '@assets/images/child/female-student-2.webp';
-import { Button, Heading, Text } from '@components';
+import { Button, Text } from '@components';
 import { IGreetingsChild } from './GreetingsChild.types';
 import classes from './GreetingsChild.cn';
 import './GreetingsChild.scss';

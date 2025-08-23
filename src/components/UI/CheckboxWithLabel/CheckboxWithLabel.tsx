@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import './CheckboxWithLabel.scss';
-import type { ICheckboxWithLabel, ICheckboxWithLabelControlled, ICheckboxWithLabelUncontrolled } from './CheckboxWithLabel.types';
+import type { ICheckboxWithLabel, ICheckboxWithLabelControlled } from './CheckboxWithLabel.types';
 import classes from './CheckboxWithLabel.cn';
 
 // для определения режима
@@ -14,34 +14,33 @@ export function CheckboxWithLabel(props: ICheckboxWithLabel) {
 	const {cn} = props;
 	const styles = classes({...cn});
 
-  // Контролируемый режим (внешнее состояние)
-  if (isControlled(props)) {
-    return (
-      <label className={styles.block}>
-        <input
-          type="checkbox"
-          checked={props.checked}
-          onChange={e => props.onChange(e.target.checked)}
-        />
-        <span className={styles.elementBox}/>
-        <span className={styles.elementLabel}>{props.label}</span>
-      </label>
-    );
-  }
-
-  // Неконтролируемый режим (внутреннее состояние)
-  const [isChecked, setIsChecked] = useState(props.defaultChecked ?? false);
+  // Определяем режим до инициализации хуков
+  const controlled = isControlled(props);
+  
+  // Всегда инициализируем состояние (хуки должны вызываться всегда)
+  const [isChecked, setIsChecked] = useState(
+    controlled ? false : (props.defaultChecked ?? false)
+  );
 
   const handleChange = (checked: boolean) => {
-    setIsChecked(checked);
-    props.onToggle?.(checked, props.label);
+    if (controlled) {
+      // В контролируемом режиме просто вызываем onChange
+      props.onChange(checked);
+    } else {
+      // В неконтролируемом режиме обновляем внутреннее состояние
+      setIsChecked(checked);
+      props.onToggle?.(checked, props.label);
+    }
   };
+
+  // Определяем текущее значение checked
+  const currentChecked = controlled ? props.checked : isChecked;
 
   return (
     <label className={styles.block}>
       <input
         type="checkbox"
-        checked={isChecked}
+        checked={currentChecked}
         onChange={e => handleChange(e.target.checked)}
       />
       <span className={styles.elementBox}/>

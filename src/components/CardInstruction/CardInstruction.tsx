@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Svg, Text } from '@components';
+import { Text } from '@components';
 import type { ICardInstraction } from './CardInstruction.types';
 import classes from './CardInstruction.cn';
 import './CardInstraction.scss';

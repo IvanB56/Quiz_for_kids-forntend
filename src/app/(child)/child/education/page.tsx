@@ -1,5 +1,5 @@
 import React from 'react';
-import {Heading, Helper, SectionWhite, Text, TextWithButton, CardHomework } from "@components";
+import {Heading, CardHomework } from "@components";
 
 const Earnings = () => {
 	return (
