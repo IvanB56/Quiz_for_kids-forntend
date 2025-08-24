@@ -13,7 +13,10 @@ const buttonVariants = cva(
 				light: 'button_light',
 				orange: 'button_orange',
 				link: 'button_link',
-				input: 'button_input'
+				input: 'button_input',
+				greetings: 'button_greetings',
+				green: 'button_green',
+				red: 'button_red'
 			},
 			size: {
 				default: '',

@@ -1,3 +1,5 @@
+@use "../../../assets/styles/helpers/function" as *;
+
 .button {
   @apply inline-flex;
   @apply items-center;
@@ -64,4 +66,29 @@
     @apply font-semibold;
     @apply justify-between;
   }
+
+	&_greetings {
+		font-weight: 600;
+		font-size: rem(40);
+		padding: rem(19) rem(120);
+		background: linear-gradient(180deg, theme('colors.green-light') 6.59%, theme('colors.green-salat') 51.19%, theme('colors.green-light') 91.19%);
+		@apply text-primary-white;
+		@apply mx-[auto];
+		@apply block;
+		@apply rounded-100 shadow-m;
+	}
+
+	&_green {
+		@apply text-white;
+		@apply bg-green;
+		@apply hover:bg-green-95;
+		@apply rounded-14;
+	}
+
+	&_red {
+		@apply text-white;
+		@apply bg-red;
+		@apply hover:bg-red-90;
+		@apply rounded-14;
+	}
 }

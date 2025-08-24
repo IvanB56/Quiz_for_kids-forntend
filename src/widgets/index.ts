@@ -19,3 +19,4 @@ export * from './FormMentor/FormMentor';
 export * from './FormProfile/FormProfile';
 export * from './BannerAnimate/BannerAnimate';
 export * from './SectionGrid/SectionGrid';
+export * from './GreetingsChild/GreetingsChild';

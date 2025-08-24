@@ -1,0 +1,57 @@
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
+
+.load-report {
+	gap: rem(30);
+
+	@apply flex items-center;
+
+  &__slots {
+		gap: rem(15);
+		cursor: pointer;
+
+		@apply flex items-center;
+  }
+
+  &__slot {
+    width: rem(85);
+    height: rem(110);
+    overflow: hidden;
+
+		@apply bg-grey-medium;
+
+    &_filled {
+      @apply bg-grey-medium;
+    }
+  }
+
+  &__image {
+    display: block;
+
+		@apply w-full h-full object-cover;
+  }
+
+  &__add-report {
+		gap: rem(10);
+    background: transparent;
+
+		@apply inline-flex items-center text-primary-black disabled:opacity-50;
+  }
+
+  &__plus {
+    font-size: rem(30);
+    line-height: 1;
+
+		@apply text-primary-blue font-bold;
+  }
+
+  &__text {
+    @apply text-xl;
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+

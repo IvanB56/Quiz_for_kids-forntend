@@ -1,0 +1,64 @@
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+
+.card-homework {
+	width: rem(345);
+	background: white;
+	border-radius: rem(14);
+
+	&__banner {
+		display: grid;
+	}
+
+	&__banner-content {
+		grid-row: 1 / 2;
+		grid-column: 1 / 2;
+		z-index: 1;
+		padding: rem(15) rem(20);
+	}
+
+	&__banner-image {
+		grid-row: 1 / 2;
+		grid-column: 1 / 2;
+
+		img {
+			border-radius: rem(14);
+		}
+	}
+
+	&__content-wrapper {
+		padding: rem(30) rem(20) rem(15);
+	}
+
+	&__rating-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__buttons-wrapper {
+		display: flex;
+		gap: rem(6);
+	}
+
+	&__button-start {
+		padding: rem(12) rem(60);
+		border-radius: rem(14);
+	}
+
+	&__button-plug {
+		border-radius: rem(14);
+		@apply bg-cyan-light;
+
+		&:hover {
+			@apply bg-cyan-light;
+		}
+	}
+
+	&__complexity {
+		align-self: flex-end;
+		margin-top: rem(50);
+
+		@apply flex gap-x-0.5;
+	}
+}

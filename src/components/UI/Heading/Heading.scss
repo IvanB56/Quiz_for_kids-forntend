@@ -46,3 +46,21 @@ h6, .heading_h6 {
 	font-size: 0.75rem;
 	line-height: 1;
 }
+
+.heading {
+	&_fw400 {
+		@apply font-normal;
+	}
+
+	&_fw500 {
+		@apply font-medium;
+	}
+
+	&_fw600 {
+		@apply font-semibold;
+	}
+
+	&_fw700 {
+		@apply font-bold;
+	}
+}

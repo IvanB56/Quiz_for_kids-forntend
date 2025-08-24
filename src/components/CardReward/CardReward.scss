@@ -1,0 +1,31 @@
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+
+.card-reward {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: rem(12);
+	padding: rem(15) rem(50);
+  gap: rem(20);
+
+	@apply shadow-dark;
+  @apply bg-white;
+
+	&__text {
+		flex: 1;
+	}
+
+  &__status {
+    padding: rem(15) rem(25);
+    font-size: rem(24);
+    font-weight: 500;
+    margin-right: rem(50);
+    white-space: nowrap;
+  }
+
+  &__coin {
+    display: flex;
+    align-items: center;
+  }
+}

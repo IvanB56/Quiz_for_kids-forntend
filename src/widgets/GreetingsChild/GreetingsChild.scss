@@ -1,0 +1,23 @@
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+
+.greetings-child {
+	&__greeting {
+		background: white;
+		padding: rem(50) rem(27);
+		border-radius: rem(23);
+		box-shadow: 0 rem(4) rem(4) 0 theme('backgroundColor.black-25');
+		margin-bottom: rem(236);
+	}
+
+	&__wrapper-image {
+		position: relative;
+		object-fit: cover;
+
+		@apply max-md:h-[316px];
+	}
+
+	&__image {
+		position: static;
+	}
+}
