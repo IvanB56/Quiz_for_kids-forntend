@@ -5,6 +5,8 @@
 .advantages {
   padding-block: fluid(60, 15);
 
+  @include container();
+
   &__card {
     flex-direction: column;
     padding: fluid(50, 10);

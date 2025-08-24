@@ -2,14 +2,16 @@ import React from 'react';
 import {Fuzzy_Bubbles, Playfair_Display, Roboto} from 'next/font/google';
 import {BannerAnimate} from "@widgets";
 import {useClassName} from "@hooks";
+import {Assistant} from '@components';
 import {SectionServices} from "./components/SectionServices/SectionServices";
 import {SectionDevelopment} from "./components/SectionDevelopment/SectionDevelopment";
 import {SectionAdvantages} from "./components/SectionAdvantages/SectionAdvantages";
-import {Assistant} from '@components';
+import {SectionIdeas} from "./components/SectionIdeas/SectionIdeas";
+import SectionReviews from "./components/SectionReviews/SectionReviews";
+import {SectionChildFunction} from "./components/SectionChildFunction/SectionChildFunction";
+import {SectionParentFunction} from "./components/SectionParentFunction/SectionParentFunction";
 import './index-page.scss';
-import {SectionIdeas} from "@/app/(guest)/_index/components/SectionIdeas/SectionIdeas";
-import SectionReviews from "@/app/(guest)/_index/components/SectionReviews/SectionReviews";
-import {SectionChildFunction} from "@/app/(guest)/_index/components/SectionChildFunction/SectionChildFunction";
+import {SectionChildInterest} from "@/app/(guest)/_index/components/SectionChildInterest/SectionChildInterest";
 
 const robotoFont = Roboto({
 	weight: ['300', '400', '500'],
@@ -40,6 +42,8 @@ export const IndexPage = () => {
 			<SectionIdeas />
 			<SectionReviews />
 			<SectionChildFunction />
+			<SectionParentFunction />
+			<SectionChildInterest />
 		</div>
 	);
 };

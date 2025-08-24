@@ -1,0 +1,178 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.parent-function {
+	padding-block: fluid(60, 20);
+	position: relative;
+
+	background: radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 249, 0.2) 0%, rgba(202, 176, 148, 0.8) 100%), url("/images/index-new/collage.png") no-repeat center;
+	background-size: auto, cover;
+
+	&__heading {
+		width: 100%;
+		margin: 0 0 10px !important;
+	}
+
+	&__function-cards {
+		padding: fluid(420, 0, 991);
+		padding-block: fluid(420, 60);
+		position: relative;
+
+		@include flex-center();
+
+		@include tablet-s() {
+			display: flex;
+			flex-direction: column;
+			row-gap: rem(20);
+		}
+
+		@include mobile() {
+			padding-bottom: 0;
+			padding-top: rem(40);
+		}
+	}
+
+	&__functions {
+		position: absolute;
+		inset: 0;
+
+		@include tablet-s() {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: stretch;
+			justify-content: space-around;
+			padding-block: rem(40);
+		}
+
+		@include mobile() {
+			position: static;
+			display: flex;
+			flex-wrap: nowrap;
+			column-gap: rem(20);
+			width: 100%;
+			height: auto;
+			overflow-y: auto;
+			padding-bottom: rem(20);
+		}
+	}
+
+	&__function-card {
+		position: absolute;
+		width: fluid(420, 240, 991);
+		height: fluid(160, 70);
+		padding: fluid(60, 20, 991);
+		transition: background-color 0.3s, color 0.3s;
+		text-align: center;
+		border-radius: fluid(60, 20);
+
+		@include flex-center();
+
+
+		&:first-of-type {
+			left: fluid(250, 0);
+			top: fluid(250, 20);
+		}
+
+		&:nth-of-type(2) {
+			left: fluid(1000, 200);
+			top: fluid(200, 30);
+
+			@include laptop() {
+				left: fluid(750, 180);
+				top: fluid(200, 30);
+			}
+		}
+
+		&:nth-of-type(3) {
+			left: fluid(1350, 450);
+			top: fluid(600, 70);
+
+			@include laptop() {
+				left: fluid(1100, 480);
+				top: fluid(350, 100);
+			}
+		}
+
+		&:nth-of-type(4) {
+			left: fluid(20, 0);
+			top: fluid(600, 20);
+
+			@include laptop() {
+				left: fluid(80, 0);
+				top: fluid(850, 200);
+			}
+
+			@include tablet-s() {
+				margin-top: auto;
+			}
+
+			@include mobile() {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-of-type(5) {
+			left: fluid(250, 150);
+			top: fluid(950, 300);
+
+			@include laptop() {
+				left: fluid(750, 150);
+				top: fluid(950, 300);
+			}
+
+			@include tablet-s() {
+				margin-top: auto;
+			}
+
+			@include mobile() {
+				margin-top: 0;
+			}
+		}
+
+		&:nth-of-type(6) {
+			left: fluid(1200, 150);
+			top: fluid(900, 300);
+
+			@include laptop() {
+				left: fluid(1300, 300);
+				top: fluid(850, 350);
+			}
+
+			@include tablet-s() {
+				margin-top: auto;
+			}
+
+			@include mobile() {
+				margin-top: 0;
+			}
+		}
+
+		&.active {
+			background-color: var(--brown);
+			color: var(--primary-white);
+		}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		@include tablet-s() {
+			position: static;
+			flex: 0 0 fluid(420, 180);
+		}
+	}
+
+	&__root-card {
+		width: fluid(780, 748);
+		height: fluid(480, 200);
+		padding: fluid(60, 10);
+
+
+		@include flex-center();
+
+		@include mobile() {
+			width: 100%;
+		}
+	}
+}
