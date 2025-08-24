@@ -1,0 +1,60 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.ideas {
+  position: relative;
+  padding: 0 fluid(60, 10) 0 0;
+  margin-top: fluid(150, 20);
+  border-radius: fluid(80, 20);
+  box-shadow: 0 6px 4px 0 var(--black25);
+  height: fluid(600, 300);
+  display: grid;
+  grid-template-columns: fluid(610, 120) auto;
+  grid-template-rows: auto auto;
+
+  &__image {
+    position: absolute;
+    height: fluid(750, 150);
+    grid-row-start: 1;
+    grid-row-end: 3;
+    bottom: 0;
+    left: 0;
+  }
+
+  &__heading,
+  &__text {
+    grid-column-start: 2;
+    grid-column-end: 3;
+  }
+
+  &__heading {
+    margin-top: auto;
+
+    @include tablet-s() {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      text-align: center;
+      margin-top: 0;
+    }
+  }
+
+  &__text {
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+
+  &__container {
+    padding-block: fluid(60, 20);
+    display: flex;
+    flex-direction: column;
+    gap: fluid(40, 20);
+
+    @include container();
+  }
+
+  @include tablet-s() {
+    padding-top: fluid(60, 10);
+    grid-template-rows: min-content auto;
+  }
+}

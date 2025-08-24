@@ -1,0 +1,10 @@
+@use '../../assets/styles/helpers/function' as *;
+
+.section-grid {
+  padding-block: fluid(60, 15);
+
+  &__body {
+    display: grid;
+    gap: rem(20);
+  }
+}

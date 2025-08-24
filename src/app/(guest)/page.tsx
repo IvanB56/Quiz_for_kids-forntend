@@ -1,17 +1,29 @@
-import { EmptyBlock, Greetings, PopularCategory, SliderQuiz } from '@widgets';
 import React from 'react';
-import ImageLeft from '@assets/images/empty-block/image-left.png';
-import ImageRight from '@assets/images/empty-block/image-right.png';
+// import {headers} from "next/headers"
+import {IndexPage} from '@/app/(guest)/_index/index-page';
 
-const IndexPage = () => {
-	return (
-		<>
-			<Greetings cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />
-			<PopularCategory cn={{ padding: 'py-[100px] max-md:py-[40px]' }} />
-			<SliderQuiz cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />
-			<EmptyBlock imagePosition={'left'} image={ImageLeft} />
-			<EmptyBlock imagePosition={'right'} image={ImageRight} isBgGrey={true} />
-		</>
-	);
+const Index = async () => {
+	// const headersList = await headers();
+	// const referer = headersList.get("referer");
+	// const newUrl = new URL(String(referer));
+	//
+	// console.log('----------------------------------------------------------------------------------------------------------------------------------------')
+	// console.log(newUrl.searchParams);
+	// console.log('----------------------------------------------------------------------------------------------------------------------------------------')
+
+
+	return <IndexPage />;
+	// if  (referer) {
+	// 	return <IndexPage />;
+	// }
+	//
+	// return (
+	// 	<>
+	// 		Index
+	// 		{/*<Greetings cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />*/}
+	// 		{/*<PopularCategory cn={{ padding: 'py-[100px] max-md:py-[40px]' }} />*/}
+	// 		{/*<SliderQuiz cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />*/}
+	// 	</>
+	// );
 };
-export default IndexPage;
+export default Index;

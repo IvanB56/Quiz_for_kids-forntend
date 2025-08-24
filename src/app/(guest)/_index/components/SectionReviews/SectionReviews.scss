@@ -1,0 +1,44 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+
+.reviews {
+  @include container();
+
+  padding-block: fluid(60, 15);
+
+  &__title {
+    @include white-section();
+
+    border-radius: fluid(80, 20);
+    box-shadow: 0 6px 4px 0 var(--black25);
+    margin-bottom: fluid(120, 40);
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: visible;
+    gap: 0;
+    flex-grow: 1;
+    align-items: flex-start;
+  }
+
+  &__image {
+    width: 150px;
+    aspect-ratio: 1;
+    margin: -120px auto 20px;
+  }
+
+  & &__body {
+    .swiper-wrapper {
+      display: flex;
+      gap: 0;
+    }
+
+    .swiper-slide {
+      display: flex;
+      padding-top: 120px;
+    }
+  }
+}

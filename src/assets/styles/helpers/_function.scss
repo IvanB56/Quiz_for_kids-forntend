@@ -8,9 +8,8 @@
 	}
 }
 
-@function fluid($max: 100, $min: 10) {
-	$maxViewportWidth: 1600;
-	$minViewportWidth: 390;
+@function fluid($max: 100, $min: 10, $minViewportWidth: 375) {
+	$maxViewportWidth: 1920;
 
 	$maxSize: math.div($max, 16);
 	$minSize: math.div($min, 16);
@@ -25,4 +24,23 @@
 					#{$yAxisIntersection * 1rem} + #{$slope * 100vw},
 					#{$maxSize * 1rem}
 	);
+}
+
+@function adaptive-size(
+	$min-value,
+    $max-value,
+    $min-breakpoint: 375px,
+    $max-breakpoint: 1920px,
+    $clamp: false
+) {
+	$slope: calc(($max-value - $min-value) / ($max-breakpoint - $min-breakpoint));
+	$slope-vw: $slope * 100vw;
+	$intercept: $min-value - $slope * $min-breakpoint;
+	$value: calc(#{$intercept} + #{$slope-vw});
+
+	@if $clamp {
+		@return clamp(#{$min-value}, #{$value}, #{$max-value});
+	} @else {
+		@return $value;
+	}
 }

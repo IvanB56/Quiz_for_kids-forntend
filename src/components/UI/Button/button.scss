@@ -50,6 +50,10 @@
     @apply p-0;
   }
 
+  &_small {
+    @apply py-1.5 px-8 min-w-min;
+  }
+
   &_input {
     @apply flex;
     @apply w-full;

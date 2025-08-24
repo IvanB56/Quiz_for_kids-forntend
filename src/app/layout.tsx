@@ -1,9 +1,9 @@
 import type {Metadata, Viewport} from 'next';
 import React from 'react';
 import {Montserrat} from 'next/font/google';
-import '@assets/styles/styles.scss';
 import StoreProvider from "@/app/StoreProvider";
 import {Toaster} from "@components";
+import '@assets/styles/styles.scss';
 
 export const metadata: Metadata = {
 	title: 'Монетикум | Главная',

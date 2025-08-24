@@ -11,6 +11,7 @@ export interface IText extends IChildrenAndClassName {
 		weight?: 'font-normal' | 'font-medium' | 'font-semibold' | 'font-bold';
 		color?: 'text-primary-grey' | 'text-black' | 'text-primary-white' | 'text-primary-red' | 'text-primary-blue';
 		margin?: string;
+		textWrap?: 'text-balance' | 'text-wrap' | 'text-nowrap' | 'text-pretty'
 	};
 	ref?: React.RefObject<HTMLParagraphElement | null>
 }
