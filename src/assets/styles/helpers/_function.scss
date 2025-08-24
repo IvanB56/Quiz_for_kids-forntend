@@ -28,10 +28,10 @@
 
 @function adaptive-size(
 	$min-value,
-    $max-value,
-    $min-breakpoint: 375px,
-    $max-breakpoint: 1920px,
-    $clamp: false
+	$max-value,
+	$min-breakpoint: 375px,
+	$max-breakpoint: 1920px,
+	$clamp: false
 ) {
 	$slope: calc(($max-value - $min-value) / ($max-breakpoint - $min-breakpoint));
 	$slope-vw: $slope * 100vw;

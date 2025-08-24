@@ -37,13 +37,13 @@ export const SectionParentFunction = () => {
 	useEffect(() => {
 		cardsRef.current = [...document.querySelectorAll(`.${block('function-card')}`)];
 
-		const timer = setInterval(() => {
-			setCurrentId(prev => {
-				return prev >= functionsLK.length ? 1 : prev + 1;
-			})
-		}, 5000);
+		// const timer = setInterval(() => {
+		// 	setCurrentId(prev => {
+		// 		return prev >= functionsLK.length ? 1 : prev + 1;
+		// 	})
+		// }, 5000);
 
-		return () => clearInterval(timer);
+		// return () => clearInterval(timer);
 	}, []);
 
 	useEffect(() => {
@@ -52,13 +52,15 @@ export const SectionParentFunction = () => {
 
 	return (
 		<section className={block()}>
-			<WhiteCard className={block('card')}>
-				<Heading
-					data={{text: 'Основные функции лк родителя', tag: 'h2'}}
-					cn={{size: 'h2', align: 'text-center'}}
-					className={block('heading')}
-				/>
-			</WhiteCard>
+			<div className="container">
+				<WhiteCard className={block('card')}>
+					<Heading
+						data={{text: 'Основные функции лк родителя', tag: 'h2'}}
+						cn={{size: 'h2', align: 'text-center'}}
+						className={block('heading')}
+					/>
+				</WhiteCard>
+			</div>
 			<div className="container">
 				<div className={block('function-cards')}>
 					<WhiteCard className={block('root-card')}>
