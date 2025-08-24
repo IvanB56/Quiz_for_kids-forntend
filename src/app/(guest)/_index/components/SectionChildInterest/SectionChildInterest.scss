@@ -7,7 +7,7 @@
 	padding: 0 fluid(60, 10) 0 0;
 	margin-top: fluid(150, 20);
 	border-radius: fluid(80, 20);
-	box-shadow: 0 6px 4px 0 var(--black25);
+	box-shadow: 0 rem(6) rem(4) 0 var(--black25);
 	height: fluid(600, 300);
 	display: grid;
 	grid-template-columns: fluid(610, 120) auto;

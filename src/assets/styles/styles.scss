@@ -10,6 +10,7 @@
   --primary-white: hsla(255, 255%, 255%, 1);
   --white95: hsla(255, 255%, 255%, 0.95);
   --white80: hsla(255, 255%, 255%, 0.8);
+  --white60: hsla(255, 255%, 255%, 0.6);
   --brown: hsla(26, 24%, 52%, 1);
   --light-brown: hsla(35, 53%, 83%, 1);
   --secondary-blue: hsla(193, 36%, 83%, 1);
@@ -17,8 +18,6 @@
 
 html {
   background-color: #FDFBEF;
-  scrollbar-gutter: stable;
-  scroll-behavior: smooth;
 
   @apply h-dvh;
 }

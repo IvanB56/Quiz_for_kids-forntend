@@ -1,0 +1,32 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.possibilities {
+	padding-block: fluid(60, 20);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, 1fr);
+	gap: fluid(80, 20);
+
+	@include container();
+
+	&__card {
+		height: fluid(580, 130);
+
+		&:first-of-type {
+			grid-column-start: 1;
+			grid-column-end: 3;
+
+			@include tablet-s() {
+				grid-column-start: 1;
+				grid-column-end: 2;
+			}
+		}
+	}
+
+	@include tablet-s() {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, 1fr);
+	}
+}
