@@ -20,7 +20,7 @@ const GreatVibes = Great_Vibes({
 
 export const BannerAnimate = () => {
 	const ref = useRef(null);
-	const styles= classes();
+	const styles = classes();
 	const number = 1623422;
 	const locRu = number.toLocaleString('ru-RU');
 
@@ -44,6 +44,8 @@ export const BannerAnimate = () => {
 			force3D: true,
 			onStart() {
 				document.body.style.overflow = 'hidden';
+				document.documentElement.style.scrollbarGutter = 'stable';
+				document.documentElement.style.scrollBehavior = 'smooth';
 			}
 		});
 		gsap.from(`.${styles.badge}`, {
@@ -54,6 +56,8 @@ export const BannerAnimate = () => {
 			delay: 3.5,
 			onComplete() {
 				document.body.style.overflow = '';
+				document.documentElement.style.scrollbarGutter = '';
+				document.documentElement.style.scrollBehavior = '';
 			}
 		});
 	}, {scope: ref});
@@ -67,8 +71,8 @@ export const BannerAnimate = () => {
 				<Text data={{text: 'Привет родители', tag: 'p'}} className={styles.text}/>
 			</div>
 			<div className={styles.badge}>
-				<img src={'images/index-new/logo-big.png'} alt="logo" />
-				<Text data={{text: `С нами уже ${locRu} пользователей`, tag: 'p'}} className={styles.description} />
+				<img src={'images/index-new/logo-big.png'} alt="logo"/>
+				<Text data={{text: `С нами уже ${locRu} пользователей`, tag: 'p'}} className={styles.description}/>
 			</div>
 		</section>
 	);

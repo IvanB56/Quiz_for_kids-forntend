@@ -8,7 +8,7 @@ export default function classes(cn: IText['cn']) {
 		'text-body-2';
 	const WEIGHT =
 		(['font-normal', 'font-medium', 'font-semibold', 'font-bold'].includes(cn?.weight || '') && cn?.weight) || '';
-	const WRAP = (['text-balance', 'text-wrap', 'text-nowrap', 'text-pretty'].includes(cn?.textWrap || '') && cn?.textWrap) || 'text-balance';
+	const WRAP = (['text-balance', 'text-wrap', 'text-nowrap', 'text-pretty'].includes(cn?.textWrap || '') && cn?.textWrap) || '';
 
 	return {
 		block: [COLOR, SIZE, WEIGHT, WRAP, cn?.margin].join(' ').trim().replace('  ', ' '),
