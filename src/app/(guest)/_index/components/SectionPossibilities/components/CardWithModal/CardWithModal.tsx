@@ -31,7 +31,7 @@ export const CardWithModal = ({description, img, title, className}: CardProps) =
 					</DialogTrigger>
 					<DialogContent className={block('dialog-content')}>
 						<DialogClose asChild>
-							<Button className="rounded-[50%] p-0 w-[50px] h-[50px] absolute right-0 top-0"><X /></Button>
+							<Button className={block('modal-close')}><X /></Button>
 
 						</DialogClose>
 						<DialogHeader className={block('dialog-header')}>

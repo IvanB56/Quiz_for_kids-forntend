@@ -88,6 +88,18 @@
     text-wrap: auto;
   }
 
+  &__modal-close {
+    border-radius: 50%;
+    height: fluid(50, 30);
+    width: fluid(50, 30);
+    padding: 0;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(25%, -25%);
+  }
+
   &_modal {
     height: fluid(400, 100);
     border-radius: fluid(60, 20);
