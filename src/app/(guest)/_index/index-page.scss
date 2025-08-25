@@ -47,7 +47,7 @@
     margin: 0 !important;
 
     &.swiper-pagination-bullet-active {
-      background-color: var(--light-brown);
+      opacity: 0.5;
     }
   }
 
