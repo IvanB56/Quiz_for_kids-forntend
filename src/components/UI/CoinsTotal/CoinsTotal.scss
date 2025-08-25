@@ -1,0 +1,19 @@
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
+
+.coins-total {
+	display: flex;
+	gap: rem(11);
+	align-items: center;
+
+	&__total {
+		font-family: var(--font-montserrat), serif;
+		font-weight: 600;
+		font-size: rem(40);
+		line-height: 1;
+		letter-spacing: -4%;
+		vertical-align: middle;
+
+		@apply text-primary-blue;
+	}
+}

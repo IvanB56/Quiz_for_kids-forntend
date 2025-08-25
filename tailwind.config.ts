@@ -14,11 +14,15 @@ export default {
 				'primary-red': 'hsla(0, 93%, 53%, 1)',
 				'secondary-red': 'hsla(11, 57%, 53%, 1)',
 				'primary-blue': 'hsla(192, 53%, 36%, 1)',
-				'secondary-blue': 'hsla(193, 36%, 83%, 1)'
+				'secondary-blue': 'hsla(193, 36%, 83%, 1)',
+				'green-light': 'hsla(143, 100%, 37%, 1)',
+				'green-salat': 'hsla(143, 95%, 48%, 1)',
 			},
 			backgroundColor: {
 				'section-grey': 'hsla(30, 9%, 96%, 1)',
 				black: 'hsla(0, 0%, 0%, 1)',
+				'black-25': 'hsla(0, 0%, 0%, 0.25)',
+				white: 'hsla(0, 0%, 100%, 1)',
 				'pink-dark': 'hsla(338, 30%, 45%, 1)',
 				'pink-light': 'hsla(344, 54%, 89%, 1)',
 				'grey-light': 'hsla(30, 10%, 96%, 1)',
@@ -28,10 +32,12 @@ export default {
 				'cyan-light': 'hsla(193, 36%, 83%, 1)',
 				cyan: 'hsla(192, 30%, 50%, 1)',
 				green: 'hsla(131, 22%, 50%, 1)',
+				'green-95': 'hsla(131, 22%, 50%, 0.95)',
 				pink: 'hsla(312, 29%, 49%, 1)',
 				orange: 'hsla(33, 100%, 72%, 1)',
 				'red-secondary': 'hsla(0, 35%, 49%, 1)',
 				red: 'hsla(0, 93%, 53%, 1)',
+				'red-90': 'hsla(0, 93%, 53%, 0.9)',
 				'button-primary': 'hsla(192, 53%, 36%, 1)',
 				'button-secondary': 'hsla(10, 58%, 86%, 1)',
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
@@ -52,10 +58,13 @@ export default {
 				sm: 'calc(var(--radius) - 4px)',
 			},
 			borderColor: {
-				'cyan-light': 'hsla(193, 36%, 83%, 1)'
+				'cyan-light': 'hsla(193, 36%, 83%, 1)',
+				'dark-green': 'hsla(186, 48%, 28%, 1)',
+				'grey-medium': 'hsla(0, 0%, 87%, 1)',
 			},
 			boxShadow: {
 				dark: '-10px 10px 20px hsla(9, 14%, 18%, 0.47)',
+				m: '0 8px 8px 0 hsla(0, 0%, 0%, 0.25)',
 			},
 		},
 		container: {

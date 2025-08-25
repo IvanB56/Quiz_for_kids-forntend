@@ -8,7 +8,7 @@ export function Heading(props: IHeading) {
 	const { data, children, cn, className } = props;
 	const styles = classes({ ...cn });
 	const TAG = data.tag;
-	
+
 	return (
 		<TAG className={useClassName(styles.block, className)}>
 			{children ? children : data.text}
