@@ -1,3 +1,4 @@
+export * from './Accordion/accordion';
 export * from './Button/button';
 export * from './Command/Command';
 export * from './Dialog/Dialog';
