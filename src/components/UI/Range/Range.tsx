@@ -7,20 +7,28 @@ type RangeProps = {
 	step: number,
 	min: number,
 	max: number,
-	defaultValue: number[]
+	defaultValue: number[],
+	onChange?: (values: number[]) => void,
+	className?: string
 }
 
-export const Range: React.FC<RangeProps> = ({label, step, min = 1, max = 100, defaultValue = [50]}) => {
+export const Range: React.FC<RangeProps> = ({label, step, min = 1, max = 100, defaultValue = [50], onChange, className}) => {
 	const [values, setValues] = React.useState<number[]>([...defaultValue]);
 
+	const handleChange = (newValues: number[]) => {
+		setValues(newValues);
+		onChange?.(newValues);
+	};
+
 	return (
-		<ReactRange
-			label={label}
-			step={step}
-			min={min}
-			max={max}
-			values={values}
-			onChange={(values) => setValues(values)}
+		<div className={className}>
+			<ReactRange
+				label={label}
+				step={step}
+				min={min}
+				max={max}
+				values={values}
+				onChange={handleChange}
 			renderTrack={({props, children}) => (
 				<div
 					{...props}
@@ -65,6 +73,7 @@ export const Range: React.FC<RangeProps> = ({label, step, min = 1, max = 100, de
 					</div>
 				</div>
 			)}
-		/>
+			/>
+		</div>
 	);
 };
