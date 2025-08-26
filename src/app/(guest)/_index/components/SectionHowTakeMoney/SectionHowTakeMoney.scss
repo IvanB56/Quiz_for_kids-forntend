@@ -1,0 +1,49 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.how-take-money {
+	padding-block: fluid(60, 20);
+
+	&__heading {
+		width: 100%;
+		margin: 0 0 10px !important;
+	}
+
+	&__card {
+		margin-top: fluid(40, 20);
+		display: grid;
+		grid-template-rows: repeat(2, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		gap: fluid(40, 10);
+		padding: fluid(60, 20);
+
+		@include mobile-above() {
+			justify-content: center;
+			align-items: center;
+		}
+
+		@include mobile() {
+			grid-template-rows: repeat(3, 1fr);
+		}
+	}
+
+	&__text {
+		@include mobile() {
+			&:first-of-type,
+			&:last-of-type {
+				grid-column-start: 1;
+				grid-column-end: 3;
+			}
+		}
+	}
+
+	&__image {
+		position: relative;
+		width: 100%;
+		height: fluid(540, 110);
+
+		border-radius: fluid(30, 15);
+		overflow: hidden;
+	}
+}

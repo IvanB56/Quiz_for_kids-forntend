@@ -10,9 +10,11 @@ import {SectionIdeas} from "./components/SectionIdeas/SectionIdeas";
 import SectionReviews from "./components/SectionReviews/SectionReviews";
 import {SectionChildFunction} from "./components/SectionChildFunction/SectionChildFunction";
 import {SectionParentFunction} from "./components/SectionParentFunction/SectionParentFunction";
+import {SectionChildInterest} from "./components/SectionChildInterest/SectionChildInterest";
+import {SectionPossibilities} from "./components/SectionPossibilities/SectionPossibilities";
+import {SectionHowTakeMoney} from "./components/SectionHowTakeMoney/SectionHowTakeMoney";
+import {SectionFaq} from './components/SectionFAQ/SectionFAQ';
 import './index-page.scss';
-import {SectionChildInterest} from "@/app/(guest)/_index/components/SectionChildInterest/SectionChildInterest";
-import {SectionPossibilities} from "@/app/(guest)/_index/components/SectionPossibilities/SectionPossibilities";
 
 const robotoFont = Roboto({
 	weight: ['300', '400', '500'],
@@ -46,6 +48,8 @@ export const IndexPage = () => {
 			<SectionParentFunction />
 			<SectionChildInterest />
 			<SectionPossibilities />
+			<SectionHowTakeMoney />
+			<SectionFaq />
 		</div>
 	);
 };
