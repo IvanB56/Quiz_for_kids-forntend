@@ -11,19 +11,6 @@ const Index = async () => {
 	// console.log(newUrl.searchParams);
 	// console.log('----------------------------------------------------------------------------------------------------------------------------------------')
 
-
 	return <IndexPage />;
-	// if  (referer) {
-	// 	return <IndexPage />;
-	// }
-	//
-	// return (
-	// 	<>
-	// 		Index
-	// 		{/*<Greetings cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />*/}
-	// 		{/*<PopularCategory cn={{ padding: 'py-[100px] max-md:py-[40px]' }} />*/}
-	// 		{/*<SliderQuiz cn={{ background: 'bg-section-grey', padding: 'py-[100px] max-md:py-[40px]' }} />*/}
-	// 	</>
-	// );
 };
 export default Index;

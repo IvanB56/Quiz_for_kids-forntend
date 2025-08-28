@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import {usePathname, useRouter} from 'next/navigation';
 import Image from 'next/image';
-import {Button} from '@components';
+import {Button, Heading, Modal} from '@components';
 import logo from '@assets/images/logo.png';
 import {classes} from './cn/HeaderGuest.cn';
 import {TypeHeaderGuest} from './types/HeaderGuest.type';
@@ -10,6 +10,7 @@ import Link from 'next/link';
 import {LogIn, LogOut, Menu, UserRoundPlus, X} from 'lucide-react';
 import './styles/HeaderGuest.scss';
 import {logout} from "@/shared/api";
+import {FormLogin} from "@/widgets";
 
 export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 	const pathname = usePathname();
@@ -19,11 +20,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 		{name: 'Профиль', href: '/profile'},
 		{name: 'Настройки профиля', href: '/settings'}
 	];
-	const guestMenu = [
-		{name: 'Главная', href: '/'},
-		{name: 'О нас', href: '/about'},
-	];
-	const menus = data?.page === 'guest' ? [...guestMenu] : [...settingsMenu];
+	const menus = data?.page === 'guest' ? [] : [...settingsMenu];
 	const router = useRouter();
 
 	const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +43,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 						<Image src={logo} alt="логотип" width="250"/>
 					</Link>
 				</Button>
-				<nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
+				{menus?.length ? <nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
 					{menus.map(({href, name}) => (
 						<Button
 							asChild
@@ -84,20 +81,30 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 							</Link>
 						</Button>
 					</div>
-				</nav>
+				</nav> : null}
 				<div className={styles.elementButtons}>
 					{data?.page === 'guest' && (
 						<>
-							<Button asChild variant={'link'} className={styles.elementAuthButton}>
-								<Link href={'/login'} className={pathname === '/login' ? 'opacity-50' : ''}>
-									<LogIn/> Войти
-								</Link>
-							</Button>
-							<Button asChild variant={'link'} className={styles.elementAuthButton}>
-								<Link href={'/registration'} className={pathname === '/registration' ? 'opacity-50' : ''}>
-									<UserRoundPlus/> Зарегистрироваться
-								</Link>
-							</Button>
+							<Modal
+								trigger={() => (
+									<><LogIn/> Войти</>
+								)}
+								header={() => (
+									<Heading data={{text: 'Войти', tag: 'h2'}} cn={{size: 'h2', align: 'text-center'}} />
+								)}
+								description={() => <FormLogin />}
+								className={{
+									trigger: styles.elementAuthButton
+								}}
+							/>
+							<Modal
+								trigger={() => (
+									<><UserRoundPlus/> Зарегистрироваться</>
+								)}
+								className={{
+									trigger: styles.elementAuthButton
+								}}
+							/>
 						</>
 					)}
 					{data?.page === 'settings' && (

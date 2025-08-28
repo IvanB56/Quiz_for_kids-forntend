@@ -4,7 +4,7 @@ import {useRouter} from "next/navigation";
 import {FieldErrors, useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
 import {classes} from './FormLogin.cn';
-import {Button, Form, FormControl, FormField, FormItem, FormLabel, Heading, Input, Text,} from '@components';
+import {Button, Form, FormControl, FormField, FormItem, FormLabel, Input, Text,} from '@components';
 import {TypeLogin} from '@/features/auth/schemas';
 import {formSchema} from '@/features/auth/schemas/login';
 import {isLoginError, login} from '@/shared/api';
@@ -45,11 +45,6 @@ export const FormLogin = () => {
 
 	return (
 		<div className={styles.block}>
-			<Heading
-				data={{ text: 'Авторизация', tag: 'h1' }}
-				cn={{ color: 'text-primary-blue', margin: 'mb-[28px]', size: 'h2' }}
-				className={'text-center'}
-			/>
 			<Form {...form}>
 				<form onSubmit={form.handleSubmit(onSubmit)} noValidate className={styles.elementForm}>
 					<FormField
