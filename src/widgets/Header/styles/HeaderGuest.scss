@@ -1,11 +1,22 @@
-@use "../../../assets/styles/helpers/media" as *;
-@use "../../../assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
 
 .header {
-  @apply relative;
+  position: absolute;
+  background-color: var(--white95);
+  border-radius: 0 0 fluid(60, 20) fluid(60, 20);
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1;
+  padding-block: fluid(40, 20);
 
   &__container {
-    @apply container flex items-center;
+    display: flex;
+    align-items: center;
+
+    @include container();
   }
 
   &__menu {
@@ -53,15 +64,27 @@
   &__burger {
     @apply hidden w-10 h-10 [&_svg]:size-8;
 
-    @include tablet {
+    @include mobile {
       @apply block;
     }
   }
 
   &__auth-button {
-    @apply mr-8 font-bold;
+    margin-right: rem(8);
+    font-weight: 700;
+    gap: rem(8);
+    transition: opacity 0.3s;
+    background-color: var(--secondary-blue);
+    padding: fluid(10, 6) fluid(20, 10);
+    border-radius: fluid(20, 10);
 
-    @include tablet {
+    @include flex-center();
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    @include mobile {
       @apply hidden;
     }
   }

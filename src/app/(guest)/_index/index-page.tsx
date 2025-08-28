@@ -2,7 +2,6 @@ import React from 'react';
 import {Fuzzy_Bubbles, Playfair_Display, Roboto} from 'next/font/google';
 import {BannerAnimate} from "@widgets";
 import {useClassName} from "@hooks";
-import {Assistant} from '@components';
 import {SectionServices} from "./components/SectionServices/SectionServices";
 import {SectionDevelopment} from "./components/SectionDevelopment/SectionDevelopment";
 import {SectionAdvantages} from "./components/SectionAdvantages/SectionAdvantages";
@@ -39,7 +38,6 @@ export const IndexPage = () => {
 		<div className={useClassName('index-page', robotoFont.variable, playFairDisplayFont.variable, fuzzyBubbles.variable)}>
 			<BannerAnimate/>
 			<SectionServices />
-			<Assistant />
 			<SectionDevelopment />
 			<SectionAdvantages />
 			<SectionIdeas />

@@ -27,7 +27,7 @@ export const SectionDevelopment = () => {
 
 	return (
 		<section className={block()}>
-			<Heading data={{text: 'Развитие по 13 топовым направлениям ', tag: 'h2'}}
+			<Heading data={{text: 'Развитие по топовым направлениям ', tag: 'h2'}}
 			         cn={{size: 'h2', align: 'text-center'}}/>
 			<div className="container">
 				<div className={block('directions')}>

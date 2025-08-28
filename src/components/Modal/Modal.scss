@@ -1,0 +1,39 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.modal {
+	&__content {
+		$MAX_WIDTH: rem(1400);
+
+		border-radius: fluid(100, 30);
+		padding: fluid(40, 10);
+		width: fit-content;
+		height: fit-content;
+		max-width: min($MAX_WIDTH, 100%);
+		max-height: 90%;
+		border: none;
+		background-color: var(--brown);
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__descriptions {
+		margin-top: fluid(30, 15);
+		text-wrap: auto;
+		height: 100%;
+		overflow: auto;
+	}
+
+	&__button-close {
+		border-radius: 50%;
+		height: fluid(50, 30);
+		width: fluid(50, 30);
+		padding: 0;
+		z-index: 999;
+		position: absolute;
+		right: 0;
+		top: 0;
+		transform: translate(25%, -25%);
+	}
+}

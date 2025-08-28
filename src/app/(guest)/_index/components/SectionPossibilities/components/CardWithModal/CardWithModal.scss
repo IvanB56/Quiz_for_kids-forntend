@@ -6,7 +6,7 @@
   position: relative;
   width: 100%;
   height: 100%;
-  border-radius: fluid(100, 20);
+  border-radius: fluid(70, 30);
   box-shadow: 0 rem(6) rem(4) 0 var(--black25);
   overflow: hidden;
 
@@ -17,8 +17,7 @@
   }
 
   &__inner {
-    padding-block: fluid(70, 20);
-    padding-right: fluid(70, 20);
+    padding: fluid(60, 20) fluid(40, 15) fluid(40, 15) 0;
     position: relative;
     height: 100%;
     display: flex;
@@ -33,39 +32,6 @@
     border-bottom-right-radius: fluid(15, 10);
     max-width: 90%;
     width: fit-content;
-  }
-
-  &__button {
-    width: fluid(100, 30);
-    height: fluid(100, 30);
-    aspect-ratio: 1;
-    padding: 0;
-    margin-top: auto;
-    margin-left: auto;
-    background: var(--brown);
-    border-radius: 50%;
-    color: var(--primary-white);
-
-    @apply transition-colors hover:bg-button-primary/70;
-
-    @include flex-center();
-
-    svg {
-      width: fluid(45, 20);
-      height: fluid(45, 20);
-    }
-  }
-
-  &__dialog-content {
-    border-radius: fluid(100, 30);
-    padding: fluid(40, 10);
-    width: 90%;
-    height: 90%;
-    max-width: rem(1400);
-    border: none;
-    background-color: var(--brown);
-    display: flex;
-    flex-direction: column;
   }
 
   &__list {
@@ -83,21 +49,24 @@
     }
   }
 
-  &__dialog-descriptions {
-    margin-top: fluid(30, 15);
-    text-wrap: auto;
-  }
+  &__button {
+    width: auto;
+    height: auto;
+    padding: fluid(20, 10);
+    margin-top: auto;
+    margin-left: auto;
+    background: var(--brown);
+    border-radius: fluid(30, 15);
+    color: var(--primary-white);
 
-  &__modal-close {
-    border-radius: 50%;
-    height: fluid(50, 30);
-    width: fluid(50, 30);
-    padding: 0;
-    z-index: 999;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transform: translate(25%, -25%);
+    @apply transition-colors hover:bg-button-primary/70;
+
+    @include flex-center();
+
+    svg {
+      width: fluid(45, 20);
+      height: fluid(45, 20);
+    }
   }
 
   &_modal {

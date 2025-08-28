@@ -53,13 +53,11 @@ export const SectionParentFunction = () => {
 	return (
 		<section className={block()}>
 			<div className="container">
-				<WhiteCard className={block('card')}>
-					<Heading
-						data={{text: 'Основные функции лк родителя', tag: 'h2'}}
-						cn={{size: 'h2', align: 'text-center'}}
-						className={block('heading')}
-					/>
-				</WhiteCard>
+				<Heading
+					data={{text: 'Основные функции лк родителя', tag: 'h2'}}
+					cn={{size: 'h2', align: 'text-center'}}
+					className={block('heading')}
+				/>
 			</div>
 			<div className="container">
 				<div className={block('function-cards')}>
