@@ -1,18 +1,16 @@
 'use client';
 import * as React from "react";
 import {Range as ReactRange} from "react-range";
+import { Text } from '@components';
+import classes from './Range.cn';
+import {IRange} from './Range.types';
+import './Range.scss';
 
-type RangeProps = {
-	label: string,
-	step: number,
-	min: number,
-	max: number,
-	defaultValue: number[],
-	onChange?: (values: number[]) => void,
-	className?: string
-}
 
-export const Range: React.FC<RangeProps> = ({label, step, min = 1, max = 100, defaultValue = [50], onChange, className}) => {
+
+export const Range = (props: IRange) => {
+	const { cn, label, step, min = 1, max = 100, defaultValue = [50], onChange, className } = props;
+	const styles = classes(cn);
 	const [values, setValues] = React.useState<number[]>([...defaultValue]);
 
 	const handleChange = (newValues: number[]) => {
@@ -21,59 +19,42 @@ export const Range: React.FC<RangeProps> = ({label, step, min = 1, max = 100, de
 	};
 
 	return (
-		<div className={className}>
-			<ReactRange
-				label={label}
-				step={step}
-				min={min}
-				max={max}
-				values={values}
-				onChange={handleChange}
-			renderTrack={({props, children}) => (
-				<div
-					{...props}
-					style={{
-						...props.style,
-						height: "4px",
-						width: "100%",
-						backgroundColor: "hsla(192, 30%, 50%, 1)",
-					}}
-				>
-					{children}
+		<div className={styles.block}>
+			<div className={styles.elementWrapperLabel}>
+				<Text data={{text: 'Aa', tag : 'p'}} cn={{size: 'text-body-3', color: 'text-black', weight: 'font-semibold'}} />
+				<Text data={{text: 'Aa', tag : 'p'}} cn={{size: 'text-body-1', color: 'text-black', weight: 'font-semibold'}} />
+			</div>
+			<div className={styles.elementWrapperRange}>
+				<div className={styles.elementContainerScale}>
+					<ReactRange
+						label={label}
+						step={step}
+						min={min}
+						max={max}
+						values={values}
+						onChange={handleChange}
+						renderTrack={({props, children}) => (
+							<div className={styles.elementScale}
+								{...props}
+							>
+								{/* Активная часть трека */}
+								<div className={styles.elementScaleFilled}
+									style={{
+										width: `${((values[0] - min) / (max - min)) * 100}%`
+									}}
+								/>
+								{children}
+							</div>
+						)}
+						renderThumb={({ props }) => (
+							<div className={styles.elementPoint}
+								{...props}
+								key={props.key}
+							/>
+						)}
+					/>
 				</div>
-			)}
-			renderThumb={({ props }) => (
-				<div
-					{...props}
-					key={props.key}
-					style={{
-						...props.style,
-						height: "16px",
-						width: "16px",
-						borderRadius: "50%",
-						backgroundColor: "hsla(192, 30%, 50%, 1)",
-						display: "flex",
-						justifyContent: "center",
-						alignItems: "center"
-					}}
-				>
-					<div
-						style={{
-							position: "absolute",
-							top: "-32px",
-							color: "#fff",
-							fontWeight: "bold",
-							fontSize: "14px",
-							padding: "4px",
-							borderRadius: "4px",
-							backgroundColor: "hsla(192, 30%, 50%, 1)",
-						}}
-					>
-						{values[0].toFixed(1)}
-					</div>
-				</div>
-			)}
-			/>
+			</div>
 		</div>
 	);
 };

@@ -19,7 +19,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 		{name: 'Заработай реальные деньги', href: '/child/earnings'},
 		{name: 'Мой сейф', href: '/child/wallet'},
 		{name: 'Мой сейф 2', href: '/child/wallet2'},
-		{name: 'Настройки личного кабинета', href: '/child/questions2'},
+		{name: 'Настройки личного кабинета', href: '/child/settings'},
 	];
 
 	if (status === 401 || statusText === 'Unauthorized') {
