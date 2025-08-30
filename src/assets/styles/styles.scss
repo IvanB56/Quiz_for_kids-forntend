@@ -8,12 +8,14 @@
   --primary-black: rgba(0, 0, 0, 1);
   --black25: rgba(0, 0, 0, 0.25);
   --primary-white: rgba(255, 255, 255, 1);
+  --primary-blue: rgba(43, 121, 140, 1);
   --white95: rgba(255, 255, 255, 0.95);
   --white80: rgba(255, 255, 255, 0.8);
   --white60: rgba(255, 255, 255, 0.6);
   --brown: rgba(162, 129, 103, 1);
   --light-brown: rgba(235, 215, 189, 1);
   --champagne: rgba(253, 251, 239, 1);
+  --champagne70: rgba(253, 251, 239, 0.7);
   --secondary-blue: rgba(196, 220, 227, 1);
 }
 
@@ -43,4 +45,18 @@ main {
 
 img {
   user-select: none;
+}
+
+.loader {
+  animation: loader-animate infinite linear 2s;
+}
+
+@keyframes loader-animate {
+  from {
+    rotate: 0;
+  }
+
+  to {
+    rotate: 1turn;
+  }
 }

@@ -1,37 +1,38 @@
-import {NextRequest} from 'next/server'
+import {NextRequest, NextResponse} from 'next/server'
+import {checkAuth, getUser} from "@features";
 
 
 export async function middleware(request: NextRequest) {
+	const {status} = await checkAuth();
 
-	// const {statusText, status, error} = await checkAuth();
+	if (status === 200) {
+		const {user} = await getUser();
 
-	// console.log(statusText, status, error)
-	// const session = request.cookies.get('session')?.value
-	//
-	// // Защищаемые пути
-	// const protectedPaths = ['/dashboard', '/profile', '/admin']
-	// const isProtectedPath = protectedPaths.some(path =>
-	// 	request.nextUrl.pathname.startsWith(path)
-	// )
-	//
-	// if (isProtectedPath && !session) {
-	// 	// Перенаправляем на страницу входа
-	// 	return NextResponse.redirect(new URL('/login', request.url))
-	// }
-	//
-	// // Если пользователь авторизован и пытается зайти на login/register
-	// const authPaths = ['/login', '/register']
-	// const isAuthPath = authPaths.includes(request.nextUrl.pathname)
-	//
-	// if (isAuthPath && session) {
-	// 	return NextResponse.redirect(new URL('/dashboard', request.url))
-	// }
-	//
-	// return NextResponse.next();
+		if (request.nextUrl.pathname === '/') {
+			if (user?.data.type === 'Sponsor') {
+				return NextResponse.redirect(new URL('/profile/rules', request.url))
+			}
+
+			if (user?.data.type === 'Student') {
+				return NextResponse.redirect(new URL('/child/rules', request.url))
+			}
+		}
+	} else {
+		const protectedPaths = ['/child', '/profile', '/settings']
+		const isProtectedPath = protectedPaths.some(path =>
+			request.nextUrl.pathname.startsWith(path)
+		)
+
+		if (isProtectedPath && status !== 200) {
+			return NextResponse.redirect(new URL('/?login=true', request.url))
+		}
+	}
+
+	return NextResponse.next();
 }
 
 export const config = {
 	matcher: [
-		'/((?!api|_next/static|_next/image|favicon.ico).*)',
+		'/((?!api|.well-known|images|_next/static|_next/image|.*\\.png$).*)',
 	],
 }

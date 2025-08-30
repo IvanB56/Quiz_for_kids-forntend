@@ -1,10 +1,11 @@
 'use server';
 import {API_URL} from "@/shared/constants";
 import {cookies} from 'next/headers';
+import {TUser} from "@shared";
 
 const { API_URL: urlServer } = process.env;
 
-export async function getUser() {
+export async function getUser(): Promise<{user?: TUser; error?: { message: string, status: string }}> {
 	const cookie = (await cookies()).getAll();
 
 	try {
@@ -17,10 +18,9 @@ export async function getUser() {
 			},
 		});
 
-		const {data} = await response.json();
-
+		const user: TUser = await response.json();
 		return {
-			data
+			user
 		}
 	} catch(err) {
 		return {

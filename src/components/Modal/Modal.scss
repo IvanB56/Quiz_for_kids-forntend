@@ -6,14 +6,14 @@
 	&__content {
 		$MAX_WIDTH: rem(1400);
 
-		border-radius: fluid(100, 30);
-		padding: fluid(40, 10);
+		border-radius: fluid(60, 20);
+		padding: fluid(40, 20);
 		width: fit-content;
 		height: fit-content;
-		max-width: min($MAX_WIDTH, 100%);
+		max-width: min($MAX_WIDTH, 90%);
 		max-height: 90%;
 		border: none;
-		background-color: var(--brown);
+		background-color: var(--white95);
 		display: flex;
 		flex-direction: column;
 	}
@@ -32,8 +32,13 @@
 		padding: 0;
 		z-index: 999;
 		position: absolute;
-		right: 0;
-		top: 0;
+		right: rem(-20);
+		top: rem(-20);
 		transform: translate(25%, -25%);
+
+		@include mobile() {
+			right: 0;
+			top: 0;
+		}
 	}
 }

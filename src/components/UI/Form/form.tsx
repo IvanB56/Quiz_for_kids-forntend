@@ -2,11 +2,11 @@
 
 import * as React from 'react';
 import * as LabelPrimitive from '@radix-ui/react-label';
-import { Slot } from '@radix-ui/react-slot';
-import { Controller, ControllerProps, FieldPath, FieldValues, FormProvider, useFormContext } from 'react-hook-form';
+import {Slot} from '@radix-ui/react-slot';
+import {Controller, ControllerProps, FieldPath, FieldValues, FormProvider, useFormContext} from 'react-hook-form';
 
-import { cn } from '@utils';
-import { Label } from '@components';
+import {cn} from '@utils';
+import {Label} from '@components';
 
 const Form = FormProvider;
 
@@ -80,7 +80,7 @@ const FormLabel = React.forwardRef<
 >(({ className, ...props }, ref) => {
 	const { formItemId } = useFormField();
 
-	return <Label ref={ref} className={cn('text-body-1 text-primary-blue', className)} htmlFor={formItemId} {...props} />;
+	return <Label ref={ref} className={cn('text-body-1 text-primary-black', className)} htmlFor={formItemId} {...props} />;
 });
 FormLabel.displayName = 'FormLabel';
 

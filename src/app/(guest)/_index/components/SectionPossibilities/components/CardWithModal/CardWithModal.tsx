@@ -22,7 +22,7 @@ type CardProps = {
 export const CardWithModal = ({data, img, title, className}: CardProps) => {
 	return (
 		<div className={useClassName(block(), className)}>
-			<Image src={img} alt="" fill objectFit={'cover'}/>
+			<Image src={img} alt="" fill style={{objectFit: 'cover'}}/>
 			<div className={block('inner')}>
 				<Heading data={{text: title, tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}} className={block('title')}/>
 				<Modal
@@ -30,7 +30,7 @@ export const CardWithModal = ({data, img, title, className}: CardProps) => {
 					className={{trigger: block('button')}}
 					header={() => (
 						<div className={block({modal: true})}>
-							<Image src={img} alt="" fill objectFit={'cover'}/>
+							<Image src={img} alt="" fill style={{objectFit: 'cover'}}/>
 							<div className={block('inner')}>
 								<Heading data={{text: title, tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}} className={block('title')}/>
 							</div>
