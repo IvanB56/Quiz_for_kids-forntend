@@ -5,8 +5,9 @@ import {FormPassword} from "./Forms/FormPassword";
 import {Notification} from "./Forms/Notification";
 import {FormChild} from "./Forms/FormChild";
 import {classes} from './SettingsForm.cn';
-import './SettingsForms.scss';
 import {UserState} from "@lib/store/features/user/UserSlice";
+
+import './SettingsForms.scss';
 
 type FormProps = {
 	form: 'profile' | 'email' | 'child' | 'notification' | 'password',

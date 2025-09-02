@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {HeaderGuest} from "@widgets";
 
 export default async function GuestLayout({children}: { children: React.ReactNode }) {
 	return (
 		<>
-			<HeaderGuest data={{page: 'guest'}} />
+			<Suspense>
+				<HeaderGuest data={{page: 'guest'}}/>
+			</Suspense>
 			<main className={"index-page"}>{children}</main>
 		</>
 	);

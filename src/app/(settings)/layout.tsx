@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {HeaderGuest, SettingsAside} from "@widgets";
 import {Heading} from "@components";
 import '@assets/styles/settings.styles.scss';
@@ -15,7 +15,9 @@ export default async function SettingsLayout({children}: { children: React.React
 
 	return (
 		<ProfileSettingsProvider>
-			<HeaderGuest cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}} data={{page: 'settings'}}/>
+			<Suspense>
+				<HeaderGuest cn={{border: 'border-b-[1px]', padding: 'py-[20px]'}} data={{page: 'settings'}}/>
+			</Suspense>
 			<main className={'container bg-cyan-light'}>
 				<Heading data={{tag: 'h1', text: 'Настройки профиля'}} cn={{margin: 'mt-14 max-xl:mt-8'}}/>
 				<div className={'flex gap-16 max-xl:gap-8 mt-14 max-xl:mt-8'}>
