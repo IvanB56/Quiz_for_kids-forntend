@@ -1,15 +1,10 @@
 import React from 'react';
-import {redirect} from "next/navigation";
 import {ProfileChildProvider} from "@shared";
-import {checkAuth} from "@/features/auth/checkAuth";
 import {ProfileAside} from "@widgets";
-import {Text} from '@components';
 import '@assets/styles/child.scss'
 
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
-	const {statusText, status, error} = await checkAuth();
-
 	const pagesLink = [
 		{name: 'Правила', href: '/child/rules'},
 		{name: 'Вопросы от Алины', href: '/child/questions'},
@@ -20,14 +15,8 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 		{name: 'Настройки личного кабинета', href: '/child/settings'},
 	];
 
-	if (status === 401 || statusText === 'Unauthorized') {
-		redirect('/login');
-	}
-
 	return (
 		<ProfileChildProvider>
-			{error?.status === 'error' && (
-				<Text data={{text: JSON.stringify(error), tag: 'p'}} cn={{color: 'text-primary-grey'}}/>)}
 			<main className="child-main">
 				<div className="flex">
 					<ProfileAside pagesLink={pagesLink}/>

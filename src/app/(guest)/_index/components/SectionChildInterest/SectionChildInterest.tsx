@@ -1,6 +1,7 @@
 import React from 'react';
 import {CN} from "@/lib";
-import {Heading, SectionWhite, Text} from "@components";
+import {Heading, Text, WhiteCard} from "@components";
+import {Button} from "../UI/Button/Button";
 
 import './SectionChildInterest.scss';
 
@@ -8,8 +9,8 @@ const block = CN('child-interest');
 
 export const SectionChildInterest = () => {
 	return (
-		<div className={block('container')}>
-			<SectionWhite overflow="overflow-visible" className={block()}>
+		<section className={block()}>
+			<WhiteCard className={block('card')}>
 				<img src="/images/index-new/interest-img.png" alt="" className={block('image')}/>
 				<Heading data={{text: 'Интерес ребенка и игровая форма ', tag: 'h2'}} cn={{size: 'h2'}} className={block('heading')}/>
 				<ul className={block('list')}>
@@ -18,8 +19,10 @@ export const SectionChildInterest = () => {
 					<li><Text data={{text: 'Приветствие -  Лика каждый день приветствует на разных языках России и мира.', tag: 'p'}} className={block('text', ['text'])}/></li>
 					<li><Text data={{text: 'Шкала развития - есть развивающиеся игровые персонажи, возможность выбрать стиль оформления или создать свой.', tag: 'p'}} className={block('text', ['text'])}/></li>
 				</ul>
-
-			</SectionWhite>
-		</div>
+			</WhiteCard>
+			<div className="flex flex-col">
+				<Button/>
+			</div>
+		</section>
 	);
 };

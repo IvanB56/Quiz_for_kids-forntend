@@ -10,7 +10,7 @@
   right: 0;
   top: 0;
   z-index: 1;
-  padding-block: fluid(40, 20);
+  padding-block: fluid(30, 20);
 
   &__container {
     display: flex;
@@ -87,5 +87,9 @@
     @include mobile {
       @apply hidden;
     }
+  }
+
+  &__modal-heading {
+    margin-bottom: 0 !important;
   }
 }

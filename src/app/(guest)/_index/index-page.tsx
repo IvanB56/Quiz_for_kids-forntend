@@ -6,13 +6,15 @@ import {SectionServices} from "./components/SectionServices/SectionServices";
 import {SectionDevelopment} from "./components/SectionDevelopment/SectionDevelopment";
 import {SectionAdvantages} from "./components/SectionAdvantages/SectionAdvantages";
 import {SectionIdeas} from "./components/SectionIdeas/SectionIdeas";
-import SectionReviews from "./components/SectionReviews/SectionReviews";
+import {SectionReviews} from "./components/SectionReviews/SectionReviews";
 import {SectionChildFunction} from "./components/SectionChildFunction/SectionChildFunction";
 import {SectionParentFunction} from "./components/SectionParentFunction/SectionParentFunction";
 import {SectionChildInterest} from "./components/SectionChildInterest/SectionChildInterest";
 import {SectionPossibilities} from "./components/SectionPossibilities/SectionPossibilities";
 import {SectionHowTakeMoney} from "./components/SectionHowTakeMoney/SectionHowTakeMoney";
 import {SectionFaq} from './components/SectionFAQ/SectionFAQ';
+import {SectionBenefit} from "./components/SectionBenefit/SectionBenefit";
+import {SectionStock} from "./components/SectionStock/SectionStock";
 import './index-page.scss';
 
 const robotoFont = Roboto({
@@ -35,19 +37,22 @@ const playFairDisplayFont = Playfair_Display({
 
 export const IndexPage = () => {
 	return (
-		<div className={useClassName('index-page', robotoFont.variable, playFairDisplayFont.variable, fuzzyBubbles.variable)}>
+		<div
+			className={useClassName('index-page', robotoFont.variable, playFairDisplayFont.variable, fuzzyBubbles.variable)}>
 			<BannerAnimate/>
-			<SectionServices />
-			<SectionDevelopment />
-			<SectionAdvantages />
-			<SectionIdeas />
-			<SectionReviews />
-			<SectionChildFunction />
-			<SectionParentFunction />
-			<SectionChildInterest />
-			<SectionPossibilities />
-			<SectionHowTakeMoney />
-			<SectionFaq />
+			<SectionServices/>
+			<SectionDevelopment/>
+			<SectionAdvantages/>
+			<SectionIdeas/>
+			<SectionReviews/>
+			<SectionChildFunction/>
+			<SectionParentFunction/>
+			<SectionChildInterest/>
+			<SectionPossibilities/>
+			<SectionHowTakeMoney/>
+			<SectionFaq/>
+			<SectionBenefit/>
+			<SectionStock/>
 		</div>
 	);
 };

@@ -1,9 +1,10 @@
 import React from 'react';
+import Image from "next/image";
 import {CN} from "@/lib";
 import {Heading, Text, WhiteCard} from "@components";
+import {Button} from "../UI/Button/Button";
 
 import './SectionHowTakeMoney.scss';
-import Image from "next/image";
 
 const block = CN('how-take-money');
 
@@ -22,10 +23,10 @@ export const SectionHowTakeMoney = () => {
 						tag: 'p'
 					}} className={block('text', ['text'])}/>
 					<div className={block('image')}>
-						<Image src={'/images/index-new/section-how-take-money/img-1.jpg'} alt={''} fill objectFit="cover"/>
+						<Image src={'/images/index-new/section-how-take-money/img-1.jpg'} alt={''} fill style={{objectFit: 'cover'}}/>
 					</div>
 					<div className={block('image')}>
-						<Image src={'/images/index-new/section-how-take-money/img-2.jpg'} alt={''} fill objectFit="cover"/>
+						<Image src={'/images/index-new/section-how-take-money/img-2.jpg'} alt={''} fill style={{objectFit: 'cover'}}/>
 					</div>
 					<Text data={{
 						text: '<span class="font-bold">Заработать реальные деньги</span> - зайти в раздел ЛК в “Партнерскую программу”, получить рефералку и если знакомых мам больше трех, то заработать деньги.',
@@ -33,6 +34,7 @@ export const SectionHowTakeMoney = () => {
 					}} className={block('text', ['text'])}/>
 				</WhiteCard>
 			</div>
+			<Button />
 		</section>
 	);
 };

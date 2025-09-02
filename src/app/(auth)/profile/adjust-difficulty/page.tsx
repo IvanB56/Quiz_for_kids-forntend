@@ -14,7 +14,7 @@ const AdjustDifficulty = async () => {
 					<SwitchWithHelper
 						title='Лёгкий уровень'
 						helpers={['Легкий уровень', 'Это викторины с несколькими вариантами ответов']}
-						state={data?.levels[0].slug === "easy" ? "on": "off"}
+						state={data?.levels?.[0]?.slug === "easy" ? "on": "off"}
 						slug='easy'
 					/>
 				</div>
@@ -24,7 +24,7 @@ const AdjustDifficulty = async () => {
 					<SwitchWithHelper
 						title="Сложный уровень"
 						helpers={['Сложный уровень', 'Это тесты, где в пустое поле нужно вписать свой ответ.']}
-						state={data?.levels[1].slug === "hard" ? "on": "off"}
+						state={data?.levels?.[1]?.slug === "hard" ? "on": "off"}
 						slug='hard'
 					/>
 				</div>

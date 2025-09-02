@@ -1,5 +1,5 @@
-@use "../../assets/styles/helpers/media" as *;
-@use "../../assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
 
 .registration {
   $self: &;
@@ -30,6 +30,7 @@
   }
 
   &__submit {
+    margin-top: fluid(20, 15);
     @apply self-center;
 
     @include tablet {

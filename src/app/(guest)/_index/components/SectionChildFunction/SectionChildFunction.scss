@@ -101,10 +101,11 @@
 
     &:first-of-type {
       #{$self}__image-cat {
-        left: fluid(280, 76);
-        bottom: 100%;
+        right: 0;
+        top: 0;
+        transform: translateY(-75%);
 
-        width: fluid(440, 96);
+        width: fluid(402, 103);
 
       }
     }
@@ -123,9 +124,9 @@
       #{$self}__image-cat {
         right: 0;
         top: 0;
-        transform: translateY(-100%);
+        transform: translateY(-80%);
 
-        width: fluid(510, 150);
+        width: fluid(490, 140);
       }
     }
 
@@ -133,9 +134,9 @@
       #{$self}__image-cat {
         left: 0;
         top: 0;
-        transform: translateY(-90%);
+        transform: translateY(-80%);
 
-        width: fluid(313, 98);
+        width: fluid(412, 104);
       }
     }
 
@@ -143,9 +144,9 @@
       #{$self}__image-cat {
         right: 0;
         top: 0;
-        transform: translateY(-90%);
+        transform: translateY(-80%);
 
-        width: fluid(313, 83);
+        width: fluid(354, 100);
       }
     }
   }
@@ -174,7 +175,8 @@
   }
 
   &__helper {
-    padding: fluid(40, 10);
+    padding-block: fluid(40, 10);
+    padding-inline: fluid(230, 15);
     text-align: left;
     display: flex;
     flex-direction: row;

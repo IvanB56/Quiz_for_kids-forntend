@@ -1,7 +1,7 @@
-import { z } from 'zod';
+import {z} from 'zod';
 
 export const formSchema = z.object({
-	email: z.string().email({ message: 'Не валидный адрес электронной почты' }),
+	phone: z.string().min(14, {message: 'Номер телефона не может быть меньше 11 символов'}),
 	password: z.string().min(3, { message: 'Слишком короткий пароль' }),
 });
 
