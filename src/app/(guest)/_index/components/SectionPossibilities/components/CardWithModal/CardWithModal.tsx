@@ -37,7 +37,7 @@ export const CardWithModal = ({data, img, title, className}: CardProps) => {
 						</div>
 					)}
 					description={() => (
-						<>
+						<div>
 							{
 								data?.text && <Text data={{text: data.text, tag: 'p'}} cn={{size: 'text-body-1', textWrap: 'text-pretty'}} />
 							}
@@ -52,7 +52,7 @@ export const CardWithModal = ({data, img, title, className}: CardProps) => {
 									</ul>
 								)
 							}
-						</>
+						</div>
 					)}
 				/>
 			</div>

@@ -3,176 +3,186 @@
 @use '@assets/styles/helpers/media' as *;
 
 .parent-function {
-	padding-block: fluid(60, 20);
-	position: relative;
+	$self: &;
+	padding-top: fluid(60, 20);
+	display: flex;
+	flex-direction: column;
+	gap: fluid(40, 20);
 
-	background: radial-gradient(50% 50% at 50% 50%, rgba(255, 249, 249, 0.2) 0%, rgba(202, 176, 148, 0.8) 100%), url("/images/index-new/collage.png") no-repeat center;
-	background-size: auto, cover;
+	@include container();
+
+	&__image {
+		position: absolute;
+		height: fluid(750, 150);
+		grid-row-start: 1;
+		grid-row-end: 3;
+		grid-column-start: 2;
+		grid-column-end: 3;
+		bottom: 0;
+		left: 0;
+
+		@include tablet-s() {
+			display: none;
+		}
+	}
+
+	&__heading,
+	&__text {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
 
 	&__heading {
-		width: 100%;
-		margin: 0 0 10px !important;
-	}
-
-	&__function-cards {
-		padding: fluid(420, 0, 991);
-		padding-block: fluid(420, 60);
-		position: relative;
-
-		@include flex-center();
+		margin-top: auto;
 
 		@include tablet-s() {
-			display: flex;
-			flex-direction: column;
-			row-gap: rem(20);
-		}
-
-		@include mobile() {
-			padding-bottom: 0;
-			padding-top: rem(40);
+			grid-column-start: 1;
+			grid-column-end: 3;
+			text-align: center;
+			margin-top: 0;
 		}
 	}
 
-	&__functions {
-		position: absolute;
-		inset: 0;
-
-		@include tablet-s() {
-			display: flex;
-			flex-wrap: wrap;
-			align-items: stretch;
-			justify-content: space-around;
-			padding-block: rem(40);
-		}
-
-		@include mobile() {
-			position: static;
-			display: flex;
-			flex-wrap: nowrap;
-			column-gap: rem(20);
-			width: 100%;
-			height: auto;
-			overflow-y: auto;
-			padding-bottom: rem(20);
-		}
-	}
-
-	&__function-card {
-		position: absolute;
-		width: fluid(420, 240, 991);
-		height: fluid(160, 70);
-		padding: fluid(60, 20, 991);
-		transition: background-color 0.3s, color 0.3s;
+	&__text {
+		grid-row-start: 2;
+		grid-row-end: 3;
 		text-align: center;
-		border-radius: fluid(60, 20);
+	}
 
-		@include flex-center();
+	&__title {
+		position: relative;
+		padding: 0 0 0 fluid(60, 10);
+		margin-top: fluid(150, 20);
+		border-radius: fluid(80, 20);
+		box-shadow: 0 6px 4px 0 var(--black25);
+		height: fluid(500, 150);
+		display: grid;
+		grid-template-columns: auto fluid(413, 120);
+		grid-template-rows: auto auto;
+		align-items: flex-start;
+		gap: 0;
 
+		@include tablet-s() {
+			flex-direction: column;
+			padding: fluid(60, 15);
+			height: auto;
+
+			@include flex-center();
+		}
+	}
+
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		gap: fluid(300, 80);
+		margin-top: fluid(300, 80);
+	}
+
+	&__card {
+		flex-direction: column;
+		align-items: initial;
+		position: relative;
+		padding: fluid(60, 20);
+
+		&_right {
+			#{$self}__table-heading {
+				margin-left: 0;
+				margin-right: fluid(260, 0, 991);
+			}
+
+			#{$self}__numeric {
+				right: 0;
+			}
+
+			#{$self}__table-heading {
+				padding: 0;
+			}
+		}
 
 		&:first-of-type {
-			left: fluid(250, 0);
-			top: fluid(250, 20);
+			#{$self}__image-cat {
+				right: 0;
+				top: 0;
+				transform: translateY(-75%);
+
+				width: fluid(368, 100);
+
+			}
 		}
 
 		&:nth-of-type(2) {
-			left: fluid(1000, 200);
-			top: fluid(200, 30);
+			#{$self}__image-cat {
+				left: fluid(15, 5);
+				top: 0;
+				transform: translateY(-75%);
 
-			@include laptop() {
-				left: fluid(750, 180);
-				top: fluid(200, 30);
+				width: fluid(408, 101);
 			}
 		}
 
 		&:nth-of-type(3) {
-			left: fluid(1350, 450);
-			top: fluid(600, 70);
+			#{$self}__image-cat {
+				right: 0;
+				top: 0;
+				transform: translateY(-80%);
 
-			@include laptop() {
-				left: fluid(1100, 480);
-				top: fluid(350, 100);
+				width: fluid(404, 103);
 			}
 		}
 
 		&:nth-of-type(4) {
-			left: fluid(20, 0);
-			top: fluid(600, 20);
+			#{$self}__image-cat {
+				left: 0;
+				top: 0;
+				transform: translateY(-80%);
 
-			@include laptop() {
-				left: fluid(80, 0);
-				top: fluid(850, 200);
-			}
-
-			@include tablet-s() {
-				margin-top: auto;
-			}
-
-			@include mobile() {
-				margin-top: 0;
+				width: fluid(400, 104);
 			}
 		}
 
 		&:nth-of-type(5) {
-			left: fluid(250, 150);
-			top: fluid(950, 300);
+			#{$self}__image-cat {
+				right: 0;
+				top: 0;
+				transform: translateY(-80%);
 
-			@include laptop() {
-				left: fluid(750, 150);
-				top: fluid(950, 300);
-			}
-
-			@include tablet-s() {
-				margin-top: auto;
-			}
-
-			@include mobile() {
-				margin-top: 0;
+				width: fluid(405, 105);
 			}
 		}
 
 		&:nth-of-type(6) {
-			left: fluid(1200, 150);
-			top: fluid(900, 300);
+			#{$self}__image-cat {
+				left: 0;
+				top: 0;
+				transform: translateY(-80%);
 
-			@include laptop() {
-				left: fluid(1300, 300);
-				top: fluid(850, 350);
+				width: fluid(404, 102);
 			}
-
-			@include tablet-s() {
-				margin-top: auto;
-			}
-
-			@include mobile() {
-				margin-top: 0;
-			}
-		}
-
-		&.active {
-			background-color: var(--brown);
-			color: var(--primary-white);
-		}
-
-		&:hover {
-			cursor: pointer;
-		}
-
-		@include tablet-s() {
-			position: static;
-			flex: 0 0 fluid(420, 180);
 		}
 	}
 
-	&__root-card {
-		width: fluid(780, 748);
-		height: fluid(480, 200);
-		padding: fluid(60, 10);
+	&__numeric {
+		font-size: fluid(300, 70);
+		font-family: var(--font-fuzzy), sans-serif;
+		font-weight: 700;
+		position: absolute;
+		top: 0;
+		line-height: 0;
+	}
 
+	&__helper {
+		padding-block: fluid(40, 10);
+		padding-inline: fluid(230, 15);
+		text-align: left;
+		display: flex;
+		flex-direction: row;
 
-		@include flex-center();
-
-		@include mobile() {
-			width: 100%;
+		@include tablet-s() {
+			flex-direction: column;
 		}
+	}
+
+	&__image-cat {
+		position: absolute;
 	}
 }

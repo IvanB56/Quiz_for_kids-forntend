@@ -1,0 +1,79 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+.stock {
+  position: relative;
+  padding-block: fluid(60, 20);
+  border-radius: fluid(80, 15);
+  overflow: hidden;
+  padding-bottom: 100%;
+
+  @include container();
+
+  &__inner {
+    position: relative;
+    letter-spacing: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__heading {
+    margin-bottom: 0 !important;
+    font-size: fluid(70, 22) !important;
+  }
+
+  &__list {
+    width: fluid(1100, 280);
+    margin-inline: auto;
+  }
+
+  &__price {
+    font-style: italic;
+
+    margin-left: fluid(220, 60);
+    font-size: fluid(70, 22) !important;
+
+    @include mobile() {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    font-size: fluid(64, 18) !important;
+  }
+
+  &__headers-wrapper {
+    width: fluid(1260, 320);
+    margin-inline: auto;
+  }
+
+  .text-with-bg {
+    position: relative;
+    z-index: 1;
+    padding-top: rem(10);
+    display: inline-block;
+
+    .bg-white, .bg-blue {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 5px;
+      bottom: -5px;
+      transform: skewY(-1.25deg);
+      z-index: 0;
+
+      & + span {
+        position: relative;
+        z-index: 1;
+      }
+    }
+
+    .bg-white {
+      background-color: var(--primary-white);
+    }
+    .bg-blue {
+      background-color: var(--primary-blue);
+    }
+  }
+}

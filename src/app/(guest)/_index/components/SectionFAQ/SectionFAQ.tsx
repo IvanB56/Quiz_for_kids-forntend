@@ -21,10 +21,10 @@ export const SectionFaq = () => {
 						faq?.map(({title, text}, index) => (
 							<AccordionItem value={`item-${index}`} className={block('accordion-item')} key={index}>
 								<AccordionTrigger className={block('accordion-trigger')}>
-									<Text data={{text: title, tag: 'p'}} cn={{weight: 'font-semibold'}} className="text"/>
+									<Text data={{text: title, tag: 'p'}} className="text"/>
 								</AccordionTrigger>
 								<AccordionContent className={block('accordion-content')}>
-									<Text data={{text, tag: 'p'}} className="text"/>
+									<Text data={{text, tag: 'p'}} cn={{weight: 'font-normal'}} className="text"/>
 								</AccordionContent>
 							</AccordionItem>
 						))

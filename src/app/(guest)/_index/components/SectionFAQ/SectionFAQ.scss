@@ -18,8 +18,8 @@
 
   &__accordion-item {
     background-color: var(--primary-white);
-    border-radius: fluid(40, 10);
-    padding: fluid(20, 10);
+    border-radius: fluid(60, 10);
+    padding: fluid(40, 15) fluid(20, 10) fluid(40, 15) fluid(80, 20);
   }
 
   &__accordion-content {

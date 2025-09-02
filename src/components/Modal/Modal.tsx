@@ -8,9 +8,9 @@ import {
 	Dialog,
 	DialogClose,
 	DialogContent,
+	DialogDescription,
 	DialogFooter,
 	DialogHeader,
-	DialogTitle,
 	DialogTrigger
 } from "@components";
 
@@ -21,16 +21,15 @@ type ModalProps = {
 	header?: () => ReactNode;
 	description?: () => ReactNode;
 	footer?: () => ReactNode;
-	title?: string;
 	className?: Partial<Record<'trigger' | 'close' | 'header' | 'description' | 'footer', string>>;
 } & PropsWithChildren & DialogProps;
 
 const block = CN('modal');
 
-export const Modal = ({trigger, className, header, title, description, footer, children, ...props}: ModalProps) => {
+export const Modal = ({trigger, className, header, description, footer, children, ...props}: ModalProps) => {
 	const headerClasses = useClassName(block('header'), className?.header);
-	const descriptionClasses = useClassName(block('header'), className?.description);
-	const footerClasses = useClassName(block('header'), className?.footer);
+	const descriptionClasses = useClassName(block('descriptions'), className?.description);
+	const footerClasses = useClassName(block('footer'), className?.footer);
 
 	return (
 		<Dialog {...props}>
@@ -38,7 +37,6 @@ export const Modal = ({trigger, className, header, title, description, footer, c
 				{trigger()}
 			</DialogTrigger>
 			<DialogContent className={block('content')}>
-				<DialogTitle>{title}</DialogTitle>
 				<DialogClose asChild>
 					<Button className={useClassName(block('button-close'), className?.close)}><X/></Button>
 				</DialogClose>
@@ -48,9 +46,9 @@ export const Modal = ({trigger, className, header, title, description, footer, c
 					</DialogHeader>
 				}
 				{
-					description && <div className={descriptionClasses}>
+					description && <DialogDescription className={descriptionClasses} asChild>
 						{description()}
-					</div>
+					</DialogDescription>
 				}
 				{children}
 				{

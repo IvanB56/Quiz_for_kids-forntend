@@ -1,0 +1,22 @@
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/mixins" as *;
+
+.index-button {
+  height: fluid(140, 50);
+  background: linear-gradient(180deg, #2B788B 2.88%, #C3DCE3 31.73%, #F2FCFF 49.04%, #C3DCE3 64.9%, #2B788B 87.98%, #2B788B 97.6%);
+
+  padding-inline: fluid(100, 20);
+  border-radius: rem(100);
+  font-size: fluid(50, 20);
+  font-weight: 500;
+  margin-inline: auto;
+  margin-top: fluid(60, 20);
+  transition: opacity 0.3s;
+  font-family: var(--font-play-fair), sans-serif;
+
+  @include flex-center(true);
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

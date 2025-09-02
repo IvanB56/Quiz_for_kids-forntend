@@ -1,9 +1,10 @@
 import React from 'react';
+import Image from "next/image";
 import {CN} from "@/lib";
 import {Heading, Text, WhiteCard} from "@components";
+import {Button} from "../UI/Button/Button";
 
 import './SectionHowTakeMoney.scss';
-import Image from "next/image";
 
 const block = CN('how-take-money');
 
@@ -33,6 +34,7 @@ export const SectionHowTakeMoney = () => {
 					}} className={block('text', ['text'])}/>
 				</WhiteCard>
 			</div>
+			<Button />
 		</section>
 	);
 };

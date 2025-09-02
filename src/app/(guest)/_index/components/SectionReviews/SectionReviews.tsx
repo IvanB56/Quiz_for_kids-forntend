@@ -10,7 +10,7 @@ import './SectionReviews.scss';
 
 const block = CN('reviews');
 
-const SectionReviews = () => {
+export const SectionReviews = () => {
 	return (
 		<section className={block()}>
 			<div className={block('title')}>
@@ -72,5 +72,3 @@ const SectionReviews = () => {
 		</section>
 	);
 };
-
-export default SectionReviews;

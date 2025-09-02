@@ -22,7 +22,7 @@
 		margin-top: fluid(30, 15);
 		text-wrap: auto;
 		height: 100%;
-		overflow: auto;
+		overflow-x: auto;
 	}
 
 	&__button-close {
