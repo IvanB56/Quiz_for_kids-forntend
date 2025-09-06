@@ -1,5 +1,5 @@
 import React from 'react';
-import {Heading, Button} from "@components";
+import {Heading, } from "@components";
 import {FormProfile} from "@widgets";
 
 const Earnings = () => {

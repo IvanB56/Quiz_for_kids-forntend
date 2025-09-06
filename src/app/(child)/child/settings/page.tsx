@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text, SectionWhite, TextWithButton, Range } from '@components';
+import { Heading, Text, SectionWhite, Range } from '@components';
 
 const Earnings = () => {
 	return (

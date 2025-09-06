@@ -9,7 +9,7 @@ import './Range.scss';
 
 
 export const Range = (props: IRange) => {
-	const { cn, label, step, min = 1, max = 100, defaultValue = [50], onChange, className } = props;
+	const { cn, label, step, min = 1, max = 100, defaultValue = [50], onChange, } = props;
 	const styles = classes(cn);
 	const [values, setValues] = React.useState<number[]>([...defaultValue]);
 

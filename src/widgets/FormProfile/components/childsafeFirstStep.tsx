@@ -1,6 +1,6 @@
 'use client';
 import React, {ChangeEvent, useRef, useState} from 'react';
-import { Button, Helper, Input, SectionWhite, Text, Textarea } from '@components';
+import { Button, SectionWhite, Text, Textarea } from '@components';
 import {StepProps} from "@/widgets/FormProfile/types";
 
 type NewFirstStepProps = Required<Pick<StepProps, 'callback' | 'nextStepHandler' | 'data'>>;

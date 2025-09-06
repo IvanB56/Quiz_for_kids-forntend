@@ -1,11 +1,11 @@
 'use client';
 import React, {ChangeEvent, useRef, useState} from 'react';
-import {Button, Helper, SectionWhite, Text, Textarea} from '@components';
+import {Button, SectionWhite, Text, Textarea} from '@components';
 import {StepProps} from "@/widgets/FormProfile/types";
 
 type NewSecondStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'saveDataHandler' | 'callback' | 'data'>>;
 
-export const ChildSafeSecondStep = ({callback, prevStepHandler, saveDataHandler, data}: NewSecondStepProps) => {
+export const ChildSafeSecondStep = ({callback, saveDataHandler, data}: NewSecondStepProps) => {
 	const [value, setValue] = useState<string>(data);
 	const [isError, setIsError] = useState<boolean>(false);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
