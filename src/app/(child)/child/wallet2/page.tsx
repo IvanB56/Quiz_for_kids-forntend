@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardWallet, Heading, SavingsMonet, } from '@components';
+import { CardWallet, Heading, SavingsMonet, WalletTable } from '@components';
 
 const Earnings = () => {
 	return (
@@ -26,7 +26,7 @@ const Earnings = () => {
 				/>
 			</div>
 			<Heading data={{text: "Мой кошелек", tag: 'h1'}} className="mb-6"/>
-			<div className={"flex justify-center gap-[95]"}>
+			<div className={"flex justify-center gap-[95] mb-[55]"}>
 				<CardWallet
 					data={{
 						earningsItems: [
@@ -45,6 +45,19 @@ const Earnings = () => {
 						textRequest: 'отправь запрос о деньгах маме или другому человеку, что бы они тебе перевели сумму.'
 					}}
 					cn={{display: 'flex', gap: 'gap-[50]'}}
+				/>
+			</div>
+			<div>
+				<WalletTable
+					data={{
+						rows:[
+							{ date: '10.01.2025', deposited: 2000, withdrawn: 1500, balance: 500, piggyBank: 0 },
+							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
+							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
+						],
+					totalEarned: 99999,
+					totalWithdrawn: 99999
+					}} cn={{display: 'block'}}
 				/>
 			</div>
 

@@ -1,8 +1,8 @@
+import React from 'react';
+import { Button, Input, Text } from '@/components';
 import type {ICardWallet} from './CardWallet.types';
 import classes from './CardWallet.cn';
 import './CardWallet.scss';
-import React from 'react';
-import { Button, Input, Text } from '@/components';
 
 export function CardWallet(props: ICardWallet) {
 	const {
