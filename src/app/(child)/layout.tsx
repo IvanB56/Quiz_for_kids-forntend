@@ -11,12 +11,14 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 	const {statusText, status, error} = await checkAuth();
 
 	const pagesLink = [
-		{name: 'Правила', href: '/child/rules'},
-		{name: 'Вопросы от Алины', href: '/child/questions'},
-		{name: 'Задания от Алины', href: '/child/tasks'},
-		{name: 'Обучение от Алины', href: '/child/education'},
+		{name: 'Игровой договор', href: '/child/rules'},
+		{name: 'Вопросы от Алины. Приветствие', href: '/child/greetings'},
+		{name: 'Вопросы от Алины', href: '/child/tasks'},
+		{name: 'Задания от Алины', href: '/child/education'},
+		{name: 'Обучение от Алины', href: '/child/homework'},
 		{name: 'Заработай реальные деньги', href: '/child/earnings'},
-		{name: 'Мой кошелек', href: '/child/wallet'},
+		{name: 'Мой сейф', href: '/child/wallet'},
+		{name: 'Мой сейф 2', href: '/child/wallet2'},
 		{name: 'Настройки личного кабинета', href: '/child/settings'},
 	];
 

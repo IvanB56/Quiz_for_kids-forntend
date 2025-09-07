@@ -10,4 +10,5 @@ export * from './CardReward/CardReward';
 export * from './CardHomework/CardHomework';
 export * from './CardAnswers/CardAnswers';
 export * from './CardInstruction/CardInstruction';
+export * from './CardWallet/CardWallet';
 
