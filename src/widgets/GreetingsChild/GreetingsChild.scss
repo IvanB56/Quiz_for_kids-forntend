@@ -13,6 +13,7 @@
 	&__wrapper-image {
 		position: relative;
 		object-fit: cover;
+		margin-bottom: rem(-60);
 
 		@apply max-md:h-[316px];
 	}
