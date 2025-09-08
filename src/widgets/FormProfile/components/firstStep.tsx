@@ -6,7 +6,7 @@ import {StepProps} from "@/widgets/FormProfile/types";
 type FirstStepProps = Required<Pick<StepProps, 'callback' | 'nextStepHandler' | 'data'>>;
 
 export const FirstStep = ({callback, nextStepHandler, data}: FirstStepProps) => {
-	const [value, setValue] = useState<string>(data);
+	const [value, setValue] = useState<string>(data ? String(data): '');
 	const [isError, setIsError] = useState<boolean>(false);
 	const inputRef = useRef<HTMLInputElement>(null);
 
@@ -23,7 +23,7 @@ export const FirstStep = ({callback, nextStepHandler, data}: FirstStepProps) => 
 	}
 
 	const clickButton = () => {
-		if (!value) return setIsError(true);
+		if (!value || +value === 0) return setIsError(true);
 
 		callback({value, name: inputRef?.current?.name || ''});
 		nextStepHandler();
@@ -34,9 +34,9 @@ export const FirstStep = ({callback, nextStepHandler, data}: FirstStepProps) => 
 			overflow="overflow-visible"
 			className="flex justify-between flex-col h-full gap-y-8 max-w-[800px] m-auto"
 		>
-			<Text data={{text: 'Настроить монетикум', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold'}}/>
+			<Text data={{text: 'Ваш бюджет', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold'}}/>
 			<div className="flex gap-8 relative">
-				<Input name="sum_coins" type="text" placeholder="Введите сумму" onChange={changeInputHandler} value={value}
+				<Input name="budget" type="text" placeholder="Введите сумму" onChange={changeInputHandler} value={value}
 				       ref={inputRef}/>
 				{isError && <Text
 					data={{text: 'Поле обязательно для заполнения', tag: 'span'}}
@@ -47,7 +47,7 @@ export const FirstStep = ({callback, nextStepHandler, data}: FirstStepProps) => 
 			</div>
 			<Helper cn={{width: 'full'}}>
 				<Text data={{
-					text: 'Введите сумму, которую хотите потратить на Антона в этом месяце',
+					text: 'Введите сумму, которую хотите потратить на ребенка в этом месяце',
 					tag: 'p'
 				}} cn={{
 					color: 'text-black',

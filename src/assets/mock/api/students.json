@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "user_id": 1,
+      "email": "email@email.email1",
+      "phone": "+79009009091",
+      "name": "Елизавета",
+      "surname": "Бурак",
+      "patronymic": "Михайловна",
+      "birthdate": "1 год",
+      "type": "Student"
+    },
+    {
+      "user_id": 2,
+      "email": "email@email.email2",
+      "phone": "+79009009092",
+      "name": "name",
+      "surname": null,
+      "patronymic": null,
+      "birthdate": null,
+      "type": "Student"
+    }
+  ]
+}

@@ -1,9 +1,9 @@
-import {NextRequest, NextResponse} from 'next/server'
-import {checkAuth} from "@features";
+import {NextResponse} from 'next/server'
 
 
-export async function middleware(request: NextRequest) {
-	const {status} = await checkAuth();
+// export async function middleware(request: NextRequest) {
+export async function middleware() {
+	// const {status} = await checkAuth();
 
 	// if (status === 200) {
 	// 	const {user} = await getUser();

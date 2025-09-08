@@ -1,5 +1,5 @@
 import {TypeLogin, TypeRegistration} from '@/features/auth/schemas';
-import {API_URL} from '@/shared/constants';
+import {API_URL, MODE} from '@/shared/constants';
 import {api} from '@/shared/api/api-controller';
 
 export async function register(body: TypeRegistration, url: string = 'auth/register') {
@@ -28,18 +28,24 @@ type LoginSuccess = {
 	two_factor: boolean;
 }
 
-export function isLoginError (response: LoginError | LoginSuccess): response is LoginError {
+export function isLoginError(response: LoginError | LoginSuccess): response is LoginError {
 	return 'errors' in response && 'message' in response;
 }
 
 export async function login(body: TypeLogin): Promise<LoginError | LoginSuccess> {
-	await api.setCSRF();
+
+	let token = {};
+
+	if (MODE !== 'development') {
+		await api.setCSRF();
+		token = {'X-XSRF-TOKEN': await api.getCSRF()}
+	}
 
 	return await api.post(`${API_URL}/auth/login`, {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
-			'X-XSRF-TOKEN': await api.getCSRF(),
+			...token
 		},
 		credentials: 'include',
 		body: JSON.stringify(body),
@@ -47,13 +53,18 @@ export async function login(body: TypeLogin): Promise<LoginError | LoginSuccess>
 }
 
 export async function logout() {
-	await api.setCSRF();
+	let token = {};
+
+	if (MODE !== 'development') {
+		await api.setCSRF();
+		token = {'X-XSRF-TOKEN': await api.getCSRF()}
+	}
 
 	return await api.post(`${API_URL}/auth/logout`, {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',
-			'X-XSRF-TOKEN': await api.getCSRF(),
+			...token
 		},
 		credentials: 'include',
 		body: JSON.stringify({}),

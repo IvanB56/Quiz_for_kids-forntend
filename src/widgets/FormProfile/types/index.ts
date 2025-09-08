@@ -1,12 +1,16 @@
 import {FormEvent} from "react";
 
-export type FormDataType = Record<'sum_coins' | 'settings' | 'count' | 'mode', string>;
-export type PartialFormDataType = Pick<FormDataType, 'sum_coins' | 'settings'> & Partial<Pick<FormDataType, 'count' | 'mode'>>
+export type FormDataType = {
+	budget: number;
+	questions_quantity?: number;
+	categories?: Array<string>;
+	mode?: "combined" | "quiz" | "text-quiz";
+}
 
 export type StepProps = {
 	callback?: (data: { name: string, value: string }) => void;
 	nextStepHandler?: () => void;
 	prevStepHandler?: () => void;
-	saveDataHandler?: (e: FormEvent) => void;
-	data: string;
+	saveDataHandler?: (e: FormEvent, value?: string) => void;
+	data: number | string;
 }

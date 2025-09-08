@@ -1,18 +1,16 @@
 'use client';
-import React, {MouseEvent, useRef} from 'react';
+import React, {MouseEvent, useState} from 'react';
 import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} from '@components';
 import {StepProps} from "@/widgets/FormProfile/types";
 
-type SecondStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'saveDataHandler' | 'callback' | 'data'>>;
+type SecondStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'saveDataHandler'>>;
 
-export const SecondStep = ({callback, nextStepHandler, prevStepHandler, saveDataHandler, data}: SecondStepProps) => {
-	const value = useRef<string>(data);
+export const SecondStep = ({nextStepHandler, prevStepHandler, saveDataHandler}: SecondStepProps) => {
+	const [value, setValue] = useState<string>("auto");
 
 	const radioChangeHandler = (e: MouseEvent<HTMLButtonElement>) => {
 		const target = e.currentTarget;
-		value.current = target.getAttribute('value') || '';
-
-		callback({name: 'settings', value: value.current})
+		setValue(target.getAttribute('value') || '');
 	}
 
 	return (
@@ -23,7 +21,7 @@ export const SecondStep = ({callback, nextStepHandler, prevStepHandler, saveData
 			>
 				<Text data={{text: 'Выбор режима настройки приложения', tag: 'p'}}
 				      cn={{size: 'text-body-1', weight: 'font-bold'}}/>
-				<RadioGroup defaultValue={data} className="flex space-x-6">
+				<RadioGroup defaultValue="auto" className="flex space-x-6">
 					<Label className="flex items-center space-x-2">
 						<RadioGroupItem value="auto" id="auto" onClick={radioChangeHandler}/>
 						<Text data={{text: 'Авто', tag: 'p'}}/>
@@ -50,8 +48,8 @@ export const SecondStep = ({callback, nextStepHandler, prevStepHandler, saveData
 			</SectionWhite>
 			<SectionWhite overflow="overflow-visible" className="flex justify-between mt-6">
 				<Button type="button" onClick={prevStepHandler}>Назад</Button>
-				{value.current === 'hand' && <Button type="button" onClick={nextStepHandler}>Далее</Button>}
-				{value.current && value.current !== 'hand' && <Button type="submit" onClick={saveDataHandler}>Сохранить</Button>}
+				{value === 'hand' && <Button type="button" onClick={nextStepHandler}>Далее</Button>}
+				{value !== 'hand' && <Button type="submit" onClick={(e) => saveDataHandler(e, value)}>Сохранить</Button>}
 			</SectionWhite>
 		</>
 	);

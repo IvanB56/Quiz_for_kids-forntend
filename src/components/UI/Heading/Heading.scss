@@ -1,37 +1,39 @@
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
+
 h1, .heading_h1 {
 	font-weight: 900;
-	font-size: 4rem;
+	font-size: fluid(64, 24);
 	line-height: 0.9;
 	letter-spacing: -0.04rem;
 
-	@apply max-2xl:text-[3.375rem];
-	@apply max-xl:text-[2.75rem];
-	@apply max-sm:text-[1.5rem];
 	@apply max-md:font-medium;
 }
 
 h2, .heading_h2 {
 	font-weight: 700;
-	font-size: 2.75rem;
+	font-size: fluid(44, 20);
 	line-height: 1.1;
 	letter-spacing: -0.04rem;
 
-	@apply max-2xl:text-[2.125rem];
-	@apply max-sm:text-[1.25rem];
 	@apply max-md:font-medium;
 }
 
 
 h3, .heading_h3 {
 	font-weight: 600;
-	font-size: 2.5rem;
+	font-size: fluid(40, 18);
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
+
+	@include mobile() {
+		line-height: 1.2;
+	}
 }
 
 h4, .heading_h4 {
 	font-weight: 600;
-	font-size: 2rem;
+	font-size: fluid(32, 16);
 	line-height: 1;
 }
 

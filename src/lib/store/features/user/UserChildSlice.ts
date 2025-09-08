@@ -4,39 +4,24 @@ import {API_URL} from "@/shared/constants";
 export type UserChildState = {
 	loading: boolean;
 	error?: string;
-	activeChildId: string,
+	activeChildId: number,
 	data: {
-		id: string,
-		email: string,
-		phone: string,
-		name: string,
-		userable: {
-			surname: string,
-			patronymic: string,
-			birthdate: string,
-			type: "Student"
-		}
-	}[]
+		"user_id": number,
+		"email": string,
+		"phone": string,
+		"name": string,
+		"surname": string,
+		"patronymic": string,
+		"birthdate": string,
+		"type": "Student"
+	}[] | null;
 }
 
 const initialState: UserChildState = {
 	loading: false,
 	error: '',
-	activeChildId: '',
-	data: [
-		{
-			id: '',
-			email: "",
-			phone: "",
-			name: "",
-			userable: {
-				surname: '',
-				patronymic: '',
-				birthdate: '',
-				type: "Student"
-			}
-		},
-	]
+	activeChildId: 0,
+	data: null
 };
 
 export const fetchUserChild = createAsyncThunk<UserChildState['data']>(
@@ -57,7 +42,7 @@ const UserChildSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setActiveChildId(state, action: {payload: string}) {
+		setActiveChildId(state, action: {payload: number}) {
 			state.activeChildId = action.payload;
 		}
 	},

@@ -12,4 +12,8 @@ export * from './CardAnswers/CardAnswers';
 export * from './CardInstruction/CardInstruction';
 export * from './Modal/Modal';
 export * from './CardWhite/CardWhite';
-
+export * from './AppSideBar/AppSidebar';
+export * from './NavMain/NavMain';
+export * from './NavProjects/NavProjects';
+export * from './NavOther/NavOther';
+export * from './NavUser/NavUser';
