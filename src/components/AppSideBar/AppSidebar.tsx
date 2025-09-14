@@ -61,12 +61,12 @@ const data = {
     title: "Дети",
     items: [
       {
-        title: "Добавить ребенка",
-        url: "/settings/child",
+        title: "Мои дети",
+        url: "/profile/child",
         icon: UserPlus,
       },
       {
-        title: "Добавить родственников",
+        title: "Родственники",
         url: "/profile/relatives",
         icon: Users,
       },

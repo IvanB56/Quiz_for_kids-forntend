@@ -1,7 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-export async function GET(request: Request,  { params }: { params: Promise<{ slug: string }> }) {
+export async function GET(_: Request,  { params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
 	try {
@@ -10,14 +10,14 @@ export async function GET(request: Request,  { params }: { params: Promise<{ slu
 		return new Response(data.toString(), {
 			status: 200,
 		})
-	} catch (e) {
+	} catch (_: unknown) {
 		return new Response('error ' + slug[slug.length - 1], {
 			status: 401
 		})
 	}
 }
 
-export async function POST(request: Request,  { params }: { params: Promise<{ slug: string }> }) {
+export async function POST(_: Request,  { params }: { params: Promise<{ slug: string }> }) {
 	const { slug } = await params;
 
 	try {
@@ -26,7 +26,7 @@ export async function POST(request: Request,  { params }: { params: Promise<{ sl
 		return new Response(data.toString(), {
 			status: 200,
 		})
-	} catch (e) {
+	} catch (_) {
 		return new Response('not authenticate', {
 			status: 401
 		})

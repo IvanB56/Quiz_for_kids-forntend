@@ -14,6 +14,18 @@ const eslintConfig = [
     extends: ['next', 'next/core-web-vitals', 'next/typescript'],
     rules: {
       '@next/next/no-img-element': 'off',
+      "@typescript-eslint/no-unused-vars": [
+        "error",
+        {
+          "args": "all",
+          "argsIgnorePattern": "^_",
+          "caughtErrors": "all",
+          "caughtErrorsIgnorePattern": "^_",
+          "destructuredArrayIgnorePattern": "^_",
+          "varsIgnorePattern": "^_",
+          "ignoreRestSiblings": true
+        }
+      ]
     },
   }),
 ];

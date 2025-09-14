@@ -33,7 +33,7 @@ export const ProfileHeading = ({title}: { title: string }) => {
 	if (loading || !data) {
 		return (
 			<div className={styles.block}>
-				<Heading data={{text: title, tag: 'h1'}} cn={{margin: 'mr-auto ml-8'}}/>
+				<Heading data={{text: title, tag: 'h1'}} cn={{margin: 'mr-auto'}}/>
 				<div className={styles.elementInfo}>
 					<div className={styles.elementText}>
 						<Skeleton className="h-[50px] w-[300px]" />
@@ -47,7 +47,7 @@ export const ProfileHeading = ({title}: { title: string }) => {
 
 	return (
 		<div className={styles.block}>
-			<Heading data={{text: title, tag: 'h1'}} cn={{margin: 'mr-auto ml-8'}}/>
+			<Heading data={{text: title, tag: 'h1'}} cn={{margin: 'mr-auto'}}/>
 			{data && !data.length && (
 				<Button asChild variant={'link'}>
 					<LinkUI data={{href: '../settings/child'}}>

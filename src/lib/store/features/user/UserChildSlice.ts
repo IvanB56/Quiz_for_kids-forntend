@@ -14,14 +14,14 @@ export type UserChildState = {
 		"patronymic": string,
 		"birthdate": string,
 		"type": "Student"
-	}[] | null;
+	}[];
 }
 
 const initialState: UserChildState = {
 	loading: false,
 	error: '',
 	activeChildId: 0,
-	data: null
+	data: []
 };
 
 export const fetchUserChild = createAsyncThunk<UserChildState['data']>(

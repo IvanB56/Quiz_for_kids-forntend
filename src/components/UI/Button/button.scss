@@ -92,6 +92,10 @@
     @apply hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50
   }
 
+  &_destructive {
+    @apply text-gray-50 shadow-sm;
+  }
+
   // Size
   &_small {
     @apply py-1.5 px-8 min-w-min;

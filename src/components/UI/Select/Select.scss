@@ -5,11 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  column-gap: 16px;
-  padding: rem(15) rem(18);
-  min-width: rem(300);
+  column-gap: fluid(16, 4);
+  padding: fluid(15, 12) fluid(18, 12);
+  min-width: rem(200);
 
-  @apply rounded-100 bg-cyan-light text-white text-xl;
+  @apply rounded-100 bg-cyan-light text-white text-xl max-md:text-base max-md:w-full;
 
   &__icon {
     @apply text-primary-blue;
@@ -19,7 +19,7 @@
     cursor: pointer;
     padding: rem(16);
 
-    @apply text-xl outline-none flex w-full relative select-none items-center rounded-xl;
+    @apply text-xl max-md:text-base outline-none flex w-full relative select-none items-center rounded-xl;
 
     &:hover {
       opacity: 0.7;

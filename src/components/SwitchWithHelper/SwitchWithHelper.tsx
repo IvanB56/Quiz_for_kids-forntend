@@ -9,7 +9,7 @@ type SwitchWithHelperProps = {
 	slug: 'easy' | 'hard';
 }
 
-export const SwitchWithHelper = ({helpers, title, state, slug}: SwitchWithHelperProps) => {
+export const SwitchWithHelper = ({helpers, title, state}: SwitchWithHelperProps) => {
 	const [switchState, setSwitchState] = useState<'on' | 'off'>(state);
 
 	const clickHandler = () => {

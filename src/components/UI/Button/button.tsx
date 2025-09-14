@@ -17,7 +17,8 @@ const buttonVariants = cva(
 				greetings: 'button_greetings',
 				green: 'button_green',
 				red: 'button_red',
-				ghost: 'button_ghost'
+				ghost: 'button_ghost',
+				destructive: 'button_destructive',
 			},
 			size: {
 				default: "",

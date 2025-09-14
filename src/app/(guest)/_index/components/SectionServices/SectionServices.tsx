@@ -42,7 +42,7 @@ export const SectionServices = () => {
 						enabled: true,
 						clickable: true,
 						el: `.${block('pagination')}`,
-						renderBullet(index, className) {
+						renderBullet(_, className) {
 							return `<span class="${className} pagination-bullet"></span>`;
 						}
 					},

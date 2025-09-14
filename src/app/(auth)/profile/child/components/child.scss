@@ -1,0 +1,24 @@
+@use '@assets/styles/helpers/function' as *;
+
+.child {
+	&__icon {
+		padding: rem(8);
+	}
+
+	&__table-row {
+		display: grid;
+		grid-template-columns: 2fr repeat(3, 1fr);
+	}
+
+	&__button {
+		margin-top: rem(24);
+		padding: fluid(10, 10) fluid(64, 32);
+
+		@apply bg-button-primary;
+		@apply text-white;
+		@apply hover:bg-button-primary/70;
+		@apply rounded-100;
+		@apply w-fit;
+		@apply mx-auto;
+	}
+}
