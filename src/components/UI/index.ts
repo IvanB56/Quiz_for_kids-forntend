@@ -1,3 +1,4 @@
+export * from './Accordion/accordion';
 export * from './Button/button';
 export * from './Command/Command';
 export * from './Dialog/Dialog';
@@ -22,3 +23,4 @@ export * from './QuizQuestion/QuizQuestion';
 export * from './CoinsTotal/CoinsTotal';
 export * from './CheckboxWithLabel/CheckboxWithLabel';
 export * from './LoadReport/LoadReport';
+export * from './SavingsMonet/SavingsMonet';

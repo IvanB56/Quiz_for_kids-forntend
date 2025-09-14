@@ -2,7 +2,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {classes} from "@/widgets/SettingsForms/SettingsForm.cn";
 import {FieldErrors, useForm} from "react-hook-form";
-import {formSchema, TypeRegistration} from "@/features/auth/schemas/registration";
+import {formSchema, TypeChildRegistration} from "@/features/auth/schemas/childRegistration";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {
 	Button,
@@ -25,7 +25,7 @@ import IMask from "imask";
 export const FormChild = () => {
 	const styles = classes();
 
-	const form = useForm<TypeRegistration>({
+	const form = useForm<TypeChildRegistration>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
 			name: '',
@@ -38,7 +38,7 @@ export const FormChild = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
 
-	async function onSubmit(values: TypeRegistration) {
+	async function onSubmit(values: TypeChildRegistration) {
 		await register(values, 'api/student');
 	}
 

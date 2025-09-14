@@ -1,0 +1,34 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.benefit {
+	padding-block: fluid(60, 20);
+	position: relative;
+
+	@include container();
+
+	&__card {
+		display: flex;
+		position: relative;
+
+		padding: fluid(90, 30) fluid(400, 140) fluid(90, 30) fluid(90, 10);
+
+		@include mobile() {
+			padding-right: fluid(90, 10);
+		}
+	}
+
+	&__image {
+		width: fluid(320, 120);
+		height: auto;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+
+		@include mobile() {
+			opacity: 0.3;
+		}
+	}
+}

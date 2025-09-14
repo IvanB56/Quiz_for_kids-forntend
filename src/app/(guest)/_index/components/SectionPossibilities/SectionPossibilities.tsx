@@ -15,7 +15,7 @@ export const SectionPossibilities = () => {
 					<CardWithModal
 						title={item.title}
 						img={item.img}
-						description={item.description}
+						data={item.description}
 						key={item.id}
 						className={block('card')}
 					/>

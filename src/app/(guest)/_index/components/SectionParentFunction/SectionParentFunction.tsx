@@ -1,82 +1,139 @@
 'use client';
-import React, {MouseEvent, useCallback, useEffect, useRef, useState} from 'react';
+import React from 'react';
+import Image from 'next/image';
 import {CN} from '@/lib';
-import {Heading, Text, WhiteCard} from "@components";
-import {functionsLK} from '@assets/mock/functionsLK';
+import {Heading, Helper, Text, WhiteCard} from "@components";
+import {Button} from "@/app/(guest)/_index/components/UI/Button/Button";
 
 import './SectionParentFunction.scss';
 
 const block = CN('parent-function');
 
 export const SectionParentFunction = () => {
-	const [text, setText] = useState<string>(functionsLK[0].text);
-	const [currentId, setCurrentId] = useState<number>(0);
-	const cardsRef = useRef<Element[]>(null);
-
-	const switchCardClass = useCallback((id: number = currentId) => {
-		cardsRef?.current?.forEach(card => {
-			card.classList.remove('active');
-			if (card.getAttribute('data-id') === String(id)) {
-				card.classList.add('active');
-			}
-		});
-
-		setText((prev) => functionsLK.find(item => item.id === id)?.text || prev);
-	}, [currentId]);
-
-	const cardHoverHandler = (event: MouseEvent<HTMLDivElement>) => {
-		const target = event.currentTarget;
-		const id = Number(target.getAttribute('data-id')) || 0;
-		setCurrentId(id);
-
-		if (id) {
-			switchCardClass(id);
-		}
-	}
-
-	useEffect(() => {
-		cardsRef.current = [...document.querySelectorAll(`.${block('function-card')}`)];
-
-		// const timer = setInterval(() => {
-		// 	setCurrentId(prev => {
-		// 		return prev >= functionsLK.length ? 1 : prev + 1;
-		// 	})
-		// }, 5000);
-
-		// return () => clearInterval(timer);
-	}, []);
-
-	useEffect(() => {
-		switchCardClass();
-	}, [currentId, switchCardClass]);
-
 	return (
 		<section className={block()}>
-			<div className="container">
+			<Heading data={{text: 'Основные функции лк родителя ', tag: 'h2'}} cn={{size: 'h2', align: 'text-center'}}
+			         className={block('heading')}/>
+			<div className={block('cards')}>
 				<WhiteCard className={block('card')}>
-					<Heading
-						data={{text: 'Основные функции лк родителя', tag: 'h2'}}
-						cn={{size: 'h2', align: 'text-center'}}
-						className={block('heading')}
-					/>
+					<div className={block('numeric')}>01</div>
+					<Image src={"/images/index-new/cats/cat-parent-1.png"} alt="" width={402} height={348}
+					       className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Сервис семейного бюджета',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center'
+						}}/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: 'Вы сами сможете упорядочить свою фин. грамотность. Сервис покажет «доходы-расходы». Покажет прогноз риска бюджета до 12 месяцев, покажет не нужные расходы. Графа «бюджет ребенка» интегрирована в «Мой бюджет» ребенка.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
+				</WhiteCard>
+				<WhiteCard className={block('card', {right: true})}>
+					<div className={block('numeric')}>02</div>
+					<img src="/images/index-new/cats/cat-parent-2.png" alt="" className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Психологическое тестирование',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center'
+						}}/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: 'Для себя и скрытое для ребенка, с получением результата.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
+				</WhiteCard>
+				<WhiteCard className={block('card')}>
+					<div className={block('numeric')}>03</div>
+					<img src="/images/index-new/cats/cat-parent-3.png" alt="" className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Настройка  Лики',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center'
+						}}/>
+						<Text data={{text: 'Учиться как можно использовать на практике.', tag: 'p'}} className="text"/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: 'От формирования бюджета «карманных денег» исходя из своих возможностей, до выбора необходимых тем для ребенка или постановки задачи убраться в комнате, получит 5 по литературе.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
+				</WhiteCard>
+				<WhiteCard className={block('card', {right: true})}>
+					<div className={block('numeric')}>04</div>
+					<img src="/images/index-new/cats/cat-parent-4.png" alt="" className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Добавить других членов семьи',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center'
+						}}/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: 'Даже если бабушки-дедушки далеко и другие родственники, они смогут через свои ЛК наблюдать за успехами развития ребенка и участвовать в процессе деньгами. Это психологический сблизит семью.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
+				</WhiteCard>
+				<WhiteCard className={block('card')}>
+					<div className={block('numeric')}>05</div>
+					<img src="/images/index-new/cats/cat-parent-5.png" alt="" className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Словарь детского/подросткового сленга',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center',
+						}}/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: 'Можно понять, о чем говорит ребенок, поговорить с ним на одном языке. Понять по сленгу находится ли он в группе риска.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
+				</WhiteCard>
+				<WhiteCard className={block('card', {right: true})}>
+					<div className={block('numeric')}>06</div>
+					<img src="/images/index-new/cats/cat-parent-6.png" alt="" className={block('image-cat')}/>
+					<div className={block('table-heading', ['text-center'])}>
+						<Heading data={{
+							text: 'Инструкция по использованию Монетикума',
+							tag: 'h3'
+						}} cn={{
+							size: 'h3',
+							align: 'text-center',
+						}}/>
+					</div>
+					<Helper cn={{width: 'full', color: 'light-brown', shadow: true}} className={block('helper')}>
+						<Text data={{
+							text: ' От того, как мотивировать ребенка, если ребенок «не хочет», до того, как получить дополнительные возможности платформы.',
+							tag: 'p'
+						}} cn={{color: 'text-black'}} className="text"/>
+					</Helper>
 				</WhiteCard>
 			</div>
-			<div className="container">
-				<div className={block('function-cards')}>
-					<WhiteCard className={block('root-card')}>
-						<Text data={{text, tag: 'p'}} className="text text-center"/>
-					</WhiteCard>
-					<div className={block('functions')}>
-						{
-							functionsLK.map((item, index) => (
-								<WhiteCard key={item.id} data-id={item.id} className={block('function-card', [!index ? 'active' : ''])}
-								           on={{onMouseEnter: cardHoverHandler}}>
-									<Text data={{text: item.title, tag: 'p'}} className="text"/>
-								</WhiteCard>
-							))
-						}
-					</div>
-				</div>
+			<div className="flex flex-col">
+				<Button/>
 			</div>
 		</section>
 	);

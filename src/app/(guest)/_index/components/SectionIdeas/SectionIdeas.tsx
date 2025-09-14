@@ -1,6 +1,7 @@
 import React from 'react';
 import {Heading, SectionWhite, Text, WhiteCard} from "@components";
 import {CN} from "@/lib";
+import {Button} from "../UI/Button/Button";
 
 import './SectionIdeas.scss';
 
@@ -21,18 +22,21 @@ export const SectionIdeas = () => {
 				<Text data={{
 					text: 'МОНЕТИКУМ - превращает заработок ребенка в <span class="text-[#FF9900]">инструмент воспитания</span>, а не просто способ получить от вас карманные деньги.',
 					tag: 'p'
-				}} className={'text text-center'} />
+				}} className={'text text-center'}/>
 			</WhiteCard>
 			<WhiteCard className={'items-center justify-center flex-col'}>
 				<Text data={{
 					text: 'Ребенок начинает их зарабатывать своим умом и трудом, отвечая на <span class="text-[#FF9900]">ежедневные викторины/тесты от Алины</span>, можно добавить домашние дела и поощрение за школьные оценки.',
 					tag: 'p'
-				}} className={'text text-center'} />
+				}} className={'text text-center'}/>
 				<Text data={{
 					text: 'За правильные ответы начисляются игровые монеты, которые можно обменять на реальные деньги или начать копить. ',
 					tag: 'p'
-				}} className={'text text-center'} />
+				}} className={'text text-center'}/>
 			</WhiteCard>
+			<div className="flex flex-col">
+				<Button/>
+			</div>
 		</div>
 	);
 };

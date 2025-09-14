@@ -3,16 +3,23 @@
 @use '@assets/styles/helpers/media' as *;
 
 .child-interest {
-	position: relative;
-	padding: 0 fluid(60, 10) 0 0;
-	margin-top: fluid(150, 20);
-	border-radius: fluid(80, 20);
-	box-shadow: 0 rem(6) rem(4) 0 var(--black25);
-	height: fluid(600, 300);
-	display: grid;
-	grid-template-columns: fluid(610, 120) auto;
-	grid-template-rows: auto auto;
-	overflow: hidden;
+	padding-top: fluid(100, 20);
+	display: flex;
+	flex-direction: column;
+	gap: fluid(40, 20);
+	@include container();
+
+	&__card {
+		position: relative;
+		padding: 0 fluid(60, 10) 0 0;
+		border-radius: fluid(80, 20);
+		box-shadow: 0 rem(6) rem(4) 0 var(--black25);
+		height: fluid(600, 300);
+		display: grid;
+		grid-template-columns: fluid(610, 120) auto;
+		grid-template-rows: auto auto;
+		overflow: hidden;
+	}
 
 	&__image {
 		position: absolute;

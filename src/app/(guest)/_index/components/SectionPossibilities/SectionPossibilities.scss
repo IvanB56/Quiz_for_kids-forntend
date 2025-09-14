@@ -3,7 +3,8 @@
 @use '@assets/styles/helpers/media' as *;
 
 .possibilities {
-	padding-block: fluid(60, 20);
+	padding-top: fluid(100, 20);
+	padding-bottom: fluid(60, 20);
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	grid-template-rows: repeat(2, 1fr);
@@ -12,7 +13,7 @@
 	@include container();
 
 	&__card {
-		height: fluid(580, 130);
+		height: fluid(530, 180);
 
 		&:first-of-type {
 			grid-column-start: 1;

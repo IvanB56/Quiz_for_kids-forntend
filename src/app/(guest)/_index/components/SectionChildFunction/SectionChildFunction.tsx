@@ -1,14 +1,16 @@
 import React from 'react';
+import Image from "next/image";
 import {Heading, Helper, Text, WhiteCard} from "@components";
 import {CN} from "@/lib";
 
 import './SectionChildFunction.scss';
+import {Button} from "@/app/(guest)/_index/components/UI/Button/Button";
 
 const block = CN('child-functions');
 
 export const SectionChildFunction = () => {
 	return (
-		<div className={block()}>
+		<section className={block()}>
 			<WhiteCard className={block('title')}>
 				<Heading data={{text: 'ОСНОВНЫЕ ФУНКЦИИ В ЛК РЕБЕНКА', tag: 'h2'}} cn={{size: 'h2', align: 'text-center'}}
 				         className={block('heading')}/>
@@ -21,7 +23,7 @@ export const SectionChildFunction = () => {
 			<div className={block('cards')}>
 				<WhiteCard className={block('card')}>
 					<div className={block('numeric')}>01</div>
-					<img src="/images/index-new/cats/cat-1.png" alt="" className={block('image-cat')}/>
+					<Image src={"/images/index-new/cats/cat-child-1.png"} alt="" width={402} height={348} className={block('image-cat')}/>
 					<div className={block('table-heading', ['text-center'])}>
 						<Heading data={{
 							text: 'Вопросы викторин/тесты-отвечает на вопросы, познает и зарабатывает',
@@ -66,7 +68,7 @@ export const SectionChildFunction = () => {
 				</WhiteCard>
 				<WhiteCard className={block('card', {right: true})}>
 					<div className={block('numeric')}>02</div>
-					<img src="/images/index-new/cats/cat-2.png" alt="" className={block('image-cat')}/>
+					<img src="/images/index-new/cats/cat-child-2.png" alt="" className={block('image-cat')}/>
 					<div className={block('table-heading', ['text-center'])}>
 						<Heading data={{
 							text: 'виртуальная копилка-осознанно учиться копить и тратить',
@@ -121,7 +123,7 @@ export const SectionChildFunction = () => {
 				</WhiteCard>
 				<WhiteCard className={block('card')}>
 					<div className={block('numeric')}>03</div>
-					<img src="/images/index-new/cats/cat-3.png" alt="" className={block('image-cat')}/>
+					<img src="/images/index-new/cats/cat-child-3.png" alt="" className={block('image-cat')}/>
 					<div className={block('table-heading', ['text-center'])}>
 						<Heading data={{
 							text: 'Основные курсы по 12 топовым темам',
@@ -141,7 +143,7 @@ export const SectionChildFunction = () => {
 				</WhiteCard>
 				<WhiteCard className={block('card', {right: true})}>
 					<div className={block('numeric')}>04</div>
-					<img src="/images/index-new/cats/cat-4.png" alt="" className={block('image-cat')}/>
+					<img src="/images/index-new/cats/cat-child-4.png" alt="" className={block('image-cat')}/>
 					<div className={block('table-heading', ['text-center'])}>
 						<Heading data={{
 							text: 'Мой бюджет (сервис для ребенка)',
@@ -160,7 +162,7 @@ export const SectionChildFunction = () => {
 				</WhiteCard>
 				<WhiteCard className={block('card')}>
 					<div className={block('numeric')}>05</div>
-					<img src="/images/index-new/cats/cat-5.png" alt="" className={block('image-cat')}/>
+					<img src="/images/index-new/cats/cat-child-5.png" alt="" className={block('image-cat')}/>
 					<div className={block('table-heading', ['text-center'])}>
 						<Heading data={{
 							text: 'Карта квестов',
@@ -178,6 +180,9 @@ export const SectionChildFunction = () => {
 					</Helper>
 				</WhiteCard>
 			</div>
-		</div>
+			<div className="flex flex-col">
+				<Button/>
+			</div>
+		</section>
 	);
 };

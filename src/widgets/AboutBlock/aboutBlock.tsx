@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { IProps } from '@/widgets/AboutBlock/types';
-import { classes } from '@/widgets/AboutBlock/aboutBlock.cn';
-import { Text } from '@components';
+import {IProps} from '@/widgets/AboutBlock/types';
+import {classes} from '@/widgets/AboutBlock/aboutBlock.cn';
+import {Text} from '@components';
 import './aboutBlock.scss';
-import { useClassName } from '@hooks';
+import {useClassName} from '@hooks';
 
 export const AboutBlock: React.FC<IProps> = ({ cn, data }) => {
 	const styles = classes(cn);
@@ -21,7 +21,7 @@ export const AboutBlock: React.FC<IProps> = ({ cn, data }) => {
 						src={image}
 						alt={'image'}
 						fill
-						objectFit={'contain'}
+						style={{objectFit: 'contain'}}
 						objectPosition={cn?.direction === 'reverse' ? 'right' : 'left'}
 					/>
 				</div>

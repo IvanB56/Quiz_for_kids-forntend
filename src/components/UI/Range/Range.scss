@@ -1,0 +1,54 @@
+@use "../../../assets/styles/helpers/media" as *;
+@use "../../../assets/styles/helpers/function" as *;
+
+.range {
+	max-width: rem(600);
+
+	&__wrapper-label {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__wrapper-range {
+		display: flex;
+		align-items: center;
+	}
+
+	&__container-scale {
+		flex: 1;
+		position: relative;
+	}
+
+	&__scale {
+		height: rem(4);
+		border-radius: 2px;
+		position: relative;
+
+		@apply bg-button-hover;
+	}
+
+	&__scale-filled {
+		position: absolute;
+		height: 4px;
+		border-radius: 2px;
+		left: 0;
+
+		@apply bg-button-primary;
+	}
+
+	&__point {
+		height: 20px;
+		width: 20px;
+		border-radius: 50%;
+		background-color: #0EA5E9;
+		border: 3px solid #ffffff;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+
+		@apply bg-button-primary;
+	}
+}

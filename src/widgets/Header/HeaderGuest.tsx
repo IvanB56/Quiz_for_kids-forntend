@@ -1,32 +1,32 @@
 'use client';
-import React, {useState} from 'react';
-import {usePathname, useRouter} from 'next/navigation';
+import React, {useEffect, useState} from 'react';
+import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 import Image from 'next/image';
-import {Button} from '@components';
+import {Button, Heading, Modal} from '@components';
 import logo from '@assets/images/logo.png';
 import {classes} from './cn/HeaderGuest.cn';
 import {TypeHeaderGuest} from './types/HeaderGuest.type';
 import Link from 'next/link';
 import {LogIn, LogOut, Menu, UserRoundPlus, X} from 'lucide-react';
-import './styles/HeaderGuest.scss';
 import {logout} from "@/shared/api";
+import {FormLogin, FormRegistration} from "@/widgets";
+
+import './styles/HeaderGuest.scss';
 
 export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 	const pathname = usePathname();
+	const searchParams = useSearchParams();
 	const styles = classes(cn);
 	const settingsMenu = [
 		{name: 'Помощь', href: '/help'},
 		{name: 'Профиль', href: '/profile'},
 		{name: 'Настройки профиля', href: '/settings'}
 	];
-	const guestMenu = [
-		{name: 'Главная', href: '/'},
-		{name: 'О нас', href: '/about'},
-	];
-	const menus = data?.page === 'guest' ? [...guestMenu] : [...settingsMenu];
+	const menus = data?.page === 'guest' ? [] : [...settingsMenu];
 	const router = useRouter();
 
 	const [isOpen, setIsOpen] = useState(false);
+	const [modalOpen, setModalOpen] = React.useState(false);
 
 	const burgerHandler = () => {
 		setIsOpen((prev) => !prev);
@@ -38,6 +38,11 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 
 	const splitPath: Array<string> = pathname.split('/');
 
+	useEffect(() => {
+		if (searchParams.has('login')) setModalOpen(true);
+		router.push('/');
+	}, [router, searchParams]);
+
 	return (
 		<header className={styles.block}>
 			<div className={styles.elementContainer}>
@@ -46,7 +51,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 						<Image src={logo} alt="логотип" width="250"/>
 					</Link>
 				</Button>
-				<nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
+				{menus?.length ? <nav className={`${styles.elementMenu} ${isOpen ? 'is-open' : ''}`}>
 					{menus.map(({href, name}) => (
 						<Button
 							asChild
@@ -84,20 +89,34 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 							</Link>
 						</Button>
 					</div>
-				</nav>
+				</nav> : null}
 				<div className={styles.elementButtons}>
 					{data?.page === 'guest' && (
 						<>
-							<Button asChild variant={'link'} className={styles.elementAuthButton}>
-								<Link href={'/login'} className={pathname === '/login' ? 'opacity-50' : ''}>
-									<LogIn/> Войти
-								</Link>
-							</Button>
-							<Button asChild variant={'link'} className={styles.elementAuthButton}>
-								<Link href={'/registration'} className={pathname === '/registration' ? 'opacity-50' : ''}>
-									<UserRoundPlus/> Зарегистрироваться
-								</Link>
-							</Button>
+							<Modal
+								open={modalOpen}
+								onOpenChange={setModalOpen}
+								trigger={() => (
+									<><LogIn/> Войти</>
+								)}
+								header={() => (
+									<Heading data={{text: 'Войти', tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}}
+									         className={styles.modalHeading}/>
+								)}
+								description={() => <FormLogin/>}
+								className={{
+									trigger: styles.elementAuthButton
+								}}
+							/>
+							<Modal
+								trigger={() => (
+									<><UserRoundPlus/> Зарегистрироваться</>
+								)}
+								description={() => <FormRegistration/>}
+								className={{
+									trigger: styles.elementAuthButton
+								}}
+							/>
 						</>
 					)}
 					{data?.page === 'settings' && (
