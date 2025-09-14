@@ -6,7 +6,7 @@ import {StepProps} from "@/widgets/FormProfile/types";
 type NewSecondStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'saveDataHandler' | 'callback' | 'data'>>;
 
 export const ChildSafeSecondStep = ({callback, saveDataHandler, data}: NewSecondStepProps) => {
-	const [value, setValue] = useState<string>(data);
+	const [value, setValue] = useState<string | number>(data);
 	const [isError, setIsError] = useState<boolean>(false);
 	const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -19,7 +19,7 @@ export const ChildSafeSecondStep = ({callback, saveDataHandler, data}: NewSecond
 	const clickSaveButton = () => {
 		if (!value) return setIsError(true);
 
-		callback({value, name: textareaRef?.current?.name || ''});
+		callback({value: String(value), name: textareaRef?.current?.name || ''});
 		saveDataHandler();
 	}
 

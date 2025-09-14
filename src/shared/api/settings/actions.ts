@@ -2,13 +2,13 @@ import {api} from "@/shared/api/api-controller";
 import {API_URL} from "@/shared/constants";
 
 type RequestType = {
-	level:  'easy' |'hard';
+	budget:  number;
 }
 
-export async function setDifficultyLevels(body: RequestType) {
+export async function autoConfigure(body: RequestType, userId: string) {
 	await api.setCSRF();
 
-	return await api.post(`${API_URL}/api/subscription/difficulty-levels`, {
+	return await api.post(`${API_URL}/api/play-settings/user/${userId}/auto-configure`, {
 		headers: {
 			Origin: API_URL,
 			'Accept': 'application/json',
@@ -20,10 +20,17 @@ export async function setDifficultyLevels(body: RequestType) {
 	});
 }
 
-export async function getDifficultyLevels() {
-	return await api.get<{levels: { slug: 'easy' | 'hard', name: string }[]}>(`${process.env.API_URL}/api/quiz-difficulty-levels`, {
+export async function previousConfigure(body: RequestType, userId: string) {
+	await api.setCSRF();
+
+	return await api.post(`${API_URL}/api/play-settings/user/${userId}/configure-from-previous`, {
 		headers: {
+			Origin: API_URL,
 			'Accept': 'application/json',
+			'Content-Type': 'application/json',
+			'X-XSRF-TOKEN': await api.getCSRF(),
 		},
+		credentials: 'include',
+		body: JSON.stringify(body),
 	});
 }

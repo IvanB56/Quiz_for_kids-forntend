@@ -1,7 +1,6 @@
 import {CN} from "@/lib";
-import { IWalletTable } from './WalletTable.types';
 
-export default function classes(cn: IWalletTable['cn']) {
+export default function classes() {
 	const BLOCK = CN('wallet-table');
 
 	return {

@@ -1,48 +1,37 @@
 import React from 'react';
 import {ProfileChildProvider} from "@shared";
-import {ProfileAside} from "@widgets";
+import {AppSidebar, SidebarInset, SidebarProvider, SidebarTrigger} from "@components";
 
-export default async function AuthLayout({children}: { children: React.ReactNode }) {
+export default function AuthLayout({children}: { children: React.ReactNode }) {
 
-	const pagesLink = [
-		{name: 'Правила пользования', href: '/profile/rules'},
-		{name: 'Добавить ребенка', href: '/settings/child'},
-		{name: 'Добавить родственников', href: '/profile/relatives'},
-		{name: 'Игровой договор с ребенком', href: '/profile/contract'},
-		{
-			name: 'Настройка приложение ребенка МонетикУМ',
-			nested: [
-				{name: 'Настроить сложность', href: '/profile/adjust-difficulty'},
-				{name: 'Настроить темы викторин', href: '/profile/themes'},
-				{name: 'Настроить задания по дому', href: '/profile/home-task'},
-			]
-		},
-		{name: 'Статистика ребенка', href: '/profile/statistic'},
-		{name: 'Реальный заработок ребенка и родителя', href: '/profile/earnings'},
-		{
-			name: 'Полезное для родителей',
-			nested: [
-				{name: 'Планирование детского бюджета', href: '/profile/budget'},
-				{name: 'Словарь детского сленга', href: '/profile/slang'},
-				{name: ' Подобрать психолога, репетитора', href: '/profile/mentors'},
-			]
-		},
-		{name: 'Новости и обновления', href: '/profile/news'},
-		{name: 'Магазин возможностей', href: '/profile/shop'},
-		{name: 'Обратная связь и поддержка', href: '/profile/support'},
-		{name: 'Настройки профиля', href: '/settings'},
-	];
+	// const pagesLink = [
+	// +	{name: 'Правила пользования', href: '/profile/rules'},
+	// +	{name: 'Добавить ребенка', href: '/settings/child'},
+	// +	{name: 'Добавить родственников', href: '/profile/relatives'},
+	// +	{name: 'Настройки МонетикУМ', href: '/profile/budget'},
+	// +	{name: 'Выплатить зарплату ребенку', href: '/profile/zp'},
+	// +	{name: 'Психологическое тестирование', href: '/profile/test'},
+	// +	{name: 'Игровой договор с ребенком', href: '/profile/contract'},
+	// +	{name: 'Статистика ребенка', href: '/profile/statistic'},
+	// +	{name: 'Реферальная программа', href: '/profile/earnings'},
+	// +	{name: 'Словарь детского сленга', href: '/profile/slang'},
+	// +	{name: 'Подобрать психолога, репетитора', href: '/profile/mentors'},
+	// +	{name: 'Магазин возможностей', href: '/profile/shop'},
+	// +	{name: 'Новости и обновления', href: '/profile/news'},
+	// +	{name: 'Обратная связь и поддержка', href: '/profile/support'},
+	// ];
 
 	return (
 		<ProfileChildProvider>
-			<main className={'bg-cyan-light'}>
-				<div className={'flex'}>
-					<ProfileAside pagesLink={pagesLink}/>
-					<div className={'flex flex-col w-full gap-[60px] p-[60px] h-[100dvh] overflow-auto'}>
+			<SidebarProvider>
+				<AppSidebar />
+				<SidebarInset className="bg-cyan-light">
+					<SidebarTrigger className="[&_svg]:size-6 [&_svg]:rotate-180 absolute bg-sidebar !rounded-l-none left-0 min-md:hidden" />
+					<div className="flex flex-1 flex-col gap-4 p-10 max-md:p-8 bg-cyan-light">
 						{children}
 					</div>
-				</div>
-			</main>
+				</SidebarInset>
+			</SidebarProvider>
 		</ProfileChildProvider>
 	);
 }

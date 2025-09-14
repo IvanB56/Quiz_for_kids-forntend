@@ -1,0 +1,16 @@
+{
+  "data": {
+    "user_id": 1,
+    "email": "email@email.email",
+    "phone": "+79009009090",
+    "name": "Иван",
+    "surname": "Бурак",
+    "patronymic": "Михайлович",
+    "birthdate": "38",
+    "region": {
+      "slug": "krasnodar_krai",
+      "name": "Краснодарский край"
+    },
+    "type": "Sponsor"
+  }
+}

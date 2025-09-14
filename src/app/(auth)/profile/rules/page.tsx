@@ -5,7 +5,7 @@ import {profile} from '@assets/mocks/Rules/rules';
 const PageRules = () => {
 	return (
 		<>
-			<SectionWhite overflow='overflow-visible'>
+			<SectionWhite>
 				<Rules texts={profile}/>
 			</SectionWhite>
 		</>

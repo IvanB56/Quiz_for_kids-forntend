@@ -14,4 +14,8 @@ export * from './Modal/Modal';
 export * from './CardWhite/CardWhite';
 export * from './CardWallet/CardWallet';
 export * from './WalletTable/WalletTable';
-
+export * from './AppSideBar/AppSidebar';
+export * from './NavMain/NavMain';
+export * from './NavProjects/NavProjects';
+export * from './NavOther/NavOther';
+export * from './NavUser/NavUser';

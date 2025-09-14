@@ -1,12 +1,13 @@
-@use "../../assets/styles/helpers/media" as *;
-@use "../../assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
 
 .form-support {
   $self: &;
+  padding: fluid(50, 5);
 
   &__form {
     row-gap: rem(20);
-    width: rem(750);
+    width: rem(800);
     margin: auto;
 
     @apply flex flex-col max-w-full;
@@ -44,14 +45,7 @@
     align-items: center;
     justify-content: center;
     column-gap: rem(20);
-
-    &:not(:last-of-type) {
-      margin-bottom: rem(20);
-    }
-
-    &:last-of-type {
-      align-items: flex-start;
-    }
+    flex: 1;
 
     @include mobile {
       flex-direction: column;
@@ -72,19 +66,8 @@
     }
   }
 
-  &__error {
-    position: absolute;
-    left: rem(20);
-    bottom: rem(-20);
-  }
-
   @include tablet {
-    padding: 50px;
     width: 100%;
     @apply flex flex-col items-center;
-  }
-
-  @include mobile {
-    padding: 40px 20px;
   }
 }
