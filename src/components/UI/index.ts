@@ -23,6 +23,7 @@ export * from './QuizQuestion/QuizQuestion';
 export * from './CoinsTotal/CoinsTotal';
 export * from './CheckboxWithLabel/CheckboxWithLabel';
 export * from './LoadReport/LoadReport';
+export * from './SavingsMonet/SavingsMonet';
 export * from './avatar';
 export * from './breadcrumb';
 export * from './collapsible';
