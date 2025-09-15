@@ -1,0 +1,15 @@
+@use "../../assets/styles/helpers/media" as *;
+@use "../../assets/styles/helpers/function" as *;
+
+.card-text {
+  border-radius: rem(14);
+	padding: rem(20) rem(14);
+
+	&_bg-button-hover {
+		@apply bg-button-hover;
+	}
+
+	&_w-max-50 {
+		max-width: 50%;
+	}
+}

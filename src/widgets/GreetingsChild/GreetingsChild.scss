@@ -8,6 +8,15 @@
 		border-radius: rem(23);
 		box-shadow: 0 rem(4) rem(4) 0 theme('backgroundColor.black-25');
 		margin-bottom: rem(236);
+		position: relative;
+
+		&:after {
+			content: url("/images/child/arrow-greetings.svg");
+			position: absolute;
+			bottom: rem(-240);
+			left: auto;
+			right: calc(50% - 65px);
+		}
 	}
 
 	&__wrapper-image {

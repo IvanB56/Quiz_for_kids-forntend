@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import classes from './Rules.cn';
 import './Rules.scss';

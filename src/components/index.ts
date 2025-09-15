@@ -14,4 +14,5 @@ export * from './Modal/Modal';
 export * from './CardWhite/CardWhite';
 export * from './CardWallet/CardWallet';
 export * from './WalletTable/WalletTable';
+export * from './CardText/CardText';
 

@@ -7,7 +7,7 @@ import {
 	CheckboxWithLabel,
 	Textarea,
 	LoadReport,
-	Button,
+	Button, CardText,
 } from '@components';
 import Image from 'next/image';
 import image from '@assets/images/child/cleaning-service.webp';
@@ -18,44 +18,17 @@ const Earnings = () => {
 			<div className={"flex flex-col gap-[50]"}>
 				<CardReward text={'Домашнее задание от мамы'} reward={'300'}/>
 				<SectionWhite overflow='overflow-visible'>
-					<div className="mb-[110]">
+					<div className="mb-[60]">
 						<Text data={{ text: 'Домашнее задание от мамы от ', tag: 'span' }} cn={{ size: 'text-body-1', weight: 'font-medium' }} />
 						<Text data={{ text: '01.01.2025 ', tag: 'span' }} cn={{ size: 'text-body-1', weight: 'font-medium' }} />
 					</div>
 
-					<div className={"flex flex-wrap gap-y-[50] mb-[40]"}>
-						<CheckboxWithLabel
-							className={"basic-250"}
-							label="вымыть посуду"
-							defaultChecked={true}
-						/>
-						<CheckboxWithLabel
-							label="полить цветы"
-							defaultChecked={false}
-						/>
-						<CheckboxWithLabel
-							label="убрать со стола"
-							defaultChecked={true}
-						/>
-						<CheckboxWithLabel
-							label="пропылесосить комнату"
-							defaultChecked={false}
-						/>
-						<CheckboxWithLabel
-							label="убраться в комнате "
-							defaultChecked={false}
-						/>
-						<CheckboxWithLabel
-							label="постирать носки"
-							defaultChecked={false}
-						/>
-						<CheckboxWithLabel
-							label="вынести мусор"
-							defaultChecked={false}
-						/>
-						<CheckboxWithLabel
-							label="выгулять собаку"
-							defaultChecked={false}
+					<div className={"mb-[40]"}>
+						<CardText data={{
+							textItems: [
+								{ title: 'Убрать комнату:', titleSize: 'text-body-1', titleWeight: 'font-medium', titleMargin: 'mb-[25]'},
+								{ title: 'Застелить постель, полить цветы, пропылесосить, сложить вещи.', titleSize: 'text-body-1', titleWeight: 'font-medium',},
+							]}} cn={{background: 'bg-button-hover', width: 'w-max-50'}}
 						/>
 					</div>
 
