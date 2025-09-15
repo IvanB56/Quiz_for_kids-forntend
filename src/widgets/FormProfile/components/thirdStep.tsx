@@ -3,14 +3,16 @@ import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} f
 import React, {MouseEvent, useRef} from 'react';
 import {StepProps} from "@/widgets/FormProfile/types";
 
-type ThirdStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'callback' | 'data'>>;
+type ThirdStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'callback'>>;
 
-export const ThirdStep = ({callback, prevStepHandler, nextStepHandler, data}: ThirdStepProps) => {
-	const value = useRef<string>(data);
+export const ThirdStep = ({callback, prevStepHandler, nextStepHandler}: ThirdStepProps) => {
+	const value = useRef<string>("300");
 
 	const radioChangeHandler = (e: MouseEvent<HTMLButtonElement>) => {
 		const target = e.currentTarget;
 		value.current = target.getAttribute('value') || '';
+
+		console.log(value.current)
 
 		callback({name: 'count', value: value.current})
 	}
@@ -22,7 +24,7 @@ export const ThirdStep = ({callback, prevStepHandler, nextStepHandler, data}: Th
 				className="flex justify-between flex-col h-full gap-y-8 m-auto"
 			>
 				<Text data={{text: 'Выбор количества вопросов', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold'}}/>
-				<RadioGroup defaultValue={data} className="flex space-x-6">
+				<RadioGroup defaultValue="300" className="flex space-x-6">
 					<Label className="flex items-center space-x-2">
 						<RadioGroupItem value="300" id="300" onClick={radioChangeHandler}/>
 						<Text data={{text: '300 вопросов', tag: 'p'}}/>
@@ -34,6 +36,10 @@ export const ThirdStep = ({callback, prevStepHandler, nextStepHandler, data}: Th
 					<Label className="flex items-center space-x-2">
 						<RadioGroupItem value="3000" id="3000" onClick={radioChangeHandler}/>
 						<Text data={{text: '3000 вопросов', tag: 'p'}}/>
+					</Label>
+					<Label className="flex items-center space-x-2">
+						<RadioGroupItem value="hand" id="hand" onClick={radioChangeHandler}/>
+						<Text data={{text: 'Ручная настройка', tag: 'p'}}/>
 					</Label>
 				</RadioGroup>
 				<Helper cn={{width: 'full'}}>

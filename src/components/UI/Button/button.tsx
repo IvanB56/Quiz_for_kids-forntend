@@ -16,12 +16,16 @@ const buttonVariants = cva(
 				input: 'button_input',
 				greetings: 'button_greetings',
 				green: 'button_green',
-				red: 'button_red'
+				red: 'button_red',
+				ghost: 'button_ghost',
+				destructive: 'button_destructive',
 			},
 			size: {
-				default: '',
+				default: "",
 				small: 'button_small',
-				icon: '',
+				sm: "h-8 rounded-md px-3 text-xs",
+				lg: "h-10 rounded-md px-8",
+				icon: "button_icon",
 			},
 		},
 		defaultVariants: {

@@ -1,17 +1,16 @@
 import React from 'react';
-import { Table, TableHeader, TableBody, TableFooter, TableHead, TableRow, TableCell } from '../UI';
-import { IWalletTable } from './WalletTable.types';
+import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from '@components';
+import {IWalletTable} from './WalletTable.types';
 import classes from './WalletTable.cn';
 import './WalletTable.scss';
 
 export const WalletTable = (props: IWalletTable) => {
 	const {
-		data,
-		cn,
+		data
 	} = props;
 
 	const { rows, totalEarned, totalWithdrawn } = data;
-	const styles = classes(cn);
+	const styles = classes();
 
 	return (
 		<div className={styles.block}>
@@ -21,10 +20,10 @@ export const WalletTable = (props: IWalletTable) => {
 					<TableHeader>
 						<TableRow>
 							<TableHead>Дата</TableHead>
-							<TableHead>внесено</TableHead>
-							<TableHead>снято</TableHead>
-							<TableHead>остаток</TableHead>
-							<TableHead>в копилке</TableHead>
+							<TableHead>Внесено</TableHead>
+							<TableHead>Снято</TableHead>
+							<TableHead>Остаток</TableHead>
+							<TableHead>В копилке</TableHead>
 						</TableRow>
 					</TableHeader>
 					<TableBody>

@@ -57,7 +57,7 @@ export const FormSupport = () => {
 						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Имя</FormLabel>
-								<div className={'relative flex items-center gap-x-2 w-1/2 max-md:w-full'}>
+								<div className={'relative flex flex-col items-start gap-2 xl:w-3/5 max-xl:w-full'}>
 									<FormControl>
 										<Input type={'email'} placeholder="Введите имя" {...field} autoComplete={'off'}
 										       disabled={!!form?.formState?.isSubmitting}/>
@@ -79,7 +79,7 @@ export const FormSupport = () => {
 						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Email</FormLabel>
-								<div className={'relative flex items-center gap-x-2 w-1/2 max-md:w-full'}>
+								<div className={'relative flex flex-col items-start gap-2 xl:w-3/5 max-xl:w-full'}>
 									<FormControl>
 										<Input type={'email'} placeholder="Введите email" {...field} autoComplete={'off'}
 										       disabled={!!form?.formState?.isSubmitting}/>
@@ -101,8 +101,8 @@ export const FormSupport = () => {
 						name="theme"
 						render={({field}) => (
 							<FormItem className={styles.elementField}>
-								<FormLabel className={styles.elementLabel}>Текст обращения</FormLabel>
-								<div className={'relative flex items-center gap-x-2 w-1/2 max-md:w-full'}>
+								<FormLabel className={styles.elementLabel}>Тема обращения</FormLabel>
+								<div className={'relative flex flex-col items-start gap-2 xl:w-3/5 max-xl:w-full'}>
 									<Select onValueChange={field.onChange} defaultValue={field.value}>
 										<FormControl>
 											<SelectTrigger>
@@ -128,7 +128,7 @@ export const FormSupport = () => {
 						render={({field}) => (
 							<FormItem className={styles.elementField}>
 								<FormLabel className={styles.elementLabel}>Текст обращения</FormLabel>
-								<div className={'relative flex items-center gap-x-2 w-1/2 max-md:w-full'}>
+								<div className={'relative flex flex-col items-start gap-2 xl:w-3/5 max-xl:w-full'}>
 									<FormControl>
 										<Textarea
 											{...field}

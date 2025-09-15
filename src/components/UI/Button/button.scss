@@ -1,4 +1,4 @@
-@use "../../../assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/function" as *;
 
 .button {
   @apply inline-flex;
@@ -19,6 +19,7 @@
   @apply md:text-xl;
   @apply w-fit;
 
+  // Color
   &_default {
     @apply bg-button-primary;
     @apply text-white;
@@ -47,10 +48,6 @@
     @apply transition-colors;
     @apply hover:opacity-50;
     @apply p-0;
-  }
-
-  &_small {
-    @apply py-1.5 px-8 min-w-min;
   }
 
   &_input {
@@ -90,4 +87,21 @@
 		@apply hover:bg-red-90;
 		@apply rounded-14;
 	}
+
+  &_ghost {
+    @apply hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-50
+  }
+
+  &_destructive {
+    @apply text-gray-50 shadow-sm;
+  }
+
+  // Size
+  &_small {
+    @apply py-1.5 px-8 min-w-min;
+  }
+
+  &_icon {
+    @apply h-9 w-9 p-0 rounded-md;
+  }
 }

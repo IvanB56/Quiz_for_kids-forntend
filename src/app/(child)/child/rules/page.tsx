@@ -1,3 +1,4 @@
+"use client"
 import {Rules} from "@widgets";
 import { CheckboxWithLabel, SectionWhite } from '@components';
 import { child } from '@assets/mocks/Rules/rules';

@@ -3,7 +3,7 @@
 import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 
-import { cn } from '@utils';
+import {cn} from '@utils';
 
 const Popover = PopoverPrimitive.Root;
 
@@ -11,11 +11,15 @@ const PopoverTrigger = PopoverPrimitive.Trigger;
 
 const PopoverAnchor = PopoverPrimitive.Anchor;
 
+interface PopoverContentProps extends React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content> {
+	container?: Element | DocumentFragment | null;
+}
+
 const PopoverContent = React.forwardRef<
 	React.ElementRef<typeof PopoverPrimitive.Content>,
-	React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+	PopoverContentProps
 >(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
-	<PopoverPrimitive.Portal>
+	<PopoverPrimitive.Portal container={props?.container}>
 		<PopoverPrimitive.Content
 			ref={ref}
 			align={align}

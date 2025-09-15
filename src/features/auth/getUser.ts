@@ -3,7 +3,7 @@ import {API_URL} from "@/shared/constants";
 import {cookies} from 'next/headers';
 import {TUser} from "@shared";
 
-const { API_URL: urlServer } = process.env;
+const { API_URL: urlServer, MODE } = process.env;
 
 export async function getUser(): Promise<{user?: TUser; error?: { message: string, status: string }}> {
 	const cookie = (await cookies()).getAll();
@@ -23,6 +23,27 @@ export async function getUser(): Promise<{user?: TUser; error?: { message: strin
 			user
 		}
 	} catch(err) {
+		if  (MODE === 'development') {
+			return {
+				user: {
+					data: {
+						user_id: 1,
+						email: "email@email.email",
+						phone: "+79009009090",
+						name: "name",
+						surname: "",
+						patronymic: "",
+						birthdate: "",
+						region: {
+							slug: "krasnodar_krai",
+							name: "Краснодарский край"
+						},
+						type: "Sponsor"
+					}
+				}
+			}
+		}
+		
 		return {
 			error: {
 				message: 'не удалось выполнить запрос [user]: ' + (err as Error).message,

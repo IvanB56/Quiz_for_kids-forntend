@@ -5,7 +5,7 @@ export interface UserState {
 	loading: boolean;
 	error: string | undefined;
 	data: {
-		id: number,
+		user_id: number,
 		email: string,
 		phone: string,
 		name: string,
@@ -21,7 +21,7 @@ const initialState: UserState = {
 	loading: false,
 	error: '',
 	data: {
-		id: 0,
+		user_id: 0,
 		email: '',
 		phone: '',
 		name: '',

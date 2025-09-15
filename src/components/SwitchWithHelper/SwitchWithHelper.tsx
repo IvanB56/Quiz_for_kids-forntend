@@ -1,7 +1,6 @@
 'use client';
 import React, {useState} from 'react';
 import {Helper, Switch, Text} from "@components";
-import {setDifficultyLevels} from "@/shared/api";
 
 type SwitchWithHelperProps = {
 	title: string;
@@ -10,12 +9,11 @@ type SwitchWithHelperProps = {
 	slug: 'easy' | 'hard';
 }
 
-export const SwitchWithHelper = ({helpers, title, state, slug}: SwitchWithHelperProps) => {
+export const SwitchWithHelper = ({helpers, title, state}: SwitchWithHelperProps) => {
 	const [switchState, setSwitchState] = useState<'on' | 'off'>(state);
 
 	const clickHandler = () => {
 		setSwitchState(prev => prev === 'on' ? 'off' : 'on');
-		setDifficultyLevels({level: slug}).then(r => r);
 	};
 
 	return (
