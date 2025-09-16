@@ -4,7 +4,7 @@ import { CoinsTotal, Heading, QuizQuestion, CardAnswers, } from '@components';
 const Earnings = () => {
 	return (
 		<>
-			<Heading data={{text: "Заработок", tag: 'h1'}}/>
+			<Heading data={{text: "Заработок", tag: 'h1'}}  cn={{margin: 'mb-2 sm:mb-16'}}/>
 			<QuizQuestion
 				question={'В каком году родился А. С. Пушкин?'}
 				// options={["1800г", "1825г", "1798г", "1799г"]}
@@ -12,7 +12,7 @@ const Earnings = () => {
 				timer="01:30"
 				score={15}
 			/>
-			<CoinsTotal cn={{ margin: 'my-[40px]' }}/>
+			<CoinsTotal cn={{ margin: 'my-[10px] sm:my-[40px]' }}/>
 			<CardAnswers
 				textData={{text: 'Александр Сергеевич Пушкин — русский поэт, драматург и прозаик. Родился: 6 июня 1799 года, Москва, Российская империя'}}
 			>

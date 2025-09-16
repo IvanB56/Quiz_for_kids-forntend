@@ -7,8 +7,13 @@
 		align-items: center;
 		justify-content: center;
 		min-height: rem(596);
-		padding: rem(110);
+		padding: clamp(0.5rem, 3vw, 6.875rem);
 		border: rem(25) solid white;
 		@apply text-primary-blue bg-button-hover shadow-dark rounded-14;
+
+		@include mobile {
+			padding-block: rem(50);
+			min-height: auto;
+		}
 	}
 }

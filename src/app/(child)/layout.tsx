@@ -22,7 +22,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 			<main className="child-main">
 				<div className="flex">
 					<ProfileAside pagesLink={pagesLink}/>
-					<div className={'flex flex-col w-full p-[0.625rem] sm:p-[3.75rem] h-[100dvh] overflow-auto'}>
+					<div className={'flex flex-col w-full p-[1.875rem] sm:p-[3.75rem] h-[100dvh] overflow-auto'}>
 						{children}
 					</div>
 				</div>

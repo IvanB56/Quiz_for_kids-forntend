@@ -11,7 +11,7 @@ export function CoinsTotal(props: ICoinsTotal) {
 
 	return (
 		<div className={styles.block}>
-			<Image src={coinImg} alt=""/>
+			<Image className={styles.elementCoin} src={coinImg} alt=""/>
 			<span className={styles.elementTotal}>00.00</span>
 		</div>
 	);
