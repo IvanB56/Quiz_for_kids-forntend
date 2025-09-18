@@ -23,4 +23,14 @@
   &_shadow {
     box-shadow: 0 rem(6) rem(4) var(--black25);
   }
+
+	&_p-homework {
+		@include mobile {
+			padding: 15px 12px;
+
+			.textarea {
+				padding: 0;
+			}
+		}
+	}
 }

@@ -5,27 +5,51 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: rem(12);
-	padding: rem(15) rem(50);
+  border-radius: rem(14);
+	padding: clamp(0.75rem, 1vw, 0.9375rem) clamp(0.75rem, 1vw, 3.125rem);
   gap: rem(20);
 
 	@apply shadow-dark;
   @apply bg-white;
+
+	&__wrapper-reward {
+		display: flex;
+		gap: rem(20);
+
+		@include mobile {
+			flex-direction: column;
+			align-items: center;
+			gap: 0;
+		}
+	}
 
 	&__text {
 		flex: 1;
 	}
 
   &__status {
-    padding: rem(15) rem(25);
-    font-size: rem(24);
+    padding: clamp(0.5rem, 1vw, 0.9375rem) clamp(0.4rem, 1vw, 1.5625rem);
+    font-size: clamp(1rem, 2vw, 1.5rem);
     font-weight: 500;
     margin-right: rem(50);
     white-space: nowrap;
+
+		@include mobile {
+			margin-right: 0;
+		}
   }
 
   &__coin {
     display: flex;
     align-items: center;
+
+		@include mobile {
+			width: 30px;
+			height: 30px;
+		}
   }
+
+	&:has(.card-reward__status) {
+		gap: 5px;
+	}
 }
