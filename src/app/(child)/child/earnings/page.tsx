@@ -16,8 +16,8 @@ const Earnings = () => {
 			<CardInstruction data={{
 				text: ' Как только мама все сделает, она даст тебе ссылку, которую ты просто отправишь всем своим знакомым. Если тебе самому лень придумывать и объяснять своим друзьям, то дай задание искусственному интеллекту написать текст или скопируй и отправь этот текст: «Приложение крутое, можно научится писать стихи, песни и многое другое при помощи искусственного интеллекта, можно не клянчить деньги у родителей, а зарабатывать самому и делать это легко.»',
 				image: CardInstruction3  }} cn={{margin: 'mb-[50px]'}} />
-			<SectionWhite overflow='overflow-visible'>
-				<Heading data={{text: 'Поделись ссылкой с другом ', tag: 'h4'}} cn={{margin: 'mb-9'}}/>
+			<SectionWhite className={"mb-2 sm:mb-12"} overflow='overflow-visible'>
+				<Heading data={{text: 'Поделись ссылкой с другом ', tag: 'h4'}} cn={{margin: 'mb-4 sm:mb-9'}}/>
 				<TextWithButton text={'link'} />
 			</SectionWhite>
 			<SectionWhite overflow='overflow-visible'>

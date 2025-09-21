@@ -1,4 +1,5 @@
-export interface IWalletTable {
+import type {IChildrenAndClassName} from '@root/global';
+export interface IWalletTable extends IChildrenAndClassName {
 	data: {
 		rows?: Array<{
 			date?: string;

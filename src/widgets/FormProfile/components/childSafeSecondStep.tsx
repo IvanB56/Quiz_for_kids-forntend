@@ -31,19 +31,19 @@ export const ChildSafeSecondStep = ({callback, saveDataHandler, data}: NewSecond
 			>
 				<Text data={{text: 'Сколько хочешь накопить ?', tag: 'p'}}
 				      cn={{size: 'text-body-1', weight: 'font-bold', margin: 'mx-auto'}}/>
-				<div className="flex flex-col gap-4 relative w-[80%] mx-auto">
+				<div className="flex flex-col gap-4 relative w-[90%] sm:w-[80%] mx-auto">
 					<Textarea
 						name="amount_description"
 						placeholder="например: 50 000"
 						onChange={changeTextareaHandler}
 						value={value}
 						ref={textareaRef}
-						className="min-h-[120px]"
+						className="min-h-[80px] sm:min-h-[120px]"
 					/>
 					{isError && <Text
 						data={{text: 'Поле обязательно для заполнения', tag: 'span'}}
 						cn={{color: 'text-primary-red', size: 'text-body-5', margin: 'mx-auto'}}
-						className="absolute -bottom-4 left-0"
+						className="absolute -bottom-4 left-6"
 					/>}
 					<Button type="button" className={'mx-auto'} onClick={clickSaveButton}>сохранить</Button>
 				</div>
