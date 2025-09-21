@@ -1,6 +1,5 @@
 "use client";
 
-import {type LucideIcon} from "lucide-react"
 import {
 	LinkUI,
 	SidebarGroup,
@@ -14,6 +13,7 @@ import React, {useMemo} from "react";
 
 import './NavMain.scss';
 import {usePathname} from "next/navigation";
+import {LucideIcon} from "@/components/LucidIcon/LucidIcon";
 
 type Props = {
 	data: {
@@ -21,7 +21,7 @@ type Props = {
 		items: {
 			title: string
 			url: string
-			icon?: LucideIcon
+			icon?: string
 			isActive?: boolean
 		}[]
 	}
@@ -50,7 +50,7 @@ export function NavMain({data}: Props) {
 					<SidebarMenuItem key={item.title}>
 						<SidebarMenuButton tooltip={item.title} size={"lg"} isActive={item.isActive}
 						                   className={item.isActive ? 'isActive' : ''}>
-							{item.icon && <item.icon/>}
+							{item.icon && <LucideIcon iconName={item.icon} />}
 							<LinkUI data={{href: item.url}}>
 								<Text data={{text: item.title, tag: 'p'}}/>
 							</LinkUI>
