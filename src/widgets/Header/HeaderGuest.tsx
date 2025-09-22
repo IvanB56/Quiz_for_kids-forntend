@@ -9,7 +9,8 @@ import {TypeHeaderGuest} from './types/HeaderGuest.type';
 import Link from 'next/link';
 import {LogIn, LogOut, Menu, UserRoundPlus, X} from 'lucide-react';
 import {logout} from "@/shared/api";
-import {FormLogin, FormRegistration} from "@/widgets";
+import {LoginForm} from "@/features/AuthByPhone";
+import {RegistrationForm} from "@/features/Registration";
 
 import './styles/HeaderGuest.scss';
 
@@ -103,7 +104,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 									<Heading data={{text: 'Войти', tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}}
 									         className={styles.modalHeading}/>
 								)}
-								description={() => <FormLogin/>}
+								description={() => <LoginForm />}
 								className={{
 									trigger: styles.elementAuthButton
 								}}
@@ -112,7 +113,7 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 								trigger={() => (
 									<><UserRoundPlus/> Зарегистрироваться</>
 								)}
-								description={() => <FormRegistration/>}
+								description={() => <RegistrationForm />}
 								className={{
 									trigger: styles.elementAuthButton
 								}}

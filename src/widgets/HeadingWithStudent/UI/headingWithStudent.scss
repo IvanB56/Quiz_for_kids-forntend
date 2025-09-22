@@ -1,0 +1,20 @@
+@use '@assets/styles/helpers/function' as *;
+
+.heading-with-student {
+  &__slider {
+    position: relative;
+    width: rem(200);
+    margin-right: rem(30);
+  }
+
+  &__navigation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: rem(260);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

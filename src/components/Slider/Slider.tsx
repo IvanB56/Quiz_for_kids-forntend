@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import './Slider.scss';
 
 const Slider = (props: ISlider) => {
-	const {settings, children} = props;
+	const {settings, children, className} = props;
 
 	return (
 		<Swiper
@@ -19,8 +19,10 @@ const Slider = (props: ISlider) => {
 			{...settings}
 			spaceBetween={settings.spaceBetween}
 			slidesPerView={settings.slidesPerView}
+			effect={settings.effect || 'slide'}
 			navigation={settings.navigation || false}
 			pagination={settings.pagination || false}
+			className={className}
 		>
 			{
 				children

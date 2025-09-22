@@ -34,3 +34,4 @@ export * from './sidebar';
 export * from './skeleton';
 export * from './alert-dialog';
 export * from './calendar';
+export * from './drawer';

@@ -2,17 +2,17 @@
 import * as React from 'react';
 import {Heading, Helper, Modal, SectionWhite, Text} from "@components";
 import {useChildrenContext} from "@/app/(auth)/profile/child/hooks/useChildrenContext";
-import {FormAddChild} from "@/app/(auth)/profile/child/components/FormAddChild/FormAddChild";
 
 import './ChildEmpty.scss';
 import {CN} from "@/lib";
+import {FormAddChild} from '../FormAddChild/FormAddChild';
 
 const block = CN('child-empty');
 
 export const ChildEmpty = () => {
-	const {childrenData} = useChildrenContext();
+	const {childrenData, loading} = useChildrenContext();
 
-	if (childrenData?.length) return null;
+	if (loading || childrenData && childrenData.length > 0) return null;
 
 	return (
 		<SectionWhite className={block()}>

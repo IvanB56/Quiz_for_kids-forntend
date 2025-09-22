@@ -3,5 +3,6 @@ import {IChildrenAndClassName} from "@root/global";
 
 export interface ISlider extends IChildrenAndClassName {
 	data?: never;
-	settings: SwiperOptions
+	settings: SwiperOptions;
+	className?: string;
 }

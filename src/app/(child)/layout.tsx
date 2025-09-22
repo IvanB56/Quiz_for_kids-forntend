@@ -1,5 +1,4 @@
 import React from 'react';
-import {ProfileChildProvider} from "@shared";
 import {ProfileAside} from "@widgets";
 import '@assets/styles/child.scss'
 
@@ -18,15 +17,13 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 	];
 
 	return (
-		<ProfileChildProvider>
-			<main className="child-main">
-				<div className="flex">
-					<ProfileAside pagesLink={pagesLink}/>
-					<div className={'flex flex-col w-full p-[60px] h-[100dvh] overflow-auto'}>
-						{children}
-					</div>
+		<main className="child-main">
+			<div className="flex">
+				<ProfileAside pagesLink={pagesLink}/>
+				<div className={'flex flex-col w-full p-[60px] h-[100dvh] overflow-auto'}>
+					{children}
 				</div>
-			</main>
-		</ProfileChildProvider>
+			</div>
+		</main>
 	);
 }

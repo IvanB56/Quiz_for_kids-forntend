@@ -1,6 +1,7 @@
-import {TypeLogin, TypeRegistration} from '@/features/auth/schemas';
+import {TypeRegistration} from '@/features/auth/schemas';
 import {API_URL, MODE} from '@/shared/constants';
 import {api} from '@/shared/api/api-controller';
+import {TypeLogin} from '@/features/AuthByPhone';
 
 export async function register(body: TypeRegistration, url: string = 'auth/register') {
 	await api.setCSRF();
