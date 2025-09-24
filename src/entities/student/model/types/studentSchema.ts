@@ -15,5 +15,5 @@ export interface StudentSchema {
 	data?: Student[];
 	isLoading: boolean;
 	error?: string;
-	currentStudent?: Student;
+	currentStudent?: number;
 }

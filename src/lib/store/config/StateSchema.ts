@@ -6,6 +6,7 @@ import {ProfileSchema} from "@/entities/profile";
 import {StudentSchema} from "@/entities/student";
 import {AxiosInstance} from "axios";
 import {PlaySettingsCurrentScheme} from "@/features/PlaySettings/model/types/PlaySettingsScheme";
+import {GameLogSchema} from "@/entities/play/model/types/PlayScheme";
 
 export interface StateSchema {
 	user: UserSchema;
@@ -13,7 +14,9 @@ export interface StateSchema {
 	profile: ProfileSchema;
 	registration: RegistrationSchema;
 	student: StudentSchema;
-	playSettings: PlaySettingsCurrentScheme
+	playSettings: PlaySettingsCurrentScheme;
+	gameLog: GameLogSchema;
+	gameLogSpecificUser: GameLogSchema;
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

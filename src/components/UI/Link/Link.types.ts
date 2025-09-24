@@ -13,4 +13,5 @@ export interface ILink extends IChildrenAndClassName {
 		active?: boolean;
 		color?: 'text-black';
 	};
+	disabled?: boolean;
 }

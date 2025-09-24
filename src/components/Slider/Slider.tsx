@@ -11,7 +11,7 @@ import 'swiper/css/scrollbar';
 import './Slider.scss';
 
 const Slider = (props: ISlider) => {
-	const {settings, children, className} = props;
+	const {settings, children, className, ref} = props;
 
 	return (
 		<Swiper
@@ -23,6 +23,7 @@ const Slider = (props: ISlider) => {
 			navigation={settings.navigation || false}
 			pagination={settings.pagination || false}
 			className={className}
+			ref={ref}
 		>
 			{
 				children

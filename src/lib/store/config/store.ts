@@ -7,6 +7,8 @@ import {studentReducer} from "@/entities/student";
 import {loginReducer} from "@/features/AuthByPhone";
 import {registrationReducer} from "@/features/Registration";
 import {playSettingsReducer} from "@/features/PlaySettings/model/slice/PlaySettingsSlice/PlaySettingsSlice";
+import {gameLogReducer} from '@/entities/play/model/slice/gameLogSlice';
+import {gameLogSpecificUserReducer} from '@/entities/play/model/slice/gameLogSpecificuserSlice';
 
 export const createReduxStore = (initialState?: StateSchema) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
@@ -15,7 +17,9 @@ export const createReduxStore = (initialState?: StateSchema) => {
 		profile: profileReducer,
 		registration: registrationReducer,
 		student: studentReducer,
-		playSettings: playSettingsReducer
+		playSettings: playSettingsReducer,
+		gameLog: gameLogReducer,
+		gameLogSpecificUser: gameLogSpecificUserReducer
 	};
 
 	return configureStore({

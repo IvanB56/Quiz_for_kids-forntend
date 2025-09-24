@@ -5,7 +5,10 @@ import {TPlaySettingsData} from "@shared";
 
 const {API_URL: urlServer, MODE} = process.env;
 
-export async function getPlaySettings(userId?: number): Promise<{data?: TPlaySettingsData, error?: { message: string; status: 'error' }}> {
+export async function getPlaySettings(userId?: number): Promise<{
+	data?: TPlaySettingsData,
+	error?: { message: string; status: 'error' }
+}> {
 	if (!userId) {
 		return {
 			error: {
@@ -32,31 +35,31 @@ export async function getPlaySettings(userId?: number): Promise<{data?: TPlaySet
 		if (MODE === 'development') {
 			return {}
 			// return {
-				// data: {
-				// 	starts_at: "2025-08-01T00:00:00.000000Z",
-				// 	ends_at: "2025-08-31T23:59:59.000000Z",
-				// 	active: false,
-				// 	mode: "combined",
-				// 	budget: 100,
-				// 	questions_quantity: 300,
-				// 	categories: [
-				// 		{
-				// 			slug: "mathematics",
-				// 			name: "Математика",
-				// 			description: "Математика описание"
-				// 		},
-				// 		{
-				// 			slug: "science",
-				// 			name: "Наука",
-				// 			description: "Наука описание"
-				// 		},
-				// 		{
-				// 			slug: "physics",
-				// 			name: "Физика",
-				// 			description: "Физика описание"
-				// 		}
-				// 	]
-				// }
+			// 	data: {
+			// 		starts_at: "2025-08-01T00:00:00.000000Z",
+			// 		ends_at: "2025-08-31T23:59:59.000000Z",
+			// 		active: false,
+			// 		mode: "combined",
+			// 		budget: 100,
+			// 		questions_quantity: 300,
+			// 		categories: [
+			// 			{
+			// 				slug: "mathematics",
+			// 				name: "Математика",
+			// 				description: "Математика описание"
+			// 			},
+			// 			{
+			// 				slug: "science",
+			// 				name: "Наука",
+			// 				description: "Наука описание"
+			// 			},
+			// 			{
+			// 				slug: "physics",
+			// 				name: "Физика",
+			// 				description: "Физика описание"
+			// 			}
+			// 		]
+			// 	}
 			// }
 		}
 
@@ -69,7 +72,10 @@ export async function getPlaySettings(userId?: number): Promise<{data?: TPlaySet
 	}
 }
 
-export async function isCanPlay(userId?: number): Promise<{ can?: boolean, error?: { message: string; status: 'error' }}> {
+export async function isCanPlay(userId?: number): Promise<{
+	can?: boolean,
+	error?: { message: string; status: 'error' }
+}> {
 	if (!userId) {
 		return {
 			error: {

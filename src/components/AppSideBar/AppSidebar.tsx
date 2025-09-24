@@ -13,6 +13,7 @@ type Props = {
       url: string;
       icon: string;
       isActive?: boolean;
+      disabled?: boolean;
     }[]
   }[]
 } & React.ComponentProps<typeof Sidebar>

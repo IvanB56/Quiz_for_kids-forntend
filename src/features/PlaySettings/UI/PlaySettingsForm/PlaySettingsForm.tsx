@@ -1,6 +1,6 @@
 'use client';
 import {useRouter} from 'next/navigation';
-import {FormEvent, useCallback, useRef, useState} from 'react';
+import {FormEvent, useCallback, useEffect, useRef, useState} from 'react';
 import {CN} from '@lib/ClassBem';
 import {useAppDispatch} from "@hooks";
 import {CSSTransition, SwitchTransition} from 'react-transition-group';
@@ -13,6 +13,8 @@ import {ThirdStep} from '../PlaySettingsFormSteps/thirdStep';
 import {FourthStep} from '../PlaySettingsFormSteps/fourthStep';
 
 import './PlaySettingsForm.scss';
+import {useSelector} from "react-redux";
+import {getCurrentStudent} from "@/entities/student";
 
 
 const block = CN('play-settings-form');
@@ -25,6 +27,14 @@ export const PlaySettingsForm = () => {
 		budget: 0,
 	});
 	const dispatch = useAppDispatch();
+	const userId = useSelector(getCurrentStudent);
+
+	useEffect(() => {
+		setStep(1);
+		setFormData({
+			budget: 0
+		})
+	}, [userId]);
 
 	const prepareData = (data: { name: string, value: string }) => {
 		setFormData((prev) => ({...prev, [data.name]: data.value}));
@@ -34,16 +44,18 @@ export const PlaySettingsForm = () => {
 		e?.preventDefault();
 		const {budget} = formData;
 
+		if (!userId) return;
+
 		switch (value) {
 			case 'hand':
 				console.log('hand');
 				break;
 			case 'auto':
-				dispatch(fetchPostAutoConfigure({userId: 1, data: {budget}}));
+				dispatch(fetchPostAutoConfigure({userId, data: {budget}}));
 				router.refresh();
 				break;
 			case 'last-choice':
-				dispatch(fetchPostPlaySettingsPrevious({userId: 1, data: {budget}}));
+				dispatch(fetchPostPlaySettingsPrevious({userId, data: {budget}}));
 				router.refresh();
 				break;
 		}
