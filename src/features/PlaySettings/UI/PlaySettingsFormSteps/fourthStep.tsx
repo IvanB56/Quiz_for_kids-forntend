@@ -1,17 +1,20 @@
+'use client';
+import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} from '@components';
 import React, {MouseEvent, useRef} from 'react';
-import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} from "@components";
 import {StepProps} from "@/widgets/FormProfile/types";
 
-type FourthStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'callback' | 'saveDataHandler' | 'data'>>;
+type ThirdStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'callback'>>;
 
-export const FourthStep = ({callback, prevStepHandler, saveDataHandler, data}: FourthStepProps) => {
-	const value = useRef<string>(String(data));
+export const FourthStep = ({callback, prevStepHandler, nextStepHandler}: ThirdStepProps) => {
+	const value = useRef<string>("300");
 
 	const radioChangeHandler = (e: MouseEvent<HTMLButtonElement>) => {
 		const target = e.currentTarget;
 		value.current = target.getAttribute('value') || '';
 
-		callback({name: 'mode', value: value.current})
+		console.log(value.current)
+
+		callback({name: 'count', value: value.current})
 	}
 
 	return (
@@ -20,24 +23,28 @@ export const FourthStep = ({callback, prevStepHandler, saveDataHandler, data}: F
 				overflow="overflow-visible"
 				className="flex justify-between flex-col h-full gap-y-8 m-auto"
 			>
-				<Text data={{text: 'Выбор режима настройки приложения  ', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold'}}/>
-				<RadioGroup defaultValue={value.current} className="flex space-x-6">
+				<Text data={{text: 'Выбор количества вопросов', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold'}}/>
+				<RadioGroup defaultValue="300" className="flex space-x-6">
 					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="quiz" id="quiz" onClick={radioChangeHandler}/>
-						<Text data={{text: 'Викторины', tag: 'p'}}/>
+						<RadioGroupItem value="300" id="300" onClick={radioChangeHandler}/>
+						<Text data={{text: '300 вопросов', tag: 'p'}}/>
 					</Label>
 					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="test-quiz" id="test" onClick={radioChangeHandler}/>
-						<Text data={{text: 'Тесты', tag: 'p'}}/>
+						<RadioGroupItem value="1000" id="1000" onClick={radioChangeHandler}/>
+						<Text data={{text: '1000 вопросов', tag: 'p'}}/>
 					</Label>
 					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="combined" id="combined" onClick={radioChangeHandler}/>
-						<Text data={{text: 'комбинированный', tag: 'p'}}/>
+						<RadioGroupItem value="3000" id="3000" onClick={radioChangeHandler}/>
+						<Text data={{text: '3000 вопросов', tag: 'p'}}/>
+					</Label>
+					<Label className="flex items-center space-x-2">
+						<RadioGroupItem value="hand" id="hand" onClick={radioChangeHandler}/>
+						<Text data={{text: 'Ручная настройка', tag: 'p'}}/>
 					</Label>
 				</RadioGroup>
 				<Helper cn={{width: 'full'}}>
 					<Text data={{
-						text: 'При выборе комбинированный, ребенку будет хаотично попадаться как и тесты так и викторины ',
+						text: 'Выберите количество вопросов на ЭТОТ месяц для Антона. Учитывайте, что ваша сумма будет поделена на вопросы, то есть чем больше вопросов то будет дешевле их стоимость.',
 						tag: 'p'
 					}} cn={{
 						color: 'text-black',
@@ -48,7 +55,7 @@ export const FourthStep = ({callback, prevStepHandler, saveDataHandler, data}: F
 			</SectionWhite>
 			<SectionWhite overflow="overflow-visible" className="flex justify-between mt-6">
 				<Button type="button" onClick={prevStepHandler}>Назад</Button>
-				{value.current && <Button type="submit" onClick={saveDataHandler}>Сохранить</Button>}
+				{value.current && <Button type="button" onClick={nextStepHandler}>Далее</Button>}
 			</SectionWhite>
 		</>
 	);

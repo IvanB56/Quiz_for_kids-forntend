@@ -31,7 +31,7 @@ export default async function RootLayout({children}: Readonly<{ children: React.
 			<body className={`${montserrat.variable} font-sans`}>
 				<StoreProvider>
 					{children}
-					<Toaster />
+					<Toaster closeButton richColors />
 				</StoreProvider>
 			</body>
 		</html>

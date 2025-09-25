@@ -3,7 +3,8 @@ import {PlaySettingsCurrent, PlaySettingsCurrentScheme} from "../../types/PlaySe
 import {fetchPlaySettingsCurrent} from "../../services/getPlaySettingsCurrent/getPlaySettingsCurrent";
 
 const initialState: PlaySettingsCurrentScheme = {
-	isLoading: true
+	isLoading: false,
+	canPrevious: false
 };
 
 export const PlaySettingsSlice = createSlice({
@@ -12,6 +13,9 @@ export const PlaySettingsSlice = createSlice({
 	reducers: {
 		setData: (state, action: PayloadAction<PlaySettingsCurrent>) => {
 			state.data = action.payload;
+		},
+		canPrevious: (state, action: PayloadAction<boolean>) => {
+			state.canPrevious = action.payload
 		}
 	},
 	extraReducers: builder =>

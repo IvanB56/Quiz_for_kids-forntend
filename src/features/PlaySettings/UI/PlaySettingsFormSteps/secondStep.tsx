@@ -1,17 +1,31 @@
 'use client';
-import React, {MouseEvent, useState} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useState} from 'react';
 import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} from '@components';
 import {StepProps} from "@/widgets/FormProfile/types";
+import {useAppDispatch} from "@hooks";
+import {fetchCanPrevious} from "../../model/services/getCanPrevious/getCanPrevious";
+import {useParams} from "next/navigation";
+import {
+	getPlaySettingsCanPrevious
+} from "@/features/PlaySettings/model/selectors/getPlaySettingsCanPrevious/getPlaySettingsCanPrevious";
+import {useSelector} from "react-redux";
 
 type SecondStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'saveDataHandler'>>;
 
 export const SecondStep = ({nextStepHandler, prevStepHandler, saveDataHandler}: SecondStepProps) => {
 	const [value, setValue] = useState<string>("auto");
+	const dispatch = useAppDispatch();
+	const {id} = useParams<{ id: string }>();
+	const canPrevious = useSelector(getPlaySettingsCanPrevious);
 
-	const radioChangeHandler = (e: MouseEvent<HTMLButtonElement>) => {
+	useEffect(() => {
+		dispatch(fetchCanPrevious(id));
+	}, [dispatch, id]);
+
+	const radioChangeHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
 		const target = e.currentTarget;
 		setValue(target.getAttribute('value') || '');
-	}
+	}, [])
 
 	return (
 		<>
@@ -30,10 +44,12 @@ export const SecondStep = ({nextStepHandler, prevStepHandler, saveDataHandler}: 
 						<RadioGroupItem value="hand" id="hand" onClick={radioChangeHandler}/>
 						<Text data={{text: 'Ручная настройка', tag: 'p'}}/>
 					</Label>
-					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="last-choice" id="last-choice" onClick={radioChangeHandler}/>
-						<Text data={{text: 'Прошлый выбор', tag: 'p'}}/>
-					</Label>
+					{
+						canPrevious && <Label className="flex items-center space-x-2">
+							<RadioGroupItem value="last-choice" id="last-choice" onClick={radioChangeHandler}/>
+							<Text data={{text: 'Прошлый выбор', tag: 'p'}}/>
+						</Label>
+					}
 				</RadioGroup>
 				<Helper cn={{width: 'full'}}>
 					<Text data={{

@@ -16,4 +16,5 @@ export interface PlaySettingsCurrentScheme {
 	data?: PlaySettingsCurrent;
 	isLoading: boolean;
 	error?: string[];
+	canPrevious?: boolean;
 }

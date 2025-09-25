@@ -1,22 +1,32 @@
 'use client';
 import {Button, Helper, Label, RadioGroup, RadioGroupItem, SectionWhite, Text} from '@components';
-import React, {MouseEvent, useRef} from 'react';
+import React, {MouseEvent, useCallback, useEffect, useRef} from 'react';
 import {StepProps} from "@/widgets/FormProfile/types";
+import {useSelector} from "react-redux";
+import {getQuizCategory} from "@/features/PlaySettings/model/selectors/getQuizCategory/getQuizCategory";
+import {useAppDispatch} from "@hooks";
+import {fetchGetQuizCategory} from "@/features/PlaySettings/model/services/getQuizCategory/getQuizCategory";
 
 type ThirdStepProps = Required<Pick<StepProps, 'prevStepHandler' | 'nextStepHandler' | 'callback'>>;
 
 export const ThirdStep = ({callback, prevStepHandler, nextStepHandler}: ThirdStepProps) => {
-	const value = useRef<string>("300");
+	const quizCategory = useSelector(getQuizCategory);
+	const dispatch = useAppDispatch()
+	const value = useRef<{slug: string, name: string, description: string}[]>([]);
 
-	const radioChangeHandler = (e: MouseEvent<HTMLButtonElement>) => {
+	useEffect(() => {
+		dispatch(fetchGetQuizCategory());
+	}, [dispatch]);
+
+	const radioChangeHandler = useCallback((e: MouseEvent<HTMLButtonElement>) => {
 		const target = e.currentTarget;
-		value.current = target.getAttribute('value') || '';
-
 		console.log(value.current)
 
-		callback({name: 'count', value: value.current})
-	}
+		// callback({name: 'count', value: value.current})
+	}, [])
 
+	console.log(quizCategory);
+	
 	return (
 		<>
 			<SectionWhite
@@ -28,18 +38,6 @@ export const ThirdStep = ({callback, prevStepHandler, nextStepHandler}: ThirdSte
 					<Label className="flex items-center space-x-2">
 						<RadioGroupItem value="300" id="300" onClick={radioChangeHandler}/>
 						<Text data={{text: '300 вопросов', tag: 'p'}}/>
-					</Label>
-					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="1000" id="1000" onClick={radioChangeHandler}/>
-						<Text data={{text: '1000 вопросов', tag: 'p'}}/>
-					</Label>
-					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="3000" id="3000" onClick={radioChangeHandler}/>
-						<Text data={{text: '3000 вопросов', tag: 'p'}}/>
-					</Label>
-					<Label className="flex items-center space-x-2">
-						<RadioGroupItem value="hand" id="hand" onClick={radioChangeHandler}/>
-						<Text data={{text: 'Ручная настройка', tag: 'p'}}/>
 					</Label>
 				</RadioGroup>
 				<Helper cn={{width: 'full'}}>

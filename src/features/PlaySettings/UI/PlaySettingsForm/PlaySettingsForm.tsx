@@ -9,12 +9,13 @@ import {fetchPostAutoConfigure} from "../../model/services/postAutoConfigure/pos
 import {fetchPostPlaySettingsPrevious} from "../../model/services/postPlaySettingsPrevious/postPlaySettingsPrevious";
 import {FirstStep} from '../PlaySettingsFormSteps/firstStep';
 import {SecondStep} from '../PlaySettingsFormSteps/secondStep';
-import {ThirdStep} from '../PlaySettingsFormSteps/thirdStep';
 import {FourthStep} from '../PlaySettingsFormSteps/fourthStep';
+import {FifthStep} from '../PlaySettingsFormSteps/fifthStep';
 
 import './PlaySettingsForm.scss';
 import {useSelector} from "react-redux";
 import {getCurrentStudent} from "@/entities/student";
+import {ThirdStep} from "@/features/PlaySettings/UI/PlaySettingsFormSteps/thirdStep";
 
 
 const block = CN('play-settings-form');
@@ -59,16 +60,15 @@ export const PlaySettingsForm = () => {
 				router.refresh();
 				break;
 		}
-	}, [dispatch, formData, router]);
+	}, [dispatch, formData, router, userId]);
 
-	const prevStep = () => {
-		setStep(prev => Math.max(prev - 1, 1));
-	};
+	const prevStep = useCallback(() => {
+		setStep(step => Math.max(step - 1, 1));
+	}, []);
 
-	const nextStep = () => {
-		const maxSteps = 4;
-		setStep(prev => Math.min(prev + 1, maxSteps));
-	}
+	const nextStep = useCallback(() => {
+		setStep(step => step + 1);
+	}, [])
 
 	const renderSteps = () => {
 		switch (step) {
@@ -77,9 +77,11 @@ export const PlaySettingsForm = () => {
 			case 2:
 				return <SecondStep saveDataHandler={submitForm} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
 			case 3:
-				return <ThirdStep callback={prepareData} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
+				return <ThirdStep nextStepHandler={nextStep} prevStepHandler={prevStep} callback={prepareData} />;
 			case 4:
-				return <FourthStep callback={prepareData} saveDataHandler={submitForm} prevStepHandler={prevStep} data={formData.mode ?? ''}/>;
+				return <FourthStep callback={prepareData} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
+			case 5:
+				return <FifthStep callback={prepareData} saveDataHandler={submitForm} prevStepHandler={prevStep} data={formData.mode ?? ''}/>;
 			default:
 				return null;
 		}

@@ -47,7 +47,7 @@ export async function getStudents(): Promise<{
 							name: "Елизавета",
 							surname: "",
 							patronymic: "",
-							birthdate: "25,04,2024",
+							birthdate: "25.04.2024",
 							type: ProfileType.STUDENT
 						}
 					]

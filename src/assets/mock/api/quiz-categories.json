@@ -1,0 +1,56 @@
+{
+  "data": [
+    {
+      "slug": "mathematics",
+      "name": "Математика",
+      "description": "Математика описание",
+      "preview": {
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/05/21/4bf48106e14030abcda2beab51be426e668de867.jpg"
+      }
+    },
+    {
+      "slug": "finance",
+      "name": "Финансовая грамотность",
+      "description": "Финансовая грамотность описание",
+      "preview": {
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/05/21/4bf48106e14030abcda2beab51be426e668de867.jpg"
+      }
+    },
+    {
+      "slug": "science",
+      "name": "Наука",
+      "description": "Наука описание",
+      "preview": {
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/05/21/4bf48106e14030abcda2beab51be426e668de867.jpg"
+      }
+    },
+    {
+      "slug": "physics",
+      "name": "Физика",
+      "description": "Физика описание",
+      "preview": {
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/05/21/4bf48106e14030abcda2beab51be426e668de867.jpg"
+      }
+    }
+  ]
+}

@@ -25,8 +25,6 @@ import {formSchema, TypeChildCreate} from "./type";
 
 import './FormAddChild.scss';
 import {toast} from "sonner";
-import {useChildrenContext} from "@/app/(auth)/profile/child/hooks/useChildrenContext";
-import {UserChildState} from "@lib/store/features/user";
 
 const block = CN('form-child');
 
@@ -39,7 +37,6 @@ export const FormAddChild = () => {
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 	const formRef = useRef<HTMLFormElement | null>(null);
-	const {setChildrenData} = useChildrenContext();
 
 	async function onSubmit(values: TypeChildCreate) {
 		const formData = {
@@ -47,11 +44,14 @@ export const FormAddChild = () => {
 			birthdate: values.birthdate.toLocaleDateString()
 		}
 
-		const data = await createStudents<UserChildState['data'][number]>(formData);
+		const {data} = await createStudents<{ data: { token: string } }>(formData);
 
-		setChildrenData(prev => ((prev || []).push(data), prev));
-
-		toast("Ребёнок успешно добавлен");
+		navigator.clipboard.writeText(`http://localhost:8000/?token=${data.token}`)
+			.then(() => toast.success("Ребёнок успешно добавлен", {
+				description: `Ссылка скопирована! Поделитесь ссылкой с ребенком, чтобы он смог зарегистрироваться`,
+				duration: 10000,
+				position: "top-center"
+			}));
 	}
 
 	useEffect(() => {

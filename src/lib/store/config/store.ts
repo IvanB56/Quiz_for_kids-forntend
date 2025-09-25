@@ -9,6 +9,7 @@ import {registrationReducer} from "@/features/Registration";
 import {playSettingsReducer} from "@/features/PlaySettings/model/slice/PlaySettingsSlice/PlaySettingsSlice";
 import {gameLogReducer} from '@/entities/play/model/slice/gameLogSlice';
 import {gameLogSpecificUserReducer} from '@/entities/play/model/slice/gameLogSpecificuserSlice';
+import {quizCategoryReducer} from "@/features/PlaySettings/model/slice/QuizCategorySlice/QuizCategorySlice";
 
 export const createReduxStore = (initialState?: StateSchema) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
@@ -19,7 +20,8 @@ export const createReduxStore = (initialState?: StateSchema) => {
 		student: studentReducer,
 		playSettings: playSettingsReducer,
 		gameLog: gameLogReducer,
-		gameLogSpecificUser: gameLogSpecificUserReducer
+		gameLogSpecificUser: gameLogSpecificUserReducer,
+		quizCategory: quizCategoryReducer
 	};
 
 	return configureStore({
