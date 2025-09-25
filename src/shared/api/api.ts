@@ -8,5 +8,6 @@ export const $api = axios.create({
 		'Content-Type': 'application/json',
 	},
 	withCredentials: true,
+	withXSRFToken: true,
 	adapter: "fetch"
 })

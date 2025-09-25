@@ -12,7 +12,7 @@ export const registrationAPI = createAsyncThunk<void, RegistrationProps, { rejec
 	'sponsor/registration',
 	async (userData, {extra, rejectWithValue}) => {
 		try {
-			await extra.api.post('/api/user/sponsor/register', userData);
+			await extra.api.post('/user/sponsor/register', userData);
 		} catch (_) {
 			return rejectWithValue(['Произошла ошибка при запросе [Sponsor registration]']);
 		}
