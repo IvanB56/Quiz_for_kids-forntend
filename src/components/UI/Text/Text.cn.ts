@@ -1,7 +1,7 @@
 import type {IText} from './Text.types';
 
 export default function classes(cn: IText['cn']) {
-	const COLOR = (['text-primary-grey', 'text-black', 'text-primary-white', 'text-primary-red', 'text-primary-blue'].includes(cn?.color || '') && cn?.color) || '';
+	const COLOR = (['text-primary-grey', 'text-black', 'text-primary-white', 'text-primary-red', 'text-primary-blue', 'text-brown'].includes(cn?.color || '') && cn?.color) || '';
 	const SIZE =
 		(['text-body-1', 'text-body-2', 'text-body-3', 'text-body-4', 'text-body-5'].includes(cn?.size || '') &&
 			cn?.size) ||
@@ -11,6 +11,6 @@ export default function classes(cn: IText['cn']) {
 	const WRAP = (['text-balance', 'text-wrap', 'text-nowrap', 'text-pretty'].includes(cn?.textWrap || '') && cn?.textWrap) || '';
 
 	return {
-		block: [COLOR, SIZE, WEIGHT, WRAP, cn?.margin].join(' ').trim().replace('  ', ' '),
+		block: [COLOR, SIZE, WEIGHT, WRAP, cn?.margin, cn?.align].join(' ').trim().replace('  ', ' '),
 	};
 }

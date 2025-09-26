@@ -17,6 +17,8 @@ export default {
 				'secondary-blue': 'hsla(193, 36%, 83%, 1)',
 				'green-light': 'hsla(143, 100%, 37%, 1)',
 				'green-salat': 'hsla(143, 95%, 48%, 1)',
+				'brown': 'hsla(23, 99%, 20%, 1)',
+				'orange': 'hsla(12, 100%, 69%, 1)',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -53,6 +55,7 @@ export default {
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
 				'button-red': 'hsla(11, 57%, 53%, 1)',
 				'button-green': 'hsla(131, 22%, 50%, 1)',
+				'button-velvet': 'hsla(350, 70%, 47%, 1)',
 				switch: 'hsla(0, 0%, 86%, 1)'
 			},
 			borderRadius: {
