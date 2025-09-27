@@ -5,15 +5,21 @@ import {registrationAPI} from "../services/Registration/Registration";
 const initialState: RegistrationSchema = {
 	isLoading: false,
 	error: undefined,
+	name: '',
 	phone: '',
 	password: '',
-	password_confirmation: ''
+	password_confirmation: '',
+	phone_verify_code: '',
+	email: undefined
 };
 
 export const registrationSlice = createSlice({
 	name: 'registration',
 	initialState,
 	reducers: {
+		setName: (state, action: PayloadAction<string>) => {
+			state.name = action.payload;
+		},
 		setPhone: (state, action: PayloadAction<string>) => {
 			state.phone = action.payload;
 		},
@@ -25,6 +31,9 @@ export const registrationSlice = createSlice({
 		},
 		setEmail: (state, action: PayloadAction<string>) => {
 			state.email = action.payload;
+		},
+		setVerifyCode: (state, action: PayloadAction<string>) => {
+			state.phone_verify_code = action.payload;
 		},
 	},
 	extraReducers: (builder) => {

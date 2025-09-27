@@ -1,28 +1,26 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {ThunkExtraArg} from "@lib/store";
-import axios from "axios";
 
 interface LoginByPhoneProps {
 	phone: string;
 	password: string
 }
 
-export const loginByPhone = createAsyncThunk<LoginByPhoneProps, void, { rejectValue: Array<string>, extra: ThunkExtraArg }>(
+interface RejectValue {
+	message: string,
+	errors?: Record<keyof LoginByPhoneProps, string[]>
+}
+
+export const loginByPhone = createAsyncThunk<void, LoginByPhoneProps, { rejectValue: RejectValue, extra: ThunkExtraArg }>(
 	'login/loginByPhone',
 	async(userData, {rejectWithValue, extra}) => {
-
 		try {
-			const xsrf = await axios.get('http://localhost/sanctum/csrf-cookie');
-			await extra.api.post('/api/user/sponsor/login', userData, {
-				headers: {
-					'Accept': 'application/json',
-					'Content-Type': 'application/json',
-				},
-				withCredentials: true,
-				adapter: "fetch"
-			});
+			await extra.api.get('/sanctum/csrf-cookie');
+			await extra.api.post('/api/user/sponsor/login', userData);
+
+			extra?.navigate?.push('/profile/rules');
 		} catch (_) {
-			rejectWithValue(['Произошла ошибка при запросе [Sponsor login]']);
+			rejectWithValue({message: 'Произошла ошибка при запросе [Sponsor login]'});
 		}
 
 	}

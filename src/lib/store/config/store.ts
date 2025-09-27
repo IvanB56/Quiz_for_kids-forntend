@@ -10,18 +10,23 @@ import {playSettingsReducer} from "@/features/PlaySettings/model/slice/PlaySetti
 import {gameLogReducer} from '@/entities/play/model/slice/gameLogSlice';
 import {gameLogSpecificUserReducer} from '@/entities/play/model/slice/gameLogSpecificuserSlice';
 import {quizCategoryReducer} from "@/features/PlaySettings/model/slice/QuizCategorySlice/QuizCategorySlice";
+import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
+import {studentRegistrationReducer} from "@/features/Registration/model/slice/registrationStudentSlice";
+import {PlaySettingsConfigureReducer} from "@/entities/play/model/slice/playSettingsConfigureSlice";
 
-export const createReduxStore = (initialState?: StateSchema) => {
+export const createReduxStore = (initialState?: StateSchema, router?: AppRouterInstance) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
 		user: userReducer,
 		loginForm: loginReducer,
 		profile: profileReducer,
 		registration: registrationReducer,
+		studentRegistration: studentRegistrationReducer,
 		student: studentReducer,
 		playSettings: playSettingsReducer,
 		gameLog: gameLogReducer,
 		gameLogSpecificUser: gameLogSpecificUserReducer,
-		quizCategory: quizCategoryReducer
+		quizCategory: quizCategoryReducer,
+		playSettingsConfigure: PlaySettingsConfigureReducer
 	};
 
 	return configureStore({
@@ -30,7 +35,8 @@ export const createReduxStore = (initialState?: StateSchema) => {
 		middleware: getDefaultMiddleware => getDefaultMiddleware({
 			thunk: {
 				extraArgument: {
-					api: $api
+					api: $api,
+					navigate: router
 				}
 			}
 		})

@@ -7,11 +7,6 @@ import {StudentLoaderModule} from "@lib/components/StudentLoaderModule/StudentLo
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
 	const pagesLink = {
-		user: {
-			name: "Ivan",
-			email: "admin@admin.com",
-			avatar: "/avatars/shadcn.jpg",
-		},
 		navMain: [
 			{
 				title: "Приложение",
@@ -74,11 +69,6 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 						title: "Игровой договор с ребенком",
 						url: "/profile/contract",
 						icon: 'ReceiptText',
-					},
-					{
-						title: "Статистика ребенка",
-						url: "/profile/statistic",
-						icon: 'ChartNoAxesCombined',
 					},
 				]
 			},

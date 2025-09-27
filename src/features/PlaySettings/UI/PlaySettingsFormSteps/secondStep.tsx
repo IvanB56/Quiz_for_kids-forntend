@@ -53,7 +53,7 @@ export const SecondStep = ({nextStepHandler, prevStepHandler, saveDataHandler}: 
 				</RadioGroup>
 				<Helper cn={{width: 'full'}}>
 					<Text data={{
-						text: 'Выберите режим настройки монетикума и туда сюда ля ля тополя ',
+						text: 'Выберите режим настройки МонетикУМ',
 						tag: 'p'
 					}} cn={{
 						color: 'text-black',

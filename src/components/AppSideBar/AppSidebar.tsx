@@ -3,9 +3,11 @@
 import * as React from "react";
 
 import {NavMain, NavUser, Sidebar, SidebarContent, SidebarFooter, SidebarRail, SidebarTrigger} from "@components";
+import {useSelector} from "react-redux";
+import {getUserAuthData, User} from "@/entities/user";
 
 type Props = {
-  user: Record<'name' | 'email' | 'avatar', string>;
+  user?: User;
   navMain: {
     title: string;
     items: {
@@ -18,7 +20,13 @@ type Props = {
   }[]
 } & React.ComponentProps<typeof Sidebar>
 
-export function AppSidebar({ user, navMain, ...props }: Props) {
+export function AppSidebar({ navMain, ...props }: Props) {
+  const user = useSelector(getUserAuthData);
+
+  if (!user) {
+    return null;
+  }
+
   return (
     <Sidebar collapsible="icon" className="relative" {...props}>
       <SidebarTrigger className="[&_svg]:size-6 absolute right-0 translate-x-full bg-sidebar !rounded-l-none md:hidden" />

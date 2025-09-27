@@ -74,7 +74,7 @@ export const StudentSlider = memo(({students, classBlock}: Props) => {
 				{
 					students?.map(item => (
 						<Slider.Slide key={item.user_id} data-id={item.user_id}>
-							<Text data={{text: item.name, tag: 'p'}} cn={{size: 'text-body-1'}} className="text-center"/>
+							<Text data={{text: item.name, tag: 'p'}} cn={{size: 'text-body-1'}} className="text-center !font-bold"/>
 						</Slider.Slide>
 					))
 				}

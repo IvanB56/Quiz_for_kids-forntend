@@ -35,3 +35,5 @@ export * from './skeleton';
 export * from './alert-dialog';
 export * from './calendar';
 export * from './drawer';
+export * from './tabs';
+export * from './checkbox';

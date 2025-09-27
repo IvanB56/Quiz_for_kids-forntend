@@ -1,6 +1,5 @@
 'use client';
 import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
-import {useRouter} from "next/navigation";
 import IMask from "imask";
 import {CN, validation} from "@/lib";
 import {STATUS_CODE} from "@/shared/constants/statusCode";
@@ -21,7 +20,6 @@ export const LoginForm = memo(() => {
 	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
 	const {phone, password, isLoading} = useSelector(getLoginScheme);
 	const [errors, setErrors] = useState<TypeLogin | null>();
-	const router = useRouter();
 
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
@@ -34,14 +32,12 @@ export const LoginForm = memo(() => {
 		setErrors(errors);
 
 		if (status === STATUS_CODE.SUCCESS) {
-			const result = await dispatch(loginByPhone({phone, password}));
-
-			if (result.meta.requestStatus !== "rejected") {
-				router.push('/profile/rules');
-			} else {
+			try {
+				await dispatch(loginByPhone({phone, password}));
+			} catch (_) {
 				toast("Не удалось получить данные от сервера", {
 					description: `Пользователь с телефоном ${phone} не найден`
-				})
+				});
 			}
 		}
 	}, [dispatch, phone, password])

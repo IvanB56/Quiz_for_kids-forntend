@@ -1,7 +1,7 @@
 'use client';
 import React, {ReactNode, useEffect} from 'react';
 import {useAppDispatch} from "@hooks";
-import {User, userActions} from "@/entities/user";
+import {fetchUser, User, userActions} from "@/entities/user";
 
 interface Props {
 	children: ReactNode;
@@ -14,6 +14,8 @@ export const UserLoaderModule = ({user, children}: Props) => {
 	useEffect(() => {
 		if (user){
 			dispatch(userActions.setAuthData(user));
+		} else {
+			dispatch(fetchUser());
 		}
 	}, [user, dispatch]);
 

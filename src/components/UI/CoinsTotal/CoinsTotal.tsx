@@ -6,13 +6,13 @@ import classes from './CoinsTotal.cn';
 import './CoinsTotal.scss';
 
 export function CoinsTotal(props: ICoinsTotal) {
-	const {cn} = props;
+	const {cn, value} = props;
 	const styles = classes({...cn});
 
 	return (
 		<div className={styles.block}>
 			<Image src={coinImg} alt=""/>
-			<span className={styles.elementTotal}>00.00</span>
+			<span className={styles.elementTotal}>{value.toFixed(2)}</span>
 		</div>
 	);
 }

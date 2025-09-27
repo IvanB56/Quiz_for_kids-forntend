@@ -12,7 +12,7 @@ export interface User {
 		slug: string;
 		name: string;
 	},
-	type: ProfileType.SPONSOR
+	type: ProfileType
 }
 
 export interface UserSchema {

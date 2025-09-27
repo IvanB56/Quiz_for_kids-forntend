@@ -5,3 +5,5 @@ export {getStudentIsLoading} from './model/selectors/getStudentIsLoading/getStud
 export {getStudentError} from './model/selectors/getStudentError/getStudentError';
 export {getCurrentStudent} from './model/selectors/getCurrentStudent/getCurrentStudent';
 export {fetchStudentsData} from './model/services/fetchStudentsData/fetchStudentsData';
+export {fetchGetToken} from './model/services/fetchGetToken/fetchGetToken';
+export {fetchCreateStudent} from './model/services/fetchCreateStudent/fetchCreateStudent';

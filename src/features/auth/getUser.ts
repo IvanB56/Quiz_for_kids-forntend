@@ -19,8 +19,8 @@ export async function getUser(): Promise<{user?: User; error?: { message: string
 			},
 		});
 
-		const user: User = await response.json();
-		return {user}
+		const user: { data: User } = await response.json();
+		return {user: user.data}
 	} catch(err) {
 		if  (MODE === 'development') {
 			return {

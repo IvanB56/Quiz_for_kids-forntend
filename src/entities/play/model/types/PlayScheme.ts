@@ -21,3 +21,15 @@ export interface GameLogSchema {
 	isLoading: boolean;
 	error?: string;
 }
+
+export interface PlaySettingsConfigure {
+	minimum_categories: number,
+	minimum_questions_per_month: number,
+	maximum_questions_per_month: number
+}
+
+export interface PlaySettingsConfigureSchema {
+	data?: PlaySettingsConfigure,
+	isLoading: boolean;
+	error?: string;
+}

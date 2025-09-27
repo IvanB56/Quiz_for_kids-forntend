@@ -34,7 +34,7 @@ export async function getStudents(): Promise<{
 							user_id: 1,
 							email: "email-student@email.email",
 							phone: "+79009009091",
-							name: "No-name Child",
+							name: "Миша",
 							surname: "",
 							patronymic: "",
 							birthdate: "",

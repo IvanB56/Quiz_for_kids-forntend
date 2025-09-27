@@ -16,6 +16,7 @@ import './PlaySettingsForm.scss';
 import {useSelector} from "react-redux";
 import {getCurrentStudent} from "@/entities/student";
 import {ThirdStep} from "@/features/PlaySettings/UI/PlaySettingsFormSteps/thirdStep";
+import {postHandConfigure} from "@/features/PlaySettings/model/services/postHandConfigure/postHandConfigure";
 
 
 const block = CN('play-settings-form');
@@ -37,7 +38,7 @@ export const PlaySettingsForm = () => {
 		})
 	}, [userId]);
 
-	const prepareData = (data: { name: string, value: string }) => {
+	const prepareData = (data: { name: string, value: string | string[] }) => {
 		setFormData((prev) => ({...prev, [data.name]: data.value}));
 	};
 
@@ -45,11 +46,13 @@ export const PlaySettingsForm = () => {
 		e?.preventDefault();
 		const {budget} = formData;
 
+		console.log(formData);
+
 		if (!userId) return;
 
 		switch (value) {
 			case 'hand':
-				console.log('hand');
+				dispatch(postHandConfigure({userId, data: formData}));
 				break;
 			case 'auto':
 				dispatch(fetchPostAutoConfigure({userId, data: {budget}}));
@@ -77,11 +80,12 @@ export const PlaySettingsForm = () => {
 			case 2:
 				return <SecondStep saveDataHandler={submitForm} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
 			case 3:
-				return <ThirdStep nextStepHandler={nextStep} prevStepHandler={prevStep} callback={prepareData} />;
+				return <ThirdStep nextStepHandler={nextStep} prevStepHandler={prevStep} callback={prepareData}/>;
 			case 4:
 				return <FourthStep callback={prepareData} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
 			case 5:
-				return <FifthStep callback={prepareData} saveDataHandler={submitForm} prevStepHandler={prevStep} data={formData.mode ?? ''}/>;
+				return <FifthStep callback={prepareData} saveDataHandler={submitForm} prevStepHandler={prevStep}
+				                  data={formData.mode ?? ''}/>;
 			default:
 				return null;
 		}

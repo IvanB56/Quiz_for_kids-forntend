@@ -113,6 +113,10 @@ export const HeaderGuest = ({data, cn}: TypeHeaderGuest) => {
 								trigger={() => (
 									<><UserRoundPlus/> Зарегистрироваться</>
 								)}
+								header={() => (
+									<Heading data={{text: 'Регистрация', tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}}
+									         className={styles.modalHeading}/>
+								)}
 								description={() => <RegistrationForm />}
 								className={{
 									trigger: styles.elementAuthButton

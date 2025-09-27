@@ -1,5 +1,5 @@
 import React from 'react';
-import { CardWallet, Heading, SavingsMonet, WalletTable } from '@components';
+import {CardWallet, Heading, SavingsMonet, WalletTable} from '@components';
 
 const Earnings = () => {
 	return (
@@ -55,8 +55,8 @@ const Earnings = () => {
 							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
 							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
 						],
-					totalEarned: 99999,
-					totalWithdrawn: 99999
+					totalEarned: 12000,
+					totalWithdrawn: 2500
 					}} cn={{display: 'block'}}
 				/>
 			</div>
