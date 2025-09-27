@@ -8,7 +8,8 @@ interface HelperProps extends PropsWithChildren {
 	cn?: {
 		width?: 'full',
 		color?: 'light-brown',
-		shadow?: boolean
+		shadow?: boolean,
+		padding?: 'p-homework',
 	},
 	className?: string
 }
@@ -20,6 +21,7 @@ export const Helper = ({children, cn, className}: HelperProps) => {
 		<div className={useClassName(block({
 			[`${cn?.width}`]: cn?.width === 'full',
 			[`${cn?.color}`]: cn?.color === 'light-brown',
+			[`${cn?.padding}`]: cn?.padding === 'p-homework',
 			shadow: !!cn?.shadow
 		}), className)}>
 			{children}

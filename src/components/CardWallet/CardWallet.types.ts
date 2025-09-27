@@ -18,5 +18,6 @@ export interface ICardWallet extends IChildrenAndClassName {
 		margin?: string;
 		padding?: string;
 		width?: string;
+		direction?: string;
 	};
 }

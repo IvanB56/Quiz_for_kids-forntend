@@ -8,6 +8,7 @@ export default function classes() {
     status: BLOCK('status'),
     rewardLabel: BLOCK('reward-label'),
     rewardValue: BLOCK('reward-value'),
+		wrapperReward: BLOCK('wrapper-reward'),
     coin: BLOCK('coin'),
   };
-} 
+}

@@ -48,7 +48,7 @@ export const GreetingsChild = (props: IGreetingsChild) => {
 					}}
 					cn={{ size: 'text-body-1', color: 'text-primary-red' }}
 				/>
-				<Button type="button" variant={'greetings'} className="mt-[72px]">Начнем</Button>
+				<Button type="button" variant={'greetings'}>Начнем</Button>
 			</div>
 			<div className={styles.elementWrapperImage}>
 				<Image src={image} alt="Приветствие" width={671} className={styles.elementImage} />

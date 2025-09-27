@@ -14,6 +14,7 @@ export default function classes(cn: ICardHomework['cn']) {
 		elementBannerImage: BLOCK('banner-image'),
 		elementContentWrapper: BLOCK('content-wrapper'),
 		elementRatingWrapper: BLOCK('rating-wrapper'),
+		elementDescriptionWrapper: BLOCK('description-wrapper'),
 		elementButtonsWrapper: BLOCK('buttons-wrapper'),
 		elementButtonStart: BLOCK('button-start'),
 		elementButtonPlug: BLOCK('button-plug'),

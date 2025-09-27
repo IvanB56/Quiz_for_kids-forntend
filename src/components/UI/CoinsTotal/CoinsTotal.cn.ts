@@ -9,6 +9,7 @@ export default function classes(cn: ICoinsTotal['cn']) {
 			{},
 			[cn?.margin]
 		),
+		elementCoin: BLOCK('coin'),
 		elementTotal: BLOCK('total'),
 	};
 }

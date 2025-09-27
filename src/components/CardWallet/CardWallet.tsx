@@ -48,7 +48,7 @@ export function CardWallet(props: ICardWallet) {
 					))}
 				</div>
 				{buttonDescription && (
-					<Button className="mx-auto mt-[35] block" type="button">{buttonDescription}</Button>
+					<Button className="card-wallet__button-default mx-auto mt-[20] sm:mt-[35]" type="button">{buttonDescription}</Button>
 				)}
 			</div>
 
