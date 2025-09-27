@@ -29,14 +29,14 @@ export const ChildsafeFirstStep = ({callback, nextStepHandler, data}: NewFirstSt
 			className="flex justify-between flex-col h-full gap-y-8 max-w-[900px] m-auto"
 		>
 			<Text data={{text: 'На какую цель копишь?', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-bold', margin: 'mx-auto'}}/>
-			<div className="flex gap-8 relative w-[80%] mx-auto">
+			<div className="flex gap-8 relative w-[90%] sm:w-[80%] mx-auto">
 				<Textarea
 					name="goal_description"
 					placeholder="например: покупка смартфона"
 					onChange={changeTextareaHandler}
 					value={value}
 					ref={textareaRef}
-					className="min-h-[100px]"
+					className="min-h-[80px] sm:min-h-[120px]"
 				/>
 				{isError && <Text
 					data={{text: 'Поле обязательно для заполнения', tag: 'span'}}

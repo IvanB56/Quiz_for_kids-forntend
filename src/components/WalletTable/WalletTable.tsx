@@ -6,11 +6,12 @@ import './WalletTable.scss';
 
 export const WalletTable = (props: IWalletTable) => {
 	const {
-		data
+		data,
+		cn
 	} = props;
 
 	const { rows, totalEarned, totalWithdrawn } = data;
-	const styles = classes();
+	const styles = classes({...cn});
 
 	return (
 		<div className={styles.block}>

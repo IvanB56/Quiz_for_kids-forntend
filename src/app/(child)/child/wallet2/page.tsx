@@ -1,11 +1,11 @@
 import React from 'react';
-import {CardWallet, Heading, SavingsMonet, WalletTable} from '@components';
+import { CardWallet, Heading, SavingsMonet, WalletTable } from '@components';
 
 const Earnings = () => {
 	return (
 		<>
-			<Heading data={{text: "Мой сейф", tag: 'h1'}} className="mb-6"/>
-			<div className={"flex justify-center gap-[95] mb-[55]"}>
+			<Heading data={{text: "Мой сейф", tag: 'h1'}} className="mb-1 sm:mb-6"/>
+			<div className={"flex flex-wrap sm:flex-nowrap justify-center gap-[15] sm:gap-[95] mb-[15] sm:mb-[55]"}>
 				<SavingsMonet
 					data={{
 						title: "Коплю на смартфон",
@@ -14,7 +14,7 @@ const Earnings = () => {
 						percentage: 35
 					}}
 					cn={{
-						margin: 'mb-4',
+						// margin: 'mb-4',
 					}}
 				/>
 				<CardWallet
@@ -25,8 +25,8 @@ const Earnings = () => {
 					}}
 				/>
 			</div>
-			<Heading data={{text: "Мой кошелек", tag: 'h1'}} className="mb-6"/>
-			<div className={"flex justify-center gap-[95] mb-[55]"}>
+			<Heading data={{text: "Мой кошелек", tag: 'h1'}} className="mb-1 sm:mb-6"/>
+			<div className={"flex flex-wrap sm:flex-nowrap justify-center gap-[15] sm:gap-[95] mb-[55]"}>
 				<CardWallet
 					data={{
 						earningsItems: [
@@ -57,7 +57,7 @@ const Earnings = () => {
 						],
 					totalEarned: 12000,
 					totalWithdrawn: 2500
-					}} cn={{display: 'block'}}
+					}} cn={{display: 'hidden sm:block'}}
 				/>
 			</div>
 

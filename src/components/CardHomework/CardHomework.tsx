@@ -32,8 +32,10 @@ export function CardHomework(props: ICardHomework) {
 						<Svg name={'favorite'} className={'text-grey-medium ml-2'} />
 					</div>
 				</div>
-				<Text data={{text: 'описание', tag: 'p'}} cn={{size: 'text-body-2', margin: 'mt-[35px] mb-[20px]'}}/>
-				<Text data={{text: 'За выполнение домашнего задания ты получшь 300 монет.', tag: 'p'}} cn={{ size: 'text-body-3', color: 'text-primary-red', margin: 'mb-[10px]'}}/>
+				<div className={styles.elementDescriptionWrapper}>
+					<Text data={{text: 'описание', tag: 'p'}} cn={{size: 'text-body-2', margin: 'mt-[35px] mb-[20px]'}}/>
+					<Text data={{text: 'За выполнение домашнего задания ты получшь 300 монет.', tag: 'p'}} cn={{ size: 'text-body-3', color: 'text-primary-red', margin: 'mb-[10px]'}}/>
+				</div>
 				<div className={styles.elementButtonsWrapper}>
 					<Button className={styles.elementButtonPlug}/>
 					<Button className={styles.elementButtonStart} type="button" variant="default">начать</Button>

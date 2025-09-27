@@ -22,8 +22,10 @@ export const CardReward: React.FC<CardRewardProps> = ({ text, reward, status, va
       {status &&
 				<Button className={styles.status} type="button" variant={variant}>{status}</Button>
 			}
-			<Text data={{ text: 'Награда', tag: 'span' }} className={styles.rewardValue} cn={{ size: 'text-body-1', weight: 'font-semibold' }} />
-			<Text data={{ text: reward, tag: 'span' }} className={styles.rewardValue} cn={{ size: 'text-body-1', weight: 'font-semibold' }} />
+			<div className={styles.wrapperReward}>
+				<Text data={{ text: 'Награда', tag: 'span' }} className={styles.rewardValue} cn={{ size: 'text-body-1', weight: 'font-semibold' }} />
+				<Text data={{ text: reward, tag: 'span' }} className={styles.rewardValue} cn={{ size: 'text-body-1', weight: 'font-semibold' }} />
+			</div>
       <span className={styles.coin}><Image src={coinImg} alt="coin" width={70} height={70} /></span>
     </div>
   );

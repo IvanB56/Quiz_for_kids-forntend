@@ -3,11 +3,16 @@
 
 .savings-monet {
 	border-radius: rem(16);
-	padding: rem(20);
+	padding: clamp(0.625rem, 1.25vw, 1.25rem);
 	position: relative;
 	height: 100%;
 
 	@apply shadow-dark bg-white;
+
+	@include mobile {
+		height: auto;
+		width: 100%;
+	}
 
 	&__text-title {
 		max-width: rem(185);
@@ -70,6 +75,13 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: rem(16);
+
+		svg {
+			@include mobile {
+				width: rem(40);
+				height: rem(40);
+			}
+		}
 	}
 
 	&__current-amount,

@@ -65,12 +65,13 @@
 
 	&_greetings {
 		font-weight: 600;
-		font-size: rem(40);
-		padding: rem(19) rem(120);
+		font-size: clamp(1.5rem, 5vw, 2.5rem);
+		padding: clamp(0.5rem, 2vw, 1.25rem) clamp(2.5rem, 7vw, 7.5rem);
 		background: linear-gradient(180deg, theme('colors.green-light') 6.59%, theme('colors.green-salat') 51.19%, theme('colors.green-light') 91.19%);
+		margin-top: clamp(0.5rem, 5vw, 4.5rem);
 		@apply text-primary-white;
 		@apply mx-[auto];
-		@apply block;
+		@apply flex;
 		@apply rounded-100 shadow-m;
 	}
 

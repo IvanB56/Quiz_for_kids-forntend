@@ -2,7 +2,8 @@ import type { IChildrenAndClassName } from '@root/global';
 
 // Контролируемый режим (внешнее состояние)
 export interface ICheckboxWithLabelControlled extends IChildrenAndClassName {
-	label: string;
+	labelBefore?: string;
+	label?: string;
 	checked: boolean;
 	onChange: (checked: boolean) => void;
 	cn?: {
@@ -12,9 +13,10 @@ export interface ICheckboxWithLabelControlled extends IChildrenAndClassName {
 
 // Неконтролируемый режим (внутреннее состояние)
 export interface ICheckboxWithLabelUncontrolled extends IChildrenAndClassName {
-	label: string;
+	labelBefore?: string;
+	label?: string;
 	defaultChecked?: boolean;
-	onToggle?: (checked: boolean, label: string) => void;
+	onToggle?: (checked: boolean, label?: string) => void;
 	cn?: {
 		margin?: string;
 	};

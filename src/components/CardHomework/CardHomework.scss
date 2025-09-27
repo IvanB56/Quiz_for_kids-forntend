@@ -2,7 +2,7 @@
 @use "../../assets/styles/helpers/function" as *;
 
 .card-homework {
-	width: rem(345);
+	width: clamp(9.3rem, 30vw, 21.56rem);
 	background: white;
 	border-radius: rem(14);
 
@@ -27,22 +27,35 @@
 	}
 
 	&__content-wrapper {
-		padding: rem(30) rem(20) rem(15);
+		padding: clamp(0.75rem, 1vw, 1.875rem) clamp(0.625rem, 1vw, 1.25rem) clamp(1rem, 1vw, 0.9375rem);
 	}
 
 	&__rating-wrapper {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+
+		@include mobile {
+			flex-direction: column-reverse;
+			gap: rem(8);
+			margin-bottom: rem(20);
+		}
+	}
+
+	&__description-wrapper {
+		@include mobile {
+			display: none;
+		}
 	}
 
 	&__buttons-wrapper {
 		display: flex;
+		justify-content: center;
 		gap: rem(6);
 	}
 
 	&__button-start {
-		padding: rem(12) rem(60);
+		padding: clamp(0.375rem, 1vw, 0.75rem) clamp(1.125rem, 3vw, 3.75rem);
 		border-radius: rem(14);
 	}
 
@@ -53,6 +66,10 @@
 		&:hover {
 			@apply bg-cyan-light;
 		}
+
+		@include mobile {
+			display: none;
+		}
 	}
 
 	&__complexity {
@@ -60,5 +77,14 @@
 		margin-top: rem(50);
 
 		@apply flex gap-x-0.5;
+
+		@include mobile {
+			margin-top: 0;
+
+			svg {
+				width: 17px;
+				height: 15px;
+			}
+		}
 	}
 }
