@@ -19,7 +19,7 @@ import {
 } from "@components";
 import {TriangleAlert} from "lucide-react";
 import {useClassName} from "@hooks";
-import {register} from "@/shared/api/user/actions";
+// import {register} from "@/shared/api/user/actions";
 import IMask from "imask";
 
 export const FormChild = () => {
@@ -38,8 +38,8 @@ export const FormChild = () => {
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
 
-	async function onSubmit(values: TypeChildRegistration) {
-		await register(values, 'api/student');
+	async function onSubmit(_values: TypeChildRegistration) {
+		// await register(values, 'api/student');
 	}
 
 	useEffect(() => {

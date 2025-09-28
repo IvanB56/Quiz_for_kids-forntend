@@ -1,29 +1,29 @@
 'use client';
 import React, {PropsWithChildren} from 'react';
-import classes from './CardAnswers.cn';
-import './CardAnswers.scss';
-import { Text } from '@components';
-
-type AllowedTags = 'div' | 'p' | 'span' | 'b' | 'i' | 'strong' | 'em' | 'u' | 's';
+import {Heading, Helper, SectionWhite, Text} from '@components';
 
 interface CardAnswersProps extends PropsWithChildren {
-	textData?: {
+	textData: {
 		text?: string;
-		tag?: AllowedTags;
+		answer?: string
 	};
 }
 
 export const CardAnswers = ({children, textData }: CardAnswersProps) => {
-	const styles = classes();
+	const {text = '', answer = ''} = textData;
 
 	return (
-		<div className={styles.block}>
+		<div className="mt-12">
 			{children}
-			<div className={styles.elementAnswer}>
-				<div className={styles.elementWrapperText}>
-					<Text data={{ text: textData?.text || '', tag: (textData?.tag as AllowedTags) || 'p' }}/>
-				</div>
-			</div>
+			<SectionWhite overflow="overflow-visible">
+				<Heading data={{text: answer, tag: 'h3'}} cn={{margin: 'mb-4', align: 'text-center'}} />
+				<Helper cn={{width: 'full'}}>
+					<Text
+						data={{ text, tag: 'p' }}
+						cn={{size: 'text-body-1', color: 'text-black'}} className="!font-bold text-center"
+					/>
+				</Helper>
+			</SectionWhite>
 		</div>
 	);
 };

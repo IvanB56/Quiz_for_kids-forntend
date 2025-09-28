@@ -1,0 +1,9 @@
+.task {
+  [data-success="false"].selected {
+    @apply bg-primary-red;
+  }
+
+  [data-success="true"].selected {
+    @apply bg-green-salat;
+  }
+}

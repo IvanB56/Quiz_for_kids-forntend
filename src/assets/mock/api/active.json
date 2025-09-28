@@ -1,0 +1,27 @@
+{
+  "data": {
+    "starts_at": "2025-08-01T00:00:00.000000Z",
+    "ends_at": "2025-08-31T23:59:59.000000Z",
+    "active": true,
+    "mode": "combined",
+    "budget": 100,
+    "questions_quantity": 300,
+    "categories": [
+      {
+        "slug": "mathematics",
+        "name": "Математика",
+        "description": "Математика описание"
+      },
+      {
+        "slug": "science",
+        "name": "Наука",
+        "description": "Наука описание"
+      },
+      {
+        "slug": "physics",
+        "name": "Физика",
+        "description": "Физика описание"
+      }
+    ]
+  }
+}

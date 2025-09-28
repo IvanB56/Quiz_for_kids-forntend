@@ -1,18 +1,16 @@
+@use "@assets/styles/helpers/function" as *;
+
 .text-body-1 {
 	font-family: var(--font-montserrat), serif;
-	//font-weight: 600;
-	font-size: 1.5625rem;
+	font-size: fluid(24, 20);
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
-
-	@apply max-2xl:text-[1.25rem];
-	@apply max-sm:text-[0.875rem];
 }
 
 .text-body-2 {
 	font-family: var(--font-montserrat), serif;
 	font-weight: 500;
-	font-size: 1.25rem;
+	font-size: fluid(20, 16);
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
 
@@ -23,7 +21,7 @@
 .text-body-3 {
 	font-family: var(--font-montserrat), serif;
 	//font-weight: 600;
-	font-size: 0.875rem;
+	font-size: fluid(16, 12);
 	line-height: 1.4;
 	letter-spacing: -0.04rem;
 }
@@ -31,13 +29,13 @@
 .text-body-4 {
 	font-family: var(--font-montserrat), serif;
 	//font-weight: 600;
-	font-size: 0.875rem;
+	font-size: rem(16);
 	line-height: 1;
 }
 
 .text-body-5 {
 	font-family: var(--font-montserrat), serif;
 	//font-weight: 600;
-	font-size: 0.75rem;
+	font-size: rem(14);
 	line-height: 1;
 }

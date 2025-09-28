@@ -23,6 +23,7 @@ type Props = {
 			url: string
 			icon?: string
 			isActive?: boolean
+			disabled?: boolean
 		}[]
 	}
 }
@@ -48,10 +49,14 @@ export function NavMain({data}: Props) {
 			<SidebarMenu>
 				{itemsMemo.map((item) => (
 					<SidebarMenuItem key={item.title}>
-						<SidebarMenuButton tooltip={item.title} size={"lg"} isActive={item.isActive}
-						                   className={item.isActive ? 'isActive' : ''}>
-							{item.icon && <LucideIcon iconName={item.icon} />}
-							<LinkUI data={{href: item.url}}>
+						<SidebarMenuButton
+							tooltip={item.title}
+							size={"lg"}
+							isActive={item.isActive}
+							className={item.isActive ? 'isActive' : ''}
+						>
+							{item.icon && <LucideIcon iconName={item.icon}/>}
+							<LinkUI data={{href: item.url}} disabled={item.disabled}>
 								<Text data={{text: item.title, tag: 'p'}}/>
 							</LinkUI>
 						</SidebarMenuButton>

@@ -1,5 +1,8 @@
-'use client';
 import React from 'react';
+import {CN} from "@/lib";
+import {Student} from "@/entities/student";
+import {ExternalLink} from "lucide-react";
+import {FormAddChild} from "./FormAddChild/FormAddChild";
 import {
 	Button,
 	Heading,
@@ -13,29 +16,22 @@ import {
 	TableRow,
 	Text
 } from "@components";
-import {useChildrenContext} from "@/app/(auth)/profile/child/hooks/useChildrenContext";
-import {ExternalLink} from 'lucide-react';
-import {CN} from "@/lib";
 
 import './child.scss';
-import {FormAddChild} from "@/app/(auth)/profile/child/components/FormAddChild/FormAddChild";
 
 const block = CN('child')
 
-const Child = () => {
-	const {childrenData} = useChildrenContext();
+interface Props {
+	students: Student[]
+}
 
-	if (!childrenData || childrenData?.length === 0) return null;
+const Child = ({students}: Props) => {
 
-	// const addChild = () => {
-	// 	console.log('add')
-	// };
-
-	const openStatistic = (_: typeof childrenData[number]) => {
+	const openStatistic = (userId: string | number) => {
 		return (
 			<Button asChild variant="link" className={block('icon')}>
-				<LinkUI data={{href: `statistic`}} >
-					<ExternalLink size={30}/>
+				<LinkUI data={{href: `/profile/child/${userId}`}} >
+					<Text data={{text: 'Перейти', tag: 'span'}} /> <ExternalLink size={30} className="ml-4"/>
 				</LinkUI>
 			</Button>
 
@@ -44,11 +40,10 @@ const Child = () => {
 
 	return (
 		<SectionWhite className={block()}>
-			<Heading data={{text: 'Уже с нами', tag: 'h3'}} cn={{margin: 'mb-4'}}/>
 			<Helper cn={{width: 'full'}} className="flex flex-column gap-4 items-start mb-4">
 				<Table>
 					<TableBody>
-						{childrenData?.map(item =>
+						{students?.map(item =>
 							(
 								<TableRow key={item.user_id} className={block('table-row')}>
 									<TableCell className="flex items-center justify-start lex-1 text-left">
@@ -64,7 +59,7 @@ const Child = () => {
 										      cn={{color: 'text-black'}}/>
 									</TableCell>
 									<TableCell className="flex items-center justify-end flex-0">
-										{openStatistic(item)}
+										{openStatistic(item.user_id)}
 									</TableCell>
 								</TableRow>
 							)
@@ -77,9 +72,9 @@ const Child = () => {
 					<>Добавить ребенка</>
 				)}
 				header={() => (
-					<Heading data={{text: 'Добавить ребенка', tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}} />
+					<Heading data={{text: 'Добавить ребенка', tag: 'h3'}} cn={{size: 'h3', align: 'text-center'}}/>
 				)}
-				description={() => <FormAddChild />}
+				description={() => <FormAddChild/>}
 				className={{
 					trigger: block('button')
 				}}
