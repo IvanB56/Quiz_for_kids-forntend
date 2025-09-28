@@ -13,7 +13,7 @@ export async function middleware() {
 	// 	}
 	//
 	// 	if (user.type === ProfileType.STUDENT && !request.nextUrl.pathname.startsWith('/child')) {
-	// 		return NextResponse.redirect(new URL('/child/rules', request.url))
+	// 		return NextResponse.redirect(new URL('/child/greetings', request.url))
 	// 	}
 	// } else {
 	// 	const protectedPaths = ['/child', '/profile', '/settings']

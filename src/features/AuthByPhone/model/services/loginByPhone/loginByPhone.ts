@@ -18,7 +18,7 @@ export const loginByPhone = createAsyncThunk<void, LoginByPhoneProps, { rejectVa
 			await extra.api.get('/sanctum/csrf-cookie');
 			await extra.api.post('/api/user/sponsor/login', userData);
 
-			extra?.navigate?.push('/profile/rules');
+			extra?.navigate?.refresh();
 		} catch (_) {
 			rejectWithValue({message: 'Произошла ошибка при запросе [Sponsor login]'});
 		}

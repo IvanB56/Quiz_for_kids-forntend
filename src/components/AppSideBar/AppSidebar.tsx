@@ -4,10 +4,9 @@ import * as React from "react";
 
 import {NavMain, NavUser, Sidebar, SidebarContent, SidebarFooter, SidebarRail, SidebarTrigger} from "@components";
 import {useSelector} from "react-redux";
-import {getUserAuthData, User} from "@/entities/user";
+import {getUserAuthData} from "@/entities/user";
 
 type Props = {
-  user?: User;
   navMain: {
     title: string;
     items: {

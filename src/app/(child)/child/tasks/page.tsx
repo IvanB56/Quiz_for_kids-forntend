@@ -1,23 +1,41 @@
-import React from 'react';
-import { CoinsTotal, Heading, QuizQuestion, CardAnswers, } from '@components';
+'use client';
+import React, {useEffect} from 'react';
+import {CardAnswers, CoinsTotal, Heading, Separator, Text,} from '@components';
+import {useSelector} from "react-redux";
+import {useAppDispatch} from "@hooks";
+import {isTextQuizData} from "@/entities/play/model/types/PlayScheme";
+import {fetchCurrentGame, getCurrentGame, QuizQuestion} from "@/features/QuizQuestion";
+import {PLAY_STATUS} from "@/shared/constants/PlayMode";
 
 const Earnings = () => {
+	const {currentGame, error, isLoading} = useSelector(getCurrentGame);
+	const dispatch = useAppDispatch();
+
+	useEffect(() => {
+		dispatch(fetchCurrentGame());
+	}, [dispatch]);
+
+	if (isLoading) return 'Загрузка игры';
+
+	if (error) return <Text data={{text: error.message, tag: 'p'}}/>
+
 	return (
 		<>
-			<Heading data={{text: "Заработок", tag: 'h1'}}  cn={{margin: 'mb-2 sm:mb-16'}}/>
-			<QuizQuestion
-				question={'В каком году родился А. С. Пушкин?'}
-				// options={["1800г", "1825г", "1798г", "1799г"]}
-				correctAnswer="1799г"
-				timer="01:30"
-				score={15}
-			/>
-			<CoinsTotal cn={{ margin: 'my-[10px] sm:my-[40px]' }}/>
-			<CardAnswers
-				textData={{text: 'Александр Сергеевич Пушкин — русский поэт, драматург и прозаик. Родился: 6 июня 1799 года, Москва, Российская империя'}}
-			>
-				<Heading data={{text: 'Правильный ответ ', tag: 'h4'}} cn={{margin: 'mb-2'}}/>
-			</CardAnswers>
+			<div className="flex justify-between items-center">
+				<Heading data={{text: "Викторины", tag: 'h1'}}/>
+				<CoinsTotal value={0}/>
+			</div>
+			<Separator className="my-4"/>
+
+			{currentGame && <QuizQuestion currentGame={currentGame}/>}
+
+			{
+				isTextQuizData(currentGame) && currentGame?.text_quiz?.note && currentGame?.status !== PLAY_STATUS.EMPTY && (
+					<CardAnswers textData={{text: currentGame?.text_quiz?.note, answer: currentGame?.text_quiz?.answer}} >
+						<Heading data={{text: 'Правильный ответ ', tag: 'h4'}} cn={{margin: 'mb-2'}}/>
+					</CardAnswers>
+				)
+			}
 		</>
 	);
 };

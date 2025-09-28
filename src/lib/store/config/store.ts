@@ -13,6 +13,7 @@ import {quizCategoryReducer} from "@/features/PlaySettings/model/slice/QuizCateg
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {studentRegistrationReducer} from "@/features/Registration/model/slice/registrationStudentSlice";
 import {PlaySettingsConfigureReducer} from "@/entities/play/model/slice/playSettingsConfigureSlice";
+import {PlayReducer} from "@/entities/play/model/slice/playSlice";
 
 export const createReduxStore = (initialState?: StateSchema, router?: AppRouterInstance) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
@@ -26,7 +27,8 @@ export const createReduxStore = (initialState?: StateSchema, router?: AppRouterI
 		gameLog: gameLogReducer,
 		gameLogSpecificUser: gameLogSpecificUserReducer,
 		quizCategory: quizCategoryReducer,
-		playSettingsConfigure: PlaySettingsConfigureReducer
+		playSettingsConfigure: PlaySettingsConfigureReducer,
+		play: PlayReducer
 	};
 
 	return configureStore({

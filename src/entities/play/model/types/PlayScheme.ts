@@ -33,3 +33,49 @@ export interface PlaySettingsConfigureSchema {
 	isLoading: boolean;
 	error?: string;
 }
+
+export type CurrentGame = QuizData | TextQuizData;
+
+export interface SubmitGameSchema {
+	data?: CurrentGame;
+	isLoading: boolean;
+	error?: string;
+}
+
+export interface PlaySchema {
+	currentGame?: CurrentGame;
+	isLoading: boolean;
+	error?: {
+		message: string;
+	}
+}
+
+export interface QuizData {
+	type: PLAY_MODE.QUIZ,
+	status: PLAY_STATUS,
+	option_submitted?: number,
+	quiz: {
+		question: string,
+		options: string[]
+	}
+}
+
+export interface TextQuizData {
+	type: PLAY_MODE.TEXT_QUIZ,
+	status: PLAY_STATUS,
+	answer_submitted: string,
+	text_quiz: {
+		question: string,
+		answer: string,
+		note: string,
+	}
+}
+
+
+export function isQuizData(quiz?: QuizData | TextQuizData): quiz is QuizData {
+	return !!quiz && quiz.type === PLAY_MODE.QUIZ;
+}
+
+export function isTextQuizData(quiz?: QuizData | TextQuizData): quiz is TextQuizData {
+	return !!quiz && quiz.type === PLAY_MODE.TEXT_QUIZ;
+}

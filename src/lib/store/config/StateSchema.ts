@@ -6,7 +6,7 @@ import {ProfileSchema} from "@/entities/profile";
 import {StudentSchema} from "@/entities/student";
 import {AxiosInstance} from "axios";
 import {PlaySettingsCurrentScheme} from "@/features/PlaySettings/model/types/PlaySettingsScheme";
-import {GameLogSchema, PlaySettingsConfigureSchema} from "@/entities/play/model/types/PlayScheme";
+import {GameLogSchema, PlaySchema, PlaySettingsConfigureSchema} from "@/entities/play/model/types/PlayScheme";
 import {QuizCategoryScheme} from "@/features/PlaySettings/model/types/QuizCategoryScheme";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {StudentRegistrationSchema} from "@/features/Registration/model/types/studentRegistrationSchema";
@@ -23,6 +23,7 @@ export interface StateSchema {
 	gameLogSpecificUser: GameLogSchema;
 	quizCategory: QuizCategoryScheme;
 	playSettingsConfigure: PlaySettingsConfigureSchema;
+	play: PlaySchema
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

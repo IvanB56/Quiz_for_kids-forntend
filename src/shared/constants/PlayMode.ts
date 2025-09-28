@@ -6,5 +6,6 @@ export enum PLAY_MODE {
 
 export enum PLAY_STATUS {
 	WRONG = 'wrong_answer',
-	CORRECT = 'correct_answer'
+	CORRECT = 'correct_answer',
+	EMPTY = 'no_answer'
 }

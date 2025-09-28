@@ -19,7 +19,6 @@ export * from './Toast/Toast';
 export * from './RadioGroup/RadioGroup';
 export * from './Range/Range';
 export * from './Tooltip/Tooltip';
-export * from './QuizQuestion/QuizQuestion';
 export * from './CoinsTotal/CoinsTotal';
 export * from './CheckboxWithLabel/CheckboxWithLabel';
 export * from './LoadReport/LoadReport';

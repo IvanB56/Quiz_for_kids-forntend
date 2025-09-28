@@ -1,0 +1,46 @@
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/mixins" as *;
+
+.quiz-questions {
+	$self: &;
+
+	position: relative;
+
+	&__score-container {
+		margin-bottom: rem(15);
+	}
+
+	&__score-plus {
+
+	}
+
+	&__question {
+		margin-bottom: fluid(30, 15);
+	}
+
+	&__options-container {
+		display: flex;
+		flex-direction: column;
+		row-gap: fluid(30, 15);
+	}
+
+	&__option-button {
+		&.success {
+			@apply bg-green-light;
+		}
+
+		&.error {
+			@apply bg-primary-red;
+		}
+	}
+
+	&__input {
+		min-height: rem(180);
+		width: 100%;
+		border-radius: rem(14);
+		font-size: clamp(1.25rem, 5vw, 2rem);
+
+		@apply text-primary-black;
+	}
+}
