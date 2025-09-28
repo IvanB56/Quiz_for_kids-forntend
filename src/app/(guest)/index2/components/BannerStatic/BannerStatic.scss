@@ -35,7 +35,7 @@
 		padding-inline: fluid(195, 10);
     z-index: 10;
 
-		@include container();
+		@include container-new();
 
 		@include mobile {
 			padding-block: rem(56) rem(100);

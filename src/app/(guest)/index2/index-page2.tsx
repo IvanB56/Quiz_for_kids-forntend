@@ -12,6 +12,9 @@ import { SectionSubscriptionInstant } from '@/app/(guest)/index2/components/Sect
 import { SectionSliderSolutions } from '@/app/(guest)/index2/components/SectionSliderSolutions/SectionSliderSolutions';
 import { BannerStatic } from '@/app/(guest)/index2/components/BannerStatic/BannerStatic';
 import { SectionSimulator } from '@/app/(guest)/index2/components/SectionSimulator/SectionSimulator';
+import { SectionVideo } from '@/app/(guest)/index2/components/SectionVideo/SectionVideo';
+import { SectionEarnings } from '@/app/(guest)/index2/components/SectionEarnings/SectionEarnings';
+import { SectionHowWorks } from '@/app/(guest)/index2/components/SectionHowWorks/SectionHowWorks';
 
 const robotoFont = Roboto({
 	weight: ['300', '400', '500'],
@@ -43,6 +46,9 @@ export const IndexPage2 = () => {
 			className={useClassName('index-page2', robotoFont.variable, geistFont.variable, playFairDisplayFont.variable, fuzzyBubbles.variable)}>
 			<BannerStatic/>
 			<SectionSimulator/>
+			<SectionVideo/>
+			<SectionEarnings/>
+			<SectionHowWorks/>
 			<SectionSliderSolutions/>
 			<SectionSubscription/>
 			<SectionPositiveEffects/>

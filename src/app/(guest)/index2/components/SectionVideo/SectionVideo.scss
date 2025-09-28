@@ -1,0 +1,127 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.video {
+	padding-block: fluid(160, 20) fluid(60, 20);
+	position: relative;
+
+	&__wrapper-content {
+		display: flex;
+		gap: rem(140);
+
+		position: relative;
+		z-index: 1;
+
+		@include container-new();
+	}
+
+	&__right-part {
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__heading {
+		font-weight: 500;
+	}
+
+	&__wrapper-description {
+		border-radius: rem(30);
+		padding: rem(20) rem(24);
+		min-height: rem(194);
+
+		@apply bg-white;
+	}
+
+	&__description {
+		font-size: fluid(24, 14);
+	}
+
+	&__container-video {
+		position: relative;
+	}
+
+	&__video-main {
+		border-radius: rem(30);
+		margin-bottom: rem(12);
+	}
+
+	&__video-button-play {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(178);
+		height: rem(178);
+		transition: transform .3s;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		background: rgba(0, 0, 0, .5);
+
+		&:hover {
+			cursor: pointer;
+			transform: translate(-50%, -50%) scale(1.1);
+		}
+
+		&:after {
+			content: url("/images/index2/video/video-play.svg");
+		}
+	}
+
+	&__left-part {
+		height: fluid(890, 470);
+		overflow-y: scroll;
+		padding-right: fluid(45, 25);
+
+		// Firefox
+		scrollbar-width: thin;
+		scrollbar-color: theme('colors.orange') theme('colors.orange');
+
+		@include mobile {
+			margin-inline: auto;
+		}
+	}
+
+	&__video {
+		border-radius: rem(30);
+		margin-bottom: rem(12);
+		width: fluid(350, 310);
+		height: auto;
+	}
+
+	&__video-button-play-small {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: fluid(116, 85);
+		height: fluid(116, 85);
+		transition: transform .3s;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		background: rgba(0, 0, 0, .5);
+
+		&:hover {
+			cursor: pointer;
+			transform: translate(-50%, -50%) scale(1.1);
+		}
+
+		&:after {
+			content: url("/images/index2/video/video-play-small.svg");
+		}
+	}
+
+	&__video-text {
+		display: none;
+
+		@include mobile {
+			display: block;
+		}
+	}
+}

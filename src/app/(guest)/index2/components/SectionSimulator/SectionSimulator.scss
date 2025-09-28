@@ -10,7 +10,7 @@
 	&__container {
 		display: flex;
 
-		@include container();
+		@include container-new();
 
 		@include mobile {
 			flex-direction: column;

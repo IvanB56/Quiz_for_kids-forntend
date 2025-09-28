@@ -35,6 +35,7 @@ export default {
 				black: 'hsla(0, 0%, 0%, 1)',
 				'black-25': 'hsla(0, 0%, 0%, 0.25)',
 				white: 'hsla(0, 0%, 100%, 1)',
+				'white-50': 'hsla(0, 0%, 100%, 0.5)',
 				'pink-dark': 'hsla(338, 30%, 45%, 1)',
 				'pink-light': 'hsla(344, 54%, 89%, 1)',
 				'grey-light': 'hsla(30, 10%, 96%, 1)',
@@ -56,7 +57,8 @@ export default {
 				'button-red': 'hsla(11, 57%, 53%, 1)',
 				'button-green': 'hsla(131, 22%, 50%, 1)',
 				'button-velvet': 'hsla(350, 70%, 47%, 1)',
-				switch: 'hsla(0, 0%, 86%, 1)'
+				switch: 'hsla(0, 0%, 86%, 1)',
+				'light-peach': 'hsla(25, 100%, 96%, 1)',
 			},
 			borderRadius: {
 				'4': '4px',
