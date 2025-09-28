@@ -16,7 +16,6 @@ import {
 	SelectValue,
 	Text
 } from "@components";
-import {ProfileHeading} from "@widgets";
 import image_1 from '@assets/images/shop/image-1.png';
 import image_2 from '@assets/images/shop/image-2.png';
 import image_3 from '@assets/images/shop/image-3.png';
@@ -34,7 +33,6 @@ const Shop = () => {
 
 	return (
 		<>
-			<ProfileHeading title={"Магазин"}/>
 			<SectionWhite overflow="overflow-visible">
 				<div className="flex justify-between">
 					<RadioGroup defaultValue="option-one" className="flex space-x-2">

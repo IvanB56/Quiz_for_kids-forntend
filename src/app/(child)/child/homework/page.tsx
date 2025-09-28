@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-	CardReward,
-	SectionWhite,
-	Text,
-	Helper,
-	CheckboxWithLabel,
-	Textarea,
-	LoadReport,
-	Button, CardText,
-} from '@components';
+import {Button, CardReward, CardText, Helper, LoadReport, SectionWhite, Text, Textarea,} from '@components';
 import Image from 'next/image';
 import image from '@assets/images/child/cleaning-service.webp';
 

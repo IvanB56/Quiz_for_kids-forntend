@@ -1,12 +1,10 @@
 import React from 'react';
-import {ProfileHeading} from "@widgets";
 import {Heading, SectionWhite, Text} from "@components";
 import {contract} from "./contract";
 
 const Contract = () => {
 	return (
 		<>
-			<ProfileHeading title={"Договор"}/>
 			<SectionWhite overflow='overflow-visible' position='relative'>
 				<Heading data={{text: 'Договор между родителем и ребенком', tag: 'h3'}} cn={{align: 'text-center', margin: 'mb-6'}} />
 				<div>

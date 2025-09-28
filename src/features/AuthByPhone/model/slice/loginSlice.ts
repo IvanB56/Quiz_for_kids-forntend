@@ -6,6 +6,7 @@ const initialState: LoginSchema = {
 	password: '',
 	phone: '',
 	isLoading: false,
+	error: undefined
 };
 
 export const loginSlice = createSlice({
@@ -30,7 +31,7 @@ export const loginSlice = createSlice({
 			})
 			.addCase(loginByPhone.rejected, (state, action) => {
 				state.isLoading = false;
-				state.error = action.payload;
+				state.error = action.payload as LoginSchema['error'];
 			})
 	}
 });

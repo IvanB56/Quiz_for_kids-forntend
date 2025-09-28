@@ -7,7 +7,7 @@ export const fetchGetPlayCategory = createAsyncThunk<void, void, {
 	extra: ThunkExtraArg
 }>(
 	'play-settings/can-play-previous',
-	async (userId, {rejectWithValue, extra, dispatch}) => {
+	async (_, {rejectWithValue, extra, dispatch}) => {
 
 		try {
 			const response = await extra.api.get<{ can: boolean }>(`/api/quiz-categories`);

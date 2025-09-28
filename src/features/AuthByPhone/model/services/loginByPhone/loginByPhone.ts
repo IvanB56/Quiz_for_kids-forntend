@@ -6,7 +6,7 @@ interface LoginByPhoneProps {
 	password: string
 }
 
-interface RejectValue {
+export interface RejectValue {
 	message: string,
 	errors?: Record<keyof LoginByPhoneProps, string[]>
 }

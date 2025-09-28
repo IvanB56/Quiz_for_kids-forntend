@@ -8,5 +8,5 @@ export const formSchema = z.object({
 export type TypeLogin = z.infer<typeof formSchema>;
 export interface LoginSchema extends TypeLogin {
 	isLoading: boolean;
-	error?: Array<string>;
+	error?: Partial<Record<keyof TypeLogin, string[]>>;
 }
