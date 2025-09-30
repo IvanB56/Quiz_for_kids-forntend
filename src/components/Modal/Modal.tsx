@@ -21,7 +21,7 @@ type ModalProps = {
 	header?: () => ReactNode;
 	description?: () => ReactNode;
 	footer?: () => ReactNode;
-	className?: Partial<Record<'trigger' | 'close' | 'header' | 'description' | 'footer', string>>;
+	className?: Partial<Record<'trigger' | 'close' | 'header' | 'description' | 'footer' | 'content', string>>;
 } & PropsWithChildren & DialogProps;
 
 const block = CN('modal');
@@ -36,7 +36,7 @@ export const Modal = ({trigger, className, header, description, footer, children
 			<DialogTrigger className={useClassName(block('trigger'), className?.trigger)}>
 				{trigger()}
 			</DialogTrigger>
-			<DialogContent className={block('content')}>
+			<DialogContent className={useClassName(block('content'), className?.content)}>
 				<DialogClose asChild>
 					<Button className={useClassName(block('button-close'), className?.close)}><X/></Button>
 				</DialogClose>

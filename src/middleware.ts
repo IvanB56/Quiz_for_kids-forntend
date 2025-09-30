@@ -4,7 +4,6 @@ import {ProfileType} from "@/shared/constants/ProfilesType";
 
 
 export async function middleware(request: NextRequest) {
-// export async function middleware() {
 	const {user} = await getUser();
 
 	if (user) {

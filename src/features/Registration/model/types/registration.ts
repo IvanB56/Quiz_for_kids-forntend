@@ -4,7 +4,7 @@ import {z} from 'zod';
 
 export const formSchema = z.object({
 	name: z.string().min(1, {message: 'Обязательное поле'}),
-	phone: z.string().min(14, {message: 'Номер телефона не может быть меньше 11 символов'}),
+	phone: z.string().min(14, {message: 'Не верный формат телефона'}),
 	email: z.string().email({ message: 'Не верный формат электронной почты' }).optional(),
 	password: z.string().min(8, { message: 'Слишком короткий пароль' }),
 	password_confirmation: z.string().min(8, { message: 'Слишком короткий пароль' }),

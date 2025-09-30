@@ -10,14 +10,18 @@
   &__form {
     row-gap: rem(20);
 
-    @apply w-[470px] flex flex-col;
+    @apply w-[470px] flex flex-col max-w-full;
 
     @include tablet {
-      @apply grid w-full;
-      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
       align-self: center;
     }
+  }
+
+  &__contents  {
+    row-gap: rem(20);
+
+    @apply flex flex-col;
   }
 
   &__login {
@@ -54,8 +58,12 @@
     bottom: rem(-20);
   }
 
+  &__contents {
+    max-height: 380px;
+    overflow-y: auto;
+  }
+
   @include tablet {
-    padding: 50px;
     width: 100%;
   }
 

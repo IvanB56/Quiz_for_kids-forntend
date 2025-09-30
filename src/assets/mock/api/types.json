@@ -1,0 +1,14 @@
+{
+  "data": [
+    {
+      "slug": "base",
+      "name": "Базовая подписка",
+      "price": "3000.00",
+      "limits": {
+        "max_students": 2,
+        "max_relatives": 2,
+        "max_categories": 3
+      }
+    }
+  ]
+}

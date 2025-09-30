@@ -20,6 +20,7 @@ const block = CN('registration-form');
 export const RegistrationParent = () => {
 	const dispatch = useAppDispatch();
 	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
+	const formContentsRef = useRef<HTMLDivElement>(null);
 	const [errors, setErrors] = useState<TypeRegistration | null>();
 	const {
 		name,
@@ -39,7 +40,14 @@ export const RegistrationParent = () => {
 	}, []);
 
 	const onSubmit = useCallback(async () => {
-		const {status, errors} = validation<TypeRegistration>(formSchema, {phone, password, password_confirmation, email, phone_verify_code, name});
+		const {status, errors} = validation<TypeRegistration>(formSchema, {
+			phone,
+			password,
+			password_confirmation,
+			email,
+			phone_verify_code,
+			name
+		});
 		setErrors(errors);
 
 		if (status === STATUS_CODE.SUCCESS) {
@@ -49,6 +57,12 @@ export const RegistrationParent = () => {
 			console.error('Валидация не прошла');
 		}
 	}, [dispatch, email, name, password, password_confirmation, phone, phone_verify_code]);
+
+	useEffect(() => {
+		if (formContentsRef.current && isShowVerifyCode) {
+			formContentsRef.current.scrollTop = formContentsRef.current.scrollHeight;
+		}
+	}, [isShowVerifyCode]);
 
 	const submitForm = useCallback(async () => {
 		try {
@@ -71,9 +85,9 @@ export const RegistrationParent = () => {
 		dispatch(registrationActions.setPassword(value));
 	}, [dispatch]);
 
-	const onChangeEmail = useCallback((value: string) => {
-		dispatch(registrationActions.setEmail(value));
-	}, [dispatch]);
+	// const onChangeEmail = useCallback((value: string) => {
+	// 	dispatch(registrationActions.setEmail(value));
+	// }, [dispatch]);
 
 	const onChangePasswordConfirm = useCallback((value: string) => {
 		dispatch(registrationActions.setPasswordConfirm(value));
@@ -85,131 +99,115 @@ export const RegistrationParent = () => {
 
 	return (
 		<form noValidate className={block('form')}>
-			<div className={block('field')}>
-				<label>Имя*</label>
-				<div className={'flex items-center gap-x-2'}>
-					<Input
-						placeholder="Введите имя"
-						autoComplete={'off'}
-						value={name}
-						name="name"
-						disabled={isLoading}
-						onChange={(e) => onChangeName(e.target.value)}
-					/>
-					{errors?.name && (
-						<Text
-							data={{text: errors.phone as string, tag: 'span'}}
-							cn={{color: 'text-primary-red', size: 'text-body-5'}}
-							className={block('error')}
-						/>
-					)}
-				</div>
-			</div>
-			<div className={block('field')}>
-				<label>Телефон*</label>
-				<div className={'flex items-center gap-x-2'}>
-					<Input
-						placeholder="Введите телефон"
-						autoComplete={'off'} ref={inputPhoneRef}
-						value={phone}
-						name="phone"
-						disabled={isLoading}
-						onChange={(e) => onChangePhone(e.target.value)}
-					/>
-					{errors?.phone && (
-						<Text
-							data={{text: errors.phone as string, tag: 'span'}}
-							cn={{color: 'text-primary-red', size: 'text-body-5'}}
-							className={block('error')}
-						/>
-					)}
-				</div>
-			</div>
-			<div className={block('field')}>
-				<label>Email</label>
-				<div className={'flex items-center gap-x-2'}>
-					<Input
-						type={'email'}
-						placeholder="Введите email"
-						autoComplete={'off'}
-						value={email}
-						name="email"
-						disabled={isLoading}
-						onChange={(e) => onChangeEmail(e.target.value)}
-					/>
-					{errors?.email && (
-						<Text
-							data={{text: errors.email as string, tag: 'span'}}
-							cn={{color: 'text-primary-red', size: 'text-body-5'}}
-							className={block('error')}
-						/>
-					)}
-				</div>
-			</div>
-			<div className={block('field')}>
-				<label>Пароль*</label>
-				<div className={'flex items-center gap-x-2'}>
-					<Input
-						type={'password'}
-						placeholder="Введите пароль"
-						autoComplete={'off'}
-						value={password}
-						disabled={isLoading}
-						name="password"
-						onChange={(e) => onChangePassword(e.target.value)}
-					/>
-					{errors?.password && (
-						<Text
-							data={{text: errors.password as string, tag: 'span'}}
-							cn={{color: 'text-primary-red', size: 'text-body-5'}}
-							className={block('error')}
-						/>
-					)}
-				</div>
-			</div>
-			<div className={block('field')}>
-				<label>Повторите пароль*</label>
-				<div className={'flex items-center gap-x-2'}>
-					<Input
-						type={'password'}
-						placeholder="Повторите пароль"
-						autoComplete={'off'}
-						value={password_confirmation}
-						disabled={isLoading}
-						name="password_confirmation"
-						onChange={(e) => onChangePasswordConfirm(e.target.value)}
-					/>
-					{errors?.password_confirmation && (
-						<Text
-							data={{text: errors.password_confirmation as string, tag: 'span'}}
-							cn={{color: 'text-primary-red', size: 'text-body-5'}}
-							className={block('error')}
-						/>
-					)}
-				</div>
-			</div>
-			{isShowVerifyCode && (
+			<div className={block('contents')} ref={formContentsRef}>
 				<div className={block('field')}>
-					<label>Введите проверочный код*</label>
+					<label>Имя*</label>
 					<div className={'flex items-center gap-x-2'}>
 						<Input
-							type={'phone_verify_code'}
-							placeholder="Введите код из смс"
+							placeholder="Введите имя"
 							autoComplete={'off'}
-							value={phone_verify_code}
+							value={name}
+							name="name"
 							disabled={isLoading}
-							name="phone_verify_code"
-							onChange={(e) => onChangeVerifyCode(e.target.value)}
+							onChange={(e) => onChangeName(e.target.value)}
 						/>
+						{errors?.name && (
+							<Text
+								data={{text: errors.name as string, tag: 'span'}}
+								cn={{color: 'text-primary-red', size: 'text-body-5'}}
+								className={block('error')}
+							/>
+						)}
 					</div>
-				</div>)}
+				</div>
+				<div className={block('field')}>
+					<label>Телефон*</label>
+					<div className={'flex items-center gap-x-2'}>
+						<Input
+							placeholder="Введите телефон"
+							autoComplete={'off'} ref={inputPhoneRef}
+							value={phone}
+							name="phone"
+							disabled={isLoading}
+							onChange={(e) => onChangePhone(e.target.value)}
+						/>
+						{errors?.phone && (
+							<Text
+								data={{text: errors.phone as string, tag: 'span'}}
+								cn={{color: 'text-primary-red', size: 'text-body-5'}}
+								className={block('error')}
+							/>
+						)}
+					</div>
+				</div>
+				<div className={block('field')}>
+					<label>Пароль*</label>
+					<div className={'flex items-center gap-x-2'}>
+						<Input
+							type={'password'}
+							placeholder="Введите пароль"
+							autoComplete={'off'}
+							value={password}
+							disabled={isLoading}
+							name="password"
+							onChange={(e) => onChangePassword(e.target.value)}
+						/>
+						{errors?.password && (
+							<Text
+								data={{text: errors.password as string, tag: 'span'}}
+								cn={{color: 'text-primary-red', size: 'text-body-5'}}
+								className={block('error')}
+							/>
+						)}
+					</div>
+				</div>
+				<div className={block('field')}>
+					<label>Повторите пароль*</label>
+					<div className={'flex items-center gap-x-2'}>
+						<Input
+							type={'password'}
+							placeholder="Повторите пароль"
+							autoComplete={'off'}
+							value={password_confirmation}
+							disabled={isLoading}
+							name="password_confirmation"
+							onChange={(e) => onChangePasswordConfirm(e.target.value)}
+						/>
+						{errors?.password_confirmation && (
+							<Text
+								data={{text: errors.password_confirmation as string, tag: 'span'}}
+								cn={{color: 'text-primary-red', size: 'text-body-5'}}
+								className={block('error')}
+							/>
+						)}
+					</div>
+				</div>
+				{
+					isShowVerifyCode && (
+						<div className={block('field')}>
+							<label>Введите проверочный код*</label>
+							<div className={'flex items-center gap-x-2'}>
+								<Input
+									type={'phone_verify_code'}
+									placeholder="Введите код из смс"
+									autoComplete={'off'}
+									value={phone_verify_code}
+									disabled={isLoading}
+									name="phone_verify_code"
+									onChange={(e) => onChangeVerifyCode(e.target.value)}
+								/>
+							</div>
+						</div>
+					)
+				}
+			</div>
 
 			{isShowVerifyCode
 				? <Button
 					type="button"
 					className={block('submit')}
 					onClick={submitForm}
-					disabled={isLoading}
+					disabled={isLoading || !isShowVerifyCode || !phone_verify_code}
 				>
 					Зарегистрироваться
 				</Button>

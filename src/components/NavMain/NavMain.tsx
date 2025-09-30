@@ -54,6 +54,7 @@ export function NavMain({data}: Props) {
 							size={"lg"}
 							isActive={item.isActive}
 							className={item.isActive ? 'isActive' : ''}
+							disabled={item.disabled}
 						>
 							{item.icon && <LucideIcon iconName={item.icon}/>}
 							<LinkUI data={{href: item.url}} disabled={item.disabled}>

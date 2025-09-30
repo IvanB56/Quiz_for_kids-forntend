@@ -4,6 +4,8 @@ import {getUser} from "@features";
 import {UserLoaderModule} from "@lib/components/UserLoaderModule/UserLoaderModule";
 import {getStudents} from "@/features/auth/getStudents";
 import {StudentLoaderModule} from "@lib/components/StudentLoaderModule/StudentLoaderModule/StudentLoaderModule";
+import {getTariffs} from "@/features/auth/getTarriffs";
+import {TariffLoaderModule} from "@lib/components/TariffLoaderModule/TariffLoaderModule";
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
 	const pagesLink = {
@@ -96,23 +98,27 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 			}
 		]
 	}
+	const {tariff} = await getTariffs();
 	const {user} = await getUser();
 	const {students} = await getStudents();
 
 	return (
 		<SidebarProvider>
-			<UserLoaderModule user={user}>
-				<StudentLoaderModule students={students?.data}>
-					<AppSidebar {...pagesLink}/>
-					<SidebarInset className="bg-cyan-light">
-						<SidebarTrigger
-							className="[&_svg]:size-6 [&_svg]:rotate-180 absolute bg-sidebar !rounded-l-none left-0 min-md:hidden"/>
-						<div className="flex flex-1 flex-col gap-4 p-10 max-md:p-0 max-md:pt-10 bg-cyan-light overflow-auto h-full">
-							{children}
-						</div>
-					</SidebarInset>
-				</StudentLoaderModule>
-			</UserLoaderModule>
+			<TariffLoaderModule tariff={tariff}>
+				<UserLoaderModule user={user}>
+					<StudentLoaderModule students={students?.data}>
+						<AppSidebar {...pagesLink}/>
+						<SidebarInset className="bg-cyan-light">
+							<SidebarTrigger
+								className="[&_svg]:size-6 [&_svg]:rotate-180 absolute bg-sidebar !rounded-l-none left-0 min-md:hidden"/>
+							<div
+								className="flex flex-1 flex-col gap-4 p-10 max-md:p-0 max-md:pt-10 bg-cyan-light overflow-auto h-full">
+								{children}
+							</div>
+						</SidebarInset>
+					</StudentLoaderModule>
+				</UserLoaderModule>
+			</TariffLoaderModule>
 		</SidebarProvider>
 	);
 }
