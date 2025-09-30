@@ -4,7 +4,6 @@ import {BannerAnimate} from "@widgets";
 import {useClassName} from "@hooks";
 import './index-page2.scss';
 import { SectionSubscription } from '@/app/(guest)/index2/components/SectionSubscription/SectionSubscription';
-import { SectionPositiveEffects } from '@/app/(guest)/index2/components/SectionPositiveEffects/SectionPositiveEffects';
 import { SectionReviews } from '@/app/(guest)/index2/components/SectionReviews/SectionReviews';
 import { SectionFaq } from '@/app/(guest)/index2/components/SectionFAQ/SectionFAQ';
 import { SectionMakeMoney } from '@/app/(guest)/index2/components/SectionMakeMoney/SectionMakeMoney';
@@ -15,6 +14,7 @@ import { SectionSimulator } from '@/app/(guest)/index2/components/SectionSimulat
 import { SectionVideo } from '@/app/(guest)/index2/components/SectionVideo/SectionVideo';
 import { SectionEarnings } from '@/app/(guest)/index2/components/SectionEarnings/SectionEarnings';
 import { SectionHowWorks } from '@/app/(guest)/index2/components/SectionHowWorks/SectionHowWorks';
+import { SectionSliderMobile } from '@/app/(guest)/index2/components/SectionSliderMobile/SectionSliderMobile';
 
 const robotoFont = Roboto({
 	weight: ['300', '400', '500'],
@@ -51,7 +51,7 @@ export const IndexPage2 = () => {
 			<SectionHowWorks/>
 			<SectionSliderSolutions/>
 			<SectionSubscription/>
-			<SectionPositiveEffects/>
+			<SectionSliderMobile/>
 			<SectionSubscription/>
 			<SectionReviews/>
 			<SectionFaq/>

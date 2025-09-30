@@ -89,4 +89,32 @@
 			@apply text-black;
 		}
 	}
+	&_effects {
+		#{$self}__background {
+			&:after {
+				content: url("/images/index2/earnings/arrow-light-brown.svg");
+				width: fluid(70, 50);
+				height: fluid(70, 50);
+
+				@include mobile {
+					content: url("/images/index2/earnings/arrow-light-brown-xs.svg");
+				}
+			}
+		}
+
+		#{$self}__content {
+			height: 40%;
+			justify-content: flex-end;
+
+			@include mobile {
+				height: auto;
+			}
+		}
+
+		#{$self}__description {
+			align-self: center;
+			font-size: rem(30);
+			@apply text-black;
+		}
+	}
 }
