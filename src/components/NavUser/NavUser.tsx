@@ -20,6 +20,8 @@ import {
 } from "@components";
 import {logout, User} from "@/entities/user";
 import {useAppDispatch} from "@hooks";
+import {useRouter} from 'next/navigation';
+import {ProfileType} from "@/shared/constants/ProfilesType";
 
 type Props = {
 	user: User
@@ -28,6 +30,7 @@ type Props = {
 export function NavUser({user}: Props) {
 	const {isMobile} = useSidebar()
 	const dispatch = useAppDispatch();
+	const router = useRouter();
 
 	return (
 		<SidebarMenu>
@@ -70,12 +73,18 @@ export function NavUser({user}: Props) {
 							</div>
 						</DropdownMenuLabel>
 						<DropdownMenuSeparator/>
-						<DropdownMenuGroup>
-							<DropdownMenuItem>
-								<Sparkles/> <Text data={{text: 'Улучшить тариф', tag: 'span'}}/>
-							</DropdownMenuItem>
-						</DropdownMenuGroup>
-						<DropdownMenuSeparator/>
+						{
+							user.type === ProfileType.SPONSOR && (
+								<>
+									<DropdownMenuGroup>
+										<DropdownMenuItem onSelect={() => router.push('/profile/tariffs')}>
+											<Sparkles/> <Text data={{text: 'Улучшить тариф', tag: 'span'}}/>
+										</DropdownMenuItem>
+									</DropdownMenuGroup>
+									<DropdownMenuSeparator/>
+								</>
+							)
+						}
 						<DropdownMenuGroup>
 							<DropdownMenuItem>
 								<BadgeCheck/> <Text data={{text: 'Аккаунт', tag: 'span'}}/>
@@ -86,11 +95,9 @@ export function NavUser({user}: Props) {
 						</DropdownMenuGroup>
 						<DropdownMenuSeparator/>
 						<DropdownMenuItem onSelect={() => {
-							console.log('logout');
 							dispatch(logout());
 						}}>
-							<LogOut/>
-								<Text data={{text: 'Выйти', tag: 'span'}}/>
+							<LogOut/> <Text data={{text: 'Выйти', tag: 'span'}}/>
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>

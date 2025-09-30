@@ -4,6 +4,7 @@ import {RegistrationSchema} from "@/features/Registration/model/types/registrati
 import {createReduxStore} from "@lib/store";
 import {ProfileSchema} from "@/entities/profile";
 import {StudentSchema} from "@/entities/student";
+import {TariffSchema} from "@/entities/tariff";
 import {AxiosInstance} from "axios";
 import {PlaySettingsCurrentScheme} from "@/features/PlaySettings/model/types/PlaySettingsScheme";
 import {GameLogSchema, PlaySchema, PlaySettingsConfigureSchema} from "@/entities/play/model/types/PlayScheme";
@@ -23,7 +24,8 @@ export interface StateSchema {
 	gameLogSpecificUser: GameLogSchema;
 	quizCategory: QuizCategoryScheme;
 	playSettingsConfigure: PlaySettingsConfigureSchema;
-	play: PlaySchema
+	play: PlaySchema;
+	tariff: TariffSchema;
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];
