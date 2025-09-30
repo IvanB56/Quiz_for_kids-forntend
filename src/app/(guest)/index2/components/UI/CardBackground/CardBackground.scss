@@ -2,6 +2,8 @@
 @use "@assets/styles/helpers/function" as *;
 
 .card-background {
+	$self: &;
+
 	display: grid;
 	border-radius: fluid(60, 30);
 	overflow-x: hidden;
@@ -11,7 +13,7 @@
 		grid-row: 1 / 2;
 		grid-column: 1 / 2;
 		z-index: 1;
-		height: rem(510);
+		height: 100%;
 
 		&:after {
 			content: url("/images/index2/earnings/arrow-brown.svg");
@@ -19,7 +21,7 @@
 			top: rem(17);
 			right: rem(15);
 			background: theme('backgroundColor.white-50');
-			padding: rem(12);
+			padding: fluid(12, 8);
 			border-radius: 50%;
 		}
 	}
@@ -41,5 +43,50 @@
 		background: theme('backgroundColor.white-50');
 		padding-block: 20px;
 		padding-inline: 20px;
+	}
+
+	&_first {
+		grid-column: 4 / 6;
+		grid-row: 1 / 2;
+
+		@include mobile {
+			grid-column: 1 / 6;
+			grid-row: 3 / 4;
+		}
+	}
+	&_second {
+		grid-column: 1 / 2;
+		grid-row: 2 / 3;
+
+		@include mobile {
+			grid-column: 1 / 6;
+			grid-row: 5 / 6;
+		}
+	}
+	&_third {
+		grid-column: 4 / 6;
+		grid-row: 2 / 3;
+
+		@include mobile {
+			grid-column: 1 / 6;
+			grid-row: 4 / 5;
+		}
+	}
+	&_how {
+		#{$self}__background {
+			&:after {
+				content: url("/images/index2/earnings/arrow-bega.svg");
+
+				@include mobile {
+					content: url("/images/index2/earnings/arrow-bega-xs.svg");
+				}
+			}
+		}
+
+		#{$self}__description {
+			align-self: center;
+			font-size: fluid(40, 18);
+			@apply text-black;
+		}
 	}
 }

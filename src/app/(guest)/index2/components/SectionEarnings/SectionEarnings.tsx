@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import {CN} from "@/lib";
-import { Button, Heading, Text } from '@components';
+import { Button, CardBackground, Heading, Text } from '@components';
 
 import './SectionEarnings.scss';
 
@@ -20,33 +20,33 @@ export const SectionEarnings = () => {
 					</ul>
 					<Text data={{text: 'Деньги, которые уходили на избалованность, теперь - инвестиции в многостороннее развитие', tag: 'p'}} cn={{size: 'text-body-1', weight: 'font-medium', margin: 'mb-4 sm:mb-6'}} className={'card-text__bottom'}/>
 				</div>
-				<div className={'card-background card-background-1'}>
-					<div className={'card-background__background'}>
-						<Image src={"/images/index2/earnings/card-background-girl.webp"} alt="" width={620} height={500} className={'card-background__image'}/>
-					</div>
-					<div className={'card-background__content'}>
-						<Text data={{text: 'Чем отличается от «за оценки в школе»', tag: 'p'}} cn={{size: 'text-body-1', color: 'text-brown', weight: 'font-medium'}} className={'card-background__description'}/>
-					</div>
-				</div>
-				<div className={'card-background card-background-2'}>
-					<div className={'card-background__background'}>
-						<Image src={"/images/index2/earnings/card-background-girls.webp"} alt="" width={332} height={500} className={'card-background__image'}/>
-					</div>
-					<div className={'card-background__content'}>
-						<Text data={{text: 'Почему важна зарплата', tag: 'p'}} cn={{size: 'text-body-1', color: 'text-brown', weight: 'font-medium'}} className={'card-background__description'}/>
-					</div>
-				</div>
+				<CardBackground cn={{ variant: "first" }}
+					data={{
+						textData: "Чем отличается от «за оценки в школе»",
+						imgSrc: "/images/index2/earnings/card-background-girl.webp",
+						imgWidth: 620,
+						imgHeight: 500
+					}}
+				/>
+				<CardBackground cn={{ variant: "second" }}
+					data={{
+						textData: "Почему важна зарплата",
+						imgSrc: "/images/index2/earnings/card-background-girls.webp",
+						imgWidth: 332,
+						imgHeight: 500
+					}}
+				/>
 				<div className={'card-text card-text-2'}>
 					<Heading data={{text: 'От потребительской модели к партнерским отношениям.\n', tag: 'h3'}} cn={{size: 'h3', color: 'text-brown', margin: 'mb-5 sm:mb-4'}} className={'card-text__heading'}/>
 				</div>
-				<div className={'card-background card-background-3'}>
-					<div className={'card-background__background'}>
-						<Image src={"/images/index2/earnings/card-background-boy.webp"} alt="" width={332} height={510} className={'card-background__image'}/>
-					</div>
-					<div className={'card-background__content'}>
-						<Text data={{text: 'Почему устраняет, а не провоцирует меркантильность', tag: 'p'}} cn={{size: 'text-body-1', color: 'text-brown', weight: 'font-medium'}} className={'card-background__description'}/>
-					</div>
-				</div>
+				<CardBackground cn={{ variant: "third" }}
+					data={{
+						textData: "Почему устраняет, а не провоцирует меркантильность",
+						imgSrc: "/images/index2/earnings/card-background-boy.webp",
+						imgWidth: 332,
+						imgHeight: 510
+					}}
+				/>
 			</div>
 			<Image src={"/images/index2/bg-gradient-earnings.png"} alt="" fill className={block('background')}/>
 		</section>

@@ -57,16 +57,18 @@ export const SectionHowWorks = () => {
 						<Image src={"/images/index2/how-works/card-lond-background-2.png"} fill alt="" className={'card-long__background'}/>
 					</div>
 					<div className={block('row')}>
-						<CardBackground
-							textData={'Как происходит развитие'}
-							imgSrc={'/images/index2/how-works/card-background-girl.webp'}
-							imgWidth={739}
-							imgHeight={644}/>
-						<CardBackground
-							textData={'Как начисляете зарплату. Пример'}
-							imgSrc={'/images/index2/how-works/card-background-boy.webp'}
-							imgWidth={728}
-							imgHeight={644}/>
+						<CardBackground data={{
+							textData: 'Как происходит развитие',
+							imgSrc: '/images/index2/how-works/card-background-girl.webp',
+							imgWidth: 739,
+							imgHeight: 644,
+						}} cn={{variant: 'how'}}/>
+						<CardBackground data={{
+							textData:'Как начисляете зарплату. Пример',
+							imgSrc:'/images/index2/how-works/card-background-boy.webp',
+							imgWidth:728,
+							imgHeight:644
+						}} cn={{variant: 'how'}}/>
 					</div>
 				</div>
 			</div>
