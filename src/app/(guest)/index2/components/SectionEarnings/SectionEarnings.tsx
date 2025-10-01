@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import {CN} from "@/lib";
-import { Button, CardBackground, Heading, Text } from '@components';
+import { CardBackground, Heading, Text } from '@components';
 
 import './SectionEarnings.scss';
 import { RunningLine } from '@/app/(guest)/index2/components/UI/RunningLine/RunningLine';

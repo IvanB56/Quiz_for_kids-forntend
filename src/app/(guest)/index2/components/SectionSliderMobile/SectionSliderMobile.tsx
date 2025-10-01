@@ -2,12 +2,11 @@
 import React from 'react';
 import Image from "next/image";
 import {CN} from "@/lib";
-import { CardBackground, Heading, Slider, Text, WhiteCard } from '@components';
+import { CardBackground, Heading, Slider } from '@components';
 import {sliderMobile} from "./sliderMobile"
 
 import './SectionSliderMobile.scss';
 import { useClassName } from '@hooks';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const block = CN('slider-mobile');

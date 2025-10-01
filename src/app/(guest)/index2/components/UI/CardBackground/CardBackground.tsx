@@ -2,10 +2,11 @@
 import React from 'react';
 import classes from './CardBackground.cn';
 import type {ICardBackground} from './CardBackground.types';
-import './CardBackground.scss';
 import { Text } from '@components';
 import Image from 'next/image';
 import { useClassName } from '@hooks';
+
+import './CardBackground.scss';
 
 export const CardBackground = (props: ICardBackground) => {
 	const { data, cn, className } = props;

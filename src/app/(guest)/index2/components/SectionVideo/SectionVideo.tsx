@@ -1,10 +1,8 @@
 import React from 'react';
-import Image from "next/image";
 import {CN} from "@/lib";
-import { Button, Heading, Text } from '@components';
+import { Heading, Text } from '@components';
 
 import './SectionVideo.scss';
-import { useClassName } from '@hooks';
 
 const block = CN('video');
 
