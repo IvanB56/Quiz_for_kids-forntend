@@ -1,21 +1,31 @@
+'use client';
 import React from 'react';
 import Image from 'next/image';
-import image from '@assets/images/child/female-student-2.webp';
-import { Button, Text } from '@components';
-import { IGreetingsChild } from './GreetingsChild.types';
+import {Button, Text} from '@components';
+import {IGreetingsChild} from './GreetingsChild.types';
 import classes from './GreetingsChild.cn';
+import {getUserAuthData} from "@/entities/user";
+import {useSelector} from "react-redux";
+import image from '@assets/images/child/female-student-2.webp';
+
+
 import './GreetingsChild.scss';
+import {useRouter} from "next/navigation";
 
 export const GreetingsChild = (props: IGreetingsChild) => {
 	const { cn } = props;
 	const styles = classes(cn);
+	const user = useSelector(getUserAuthData);
+	const router = useRouter();
+
+	if (!user) return null;
 
 	return (
 		<section className={styles.block}>
 			<div className={styles.elementGreeting}>
 				<Text
 					data={{
-						text: 'Привет Антон. Давай зарабатывать монеты',
+						text: `Привет. Давай зарабатывать монеты`,
 						tag: 'p',
 					}}
 					cn={{ size: 'text-body-1' }}
@@ -29,7 +39,7 @@ export const GreetingsChild = (props: IGreetingsChild) => {
 				/>
 				<Text
 					data={{
-						text: 'Hi Anton. Let\'s earn coins',
+						text: `Hi. Let's earn coins`,
 						tag: 'p',
 					}}
 					cn={{ size: 'text-body-1' }}
@@ -43,12 +53,12 @@ export const GreetingsChild = (props: IGreetingsChild) => {
 				/>
 				<Text
 					data={{
-						text: 'Хай&nbsp;ˈэнтон. Летс&nbsp;ён&nbsp;койнз',
+						text: 'Хай. Летс&nbsp;ён&nbsp;койнз',
 						tag: 'p',
 					}}
 					cn={{ size: 'text-body-1', color: 'text-primary-red' }}
 				/>
-				<Button type="button" variant={'greetings'}>Начнем</Button>
+				<Button type="button" variant={'greetings'} onClick={() => router.push('/child/tasks')}>Начнем</Button>
 			</div>
 			<div className={styles.elementWrapperImage}>
 				<Image src={image} alt="Приветствие" width={671} className={styles.elementImage} />

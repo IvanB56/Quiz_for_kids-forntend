@@ -44,7 +44,7 @@ const Earnings = () => {
 						buttonDescription: 'Положить',
 						textRequest: 'отправь запрос о деньгах маме или другому человеку, что бы они тебе перевели сумму.'
 					}}
-					cn={{display: 'flex', gap: 'gap-[15] sm:gap-[50]', direction: 'flex-col sm:flex-row'}}
+					cn={{display: 'flex', gap: 'gap-[50]'}}
 				/>
 			</div>
 			<div>
@@ -55,8 +55,8 @@ const Earnings = () => {
 							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
 							{ date: '10.02.2025', deposited: 5000, withdrawn: 500, balance: 5000, piggyBank: 3000 },
 						],
-					totalEarned: 99999,
-					totalWithdrawn: 99999
+					totalEarned: 12000,
+					totalWithdrawn: 2500
 					}} cn={{display: 'hidden sm:block'}}
 				/>
 			</div>

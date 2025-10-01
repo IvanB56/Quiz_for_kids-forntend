@@ -1,11 +1,11 @@
 'use server';
 import {API_URL} from "@/shared/constants";
 import {cookies} from 'next/headers';
-import {TUser} from "@shared";
+import {User} from "@/entities/user";
 
 const { API_URL: urlServer, MODE } = process.env;
 
-export async function getUser(): Promise<{user?: TUser; error?: { message: string, status: string }}> {
+export async function getUser(): Promise<{user?: User; error?: { message: string, status: string }}> {
 	const cookie = (await cookies()).getAll();
 
 	try {
@@ -18,30 +18,26 @@ export async function getUser(): Promise<{user?: TUser; error?: { message: strin
 			},
 		});
 
-		const user: TUser = await response.json();
-		return {
-			user
-		}
+		const user: { data: User } = await response.json();
+		return {user: user.data}
 	} catch(err) {
 		if  (MODE === 'development') {
-			return {
-				user: {
-					data: {
-						user_id: 1,
-						email: "email@email.email",
-						phone: "+79009009090",
-						name: "name",
-						surname: "",
-						patronymic: "",
-						birthdate: "",
-						region: {
-							slug: "krasnodar_krai",
-							name: "Краснодарский край"
-						},
-						type: "Sponsor"
-					}
-				}
-			}
+			// return {
+			// 	user: {
+			// 		user_id: 1,
+			// 		email: "email@email.email",
+			// 		phone: "+79009009090",
+			// 		name: "name",
+			// 		surname: "",
+			// 		patronymic: "",
+			// 		birthdate: "",
+			// 		region: {
+			// 			slug: "krasnodar_krai",
+			// 			name: "Краснодарский край"
+			// 		},
+			// 		type: ProfileType.SPONSOR
+			// 	}
+			// }
 		}
 		
 		return {

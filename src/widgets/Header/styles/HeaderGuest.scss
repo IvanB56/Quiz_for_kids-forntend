@@ -3,6 +3,7 @@
 @use "@assets/styles/helpers/function" as *;
 
 .header {
+  $self: &;
   position: absolute;
   //background-color: var(--white95);
   border-radius: 0 0 fluid(60, 20) fluid(60, 20);
@@ -62,15 +63,13 @@
   }
 
   &__burger {
-    @apply hidden w-10 h-10 [&_svg]:size-8;
+    position: relative;
 
-    @include mobile {
-      @apply block;
-    }
+    @apply w-10 h-10 [&_svg]:size-8;
   }
 
   &__auth-button {
-    margin-right: rem(8);
+    margin-inline: rem(4);
     font-weight: 700;
     gap: rem(8);
     transition: opacity 0.3s;
@@ -83,13 +82,31 @@
     &:hover {
       opacity: 0.5;
     }
-
-    @include mobile {
-      @apply hidden;
-    }
   }
 
   &__modal-heading {
     margin-bottom: 0 !important;
+  }
+
+  &__icon-open,
+  &__icon-close {
+    transition: opacity .2s;
+    opacity: 0;
+    position: absolute;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%);
+  }
+
+  [data-state="closed"] {
+    #{$self}__icon-open {
+      opacity: 1;
+    }
+  }
+
+  [data-state="open"] {
+    #{$self}__icon-close {
+      opacity: 1;
+    }
   }
 }

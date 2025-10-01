@@ -9,7 +9,7 @@ export async function createStudents<T>(data: { birthdate: string; name: string 
 		token = {'X-XSRF-TOKEN': await api.getCSRF()}
 	}
 
-	return await api.post<T>(`${API_URL}/api/students/create`, {
+	return await api.post<T>(`${API_URL}/api/user/student/register`, {
 		headers: {
 			'Accept': 'application/json',
 			'Content-Type': 'application/json',

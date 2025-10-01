@@ -2,7 +2,7 @@ import '@assets/styles/styles.scss';
 import type {Metadata, Viewport} from 'next';
 import React from 'react';
 import {Montserrat} from 'next/font/google';
-import StoreProvider from "@/app/StoreProvider";
+import StoreProvider from "@lib/store/UI/StoreProvider";
 import {Toaster} from "@components";
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default async function RootLayout({children}: Readonly<{ children: React.
 			<body className={`${montserrat.variable} font-sans`}>
 				<StoreProvider>
 					{children}
-					<Toaster />
+					<Toaster closeButton richColors />
 				</StoreProvider>
 			</body>
 		</html>

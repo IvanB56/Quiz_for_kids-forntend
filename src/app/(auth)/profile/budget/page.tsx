@@ -1,23 +1,23 @@
-import React from 'react';
-import {FormProfile, ProfileHeading} from "@widgets";
-import {getPlaySettings, getUser} from "@features";
-import {Separator} from '@components';
+import {getStudents} from '@/features/auth/getStudents';
+import {redirect} from "next/navigation";
+import React from "react";
+import {RenderEmptyStudents} from "./helper/render";
+import {HeadingWithStudent} from "@widgets";
+import {Separator} from "@components";
+
 
 const Budget = async () => {
-	const {user} = await getUser();
-	const {settings} = await getPlaySettings(user?.data.user_id);
+	const {students} = await getStudents();
+
+	if (students?.data?.length) redirect(`budget/${students?.data?.[0].user_id}`);
 
 	return (
 		<>
-			<ProfileHeading title={"Настройки МонетикУМ"}/>
-			<Separator className="my-4" />
-			{
-				settings?.data?.active
-				? "Настройки МонетикУМ"
-				: <FormProfile/>
-			}
+			<HeadingWithStudent title="Настройки МонетикУМ"/>
+			<Separator className="my-4"/>
+			<RenderEmptyStudents />
 		</>
-	);
+	)
 };
 
 export default Budget;

@@ -1,0 +1,105 @@
+'use client';
+import {useRouter} from 'next/navigation';
+import {FormEvent, useCallback, useEffect, useRef, useState} from 'react';
+import {CN} from '@lib/ClassBem';
+import {useAppDispatch} from "@hooks";
+import {CSSTransition, SwitchTransition} from 'react-transition-group';
+import {PlaySettingsConfigure} from "../../model/types/PlaySettingsConfigureScheme";
+import {fetchPostAutoConfigure} from "../../model/services/postAutoConfigure/postAutoConfigure";
+import {fetchPostPlaySettingsPrevious} from "../../model/services/postPlaySettingsPrevious/postPlaySettingsPrevious";
+import {FirstStep} from '../PlaySettingsFormSteps/firstStep';
+import {SecondStep} from '../PlaySettingsFormSteps/secondStep';
+import {FourthStep} from '../PlaySettingsFormSteps/fourthStep';
+import {FifthStep} from '../PlaySettingsFormSteps/fifthStep';
+
+import './PlaySettingsForm.scss';
+import {useSelector} from "react-redux";
+import {getCurrentStudent} from "@/entities/student";
+import {ThirdStep} from "@/features/PlaySettings/UI/PlaySettingsFormSteps/thirdStep";
+import {postHandConfigure} from "@/features/PlaySettings/model/services/postHandConfigure/postHandConfigure";
+
+
+const block = CN('play-settings-form');
+
+export const PlaySettingsForm = () => {
+	const router = useRouter();
+	const nodeRef = useRef<HTMLFormElement>(null);
+	const [step, setStep] = useState(1);
+	const [formData, setFormData] = useState<PlaySettingsConfigure>({
+		budget: 0,
+	});
+	const dispatch = useAppDispatch();
+	const userId = useSelector(getCurrentStudent);
+
+	useEffect(() => {
+		setStep(1);
+		setFormData({
+			budget: 0
+		})
+	}, [userId]);
+
+	const prepareData = (data: { name: string, value: string | string[] }) => {
+		setFormData((prev) => ({...prev, [data.name]: data.value}));
+	};
+
+	const submitForm = useCallback((e?: FormEvent, value: string = 'hand') => {
+		e?.preventDefault();
+		const {budget} = formData;
+
+		console.log(formData);
+
+		if (!userId) return;
+
+		switch (value) {
+			case 'hand':
+				dispatch(postHandConfigure({userId, data: formData}));
+				break;
+			case 'auto':
+				dispatch(fetchPostAutoConfigure({userId, data: {budget}}));
+				router.refresh();
+				break;
+			case 'last-choice':
+				dispatch(fetchPostPlaySettingsPrevious({userId, data: {budget}}));
+				router.refresh();
+				break;
+		}
+	}, [dispatch, formData, router, userId]);
+
+	const prevStep = useCallback(() => {
+		setStep(step => Math.max(step - 1, 1));
+	}, []);
+
+	const nextStep = useCallback(() => {
+		setStep(step => step + 1);
+	}, [])
+
+	const renderSteps = () => {
+		switch (step) {
+			case 1:
+				return <FirstStep callback={prepareData} nextStepHandler={nextStep} data={formData.budget}/>;
+			case 2:
+				return <SecondStep saveDataHandler={submitForm} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
+			case 3:
+				return <ThirdStep nextStepHandler={nextStep} prevStepHandler={prevStep} callback={prepareData}/>;
+			case 4:
+				return <FourthStep callback={prepareData} nextStepHandler={nextStep} prevStepHandler={prevStep}/>;
+			case 5:
+				return <FifthStep callback={prepareData} saveDataHandler={submitForm} prevStepHandler={prevStep}
+				                  data={formData.mode ?? ''}/>;
+			default:
+				return null;
+		}
+	};
+
+	return (
+		<section className={block()}>
+			<SwitchTransition mode="out-in">
+				<CSSTransition key={step} timeout={500} classNames="transition" nodeRef={nodeRef}>
+					<form className="form-step" ref={nodeRef} onSubmit={submitForm}>
+						{renderSteps()}
+					</form>
+				</CSSTransition>
+			</SwitchTransition>
+		</section>
+	);
+};

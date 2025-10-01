@@ -1,0 +1,73 @@
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
+
+.registration-form {
+  $self: &;
+  height: auto;
+  width: rem(470);
+  margin: auto;
+
+  &__form {
+    row-gap: rem(20);
+
+    @apply w-[470px] flex flex-col max-w-full;
+
+    @include tablet {
+      gap: 20px;
+      align-self: center;
+    }
+  }
+
+  &__contents  {
+    row-gap: rem(20);
+
+    @apply flex flex-col;
+  }
+
+  &__login {
+    margin-top: 20px;
+
+    @include tablet {
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  }
+
+  &__submit {
+    margin-top: fluid(20, 15);
+    @apply self-center;
+
+    @include tablet {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row: 3/4;
+      align-self: end;
+      width: 100%;
+    }
+  }
+
+  &__field {
+    position: relative;
+    flex: 1 0 auto;
+    //margin-bottom: rem(28);
+  }
+
+  &__error {
+    position: absolute;
+    left: rem(20);
+    bottom: rem(-20);
+  }
+
+  &__contents {
+    max-height: 380px;
+    overflow-y: auto;
+  }
+
+  @include tablet {
+    width: 100%;
+  }
+
+  @include mobile {
+    @apply flex flex-col
+  }
+}

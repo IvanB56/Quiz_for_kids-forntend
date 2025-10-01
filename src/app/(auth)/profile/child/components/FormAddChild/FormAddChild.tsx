@@ -3,7 +3,6 @@ import * as React from 'react';
 import {useEffect, useRef, useState} from 'react';
 import {FieldErrors, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {createStudents} from "@/shared/api";
 import {CN} from "@/lib";
 
 import {
@@ -24,9 +23,10 @@ import {CalendarIcon, LoaderCircle} from "lucide-react";
 import {formSchema, TypeChildCreate} from "./type";
 
 import './FormAddChild.scss';
+import {useAppDispatch} from "@hooks";
+import {fetchGetToken} from "@/entities/student";
 import {toast} from "sonner";
-import {useChildrenContext} from "@/app/(auth)/profile/child/hooks/useChildrenContext";
-import {UserChildState} from "@lib/store/features/user";
+import {isErrorToken} from "@/entities/student/model/services/fetchGetToken/fetchGetToken";
 
 const block = CN('form-child');
 
@@ -39,19 +39,33 @@ export const FormAddChild = () => {
 	});
 	const [errors, setErrors] = useState<FieldErrors | null>(null);
 	const formRef = useRef<HTMLFormElement | null>(null);
-	const {setChildrenData} = useChildrenContext();
+
+	const dispatch = useAppDispatch();
 
 	async function onSubmit(values: TypeChildCreate) {
 		const formData = {
 			...values,
-			birthdate: values.birthdate.toLocaleDateString()
+			birthdate: values.birthdate.toLocaleDateString().split('.').reverse().join('-')
 		}
 
-		const data = await createStudents<UserChildState['data'][number]>(formData);
+		const {payload} = await dispatch(fetchGetToken(formData));
 
-		setChildrenData(prev => ((prev || []).push(data), prev));
+		if (isErrorToken(payload)) {
+			toast.error("Ошибка", {
+				description: `Не удалось создать ссылку для регистрации ребенка`,
+				duration: 5000,
+				position: "top-center"
+			})
+		} else {
+			navigator.clipboard.writeText(`http://localhost:3000/?token=${payload?.token}`)
+				.then(() => toast.success("Создана ссылка для добавления ребенка", {
+					description: `Ссылка скопирована! Поделитесь ссылкой с ребенком, чтобы он смог зарегистрироваться по ней`,
+					duration: 5000,
+					position: "top-center"
+				}));
+		}
 
-		toast("Ребёнок успешно добавлен");
+
 	}
 
 	useEffect(() => {

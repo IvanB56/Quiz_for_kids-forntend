@@ -13,7 +13,7 @@ export type NewFormDataType = Record<'title' | 'description', string>;
 export type PartialNewFormDataType = Partial<NewFormDataType>;
 
 export type StepProps = {
-	callback?: (data: { name: string, value: string }) => void;
+	callback?: (data: { name: string, value: string | string[] }) => void;
 	nextStepHandler?: () => void;
 	prevStepHandler?: () => void;
 	saveDataHandler?: (e?: FormEvent, value?: string) => void;

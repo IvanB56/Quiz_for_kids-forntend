@@ -1,0 +1,144 @@
+{
+  "data": [
+    {
+      "slug": "finance",
+      "name": "Финансовая грамотность",
+      "description": "Кибербезопасность описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "cyber difference",
+      "name": "Кибербезопасность",
+      "description": "Финансовая грамотность описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "home-work",
+      "name": "Домашний быт",
+      "description": "Домашние дела описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "psychology",
+      "name": "Психология отношений",
+      "description": "Психология взаимоотношений описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "ethics-behavior",
+      "name": "Этика поведения",
+      "description": "Этика поведения описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "zozh",
+      "name": "ЗОЖ",
+      "description": "Кибербезопасность описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "facts",
+      "name": "Любопытный факты и эрудиция",
+      "description": "Финансовая грамотность описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "work-ii",
+      "name": "Работа с ИИ",
+      "description": "Домашние дела описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "legal-literacy",
+      "name": "Правовая грамотность",
+      "description": "Психология взаимоотношений описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    },
+    {
+      "slug": "sex-education",
+      "name": "Половое воспитание",
+      "description": "Этика поведения описание",
+      "preview": {
+        "id": 1,
+        "original_name": "quiz.jpg",
+        "mime": "image/jpeg",
+        "extension": "jpg",
+        "size": 41643,
+        "alt": null,
+        "relativeUrl": "/storage/2025/09/25/20d3aec1f73ac636b2adaf8fd37c2be01cf0e671.jpg"
+      }
+    }
+  ]
+}
