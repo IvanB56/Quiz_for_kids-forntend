@@ -1,6 +1,6 @@
 'use client';
 import React, {memo, useCallback, useEffect, useRef, useState} from 'react';
-import IMask from "imask";
+import IMask, {InputMask} from "imask";
 import {CN, validation} from "@/lib";
 import {STATUS_CODE} from "@/shared/constants/statusCode";
 import {Button, Input, Text} from "@components";
@@ -20,10 +20,12 @@ export const LoginForm = memo(() => {
 	const inputPhoneRef = useRef<HTMLInputElement | null>(null);
 	const {phone, password, isLoading} = useSelector(getLoginScheme);
 	const [errors, setErrors] = useState<TypeLogin | null>();
+	const maskRef = useRef<InputMask | null>(null);
 
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
-			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
+			// IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
+			maskRef.current = IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00'});
 		}
 	}, []);
 
@@ -43,6 +45,7 @@ export const LoginForm = memo(() => {
 	}, [dispatch, phone, password])
 
 	const onChangePhone = useCallback((value: string) => {
+		maskRef?.current?.updateValue();
 		dispatch(loginActions.setUserPhone(value));
 	}, [dispatch]);
 
