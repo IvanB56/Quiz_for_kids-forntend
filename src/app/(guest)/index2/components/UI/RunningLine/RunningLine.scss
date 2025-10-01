@@ -1,0 +1,33 @@
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
+@use '@assets/styles/helpers/mixins' as *;
+
+.running-line {
+	width: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+
+	@include container-new();
+
+	&__track {
+		display: inline-flex;
+		align-items: center;
+		gap: rem(5);
+		will-change: transform;
+		animation: marquee linear infinite;
+	}
+
+	&__content {
+		display: inline-block;
+		flex: 0 0 auto;
+		font-size: rem(20);
+		font-weight: 500;
+		@apply text-brown;
+	}
+}
+
+@keyframes marquee {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(-50%); }
+}

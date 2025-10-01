@@ -36,11 +36,44 @@
 			grid-column: 2 / 4;
 			grid-row: 2 / 3;
 
+			display: flex;
+			align-items: center;
+			padding-inline: fluid(57, 20);
+			padding-block: fluid(50, 55);
+			position: relative;
+
+			&:before {
+				content: url("/images/index2/earnings/quotation-top.svg");
+				position: absolute;
+				top: fluid(15, 11);
+				left: fluid(24, 20);
+				width: fluid(111, 50);
+				height: fluid(94, 40);
+			}
+
+			&:after {
+				content: url("/images/index2/earnings/quotation-bottom.svg");
+				position: absolute;
+				bottom: fluid(15, 11);
+				right: fluid(24, 20);
+				width: fluid(111, 50);
+				height: fluid(94, 40);
+			}
+
 			@include mobile {
 				grid-column: 1 / 6;
 				grid-row: 1 / 2;
+
+				--w-quotation: rem(50);
+				--h-quotation: rem(40);
 			}
 		}
+	}
+
+	&__wrapper-running-line {
+		position: relative;
+		z-index: 2;
+		margin-top: fluid(60, 20);
 	}
 
 	&__background {

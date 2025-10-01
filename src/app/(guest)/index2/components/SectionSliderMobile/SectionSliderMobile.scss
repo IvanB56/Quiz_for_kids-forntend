@@ -4,6 +4,7 @@
 
 
 .slider-mobile {
+	$self: &;
 	padding-block: fluid(112, 30) fluid(85, 20);
 	position: relative;
 
@@ -35,6 +36,45 @@
 			@include mobile {
 				width: 100%;
 			}
+		}
+	}
+
+	&__body {
+		width: 100%;
+	}
+
+	&__navigation-prev,
+	&__navigation-next {
+		width: fluid(60, 50);
+		aspect-ratio: 1;
+
+		border-radius: 50%;
+		background-color: var(--primary-white);
+		transition: opacity 0.3s;
+
+		@apply shadow-s;
+		@include flex-center();
+
+		svg {
+			width: fluid(26, 22);
+			height: fluid(24, 22);
+			aspect-ratio: 1;
+			color: var(--primary-white);
+		}
+
+		&:hover {
+			opacity: 0.9;
+		}
+
+		&[aria-disabled="true"] {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		@include mobile {
+			padding: rem(14);
+			border-radius: 50%;
+			background-color: var(--primary-white);
 		}
 	}
 

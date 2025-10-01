@@ -119,6 +119,8 @@
 		}
 
 		#{$self}__image {
+			height: rem(644);
+
 			@include mobile {
 				width: 100%;
 				height: rem(375);

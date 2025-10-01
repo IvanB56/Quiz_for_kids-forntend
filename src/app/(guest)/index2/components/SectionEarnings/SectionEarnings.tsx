@@ -4,6 +4,7 @@ import {CN} from "@/lib";
 import { Button, CardBackground, Heading, Text } from '@components';
 
 import './SectionEarnings.scss';
+import { RunningLine } from '@/app/(guest)/index2/components/UI/RunningLine/RunningLine';
 
 const block = CN('earnings');
 
@@ -37,7 +38,7 @@ export const SectionEarnings = () => {
 					}}
 				/>
 				<div className={'card-text card-text-2'}>
-					<Heading data={{text: 'От потребительской модели к партнерским отношениям.\n', tag: 'h3'}} cn={{size: 'h3', color: 'text-brown', margin: 'mb-5 sm:mb-4'}} className={'card-text__heading'}/>
+					<Heading data={{text: 'От потребительской модели к партнерским отношениям.', tag: 'h3'}} cn={{size: 'h3', weight: 'fw500'}} className={'card-text__heading'}/>
 				</div>
 				<CardBackground cn={{ variant: "third" }}
 					data={{
@@ -47,6 +48,9 @@ export const SectionEarnings = () => {
 						imgHeight: 510
 					}}
 				/>
+			</div>
+			<div className={block('wrapper-running-line')}>
+				<RunningLine speed={30} text={`Как мотивировать к этому ребенка; вы найдете в МонетикУМе. &bull; Как не допустить возврата к старым правилам; &bull; Как мотивировать к этому ребенка; вы найдете в МонетикУМе. &bull; Как не допустить возврата к старым правилам; &bull;`}/>
 			</div>
 			<Image src={"/images/index2/bg-gradient-earnings.png"} alt="" fill className={block('background')}/>
 		</section>

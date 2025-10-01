@@ -2,7 +2,6 @@
 import React from 'react';
 import {CN} from "@/lib";
 import {useClassName} from "@hooks";
-import {ArrowLeft, ArrowRight} from "lucide-react";
 import {solutions, solutions1} from "./solutions";
 import {Heading, Slider, Text} from "@components";
 

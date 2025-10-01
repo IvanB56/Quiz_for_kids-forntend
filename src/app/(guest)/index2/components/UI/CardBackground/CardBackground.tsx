@@ -1,20 +1,11 @@
 'use client';
-import React, {PropsWithChildren} from 'react';
+import React from 'react';
 import classes from './CardBackground.cn';
 import type {ICardBackground} from './CardBackground.types';
 import './CardBackground.scss';
 import { Text } from '@components';
 import Image from 'next/image';
 import { useClassName } from '@hooks';
-import { className } from 'postcss-selector-parser';
-import { IChildrenAndClassName } from '@root/global';
-
-interface CardAnswersProps extends IChildrenAndClassName {
-	textData: string;
-	imgSrc: string;
-	imgWidth: number;
-	imgHeight: number;
-}
 
 export const CardBackground = (props: ICardBackground) => {
 	const { data, cn, className } = props;
