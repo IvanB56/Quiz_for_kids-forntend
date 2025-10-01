@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 import {
 	getRegistrationScheme
 } from "@/features/Registration/model/selectors/getRegistrationScheme/getRegistrationScheme";
-import IMask from "imask";
+import IMask, {InputMask} from "imask";
 import {CN, validation} from "@/lib";
 import {STATUS_CODE} from "@/shared/constants/statusCode";
 import {fetchVerifyCode} from "@/features/Registration/model/services/VerifyCode/fetchVerifyCode";
@@ -32,10 +32,11 @@ export const RegistrationParent = () => {
 		phone_verify_code
 	} = useSelector(getRegistrationScheme);
 	const [isShowVerifyCode, setIsShowVerifyCode] = useState(false);
+	const maskRef = useRef<InputMask | null>(null);
 
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
-			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
+			maskRef.current = IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00'});
 		}
 	}, []);
 
@@ -78,6 +79,7 @@ export const RegistrationParent = () => {
 	}, [dispatch]);
 
 	const onChangePhone = useCallback((value: string) => {
+		maskRef?.current?.updateValue();
 		dispatch(registrationActions.setPhone(value));
 	}, [dispatch]);
 
