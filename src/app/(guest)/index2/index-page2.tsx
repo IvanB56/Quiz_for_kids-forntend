@@ -1,6 +1,5 @@
 import React from 'react';
 import { Fuzzy_Bubbles, Geist, Playfair_Display, Roboto } from 'next/font/google';
-import {BannerAnimate} from "@widgets";
 import {useClassName} from "@hooks";
 import './index-page2.scss';
 import { SectionSubscription } from '@/app/(guest)/index2/components/SectionSubscription/SectionSubscription';
