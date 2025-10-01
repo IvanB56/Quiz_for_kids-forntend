@@ -4,8 +4,7 @@ import {CN, validation} from "@/lib";
 import {useAppDispatch} from "@hooks";
 import {STATUS_CODE} from "@/shared/constants/statusCode";
 import {useSelector} from "react-redux";
-import {formSchema} from "../../model/types/registration";
-import {TypeStudentRegistration} from "../../model/types/studentRegistrationSchema";
+import {formSchema, TypeStudentRegistration} from "../../model/types/studentRegistrationSchema";
 import {studentRegistrationActions} from "../../model/slice/registrationStudentSlice";
 import {
 	getStudentRegistrationScheme
@@ -38,8 +37,10 @@ export const RegistrationStudent = () => {
 	}, [dispatch]);
 
 	const onSubmit = useCallback(async () => {
-		const {status, errors} = validation<TypeStudentRegistration>(formSchema, {login, password, password_confirmation});
+		const {status, errors} = validation<TypeStudentRegistration>(formSchema, {login, password, password_confirmation, token});
 		setErrors(errors);
+
+		console.log({errors})
 
 		if (status === STATUS_CODE.SUCCESS) {
 			await dispatch(fetchCreateStudent({password, password_confirmation, login, token}));
@@ -76,6 +77,7 @@ export const RegistrationStudent = () => {
 					<label>Пароль*</label>
 					<div className={'flex items-center gap-x-2'}>
 						<Input
+							type={"password"}
 							placeholder="Введите пароль"
 							autoComplete={'off'}
 							value={password}

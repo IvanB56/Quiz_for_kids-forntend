@@ -7,11 +7,14 @@ interface FetchGetToken {
 }
 
 interface RejectValue {
-	message: string;
-	errors?: Record<Partial<keyof FetchGetToken>, string[]>
+	error: string;
 }
 
-export const fetchGetToken = createAsyncThunk<string, FetchGetToken, {
+export function isErrorToken(data?: RejectValue | { token: string}): data is RejectValue {
+	return !!(data && "error" in data);
+}
+
+export const fetchGetToken = createAsyncThunk< { token: string }, FetchGetToken, {
 	rejectValue: RejectValue,
 	extra: ThunkExtraArg
 }>(
@@ -22,10 +25,10 @@ export const fetchGetToken = createAsyncThunk<string, FetchGetToken, {
 			const response = await extra.api.post<{ data: { token: string } }>('/api/students/create/register-token', fetchData);
 			const {data} = response.data;
 
-			return data.token
+			return data;
 		} catch (_) {
 			return rejectWithValue({
-				message: "Не удалось создать токен [student/create-token]"
+				error: "Не удалось создать токен [student/create-token]"
 			})
 		}
 	}

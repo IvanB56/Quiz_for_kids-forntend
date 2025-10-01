@@ -26,6 +26,7 @@ import './FormAddChild.scss';
 import {useAppDispatch} from "@hooks";
 import {fetchGetToken} from "@/entities/student";
 import {toast} from "sonner";
+import {isErrorToken} from "@/entities/student/model/services/fetchGetToken/fetchGetToken";
 
 const block = CN('form-child');
 
@@ -47,16 +48,24 @@ export const FormAddChild = () => {
 			birthdate: values.birthdate.toLocaleDateString().split('.').reverse().join('-')
 		}
 
-		const token = await dispatch(fetchGetToken(formData));
+		const {payload} = await dispatch(fetchGetToken(formData));
 
-		console.log(token);
-
-		navigator.clipboard.writeText(`http://localhost:3000/?token=${token}`)
-			.then(() => toast.success("Создана ссылка для добавления ребенка", {
-				description: `Ссылка скопирована! Поделитесь ссылкой с ребенком, чтобы он смог зарегистрироваться`,
-				duration: 10000,
+		if (isErrorToken(payload)) {
+			toast.error("Ошибка", {
+				description: `Не удалось создать ссылку для регистрации ребенка`,
+				duration: 5000,
 				position: "top-center"
-			}));
+			})
+		} else {
+			navigator.clipboard.writeText(`http://localhost:3000/?token=${payload?.token}`)
+				.then(() => toast.success("Создана ссылка для добавления ребенка", {
+					description: `Ссылка скопирована! Поделитесь ссылкой с ребенком, чтобы он смог зарегистрироваться по ней`,
+					duration: 5000,
+					position: "top-center"
+				}));
+		}
+
+
 	}
 
 	useEffect(() => {

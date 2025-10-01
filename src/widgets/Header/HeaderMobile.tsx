@@ -15,6 +15,7 @@ const block = CN('header');
 
 export const HeaderMobile = () => {
 	const [modalLoginOpen, setModalLoginOpen] = React.useState(false);
+	const [modalRegOpen, setModalRegOpen] = React.useState(false);
 
 	return (
 		<header className={block()}>
@@ -54,6 +55,8 @@ export const HeaderMobile = () => {
 								}}
 							/>
 							<Modal
+								open={modalRegOpen}
+								onOpenChange={setModalRegOpen}
 								trigger={() => (
 									<><UserRoundPlus/> Зарегистрироваться</>
 								)}
