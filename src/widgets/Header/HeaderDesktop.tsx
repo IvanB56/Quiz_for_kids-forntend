@@ -1,4 +1,5 @@
-import React from 'react';
+'use client';
+import React, {useEffect} from 'react';
 import {CN} from "@/lib";
 import Link from "next/link";
 import Image from "next/image";
@@ -7,12 +8,25 @@ import {LoginForm} from "@/features/AuthByPhone";
 import {RegistrationForm} from "@/features/Registration";
 import {Button, Heading, Modal} from "@components";
 import logo from "@assets/images/logo.png";
+import {useSearchParams} from 'next/navigation';
 
 const block = CN('header');
 
 
 export const HeaderDesktop = () => {
 	const [modalLoginOpen, setModalLoginOpen] = React.useState(false);
+	const [modalRegOpen, setModalRegOpen] = React.useState(false);
+	const searchParams  = useSearchParams();
+
+	useEffect(() => {
+		if (searchParams.get('token')) {
+			setModalRegOpen(true);
+		}
+		if (searchParams.get('login')) {
+			setModalLoginOpen(true);
+		}
+	}, [searchParams]);
+	
 
 	return (
 		<header className={block()}>
@@ -42,6 +56,8 @@ export const HeaderDesktop = () => {
 						}}
 					/>
 					<Modal
+						open={modalRegOpen}
+						onOpenChange={setModalRegOpen}
 						trigger={() => (
 							<><UserRoundPlus/> Зарегистрироваться</>
 						)}

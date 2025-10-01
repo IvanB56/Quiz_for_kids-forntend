@@ -35,7 +35,7 @@ export const RegistrationParent = () => {
 
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
-			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00'})
+			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
 		}
 	}, []);
 
@@ -106,6 +106,7 @@ export const RegistrationParent = () => {
 						<Input
 							placeholder="Введите имя"
 							autoComplete={'off'}
+							type={"text"}
 							value={name}
 							name="name"
 							disabled={isLoading}
@@ -125,7 +126,9 @@ export const RegistrationParent = () => {
 					<div className={'flex items-center gap-x-2'}>
 						<Input
 							placeholder="Введите телефон"
-							autoComplete={'off'} ref={inputPhoneRef}
+							autoComplete={'off'}
+							ref={inputPhoneRef}
+							type={"tel"}
 							value={phone}
 							name="phone"
 							disabled={isLoading}

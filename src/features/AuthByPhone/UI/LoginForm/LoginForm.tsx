@@ -23,7 +23,7 @@ export const LoginForm = memo(() => {
 
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
-			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00'})
+			IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
 		}
 	}, []);
 
@@ -57,6 +57,7 @@ export const LoginForm = memo(() => {
 					<label>Телефон*</label>
 					<div className={'flex items-center gap-x-2'}>
 						<Input
+							type={"tel"}
 							placeholder="Введите телефон"
 							autoComplete={'off'}
 							ref={inputPhoneRef}
