@@ -2,9 +2,9 @@
   "data": {
     "type": "quiz",
     "created_at": "2025-08-31T18:06:37.000000Z",
-    "completed_at": null,
-    "status": "no_answer",
-    "option_submitted": null,
+    "completed_at": "2025-08-31T18:07:00.551412Z",
+    "status": "correct_answer",
+    "option_submitted": 1,
     "quiz": {
       "question": "Почему нельзя сообщать номер карты посторонним?",
       "options": [

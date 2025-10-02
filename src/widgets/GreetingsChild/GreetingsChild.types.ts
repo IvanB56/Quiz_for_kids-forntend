@@ -3,4 +3,8 @@ export interface IGreetingsChild {
 		background?: string;
 		padding?: string;
 	};
+	greetings?: {
+		message: string,
+		language: string
+	}
 }

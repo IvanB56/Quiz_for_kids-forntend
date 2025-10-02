@@ -1,0 +1,26 @@
+@use "@assets/styles/helpers/media" as *;
+@use "@assets/styles/helpers/function" as *;
+
+.balance {
+  display: flex;
+  gap: rem(11);
+  align-items: center;
+
+  &__total {
+    font-family: var(--font-montserrat), serif;
+    font-weight: 600;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    line-height: 1;
+    letter-spacing: -4%;
+    vertical-align: middle;
+
+    @apply text-primary-blue;
+  }
+
+  &__coin {
+    @include mobile {
+      width: rem(50);
+      height: rem(50);
+    }
+  }
+}
