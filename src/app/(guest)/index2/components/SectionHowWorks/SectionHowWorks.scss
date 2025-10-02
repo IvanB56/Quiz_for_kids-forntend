@@ -26,7 +26,9 @@
 
 	&__row {
 		display: flex;
-		justify-content: space-between;
+		gap: rem(25);
+		align-items: center;
+		justify-content: center;
 
 		.card-background__background {
 			height: fluid(650, 314);
@@ -42,11 +44,15 @@
 .card-long {
 	$self: &;
 	position: relative;
-	border-radius: fluid(60, 30);
+	border-radius: rem(60);
 	overflow: hidden;
 	width: 100%;
 
 	@apply shadow-m;
+
+	@include mobile {
+		border-radius: rem(30);
+	}
 
 	&__wrapper-content {
 		display: flex;
@@ -66,6 +72,14 @@
 		padding-left: fluid(0, 10);
 		padding-right: fluid(55, 10);
 		padding-bottom: rem(100);
+
+		@include laptop {
+			padding-top: rem(20);
+		}
+
+		@include mobile {
+			padding-top: rem(0);
+		}
 	}
 
 	&__list {
@@ -104,8 +118,30 @@
 		bottom: fluid(35, 20);
 		right: rem(35);
 
-		@include mobile {
+		@include laptop {
 			width: rem(100);
+		}
+	}
+
+	&__wrapper-image {
+		@include laptop {
+			width: 40%;
+			height: stretch;
+		}
+
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		height: 100%;
+		border-radius: rem(60);
+
+		@include mobile {
+			width: 100%;
+			height: rem(375);
+			border-radius: rem(30);
 		}
 	}
 
@@ -118,13 +154,25 @@
 			}
 		}
 
-		#{$self}__image {
-			height: rem(644);
+		#{$self}__wrapper-image {
+			height: rem(650);
+
+			@include laptop {
+				height: rem(520);
+			}
+
+			@include tablet {
+				width: auto;
+			}
 
 			@include mobile {
+				height: auto;
 				width: 100%;
-				height: rem(375);
 			}
+		}
+
+		#{$self}__image {
+			width: 100%;
 		}
 
 		#{$self}__texts {

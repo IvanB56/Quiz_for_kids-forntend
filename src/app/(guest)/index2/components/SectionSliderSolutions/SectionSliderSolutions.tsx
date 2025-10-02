@@ -32,10 +32,13 @@ export const SectionSliderSolutions = () => {
 							nextEl: `.${block('navigation-next')}`,
 						},
 						breakpoints: {
-							991: {
+							1440: {
 								slidesPerView: 3,
 								spaceBetween: '25px',
 								// pagination: false
+							},
+							991: {
+								slidesPerView: 2,
 							},
 							768: {
 								slidesPerView: 1.75
@@ -117,10 +120,13 @@ export const SectionSliderSolutions = () => {
 							nextEl: `.${block('navigation-next-second')}`,
 						},
 						breakpoints: {
-							991: {
+							1440: {
 								slidesPerView: 3,
 								spaceBetween: '25px',
 								// pagination: false
+							},
+							991: {
+								slidesPerView: 2,
 							},
 							768: {
 								slidesPerView: 1.75

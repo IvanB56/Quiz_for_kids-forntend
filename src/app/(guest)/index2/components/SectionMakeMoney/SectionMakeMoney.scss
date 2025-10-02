@@ -39,6 +39,14 @@
 		}
 	}
 
+	&__wrapper-image {
+		margin-left: rem(-10);
+
+		@include mobile {
+			margin-right: rem(-10);
+		}
+	}
+
 	&__image {
 		width: 100%;
 		object-fit: cover;

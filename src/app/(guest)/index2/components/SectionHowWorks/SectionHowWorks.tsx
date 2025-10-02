@@ -16,7 +16,9 @@ export const SectionHowWorks = () => {
 				<div className={block('cards')}>
 					<div className={'card-long'}>
 						<div className={'card-long__wrapper-content'}>
-							<Image src={"/images/index2/how-works/card-long-girls.webp"} width={819} height={645} alt="" className={'card-long__image'}/>
+							<div className={'card-long__wrapper-image'}>
+								<Image src={"/images/index2/how-works/card-long-girls.webp"} width={819} height={645} alt="" className={'card-long__image'}/>
+							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>
 									<li>Финансовая грамотность;</li>
@@ -39,7 +41,9 @@ export const SectionHowWorks = () => {
 					</div>
 					<div className={'card-long card-long_reverse'}>
 						<div className={'card-long__wrapper-content'}>
-							<Image src={"/images/index2/how-works/card-long-notebook.webp"} width={365} height={645} alt="" className={'card-long__image'}/>
+							<div className={'card-long__wrapper-image'}>
+								<Image src={"/images/index2/how-works/card-long-notebook.webp"} width={365} height={645} alt="" className={'card-long__image'}/>
+							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>
 									<li>Заключите с ребенком <b>игровой договор</b> о правах и обязанностях;</li>

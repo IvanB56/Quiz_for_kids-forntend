@@ -34,10 +34,13 @@ export const SectionReviews = () => {
 						nextEl: `.${block('navigation-next')}`,
 					},
 					breakpoints: {
-						991: {
+						1440: {
 							slidesPerView: 3,
 							spaceBetween: '10px',
 							// pagination: false
+						},
+						991: {
+							slidesPerView: 2,
 						},
 						768: {
 							slidesPerView: 1.75
