@@ -1,0 +1,149 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.simulator {
+	padding-block: fluid(180, 30) fluid(130, 35);
+	position: relative;
+
+	&__container {
+		display: flex;
+
+		@include container-new();
+
+		@include mobile {
+			flex-direction: column;
+		}
+	}
+
+	&__wrapper-image {
+		position: relative;
+		z-index: 2;
+		width: rem(600);
+
+		@include mobile {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: rem(6);
+			margin-bottom: rem(40);
+			width: auto;
+			order: 2;
+		}
+	}
+
+	&__img-first {
+		position: absolute;
+		top: rem(-90);
+		left: rem(0);
+		z-index: 2;
+
+		@include mobile {
+			position: static;
+			width: rem(112);
+			height: rem(154);
+		}
+	}
+
+	&__img-second {
+		position: absolute;
+		top: rem(60);
+		left: rem(230);
+		z-index: 3;
+
+		@include mobile {
+			position: static;
+			width: rem(116);
+			height: rem(174);
+		}
+	}
+
+	&__img-third {
+		position: absolute;
+		bottom: rem(-76);
+		left: rem(110);
+		z-index: 2;
+
+		@include mobile {
+			position: static;
+			width: rem(112);
+			height: rem(154);
+		}
+	}
+
+	&__wrapper-content {
+		display: flex;
+		flex-direction: column;
+
+		position: relative;
+		z-index: 1;
+
+		@include mobile {
+			display: contents;
+		}
+	}
+
+	&__content-mobile {
+		@include mobile {
+			order: 3;
+			z-index: 1;
+		}
+	}
+
+	&__heading {
+		max-width: rem(759);
+		font-family: var(--font-geist);
+		text-transform: uppercase;
+
+		@include mobile {
+			order: 1;
+			z-index: 1;
+		}
+	}
+
+	&__subtitle {
+		max-width: rem(680);
+
+		@apply text-orange;
+	}
+
+	&__wrapper-check {
+		display: flex;
+		align-items: center;
+		gap: rem(4);
+
+		&:not(:last-child) {
+			margin-bottom: fluid(42, 20);
+		}
+
+		&:has(.gray) {
+			padding-left: fluid(82, 0);
+		}
+	}
+
+	&__svg-check {
+		&.green {
+			--color-check: hsla(120, 70%, 34%, 1);
+		}
+
+		&.gray {
+			--color-check: hsla(359, 70%, 34%, 1);
+
+			@include mobile {
+				--color-check: hsla(120, 70%, 34%, 1);
+			}
+		}
+
+		@include mobile {
+			width: rem(25);
+			height: rem(25);
+			flex-shrink: 0;
+		}
+	}
+
+	&__background {
+		z-index: 0;
+		object-fit: cover;
+	}
+}

@@ -17,6 +17,7 @@
   --champagne: rgba(253, 251, 239, 1);
   --champagne70: rgba(253, 251, 239, 0.7);
   --secondary-blue: rgba(196, 220, 227, 1);
+  --light-beige: rgba(255, 244, 236, 1);
 }
 
 html {
@@ -33,6 +34,10 @@ body {
 
 .index-page {
   background: linear-gradient(180deg, var(--champagne) 10%, var(--light-brown) 50%, var(--brown) 100%);
+}
+
+.index-page2 {
+	background: var(--light-beige);
 }
 
 img, a {

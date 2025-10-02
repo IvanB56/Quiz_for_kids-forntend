@@ -5,12 +5,12 @@
 .header {
   $self: &;
   position: absolute;
-  background-color: var(--white95);
+  //background-color: var(--white95);
   border-radius: 0 0 fluid(60, 20) fluid(60, 20);
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   padding-block: fluid(30, 20);
 
   &__container {

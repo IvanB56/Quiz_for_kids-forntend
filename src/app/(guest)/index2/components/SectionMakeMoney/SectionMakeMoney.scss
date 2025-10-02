@@ -1,0 +1,51 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.make-money {
+	position: relative;
+
+	&__wrapper-content {
+		display: flex;
+		align-items: center;
+		gap: rem(155);
+
+		position: relative;
+		z-index: 1;
+
+		@include mobile {
+			flex-direction: column;
+			gap: rem(36);
+		}
+
+		@include container-new;
+	}
+
+	&__heading {
+		margin-bottom: fluid(85, 15);
+	}
+
+	&__description {
+		max-width: rem(752);
+	}
+
+	&__wrapper-text {
+		padding-right: rem(30);
+
+		@include mobile {
+			padding: 0 rem(10) rem(30);
+			text-align: center;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		object-fit: cover;
+	}
+
+	&__background {
+		z-index: 0;
+		object-fit: cover;
+	}
+}

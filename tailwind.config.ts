@@ -17,6 +17,8 @@ export default {
 				'secondary-blue': 'hsla(193, 36%, 83%, 1)',
 				'green-light': 'hsla(143, 100%, 37%, 1)',
 				'green-salat': 'hsla(143, 95%, 48%, 1)',
+				'brown': 'hsla(23, 99%, 20%, 1)',
+				'orange': 'hsla(12, 100%, 69%, 1)',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -33,6 +35,7 @@ export default {
 				black: 'hsla(0, 0%, 0%, 1)',
 				'black-25': 'hsla(0, 0%, 0%, 0.25)',
 				white: 'hsla(0, 0%, 100%, 1)',
+				'white-50': 'hsla(0, 0%, 100%, 0.5)',
 				'pink-dark': 'hsla(338, 30%, 45%, 1)',
 				'pink-light': 'hsla(344, 54%, 89%, 1)',
 				'grey-light': 'hsla(30, 10%, 96%, 1)',
@@ -53,7 +56,9 @@ export default {
 				'button-hover': 'hsla(193, 36%, 83%, 1)',
 				'button-red': 'hsla(11, 57%, 53%, 1)',
 				'button-green': 'hsla(131, 22%, 50%, 1)',
-				switch: 'hsla(0, 0%, 86%, 1)'
+				'button-velvet': 'hsla(350, 70%, 47%, 1)',
+				switch: 'hsla(0, 0%, 86%, 1)',
+				'light-peach': 'hsla(25, 100%, 96%, 1)',
 			},
 			borderRadius: {
 				'4': '4px',
@@ -74,7 +79,8 @@ export default {
 			},
 			boxShadow: {
 				dark: '-10px 10px 20px hsla(9, 14%, 18%, 0.47)',
-				m: '0 8px 8px 0 hsla(0, 0%, 0%, 0.25)'
+				m: '0 8px 8px 0 hsla(0, 0%, 0%, 0.25)',
+				s: '0px 4px 4px 0px hsla(0, 0%, 0%, 0.3)',
 			},
 			keyframes: {
 				'accordion-down': {

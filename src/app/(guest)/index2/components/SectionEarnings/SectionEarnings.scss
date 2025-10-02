@@ -1,0 +1,113 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.earnings {
+	padding-block: fluid(112, 25);
+	position: relative;
+
+	&__wrapper-content {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(2, auto);
+		row-gap: fluid(20, 32);
+		column-gap: fluid(15, 0);
+
+		position: relative;
+		z-index: 1;
+
+		@include container-new();
+
+		@include mobile {
+			grid-template-rows: repeat(5, auto);
+		}
+
+		.card-text-1 {
+			grid-column: 1 / 4;
+			grid-row: 1 / 2;
+
+			@include mobile {
+				grid-column: 1 / 6;
+				grid-row: 2 / 3;
+			}
+		}
+		.card-text-2 {
+			grid-column: 2 / 4;
+			grid-row: 2 / 3;
+
+			display: flex;
+			align-items: center;
+			padding-inline: fluid(57, 20);
+			padding-block: fluid(50, 55);
+			position: relative;
+
+			&:before {
+				content: url("/images/index2/earnings/quotation-top.svg");
+				position: absolute;
+				top: fluid(15, 11);
+				left: fluid(24, 20);
+				width: fluid(111, 50);
+				height: fluid(94, 40);
+			}
+
+			&:after {
+				content: url("/images/index2/earnings/quotation-bottom.svg");
+				position: absolute;
+				bottom: fluid(15, 11);
+				right: fluid(24, 20);
+				width: fluid(111, 50);
+				height: fluid(94, 40);
+			}
+
+			@include mobile {
+				grid-column: 1 / 6;
+				grid-row: 1 / 2;
+
+				--w-quotation: rem(50);
+				--h-quotation: rem(40);
+			}
+		}
+	}
+
+	&__wrapper-running-line {
+		position: relative;
+		z-index: 2;
+		margin-top: fluid(60, 20);
+	}
+
+	&__background {
+		z-index: 0;
+		object-fit: cover;
+	}
+}
+
+.card-text {
+	padding: fluid(40, 35) fluid(105, 30);
+	border-radius: fluid(60, 30);
+	@apply bg-light-peach;
+
+	&__list {
+		color: theme('colors.brown');
+		font-style: var(--font-geist);
+		font-size: fluid(24, 16);
+		font-weight: 500;
+		margin-bottom: rem(15);
+
+		li {
+			position: relative;
+			padding-left: rem(30);
+
+			&:after {
+				position: absolute;
+				top: rem(-2);
+				left: rem(10);
+				content: "•";
+			}
+		}
+	}
+
+	&__bottom {
+		color: theme('backgroundColor.button-red');
+	}
+}

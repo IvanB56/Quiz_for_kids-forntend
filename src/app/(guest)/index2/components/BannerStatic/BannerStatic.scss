@@ -1,0 +1,120 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.banner-static {
+	display: grid;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+	&__background {
+		position: relative;
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			background: hsla(42, 45%, 94%, 0.7);
+			pointer-events: none;
+			z-index: 1;
+		}
+	}
+
+  &__content {
+		grid-row: 2 / 3;
+		grid-column: 1 / 2;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		height: 100%;
+		padding-inline: fluid(195, 10);
+    z-index: 10;
+
+		@include container-new();
+
+		@include mobile {
+			padding-block: rem(56) rem(100);
+		}
+  }
+
+  &__heading {
+		max-width: rem(759);
+		font-family: var(--font-roboto);
+		text-transform: uppercase;
+  }
+
+	&__subtitle {
+		max-width: rem(680);
+	}
+
+	&__wrapper-check {
+		display: flex;
+		align-items: center;
+		gap: rem(4);
+
+		&:not(:last-child) {
+			margin-bottom: fluid(15, 10);
+		}
+
+		&:has(.gray) {
+			padding-left: fluid(82, 0);
+		}
+	}
+
+	&__svg-check {
+		&.green {
+			--color-check: hsla(120, 70%, 34%, 1);
+		}
+
+		&.gray {
+			--color-check: hsla(359, 70%, 34%, 1);
+
+			@include mobile {
+				--color-check: hsla(120, 70%, 34%, 1);
+			}
+		}
+
+		@include mobile {
+			width: rem(25);
+			height: rem(25);
+			flex-shrink: 0;
+		}
+	}
+
+  &__image {
+		width: 100%;
+		height: 100%;
+    object-fit: cover;
+		z-index: 0;
+  }
+
+  &__badge {
+    position: absolute;
+    flex-direction: column;
+		bottom: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 100%, 0.7);
+    padding: fluid(40, 20) fluid(180, 30) fluid(10, 5) fluid(130, 70);
+    gap: fluid(40, 10);
+    min-width: rem(300);
+		z-index: 2;
+
+    @include flex-center();
+  }
+
+	&__wrapper-quote {
+		max-width: rem(540);
+		padding-left: rem(20);
+		border-left: rem(1) solid theme('backgroundColor.black');
+		font-style: italic;
+	}
+
+  &__description {
+    font-size: fluid(24, 12);
+  }
+}
