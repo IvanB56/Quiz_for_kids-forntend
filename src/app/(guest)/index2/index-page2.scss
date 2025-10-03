@@ -1,0 +1,121 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/media' as *;
+@use '@assets/styles/helpers/mixins' as *;
+
+.index-page2 {
+  .container {
+    @include container();
+  }
+
+  .swiper-slide {
+    display: contents;
+
+    @include tablet-s() {
+      display: flex;
+      align-self: center;
+      flex-direction: column;
+      gap: fluid(50, 20);
+      padding-block: rem(10);
+    }
+  }
+
+  .slider-controls,
+	.slider-controls-second {
+    margin-top: rem(20);
+    gap: rem(20);
+
+    @include flex-center();
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: fluid(50, 9);
+    width: fit-content;
+
+		position: absolute;
+		bottom: fluid(-400, -370);
+		left: calc(100% - 56%);
+
+		@include laptop {
+			bottom: rem(-350);
+		}
+
+		@include tablet {
+			bottom: rem(-300);
+		}
+
+		@include tablet-s {
+			position: static;
+		}
+  }
+
+  .pagination-bullet {
+    width: fluid(20, 15);
+    height: fluid(20, 15);
+    aspect-ratio: 1;
+    background-color: hsla(0, 100%, 100%, 1);
+    opacity: 1;
+    margin: 0 !important;
+
+		@apply shadow-s;
+
+		&.swiper-pagination-bullet-active {
+			background-color: hsla(0, 0%, 67%, 1);
+    }
+  }
+
+  .swiper-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: fluid(50, 20);
+    padding-block: rem(10);
+
+    @include tablet-s() {
+      display: flex;
+      gap: 0;
+    }
+  }
+}
+
+.heading {
+  font-family: var(--font-play-fair), sans-serif;
+}
+
+.heading_h1 {
+  font-size: fluid(56, 24);
+  font-weight: 700;
+}
+
+.heading_h2 {
+  font-size: fluid(52, 24);
+  font-weight: 500;
+	text-transform: uppercase;
+}
+
+.heading_h3 {
+  font-size: fluid(48, 24);
+  font-weight: 400;
+}
+
+.text {
+  font-family: var(--font-roboto), sans-serif;
+  font-size: fluid(24, 14);
+}
+
+.text-body-1 {
+	font-family: var(--font-geist), sans-serif;
+	font-size: fluid(30, 16);
+}
+
+.subtitle {
+  font-family: var(--font-roboto), sans-serif;
+  font-weight: 400;
+  font-size: fluid(64, 22);
+  text-align: center;
+  margin-bottom: fluid(70, 20);
+}
+
+.lucide-chevron-down {
+	display: none;
+}

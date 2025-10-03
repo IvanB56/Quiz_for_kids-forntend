@@ -20,4 +20,5 @@ export * from './NavProjects/NavProjects';
 export * from './NavOther/NavOther';
 export * from './NavUser/NavUser';
 export * from './CardText/CardText';
+export * from '../app/(guest)/index2/components/UI/CardBackground/CardBackground';
 

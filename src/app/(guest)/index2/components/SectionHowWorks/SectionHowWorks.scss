@@ -1,0 +1,188 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.how-works {
+	padding-block: fluid(112, 25);
+	position: relative;
+
+	&__wrapper-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		position: relative;
+		z-index: 1;
+
+		@include container-new();
+	}
+
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		gap: fluid(55, 40);
+	}
+
+	&__row {
+		display: flex;
+		gap: rem(25);
+		align-items: center;
+		justify-content: center;
+
+		.card-background__background {
+			height: fluid(650, 314);
+		}
+
+		@include mobile {
+			flex-direction: column;
+			gap: rem(30);
+		}
+	}
+}
+
+.card-long {
+	$self: &;
+	position: relative;
+	border-radius: rem(60);
+	overflow: hidden;
+	width: 100%;
+
+	@apply shadow-m;
+
+	@include mobile {
+		border-radius: rem(30);
+	}
+
+	&__wrapper-content {
+		display: flex;
+		align-items: center;
+		gap: fluid(80, 25);
+
+		position: relative;
+		z-index: 1;
+
+		@include mobile {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	&__texts {
+		padding-left: fluid(0, 10);
+		padding-right: fluid(55, 10);
+		padding-bottom: rem(100);
+
+		@include laptop {
+			padding-top: rem(20);
+		}
+
+		@include mobile {
+			padding-top: rem(0);
+		}
+	}
+
+	&__list {
+		counter-reset: my-counter;
+		font-size: fluid(30, 18);
+		font-weight: 500;
+
+		li {
+			position: relative;
+
+			padding-left: fluid(50, 30);
+
+			counter-increment: my-counter;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: rem(5);
+
+				content: counter(my-counter) ".";
+			}
+
+			&:not(:last-child) {
+				margin-bottom: rem(5);
+			}
+		}
+	}
+
+	&__background {
+		z-index: 0;
+		object-fit: cover;
+	}
+
+	&__number {
+		position: absolute;
+		bottom: fluid(35, 20);
+		right: rem(35);
+
+		@include laptop {
+			width: rem(100);
+		}
+	}
+
+	&__wrapper-image {
+		@include laptop {
+			width: 40%;
+			height: stretch;
+		}
+
+		@include mobile {
+			width: 100%;
+		}
+	}
+
+	&__image {
+		height: 100%;
+		border-radius: rem(60);
+
+		@include mobile {
+			width: 100%;
+			height: rem(375);
+			border-radius: rem(30);
+		}
+	}
+
+	&_reverse {
+		#{$self}__wrapper-content {
+			flex-direction: row-reverse;
+
+			@include mobile {
+				flex-direction: column;
+			}
+		}
+
+		#{$self}__wrapper-image {
+			height: rem(650);
+
+			@include laptop {
+				height: rem(520);
+			}
+
+			@include tablet {
+				width: auto;
+			}
+
+			@include mobile {
+				height: auto;
+				width: 100%;
+			}
+		}
+
+		#{$self}__image {
+			width: 100%;
+		}
+
+		#{$self}__texts {
+			padding-left: fluid(55, 10);
+			padding-right: 0;
+		}
+
+		#{$self}__number {
+			bottom: fluid(35, 20);
+			left: rem(35);
+		}
+	}
+}

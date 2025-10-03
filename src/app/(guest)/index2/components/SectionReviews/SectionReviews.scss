@@ -1,0 +1,136 @@
+@use '@assets/styles/helpers/function' as *;
+@use '@assets/styles/helpers/mixins' as *;
+@use '@assets/styles/helpers/media' as *;
+
+.reviews {
+  @include container();
+
+	padding-top: fluid(60, 30);
+	padding-bottom: fluid(60, 80);
+
+	@include tablet-s {
+		padding-bottom: rem(30);
+	}
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+		text-align: center;
+    background-color: var(--primary-white);
+    border-radius: fluid(80, 15);
+    padding: fluid(25, 10);
+    box-shadow: 0 6px 4px 0 var(--black25);
+    height: auto;
+  }
+
+  &__image {
+    width: rem(150);
+    aspect-ratio: 1;
+    margin: 0 auto fluid(28, 40);
+  }
+
+	&__text-name {
+		display: inline-block;
+		font-size: fluid(20, 14);
+		max-width: rem(320);
+		margin-bottom: fluid(55, 30);
+		line-height: 1;
+	}
+
+  & &__body {
+    width: fluid(1490, 340);
+    margin-inline: auto;
+    position: relative;
+		margin-bottom: fluid(100, 0);
+
+    .swiper-wrapper {
+      display: flex;
+      gap: 0;
+      padding-top: fluid(120, 20);
+			padding-bottom: fluid(45, 30);
+    }
+
+    .swiper-slide {
+      display: flex;
+      align-self: stretch;
+      gap: 0;
+    }
+
+		.swiper-slide-next {
+			scale: 1.1;
+			z-index: 20;
+
+			@include laptop {
+				scale: 1;
+			}
+		}
+
+    @include tablet-s() {
+      width: 100%;
+    }
+  }
+
+	&__slider-controls.slider-controls {
+		justify-content: center;
+
+		@include tablet-s-above() {
+			position: absolute;
+			height: 0;
+			margin: 0;
+			top: 50%;
+			left: -8%;
+			right: -8%;
+			justify-content: space-between !important;
+		}
+
+		@include laptop-above {
+			left: -6%;
+			right: -6%;
+		}
+	}
+
+	&__navigation-prev,
+	&__navigation-next {
+		width: fluid(60, 50);
+		aspect-ratio: 1;
+
+		border-radius: 50%;
+		background-color: var(--primary-white);
+		transition: opacity 0.3s;
+
+		@apply shadow-s;
+		@include flex-center();
+
+		svg {
+			width: fluid(26, 22);
+			height: fluid(24, 22);
+			aspect-ratio: 1;
+			color: var(--primary-white);
+		}
+
+		&:hover {
+			opacity: 0.9;
+		}
+
+		&[aria-disabled="true"] {
+			opacity: 0.5;
+			pointer-events: none;
+		}
+
+		@include mobile {
+			padding: rem(14);
+			border-radius: 50%;
+			background-color: var(--primary-white);
+		}
+	}
+
+	&__pagination {
+		bottom: rem(-470) !important;
+		left: 42% !important;
+
+		@include laptop  {
+			bottom: rem(-350) !important;
+		}
+	}
+}

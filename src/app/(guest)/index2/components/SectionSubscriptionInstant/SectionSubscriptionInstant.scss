@@ -1,0 +1,51 @@
+@use "@assets/styles/helpers/mixins" as *;
+@use "@assets/styles/helpers/function" as *;
+@use "@assets/styles/helpers/media" as *;
+
+
+.subscription-instant {
+	padding-block: fluid(110, 30) fluid(60, 45);
+	position: relative;
+
+	&__wrapper-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		position: relative;
+		z-index: 1;
+
+		@include container();
+	}
+
+	&__button-pay {
+		text-transform: uppercase;
+		font-size: fluid(36, 28);
+		padding: rem(17) rem(25);
+
+		@apply bg-button-velvet shadow-m;
+
+		@include mobile {
+			padding: rem(20) rem(23);
+		}
+	}
+
+	&__background {
+		z-index: 0;
+		object-fit: cover;
+
+		@include mobile {
+			display: none;
+		}
+	}
+
+	&__background-xs {
+		display: none;
+
+		@include mobile {
+			display: block;
+			z-index: 0;
+			object-fit: cover;
+		}
+	}
+}
