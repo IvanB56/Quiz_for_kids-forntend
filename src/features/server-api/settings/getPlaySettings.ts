@@ -33,7 +33,6 @@ export async function getPlaySettings(userId?: number): Promise<{
 		return {data}
 	} catch (err) {
 		if (MODE === 'development') {
-			return {}
 			// return {
 			// 	data: {
 			// 		starts_at: "2025-08-01T00:00:00.000000Z",
