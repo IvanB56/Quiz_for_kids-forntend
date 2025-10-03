@@ -72,10 +72,18 @@ export interface TextQuizData {
 }
 
 
-export function isQuizData(quiz?: QuizData | TextQuizData): quiz is QuizData {
+export function isQuizData(quiz?: CurrentGame | TextQuizData): quiz is QuizData {
 	return !!quiz && quiz.type === PLAY_MODE.QUIZ;
 }
 
 export function isTextQuizData(quiz?: QuizData | TextQuizData): quiz is TextQuizData {
 	return !!quiz && quiz.type === PLAY_MODE.TEXT_QUIZ;
+}
+
+export function isError(data?: CurrentGame | {
+	message: string;
+}): data is {
+	message: string;
+} {
+	return !!(data && 'message' in data);
 }

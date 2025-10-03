@@ -14,7 +14,7 @@ export const playSlice = createSlice(
 		name: 'play',
 		initialState,
 		reducers: {
-			setCurrentGame: (state, action: PayloadAction<CurrentGame>) => {
+			setCurrentGame: (state, action: PayloadAction<CurrentGame | undefined>) => {
 				state.currentGame = action.payload
 			}
 		},
@@ -40,9 +40,9 @@ export const playSlice = createSlice(
 					state.isLoading = false;
 					state.currentGame = action.payload;
 				})
-				.addCase(fetchSubmitGame.rejected, (state) => {
-					state.isLoading = true;
-					state.error = undefined
+				.addCase(fetchSubmitGame.rejected, (state, action) => {
+					state.isLoading = false;
+					state.error = action.payload;
 				})
 	}
 )

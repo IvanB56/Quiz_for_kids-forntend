@@ -11,6 +11,7 @@ import {GameLogSchema, PlaySchema, PlaySettingsConfigureSchema} from "@/entities
 import {QuizCategoryScheme} from "@/features/PlaySettings/model/types/QuizCategoryScheme";
 import {AppRouterInstance} from "next/dist/shared/lib/app-router-context.shared-runtime";
 import {StudentRegistrationSchema} from "@/features/Registration/model/types/studentRegistrationSchema";
+import {CoinsBalanceSchema} from "@/features/Coins/model/types/CoinsSchema";
 
 export interface StateSchema {
 	user: UserSchema;
@@ -26,6 +27,7 @@ export interface StateSchema {
 	playSettingsConfigure: PlaySettingsConfigureSchema;
 	play: PlaySchema;
 	tariff: TariffSchema;
+	coins: CoinsBalanceSchema;
 }
 
 export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch'];

@@ -4,32 +4,42 @@ import classes from './QuizQuestion.cn';
 import {PLAY_STATUS} from '@/shared/constants/PlayMode';
 import {cn} from '@utils';
 import {Button, Heading, SectionWhite, Text, Textarea} from "@components";
-import {CurrentGame, isQuizData, isTextQuizData, QuizData} from "@/entities/play/model/types/PlayScheme";
+import {CurrentGame, isError, isQuizData, isTextQuizData, QuizData} from "@/entities/play/model/types/PlayScheme";
 
 import './QuizQuestion.scss';
 import {useAppDispatch} from "@hooks";
 import {fetchSubmitGame} from "@/features/QuizQuestion/model/services/fetchSubmitGame/fetchSubmitGame";
+import {coinsActions} from "@/features/Coins";
+import {useSelector} from "react-redux";
+import {getBalanceSelector} from "@/features/Coins/model/selectors/getBalanceSelector";
 
 
 export const QuizQuestion = memo(({currentGame}: { currentGame: CurrentGame }) => {
 	const styles = classes();
 	const dispatch = useAppDispatch();
+	const balance = useSelector(getBalanceSelector);
 	const [answer, setAnswer] = useState<string>();
 	const [question, setQuestion] = useState<string>('');
 	const [options, setOptions] = useState<QuizData['quiz']['options']>([]);
 
-	const formSubmit = useCallback((value?: string) => {
+	const formSubmit = useCallback(async (value?: string) => {
 		if (currentGame?.status !== PLAY_STATUS.EMPTY) return;
 
 		if (value) {
-			dispatch(fetchSubmitGame({answer: value}));
+			const {payload} = await dispatch(fetchSubmitGame({answer: value}));
+			if (payload && !isError(payload) &&  payload.status === PLAY_STATUS.CORRECT) {
+				dispatch(coinsActions.setBalance(balance + 15));
+			}
 		}
 
 		if (answer) {
-			dispatch(fetchSubmitGame({answer}));
+			const {payload} = await dispatch(fetchSubmitGame({answer}));
+			if (payload && !isError(payload) &&  payload.status === PLAY_STATUS.CORRECT) {
+				dispatch(coinsActions.setBalance(balance + 15));
+			}
 		}
 
-	}, [answer, currentGame?.status, dispatch]);
+	}, [answer, balance, currentGame?.status, dispatch]);
 
 	useEffect(() => {
 		if (isQuizData(currentGame)) {
