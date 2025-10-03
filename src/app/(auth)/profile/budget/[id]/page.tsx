@@ -10,6 +10,8 @@ const Page = async ({params}: {params: Promise<{id: string}>}) => {
 	const {can} = await isCanPlay(Number(id));
 	const {data: settings} = await getPlaySettings(Number(id));
 
+	console.log('budget child', {id, can, settings});
+
 	return (
 		<>
 			<HeadingWithStudent title="Настройки МонетикУМ"/>
