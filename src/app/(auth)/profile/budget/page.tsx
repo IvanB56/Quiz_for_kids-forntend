@@ -9,6 +9,8 @@ import {Separator} from "@components";
 const Budget = async () => {
 	const {students} = await getStudents();
 
+	console.log('budget main', {students});
+
 	if (students?.data?.length) redirect(`budget/${students?.data?.[0].user_id}`);
 
 	return (
