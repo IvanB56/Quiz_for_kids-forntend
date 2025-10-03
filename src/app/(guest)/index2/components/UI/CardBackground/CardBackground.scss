@@ -20,9 +20,19 @@
 			position: absolute;
 			top: rem(17);
 			right: rem(15);
+			width: rem(70);
+			height: rem(70);
 			background: theme('backgroundColor.white-50');
 			padding: fluid(12, 8);
 			border-radius: 50%;
+
+			@include mobile {
+				--w-svg-arrow: rem(30);
+				--h-svg-arrow: rem(30);
+
+				width: rem(50);
+				height: rem(50);
+			}
 		}
 	}
 
@@ -76,10 +86,6 @@
 		#{$self}__background {
 			&:after {
 				content: url("/images/index2/earnings/arrow-bega.svg");
-
-				@include mobile {
-					content: url("/images/index2/earnings/arrow-bega-xs.svg");
-				}
 			}
 		}
 
@@ -88,17 +94,15 @@
 			font-size: fluid(40, 18);
 			@apply text-black;
 		}
+
+		@include mobile {
+			width: 100%;
+		}
 	}
 	&_effects {
 		#{$self}__background {
 			&:after {
 				content: url("/images/index2/earnings/arrow-light-brown.svg");
-				width: fluid(70, 50);
-				height: fluid(70, 50);
-
-				@include mobile {
-					content: url("/images/index2/earnings/arrow-light-brown-xs.svg");
-				}
 			}
 		}
 

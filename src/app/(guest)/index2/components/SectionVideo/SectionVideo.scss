@@ -9,7 +9,7 @@
 
 	&__wrapper-content {
 		display: flex;
-		gap: rem(140);
+		gap: fluid(140, 20);
 
 		position: relative;
 		z-index: 1;
@@ -77,7 +77,6 @@
 		overflow-y: scroll;
 		padding-right: fluid(45, 25);
 
-		// Firefox
 		scrollbar-width: thin;
 		scrollbar-color: theme('colors.orange') theme('colors.orange');
 
@@ -100,8 +99,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: fluid(116, 85);
-		height: fluid(116, 85);
+		width: fluid(116, 30);
+		height: fluid(116, 30);
 		transition: transform .3s;
 		transform: translate(-50%, -50%);
 		border-radius: 50%;
@@ -114,6 +113,11 @@
 
 		&:after {
 			content: url("/images/index2/video/video-play-small.svg");
+		}
+
+		@include mobile {
+			width: rem(85);
+			height: rem(85);
 		}
 	}
 

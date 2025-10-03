@@ -41,6 +41,12 @@
 
 	&__body {
 		width: 100%;
+
+		.slider-controls.slider-mobile__slider-controls {
+			@include tablet-s-above {
+				display: none;
+			}
+		}
 	}
 
 	&__navigation-prev,

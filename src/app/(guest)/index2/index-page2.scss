@@ -34,10 +34,18 @@
     width: fit-content;
 
 		position: absolute;
-		bottom: rem(-400);
+		bottom: fluid(-400, -370);
 		left: calc(100% - 56%);
 
-		@include mobile {
+		@include laptop {
+			bottom: rem(-350);
+		}
+
+		@include tablet {
+			bottom: rem(-300);
+		}
+
+		@include tablet-s {
 			position: static;
 		}
   }

@@ -33,12 +33,14 @@
 		justify-content: center;
 		height: 100%;
 		padding-inline: fluid(195, 10);
+		padding-top: fluid(100, 80);
+		padding-bottom: fluid(150, 100);
     z-index: 10;
 
 		@include container-new();
 
 		@include mobile {
-			padding-block: rem(56) rem(100);
+			//padding-block: rem(56) rem(100);
 		}
   }
 
