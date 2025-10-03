@@ -1,9 +1,11 @@
 import React from 'react';
-import {Text, Heading} from "@components";
-import {useClassName} from "@hooks";
+import {Heading, Text} from "@components";
 import {classes} from './BannerStatic.cn';
 
 import './BannerStatic.scss';
+import {CN} from "@/lib";
+
+const block = CN('banner-static');
 
 export const BannerStatic = () => {
 	const styles = classes();
@@ -41,16 +43,16 @@ export const BannerStatic = () => {
 	}
 
 	return (
-		<section className={useClassName(styles.block)}>
-			<div className={styles.background}>
+		<section className={block()}>
+			<div className={block('background')}>
 				<img src={'images/index2/banner-static/banner-main.webp'} alt={'banner'} className={styles.image}/>
 			</div>
-			<div className={useClassName(styles.content)}>
+			<div className={block('content')}>
 				<Heading data={{text: 'Воспитание Зарплатой – революционный метод', tag: 'h1'}} cn={{size: 'h1', margin: 'mb-2 sm:mb-9'}} className={styles.heading}/>
 				<Text data={{text: 'Эффект, как если бы вы наняли 10 репетиторов и гувернантку/няню', tag: 'p'}} cn={{ size: 'text-body-1', color: 'text-brown', weight: 'font-semibold', margin: 'mb-2 sm:mb-3'}} className={styles.subtitle} />
 				{dataBannerStatic.checks.map((item, idx) => (
-					<div className={useClassName(styles.wrapperCheck)} key={idx}>
-						<svg className={useClassName(styles.svgCheck, `${item.svg}`)} width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" >
+					<div className={block('wrapper-check')} key={idx}>
+						<svg className={block('svg-check', [item.svg])} width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" >
 							<path d="M41.6663 13.8889L18.7497 36.8056L8.33301 26.3889" stroke="var(--color-check, #1A921A)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
 						</svg>
 						<Text data={{text: item.text, tag: 'p'}} cn={{ size: 'text-body-1', color: 'text-brown', weight: 'font-medium'}} />
