@@ -1,10 +1,9 @@
 import React from 'react';
 import Image from "next/image";
 import {CN} from "@/lib";
-import { Heading, Text } from '@components';
+import {Heading, Text} from '@components';
 
 import './SectionSimulator.scss';
-import { useClassName } from '@hooks';
 
 const block = CN('simulator');
 
@@ -47,8 +46,8 @@ export const SectionSimulator = () => {
 					<div className={block('content-mobile')}>
 						<Text data={{text: 'Вы хотели, чтобы ваши дети:', tag: 'p'}} cn={{ size: 'text-body-1', weight: 'font-bold', margin: 'mb-5 sm:mb-3'}} className={block('subtitle')} />
 						{dataSimulator.checks.map((item, idx) => (
-							<div className={useClassName(block('wrapper-check'))} key={idx}>
-								<svg className={useClassName(block('svg-check'), `${item.svg}`)} width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" >
+							<div className={block('wrapper-check')} key={idx}>
+								<svg className={block('svg-check', [item.svg])} width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" >
 									<path d="M41.6663 13.8889L18.7497 36.8056L8.33301 26.3889" stroke="var(--color-check, #1A921A)" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
 								</svg>
 								<Text data={{text: item.text, tag: 'p'}} cn={{ size: 'text-body-1', weight: 'font-medium'}} />
