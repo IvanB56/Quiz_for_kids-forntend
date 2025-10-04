@@ -1,3 +1,6 @@
+// import * as fs from "node:fs";
+// import * as path from "node:path";
+
 export async function GET() {}
 // export async function GET(_: Request, { params }: { params: Promise<{ slug: string }> }) {
 // 	const { slug } = await params;

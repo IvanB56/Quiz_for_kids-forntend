@@ -7,21 +7,25 @@ interface LoginByPhoneProps {
 }
 
 export interface RejectValue {
-	message: string,
-	errors?: Record<keyof LoginByPhoneProps, string[]>
+	message: string;
+	status: string;
 }
 
 export const loginByPhone = createAsyncThunk<void, LoginByPhoneProps, { rejectValue: RejectValue, extra: ThunkExtraArg }>(
 	'login/loginByPhone',
 	async(userData, {rejectWithValue, extra}) => {
 		try {
-			await extra.api.get('/sanctum/csrf-cookie');
-			await extra.api.post('/api/user/sponsor/login', userData);
+			// await extra.api.get('/sanctum/csrf-cookie');
+			const response = await extra.api.post('/api/user/sponsor/login', userData);
+
+			if ('message' in response.data) {
+				const {message} = response.data;
+				return rejectWithValue({message, status: 'invalid'});
+			}
 
 			extra?.navigate?.refresh();
 		} catch (_) {
-			rejectWithValue({message: 'Произошла ошибка при запросе [Sponsor login]'});
+			return rejectWithValue({message: 'Произошла ошибка при запросе [login/loginByPhone]', status: 'serverError'});
 		}
-
 	}
 );
