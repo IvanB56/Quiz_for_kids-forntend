@@ -1,6 +1,6 @@
 # dependencies
-/.idea/
-/.idea/*
+/.astro
+/.idea
 /node_modules
 /.pnp
 .pnp.*

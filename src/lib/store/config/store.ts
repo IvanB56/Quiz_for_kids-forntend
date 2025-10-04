@@ -16,6 +16,7 @@ import {PlaySettingsConfigureReducer} from "@/entities/play/model/slice/playSett
 import {PlayReducer} from "@/entities/play/model/slice/playSlice";
 import {tariffReducer} from "@/entities/tariff";
 import {coinsReducer} from "@/features/Coins/model/slice/coinsSlice";
+import {goalReducer} from "@/entities/goal/model/slice/goalSlice";
 
 export const createReduxStore = (initialState?: StateSchema, router?: AppRouterInstance) => {
 	const rootReducers: ReducersMapObject<StateSchema> = {
@@ -32,7 +33,8 @@ export const createReduxStore = (initialState?: StateSchema, router?: AppRouterI
 		playSettingsConfigure: PlaySettingsConfigureReducer,
 		play: PlayReducer,
 		tariff: tariffReducer,
-		coins: coinsReducer
+		coins: coinsReducer,
+		goal: goalReducer
 	};
 
 	return configureStore({

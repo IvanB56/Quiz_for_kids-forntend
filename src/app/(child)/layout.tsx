@@ -5,6 +5,7 @@ import {getUser} from "@features";
 import {UserLoaderModule} from "@lib/components/UserLoaderModule/UserLoaderModule";
 import {getBalance} from "@/features/server-api/coins/getBalance";
 import CoinsBalanceLoaderModule from "@lib/components/CoinsBalanceLoaderModule/CoinsBalanceLoaderModule";
+import Image from "next/image";
 
 
 export default async function AuthLayout({children}: { children: React.ReactNode }) {
@@ -29,7 +30,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 					},
 					{
 						title: "Викторины",
-						url: "/child/tasks",
+						url: "/child/game",
 						icon: 'BookCheck'
 					},
 					{
@@ -49,7 +50,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 					},
 					{
 						title: "Мой сейф",
-						url: "/child/wallet",
+						url: "/child/safe",
 						icon: 'PiggyBank'
 					},
 					{
@@ -70,7 +71,8 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 					<SidebarInset className="bg-cyan-light">
 						<SidebarTrigger
 							className="[&_svg]:size-6 [&_svg]:rotate-180 absolute bg-sidebar !rounded-l-none left-0 min-md:hidden"/>
-						<div className="flex flex-1 flex-col gap-4 p-10 max-md:p-8 bg-cyan-light h-full overflow-auto">
+						<div className="flex flex-1 flex-col gap-4 p-10 max-md:p-8 bg-cyan-light h-full overflow-auto [&>*:not(img)]:relative">
+							<Image src={'/images/child/bg-child.webp'} alt="" fill className="object-cover opacity-80" />
 							{children}
 						</div>
 					</SidebarInset>

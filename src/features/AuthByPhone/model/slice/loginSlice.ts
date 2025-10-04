@@ -18,7 +18,7 @@ export const loginSlice = createSlice({
 		},
 		setPassword: (state, action: PayloadAction<string>) => {
 			state.password = action.payload;
-		}
+		},
 	},
 	extraReducers: (builder) => {
 		builder
@@ -31,7 +31,7 @@ export const loginSlice = createSlice({
 			})
 			.addCase(loginByPhone.rejected, (state, action) => {
 				state.isLoading = false;
-				state.error = action.payload as LoginSchema['error'];
+				state.error = action.payload;
 			})
 	}
 });

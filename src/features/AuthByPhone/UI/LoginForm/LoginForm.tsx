@@ -22,6 +22,8 @@ export const LoginForm = memo(() => {
 	const [errors, setErrors] = useState<TypeLogin | null>();
 	const maskRef = useRef<InputMask | null>(null);
 
+	const {error} = useSelector(getLoginScheme);
+
 	useEffect(() => {
 		if (inputPhoneRef?.current) {
 			// IMask(inputPhoneRef?.current, {mask: '+{7}(000)000-00-00', lazy: false})
@@ -29,20 +31,29 @@ export const LoginForm = memo(() => {
 		}
 	}, []);
 
+	useEffect(() => {
+		if (error) {
+			const {status} = error;
+			const title = status === 'invalid'? 'Не корректные данные' : 'Ошибка сервера';
+
+			console.log(error)
+
+			toast.error(title, {
+				description: error.message,
+				duration: 5000,
+				position: 'top-center'
+			});
+		}
+	}, [error]);
+
 	const onSubmit = useCallback(async () => {
 		const {status, errors} = validation<TypeLogin>(formSchema, {phone, password});
 		setErrors(errors);
 
 		if (status === STATUS_CODE.SUCCESS) {
-			try {
-				await dispatch(loginByPhone({phone, password}));
-			} catch (_) {
-				toast("Не удалось получить данные от сервера", {
-					description: `Пользователь с телефоном ${phone} не найден`
-				});
-			}
+			await dispatch(loginByPhone({phone, password}));
 		}
-	}, [dispatch, phone, password])
+	}, [dispatch, phone, password]);
 
 	const onChangePhone = useCallback((value: string) => {
 		maskRef?.current?.updateValue();
