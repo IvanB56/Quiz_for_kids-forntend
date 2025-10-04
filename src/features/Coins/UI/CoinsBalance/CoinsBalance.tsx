@@ -5,6 +5,7 @@ import coinImg from "@assets/images/child/coin.webp";
 import {CN} from '@/lib';
 import {useSelector} from "react-redux";
 import {getBalanceSelector} from "../../model/selectors/getBalanceSelector";
+import {Text, WhiteCard} from "@components";
 
 import './CoinsBalance.scss';
 
@@ -14,9 +15,13 @@ export const CoinsBalance = () => {
 	const balance = useSelector(getBalanceSelector);
 
 	return (
-		<div className={block()}>
-			<Image className={block('coin')} src={coinImg} alt=""/>
-			<span className={block('total')}>{balance.toFixed(2)}</span>
-		</div>
+		<WhiteCard className={block()}>
+			<div className={block('image')}>
+				<Image className={block('coin')} width={60} height={60} src={coinImg} alt=""/>
+			</div>
+			<div className={block('text')}>
+				<Text data={{text: String(balance), tag: 'p'}} className={block('total')} />
+			</div>
+		</WhiteCard>
 	);
 };

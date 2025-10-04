@@ -5,22 +5,36 @@
   display: flex;
   gap: rem(11);
   align-items: center;
+  border-radius: fluid(14,10);
+  padding: 0;
+  height: max-content;
+  overflow: hidden;
+  gap: 0;
+
+  @apply bg-orange;
 
   &__total {
-    font-family: var(--font-montserrat), serif;
     font-weight: 600;
-    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-size: fluid(40, 32);
     line-height: 1;
     letter-spacing: -4%;
-    vertical-align: middle;
 
-    @apply text-primary-blue;
+    @apply text-primary-black;
   }
 
   &__coin {
-    @include mobile {
-      width: rem(50);
-      height: rem(50);
-    }
+    width: fluid(60, 40);
+    height: fluid(60, 40);
+  }
+
+  &__image {
+    background-color: #fff;
+    padding: fluid(10, 5) fluid(20, 10);
+    border-radius: fluid(14,10);
+    box-shadow: rem(5) 0 rem(6) 0 rgba(0, 0, 0, 0.25);
+  }
+
+  &__text {
+    padding-inline: fluid(40, 20);
   }
 }

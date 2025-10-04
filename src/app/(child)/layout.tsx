@@ -72,7 +72,7 @@ export default async function AuthLayout({children}: { children: React.ReactNode
 						<SidebarTrigger
 							className="[&_svg]:size-6 [&_svg]:rotate-180 absolute bg-sidebar !rounded-l-none left-0 min-md:hidden"/>
 						<div className="flex flex-1 flex-col gap-4 p-10 max-md:p-8 bg-cyan-light h-full overflow-auto [&>*:not(img)]:relative">
-							<Image src={'/images/child/bg-child.webp'} alt="" fill className="object-cover" />
+							<Image src={'/images/child/bg-child.webp'} alt="" fill className="object-cover opacity-80" />
 							{children}
 						</div>
 					</SidebarInset>
