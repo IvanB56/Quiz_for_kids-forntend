@@ -12,22 +12,21 @@ export const SectionVideo = () => {
 	const [playingVideoIndex, setPlayingVideoIndex] = useState<number | null>(null);
 	const [isMainVideoPlaying, setIsMainVideoPlaying] = useState(false);
 	const [isSmallVideoPlaying, setIsSmallVideoPlaying] = useState<boolean[]>(new Array(6).fill(false));
-	const [currentMainVideoIndex, setCurrentMainVideoIndex] = useState(0); // Индекс текущего главного видео
+	const [currentMainVideoIndex, setCurrentMainVideoIndex] = useState(0);
 	const [isMobile, setIsMobile] = useState(false);
 
 	// Определяем мобильное устройство
 	useEffect(() => {
 		const checkIsMobile = () => {
-			setIsMobile(window.innerWidth < 768); // 768px - обычный breakpoint для мобильных
+			setIsMobile(window.innerWidth < 768);
 		};
-		
+
 		checkIsMobile();
 		window.addEventListener('resize', checkIsMobile);
-		
+
 		return () => window.removeEventListener('resize', checkIsMobile);
 	}, []);
-	
-	// Инициализируем ref для главного видео с обработчиками событий
+
 	const setMainVideoRef = (el: HTMLVideoElement | null) => {
 		mainVideoRef.current = el;
 		if (el) {
@@ -42,15 +41,12 @@ export const SectionVideo = () => {
 			});
 		}
 	};
-	
-	// Создаем массив refs для всех видео в левой части
+
 	const videoRefs = useRef<(HTMLVideoElement | null)[]>(new Array(6).fill(null));
-	
-	// Инициализируем массив refs
+
 	const initializeVideoRef = (index: number) => (el: HTMLVideoElement | null) => {
 		videoRefs.current[index] = el;
 		if (el) {
-			// Добавляем обработчики событий для автоматического обновления состояния
 			el.addEventListener('ended', () => {
 				setIsSmallVideoPlaying(prev => {
 					const newState = [...prev];
@@ -96,22 +92,19 @@ export const SectionVideo = () => {
 		}
 	};
 
-	// Функция для замены главного видео (только на десктопе)
 	const replaceMainVideo = (index: number) => {
 		if (!isMobile && mainVideoRef.current) {
 			setCurrentMainVideoIndex(index);
-			setIsMainVideoPlaying(false); // Сбрасываем состояние воспроизведения
+			setIsMainVideoPlaying(false);
 		}
 	};
 
 	const handlePlaySmallVideo = (index: number) => {
 		if (!isMobile) {
-			// На десктопе - заменяем главное видео
 			replaceMainVideo(index);
 			return;
 		}
 
-		// На мобильном - обычное воспроизведение
 		const video = videoRefs.current[index];
 		if (video) {
 			if (video.paused) {
@@ -134,7 +127,6 @@ export const SectionVideo = () => {
 		}
 	};
 
-	// Обработчик клика на само видео (для десктопа)
 	const handleVideoClick = (index: number) => {
 		if (!isMobile) {
 			replaceMainVideo(index);
@@ -175,9 +167,9 @@ export const SectionVideo = () => {
 			<div className={block('wrapper-content')}>
 				<div className={block('right-part')}>
 					<div className={block('container-video')}>
-						<video 
-							ref={setMainVideoRef} 
-							className={block('video-main')} 
+						<video
+							ref={setMainVideoRef}
+							className={block('video-main')}
 							src={dataVideo.video[currentMainVideoIndex].src}
 							controls={isMainVideoPlaying}
 						></video>
@@ -197,10 +189,10 @@ export const SectionVideo = () => {
 					{dataVideo.video.map((item, idx) => (
 						<div className={block('wrapper-video')} key={idx}>
 							<div className={block('container-video')}>
-								<video 
-									ref={initializeVideoRef(idx)} 
-									className={block('video')} 
-									src={item.src} 
+								<video
+									ref={initializeVideoRef(idx)}
+									className={block('video')}
+									src={item.src}
 									controls={isSmallVideoPlaying[idx]}
 									onClick={() => handleVideoClick(idx)}
 								></video>
