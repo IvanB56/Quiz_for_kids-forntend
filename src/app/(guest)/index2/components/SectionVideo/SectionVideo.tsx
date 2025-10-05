@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {CN} from "@/lib";
 import { Heading, Text } from '@components';
 
@@ -12,6 +12,20 @@ export const SectionVideo = () => {
 	const [playingVideoIndex, setPlayingVideoIndex] = useState<number | null>(null);
 	const [isMainVideoPlaying, setIsMainVideoPlaying] = useState(false);
 	const [isSmallVideoPlaying, setIsSmallVideoPlaying] = useState<boolean[]>(new Array(6).fill(false));
+	const [currentMainVideoIndex, setCurrentMainVideoIndex] = useState(0); // Индекс текущего главного видео
+	const [isMobile, setIsMobile] = useState(false);
+
+	// Определяем мобильное устройство
+	useEffect(() => {
+		const checkIsMobile = () => {
+			setIsMobile(window.innerWidth < 768); // 768px - обычный breakpoint для мобильных
+		};
+		
+		checkIsMobile();
+		window.addEventListener('resize', checkIsMobile);
+		
+		return () => window.removeEventListener('resize', checkIsMobile);
+	}, []);
 	
 	// Инициализируем ref для главного видео с обработчиками событий
 	const setMainVideoRef = (el: HTMLVideoElement | null) => {
@@ -82,7 +96,22 @@ export const SectionVideo = () => {
 		}
 	};
 
+	// Функция для замены главного видео (только на десктопе)
+	const replaceMainVideo = (index: number) => {
+		if (!isMobile && mainVideoRef.current) {
+			setCurrentMainVideoIndex(index);
+			setIsMainVideoPlaying(false); // Сбрасываем состояние воспроизведения
+		}
+	};
+
 	const handlePlaySmallVideo = (index: number) => {
+		if (!isMobile) {
+			// На десктопе - заменяем главное видео
+			replaceMainVideo(index);
+			return;
+		}
+
+		// На мобильном - обычное воспроизведение
 		const video = videoRefs.current[index];
 		if (video) {
 			if (video.paused) {
@@ -102,6 +131,13 @@ export const SectionVideo = () => {
 					return newState;
 				});
 			}
+		}
+	};
+
+	// Обработчик клика на само видео (для десктопа)
+	const handleVideoClick = (index: number) => {
+		if (!isMobile) {
+			replaceMainVideo(index);
 		}
 	};
 
@@ -142,7 +178,7 @@ export const SectionVideo = () => {
 						<video 
 							ref={setMainVideoRef} 
 							className={block('video-main')} 
-							src='/video/index2/sila-vetra-1.mp4' 
+							src={dataVideo.video[currentMainVideoIndex].src}
 							controls={isMainVideoPlaying}
 						></video>
 						{!isMainVideoPlaying && (
@@ -166,6 +202,7 @@ export const SectionVideo = () => {
 									className={block('video')} 
 									src={item.src} 
 									controls={isSmallVideoPlaying[idx]}
+									onClick={() => handleVideoClick(idx)}
 								></video>
 								{!isSmallVideoPlaying[idx] && (
 									<div
