@@ -20,6 +20,12 @@ export const SectionVideo = () => {
 			el.addEventListener('ended', () => {
 				setIsMainVideoPlaying(false);
 			});
+			el.addEventListener('pause', () => {
+				setIsMainVideoPlaying(false);
+			});
+			el.addEventListener('play', () => {
+				setIsMainVideoPlaying(true);
+			});
 		}
 	};
 	
@@ -38,6 +44,22 @@ export const SectionVideo = () => {
 					return newState;
 				});
 				setPlayingVideoIndex(null);
+			});
+			el.addEventListener('pause', () => {
+				setIsSmallVideoPlaying(prev => {
+					const newState = [...prev];
+					newState[index] = false;
+					return newState;
+				});
+				setPlayingVideoIndex(null);
+			});
+			el.addEventListener('play', () => {
+				setIsSmallVideoPlaying(prev => {
+					const newState = [...prev];
+					newState[index] = true;
+					return newState;
+				});
+				setPlayingVideoIndex(index);
 			});
 		}
 	};
