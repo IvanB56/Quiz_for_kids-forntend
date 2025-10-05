@@ -9,7 +9,6 @@ const block = CN('video');
 
 export const SectionVideo = () => {
 	const mainVideoRef = useRef<HTMLVideoElement>(null);
-	const [playingVideoIndex, setPlayingVideoIndex] = useState<number | null>(null);
 	const [isMainVideoPlaying, setIsMainVideoPlaying] = useState(false);
 	const [isSmallVideoPlaying, setIsSmallVideoPlaying] = useState<boolean[]>(new Array(6).fill(false));
 	const [currentMainVideoIndex, setCurrentMainVideoIndex] = useState(0);
@@ -53,7 +52,6 @@ export const SectionVideo = () => {
 					newState[index] = false;
 					return newState;
 				});
-				setPlayingVideoIndex(null);
 			});
 			el.addEventListener('pause', () => {
 				setIsSmallVideoPlaying(prev => {
@@ -61,7 +59,6 @@ export const SectionVideo = () => {
 					newState[index] = false;
 					return newState;
 				});
-				setPlayingVideoIndex(null);
 			});
 			el.addEventListener('play', () => {
 				setIsSmallVideoPlaying(prev => {
@@ -69,25 +66,18 @@ export const SectionVideo = () => {
 					newState[index] = true;
 					return newState;
 				});
-				setPlayingVideoIndex(index);
 			});
 		}
 	};
 
-	const handlePlayVideo = (videoRef: React.RefObject<HTMLVideoElement | null>, index?: number) => {
+	const handlePlayVideo = (videoRef: React.RefObject<HTMLVideoElement | null>) => {
 		if (videoRef.current) {
 			if (videoRef.current.paused) {
 				videoRef.current.play();
 				setIsMainVideoPlaying(true);
-				if (index !== undefined) {
-					setPlayingVideoIndex(index);
-				}
 			} else {
 				videoRef.current.pause();
 				setIsMainVideoPlaying(false);
-				if (index !== undefined) {
-					setPlayingVideoIndex(null);
-				}
 			}
 		}
 	};
@@ -109,7 +99,6 @@ export const SectionVideo = () => {
 		if (video) {
 			if (video.paused) {
 				video.play();
-				setPlayingVideoIndex(index);
 				setIsSmallVideoPlaying(prev => {
 					const newState = [...prev];
 					newState[index] = true;
@@ -117,7 +106,6 @@ export const SectionVideo = () => {
 				});
 			} else {
 				video.pause();
-				setPlayingVideoIndex(null);
 				setIsSmallVideoPlaying(prev => {
 					const newState = [...prev];
 					newState[index] = false;
