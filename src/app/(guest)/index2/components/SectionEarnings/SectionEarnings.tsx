@@ -24,7 +24,7 @@ export const SectionEarnings = () => {
 				<CardBackground cn={{ variant: "first" }}
 					data={{
 						textData: "Чем отличается от «за оценки в школе»",
-						imgSrc: "/images/index2/earnings/card-background-girl.webp",
+						imgSrc: "/images/index2/earnings/card-background-girl.png",
 						imgWidth: 620,
 						imgHeight: 500
 					}}
@@ -32,7 +32,7 @@ export const SectionEarnings = () => {
 				<CardBackground cn={{ variant: "second" }}
 					data={{
 						textData: "Почему важна зарплата",
-						imgSrc: "/images/index2/earnings/card-background-girls.webp",
+						imgSrc: "/images/index2/earnings/card-background-girls.png",
 						imgWidth: 332,
 						imgHeight: 500
 					}}
@@ -43,7 +43,7 @@ export const SectionEarnings = () => {
 				<CardBackground cn={{ variant: "third" }}
 					data={{
 						textData: "Почему устраняет, а не провоцирует меркантильность",
-						imgSrc: "/images/index2/earnings/card-background-boy.webp",
+						imgSrc: "/images/index2/earnings/card-background-boy.png",
 						imgWidth: 332,
 						imgHeight: 510
 					}}
