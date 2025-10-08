@@ -38,7 +38,7 @@ export const SectionEarnings = () => {
 					}}
 				/>
 				<div className={'card-text card-text-2'}>
-					<Heading data={{text: 'От потребительской модели к партнерским отношениям.', tag: 'h3'}} cn={{size: 'h3', weight: 'fw500'}} className={'card-text__heading'}/>
+					<Heading data={{text: 'От потребительской модели к партнерским отношениям.', tag: 'h3'}} cn={{size: 'h3', weight: 'fw500', align: 'text-center'}} className={'card-text__heading'}/>
 				</div>
 				<CardBackground cn={{ variant: "third" }}
 					data={{

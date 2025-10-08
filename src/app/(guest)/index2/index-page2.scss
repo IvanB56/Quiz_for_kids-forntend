@@ -57,8 +57,8 @@
     background-color: hsla(0, 100%, 100%, 1);
     opacity: 1;
     margin: 0 !important;
+		box-shadow: 0 4px 4px 0 hsla(0, 0%, 0%, 0.3) inset;
 
-		@apply shadow-s;
 
 		&.swiper-pagination-bullet-active {
 			background-color: hsla(0, 0%, 67%, 1);
@@ -85,27 +85,37 @@
 .heading_h1 {
   font-size: fluid(56, 24);
   font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: fluid(-2.24, -0.96);
 }
 
 .heading_h2 {
   font-size: fluid(52, 24);
   font-weight: 500;
+	line-height: 1.2;
+	letter-spacing: fluid(-2.08, -0.96);
 	text-transform: uppercase;
 }
 
 .heading_h3 {
   font-size: fluid(48, 24);
   font-weight: 400;
+	line-height: 1.2;
+	letter-spacing: fluid(-1.92, -0.96);
 }
 
 .text {
   font-family: var(--font-roboto), sans-serif;
   font-size: fluid(24, 14);
+	line-height: 1.2;
+	letter-spacing: fluid(-0.96, -0.56);
 }
 
 .text-body-1 {
 	font-family: var(--font-geist), sans-serif;
 	font-size: fluid(30, 16);
+	line-height: 1.2;
+	letter-spacing: fluid(-1.2, -0.64);
 }
 
 .subtitle {
