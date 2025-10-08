@@ -12,7 +12,7 @@ export const SectionMakeMoney = () => {
 		<section className={block()}>
 			<div className={block('wrapper-content')}>
 				<div className={block('wrapper-image')}>
-					<Image src={"/images/index2/make-money/img-make-money.webp"} alt="" width={686} height={926} className={block('image')}/>
+					<Image src={"/images/index2/make-money/img-make-money.png"} alt="" width={686} height={926} className={block('image')}/>
 				</div>
 				<div className={block('wrapper-text')}>
 					<Heading data={{text: 'КАК ЗАРАБОТАТЬ ВАМ И РЕБЕНКУ', tag: 'h2'}} cn={{size: 'h2'}} className={block('heading')}/>

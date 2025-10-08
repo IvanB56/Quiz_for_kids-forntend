@@ -37,9 +37,9 @@ export const SectionSimulator = () => {
 		<section className={block()}>
 			<div className={block('container')}>
 				<div className={block('wrapper-image')}>
-					<Image src={"/images/index2/simulator/img-simulator-1.webp"} width={246} height={369} alt="" className={block('img-first')}/>
-					<Image src={"/images/index2/simulator/img-simulator-2.webp"} width={251} height={376} alt="" className={block('img-second')}/>
-					<Image src={"/images/index2/simulator/img-simulator-3.webp"} width={304} height={419} alt="" className={block('img-third')}/>
+					<Image src={"/images/index2/simulator/img-simulator-1.png"} width={246} height={369} alt="" className={block('img-first')}/>
+					<Image src={"/images/index2/simulator/img-simulator-2.png"} width={251} height={376} alt="" className={block('img-second')}/>
+					<Image src={"/images/index2/simulator/img-simulator-3.png"} width={304} height={419} alt="" className={block('img-third')}/>
 				</div>
 				<div className={block('wrapper-content')}>
 					<Heading data={{text: 'МонетикУМ – это развивающий тренажер, которЫЙ подготовит к реальной жизни', tag: 'h2'}} cn={{size: 'h2', margin: 'mb-10 sm:mb-11'}} className={block('heading')}/>

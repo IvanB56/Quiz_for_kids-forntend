@@ -45,7 +45,7 @@ export const BannerStatic = () => {
 	return (
 		<section className={block()}>
 			<div className={block('background')}>
-				<img src={'images/index2/banner-static/banner-main.webp'} alt={'banner'} className={styles.image}/>
+				<img src={'images/index2/banner-static/banner-main.png'} alt={'banner'} className={styles.image}/>
 			</div>
 			<div className={block('content')}>
 				<Heading data={{text: 'Воспитание Зарплатой – революционный метод', tag: 'h1'}} cn={{size: 'h1', margin: 'mb-2 sm:mb-9'}} className={styles.heading}/>

@@ -17,7 +17,7 @@ export const SectionHowWorks = () => {
 					<div className={'card-long'}>
 						<div className={'card-long__wrapper-content'}>
 							<div className={'card-long__wrapper-image'}>
-								<Image src={"/images/index2/how-works/card-long-girls.webp"} width={819} height={645} alt="" className={'card-long__image'}/>
+								<Image src={"/images/index2/how-works/card-long-girls.png"} width={819} height={645} alt="" className={'card-long__image'}/>
 							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>
@@ -42,7 +42,7 @@ export const SectionHowWorks = () => {
 					<div className={'card-long card-long_reverse'}>
 						<div className={'card-long__wrapper-content'}>
 							<div className={'card-long__wrapper-image'}>
-								<Image src={"/images/index2/how-works/card-long-notebook.webp"} width={365} height={645} alt="" className={'card-long__image'}/>
+								<Image src={"/images/index2/how-works/card-long-notebook.png"} width={365} height={645} alt="" className={'card-long__image'}/>
 							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>
@@ -63,13 +63,13 @@ export const SectionHowWorks = () => {
 					<div className={block('row')}>
 						<CardBackground data={{
 							textData: 'Как происходит развитие',
-							imgSrc: '/images/index2/how-works/card-background-girl.webp',
+							imgSrc: '/images/index2/how-works/card-background-girl.png',
 							imgWidth: 739,
 							imgHeight: 644,
 						}} cn={{variant: 'how'}}/>
 						<CardBackground data={{
 							textData:'Как начисляете зарплату. Пример',
-							imgSrc:'/images/index2/how-works/card-background-boy.webp',
+							imgSrc:'/images/index2/how-works/card-background-boy.png',
 							imgWidth:728,
 							imgHeight:644
 						}} cn={{variant: 'how'}}/>
