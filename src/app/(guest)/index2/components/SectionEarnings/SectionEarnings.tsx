@@ -33,6 +33,7 @@ export const SectionEarnings = () => {
 					data={{
 						textData: "Почему важна зарплата",
 						imgSrc: "/images/index2/earnings/card-background-girls.png",
+						imgSrcMobile: "/images/index2/earnings/card-background-girls-xs.png",
 						imgWidth: 332,
 						imgHeight: 500
 					}}

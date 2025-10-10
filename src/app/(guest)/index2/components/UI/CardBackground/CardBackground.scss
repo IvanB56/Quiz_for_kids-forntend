@@ -14,25 +14,42 @@
 		grid-column: 1 / 2;
 		z-index: 1;
 		height: 100%;
+	}
 
-		&:after {
-			content: url("/images/index2/earnings/arrow-brown.svg");
-			position: absolute;
-			top: rem(17);
-			right: rem(15);
-			width: rem(70);
-			height: rem(70);
-			background: theme('backgroundColor.white-50');
-			padding: fluid(12, 8);
-			border-radius: 50%;
+	&__arrow {
+		position: absolute;
+		top: rem(17);
+		right: rem(15);
+		width: rem(70);
+		height: rem(70);
+		background: theme('backgroundColor.white-50');
+		padding: fluid(12, 8);
+		border-radius: 50%;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: all 0.2s ease;
 
-			@include mobile {
-				--w-svg-arrow: rem(30);
-				--h-svg-arrow: rem(30);
+		&:hover {
+			transform: scale(1.05);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		}
 
-				width: rem(50);
-				height: rem(50);
-			}
+		&:active {
+			transform: scale(0.95);
+		}
+
+		@include mobile {
+			width: rem(50);
+			height: rem(50);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
 		}
 	}
 
@@ -83,12 +100,6 @@
 		}
 	}
 	&_how {
-		#{$self}__background {
-			&:after {
-				content: url("/images/index2/earnings/arrow-bega.svg");
-			}
-		}
-
 		#{$self}__description {
 			align-self: center;
 			font-size: fluid(40, 18);
@@ -100,12 +111,6 @@
 		}
 	}
 	&_effects {
-		#{$self}__background {
-			&:after {
-				content: url("/images/index2/earnings/arrow-light-brown.svg");
-			}
-		}
-
 		#{$self}__content {
 			height: 40%;
 			justify-content: flex-end;
