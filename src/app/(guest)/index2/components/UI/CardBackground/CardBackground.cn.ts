@@ -9,8 +9,10 @@ export default function classes(cn: ICardBackground['cn']) {
 			[`${cn?.variant}`]: !!cn?.variant,
 		}),
 		elementBackground: BLOCK('background'),
+		elementPicture: BLOCK('picture'),
 		elementImage: BLOCK('image'),
 		elementContent: BLOCK('content'),
 		elementDescription: BLOCK('description'),
+		elementArrow: BLOCK('arrow'),
 	}
 }

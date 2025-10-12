@@ -17,7 +17,13 @@ export const SectionHowWorks = () => {
 					<div className={'card-long'}>
 						<div className={'card-long__wrapper-content'}>
 							<div className={'card-long__wrapper-image'}>
-								<Image src={"/images/index2/how-works/card-long-girls.png"} width={819} height={645} alt="" className={'card-long__image'}/>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcSet="/images/index2/how-works/card-long-girls-xs.png"
+									/>
+									<Image src={"/images/index2/how-works/card-long-girls.png"} width={819} height={645} alt="" className={'card-long__image'}/>
+								</picture>
 							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>
@@ -42,7 +48,13 @@ export const SectionHowWorks = () => {
 					<div className={'card-long card-long_reverse'}>
 						<div className={'card-long__wrapper-content'}>
 							<div className={'card-long__wrapper-image'}>
-								<Image src={"/images/index2/how-works/card-long-notebook.png"} width={365} height={645} alt="" className={'card-long__image'}/>
+								<picture>
+									<source
+										media="(max-width: 768px)"
+										srcSet="/images/index2/how-works/card-long-notebook-xs.png"
+									/>
+									<Image src="/images/index2/how-works/card-long-notebook.png" width={365} height={645} alt="" className={'card-long__image'}/>
+								</picture>
 							</div>
 							<div className={'card-long__texts'}>
 								<ol className={'card-long__list'}>

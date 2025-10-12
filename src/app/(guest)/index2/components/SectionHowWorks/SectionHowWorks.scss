@@ -84,8 +84,11 @@
 
 	&__list {
 		counter-reset: my-counter;
+		font-family: var(--font-geist), sans-serif;
 		font-size: fluid(30, 18);
 		font-weight: 500;
+		line-height: 1.2;
+		letter-spacing: fluid(-1.2, -0.72);
 
 		li {
 			position: relative;
@@ -139,6 +142,7 @@
 		border-radius: rem(60);
 
 		@include mobile {
+			object-fit: cover;
 			width: 100%;
 			height: rem(375);
 			border-radius: rem(30);

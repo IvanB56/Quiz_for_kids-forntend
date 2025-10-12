@@ -21,6 +21,8 @@
 	&__button-pay {
 		text-transform: uppercase;
 		font-size: fluid(36, 28);
+		line-height: 1.2;
+		letter-spacing: fluid(-1.44, -1.12);
 		padding: rem(17) rem(25);
 
 		@apply bg-button-velvet shadow-m;
